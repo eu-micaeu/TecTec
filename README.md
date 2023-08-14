@@ -4,7 +4,7 @@
 # Integrantes:
 
 - Brena dos Santos Feitas / RA: 2465710
-- João Pedro 
+- João Pedro Boter Monegatto / RA: 2454386
 - Micael Ribeiro Rocha / RA: 2454424
 
 # Tema e Tipo de Sistema:
