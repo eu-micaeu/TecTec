@@ -13,11 +13,10 @@ header {
     font-size: 15px;
     color: #fff;
     box-shadow: 1px 1px 4px #00891E;
-    border: 5px solid #00891E; /* Adicione a propriedade 'solid' para a borda */
-    display: flex; /* Adicione esta linha para tornar o cabeçalho um contêiner flexível */
-    align-items: center; /* Adicione esta linha para centralizar verticalmente os elementos */
-    justify-content: center; /* Centraliza horizontalmente os elementos dentro da logo */
-
+    border: 5px solid #00891E; 
+    display: flex; 
+    align-items: center;
+    justify-content: center; 
 }
 
 
@@ -42,9 +41,9 @@ header {
 }
 
 .retangulo {
-    width: 350px; /* Largura do retângulo */
-    height: 450px; /* Altura do retângulo */
-    background-color: #000000; /* Cor de fundo do retângulo */
+    width: 350px; 
+    height: 450px; 
+    background-color: #000000;
     position: absolute;
     top: 55%;
     left: 50%;
@@ -61,15 +60,15 @@ header {
     outline: none;
     font-size: 15px;
     width: 100%;
-    letter-spacing: 2px; /*espaços entre caracteres*/
+    letter-spacing: 2px; 
 
 }
 .LabelInput{
-    position: absolute;/*fazer animação*/
+    position: absolute;
     top:0px;
     left:0px;
     pointer-events: none;
-    transition: .5s; /*ainda não executa nenhuma ação*/
+    transition: .5s;
     color: #00891E;
     margin-bottom: 10px;
 }
@@ -82,9 +81,9 @@ header {
 .inputUser {
     width: 100%;
     padding: 10px;
-    background-color: black; /* Fundo preto */
-    color: white; /* Texto branco */
-    border: 2px solid green; /* Borda verde */
+    background-color: black;
+    color: white;
+    border: 2px solid green;
     border-radius: 5px;
 }
                                                  

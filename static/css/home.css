@@ -14,7 +14,7 @@ header {
     font-size: 15px;
     color: #fff;
     box-shadow: 1px 1px 4px #1c1c1c;
-    border: 5px solid #00891E; /* Adicione a propriedade 'solid' para a borda */
+    border: 5px solid #00891E; 
     display: flex;
     align-items: center;
     
@@ -42,16 +42,16 @@ header {
 
 .button_add_post {
     background-color: #00891E;
-    margin: auto; /* Centraliza horizontalmente */
+    margin: auto; 
     color: white;
     border: none;
     padding: 10px 20px;
     cursor: pointer;
     border-radius: 40px;
-    position: fixed; /* Fixa o botão na parte inferior da tela */
-    bottom: 20px; /* Define a distância do fundo */
-    left: 50%; /* Centraliza horizontalmente com base no meio da tela */
-    transform: translateX(-50%); /* Ajusta a posição centralizada */
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
     width: 100px;
 }
 
@@ -61,8 +61,8 @@ header {
 }
 .navigation_escopo p {
     color: #fff;
-    text-align: center; /* Centraliza o texto horizontalmente */
-    margin: 0; /* Remova as margens padrão para evitar espaçamento extra */
+    text-align: center;
+    margin: 0;
     margin-top: 60px;
     margin-left: 30px;
     font-size: 15px;
@@ -102,9 +102,9 @@ header {
 }
 
 .navigation_user_post img {
-    width: 30px; /* Largura da imagem */
-    height: auto; /* Altura automática para manter a proporção */
-    margin-right: 10px; /* Espaçamento entre a imagem e o texto */
+    width: 30px;
+    height: auto;
+    margin-right: 10px; 
 }
 
 .navigation_escopo{
