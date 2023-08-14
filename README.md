@@ -1,1 +1,3 @@
-# TecTec
+<p align="center">
+  <img src="logo.png" alt="Logo">
+</p>
