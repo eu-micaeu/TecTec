@@ -3,7 +3,7 @@
   
 # Integrantes:
 
-- Brena dos Santos Feitas / RA: 2465710
+- Brena dos Santos Freitas / RA: 2465710
 - João Pedro Boter Monegatto / RA: 2454386
 - Micael Ribeiro Rocha / RA: 2454424
 
