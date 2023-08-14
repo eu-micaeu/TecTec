@@ -1,0 +1,135 @@
+
+body{
+    margin: 0; /* Remover margens padrão do body */
+    background-color:  #000;
+
+}
+header {
+    background-color: #000;
+    margin: 0;
+    padding: 0;
+    padding: 0 10%;
+    height: 5.5em;
+    font-size: 15px;
+    color: #fff;
+    box-shadow: 1px 1px 4px #00891E;
+    border: 5px solid #00891E; /* Adicione a propriedade 'solid' para a borda */
+    display: flex; /* Adicione esta linha para tornar o cabeçalho um contêiner flexível */
+    align-items: center; /* Adicione esta linha para centralizar verticalmente os elementos */
+    justify-content: center; /* Centraliza horizontalmente os elementos dentro da logo */
+
+}
+
+
+
+#logo{
+    width: 70px;
+    height: auto;
+}
+
+.navigation_header img{
+    width: 50px;
+
+}
+
+.navigation_header a{
+        text-decoration: none;
+        color: #FFF5E1;
+        padding: 10px;
+        margin-top: 5px;
+        justify-content: center;
+
+}
+
+.retangulo {
+    width: 350px; /* Largura do retângulo */
+    height: 450px; /* Altura do retângulo */
+    background-color: #000000; /* Cor de fundo do retângulo */
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.inputBox{
+    position: relative;
+}
+.inputUser{
+    border: none;
+    border-bottom: 1px solid #00891E;
+    outline: none;
+    font-size: 15px;
+    width: 100%;
+    letter-spacing: 2px; /*espaços entre caracteres*/
+
+}
+.LabelInput{
+    position: absolute;/*fazer animação*/
+    top:0px;
+    left:0px;
+    pointer-events: none;
+    transition: .5s; /*ainda não executa nenhuma ação*/
+    color: #00891E;
+    margin-bottom: 10px;
+}
+
+.inputBox {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.inputUser {
+    width: 100%;
+    padding: 10px;
+    background-color: black; /* Fundo preto */
+    color: white; /* Texto branco */
+    border: 2px solid green; /* Borda verde */
+    border-radius: 5px;
+}
+                                                 
+
+.inputUser{
+    position: relative;
+    border-radius: 40px;
+    width: 300px;
+    height: 30px;
+    margin-top: 30px;
+    margin-left: 20px;
+    border-color: #00891E;
+    color: #00891E;
+    
+}
+
+.LabelInput {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    transition: .5s;
+    color: #fff;
+    padding-bottom: 30px;
+}
+  
+
+.btn_entrar{
+
+    background-color: #00891E;
+    margin-left: 120px;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 40px;
+    margin-top: 80px;
+    width: 130px;
+    height: 50px;
+
+}
+
+.retangulo button:hover{
+    background-color: aliceblue;
+    color: #00891E;
+    text-align: center;
+}

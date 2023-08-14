@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tectec</title>
+    <link rel="stylesheet" href="static/css/login.css">
+    <link rel="shortcut icon" href="images/image 2.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Lato:wght@100&family=Nunito:wght@200&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <header class="navigation_header">
+        <img src="images/image 2.png" alt="" class="logo" id="logo">
+    </header>
+
+    <section class="navigation_body">
+        <div class="retangulo">
+
+            <img src="images/avatar.png" alt="" class="img_avatar">
+                <div class="inputBox">
+                    <label for="username" class="LabelInput"> Usuário</label>
+                    <br>
+                    <input type="text" name ="username" id="username" class="inputUser" required>
+
+                </div>
+                <br><br>
+                <div class="inputBox">
+                    <label for="password" class="LabelInput"> Senha</label>
+                    <br>
+                    <input type="text" name ="password" id="password" class="inputUser" required>
+                </div>
+                <button type="button" onclick="validarLogin()" class="btn_entrar">Entrar</button>
+        </div>
+
+    </section>
+
+
+    <script>
+        function validarLogin() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            // Verificar se as credenciais são válidas (exemplo simples)
+            if (username === "usuario" && password === "senha") {
+                alert("Login bem-sucedido!");
+            } else {
+                alert("Credenciais inválidas. Tente novamente.");
+            }
+        }
+    </script>
+
+ 
+</body>
+</html>

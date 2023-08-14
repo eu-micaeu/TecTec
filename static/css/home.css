@@ -1,0 +1,137 @@
+body {
+    background-color: #000000;
+    margin: 0;
+    font-family: Krona One;
+}
+
+header {
+    background-color: #000;
+    margin: 0;
+    padding: 0;
+    justify-content: space-between;
+    padding: 0 10%;
+    height: 5.5em;
+    font-size: 15px;
+    color: #fff;
+    box-shadow: 1px 1px 4px #1c1c1c;
+    border: 5px solid #00891E; /* Adicione a propriedade 'solid' para a borda */
+    display: flex;
+    align-items: center;
+    
+}
+
+.navigation_header img {
+    width: 20px;
+    margin-left: 0;
+    padding: 0;
+    height: auto;
+}
+
+#logo{
+    width: 70px;
+    height: auto;
+}
+
+.navigation_header a {
+    text-decoration: none;
+    color: #FFF5E1;
+    padding: 10px;
+    margin-top: 5px;
+    justify-content: center;
+}
+
+.button_add_post {
+    background-color: #00891E;
+    margin: auto; /* Centraliza horizontalmente */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 40px;
+    position: fixed; /* Fixa o botão na parte inferior da tela */
+    bottom: 20px; /* Define a distância do fundo */
+    left: 50%; /* Centraliza horizontalmente com base no meio da tela */
+    transform: translateX(-50%); /* Ajusta a posição centralizada */
+    width: 100px;
+}
+
+.navigation_escopo button:hover {
+    background-color: #fff;
+    color: #00891E;
+}
+.navigation_escopo p {
+    color: #fff;
+    text-align: center; /* Centraliza o texto horizontalmente */
+    margin: 0; /* Remova as margens padrão para evitar espaçamento extra */
+    margin-top: 60px;
+    margin-left: 30px;
+    font-size: 15px;
+    padding: 0px;
+    padding-bottom: 0px;
+}
+
+.user_post {
+    width: 30px;
+    margin-left: 230px;
+    padding: 0px;
+    margin-top: 10px;
+}
+
+.like_post {
+    left: 85%;
+    transform: translate(-10%);
+    position: relative;
+}
+
+.navigation_escopo img{
+    display: flex;
+    flex-direction: column;
+}
+
+.navigation_escopo a{
+    text-decoration:none ;
+    list-style: none;
+    color: #00891E;
+    
+}
+
+.navigation_user_post {
+    display: flex;
+    align-items: center; 
+    margin-top: 10px;
+}
+
+.navigation_user_post img {
+    width: 30px; /* Largura da imagem */
+    height: auto; /* Altura automática para manter a proporção */
+    margin-right: 10px; /* Espaçamento entre a imagem e o texto */
+}
+
+.navigation_escopo{
+    padding-top: 5em;
+    text-align: center;
+    height: 100vh;
+    transition: 1s;
+}
+
+@media screen and (max-width: 768px) {
+    .navigation_header{
+        position: absolute;
+        flex-direction: column ;
+        top: 0;
+        background: var(--color-dark5);
+        height: 100%;
+        width: 35vw;
+        padding: 1em;
+        animation-duration: 1s;
+        margin-left: -100vw;
+    }
+    .btn_icon_header{
+        display: block;
+    }
+}
+
+@keyframes showSidebar {
+    from {margin-left: -100vw;}
+    to {margin-left: -10vw;}
+}
