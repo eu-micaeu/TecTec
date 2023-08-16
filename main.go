@@ -13,7 +13,7 @@ func main() {
 
 	r.LoadHTMLGlob("views/*.html") 
 
-	r.GET("/login", func(c *gin.Context) {
+	r.GET("/", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "login.html", nil)
 	})
 
