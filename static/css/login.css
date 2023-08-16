@@ -12,7 +12,6 @@ header {
 #logo {
     width: 200px;
     height: 200px;
-    margin-top: 3vw;
 }
 
 .inputBox {
@@ -29,13 +28,14 @@ header {
     font-size: 25px;
     margin: 10px;
     font-family: 'KronaOne';
+    width: 20vw;
 }
 
 .forms{
     padding: 25px;
     border: 6px solid rgb(255, 255, 255);
     width: 20vw;
-    margin: 0 auto;
+    margin: 0 auto 20px auto;
     border-radius: 15px;
 }
 
