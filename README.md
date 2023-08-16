@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="logo.png" alt="Logo">
+  <img src="../static/images/logo.png" alt="Logo">
   
 # Integrantes:
 
