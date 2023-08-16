@@ -1,13 +1,12 @@
-const openButton = document.getElementById("openButton");
-const overlay = document.getElementById("overlay");
-const closeButton = document.getElementById("closeButton");
 
-openButton.addEventListener("click", () => {
-overlay.style.transform = "translateX(0)";
+const openButton = document.getElementById("open-Button");
+const overlay = document.getElementById('overlay');
+const closeButton = document.getElementById('close-Button');
+
+openButton.addEventListener('click', function() {
+    overlay.classList.add('active');
 });
 
-closeButton.addEventListener("click", () => {
-overlay.style.transform = "translateX(100%)";
+closeButton.addEventListener('click', function() {
+    overlay.classList.remove('active'); 
 });
-
-
