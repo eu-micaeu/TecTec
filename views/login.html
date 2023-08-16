@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tectec</title>
     <link rel="stylesheet" href="../static/css/login.css">
     <link rel="shortcut icon" href="../static/images/logo.png" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Lato:wght@100&family=Nunito:wght@200&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Lato:wght@100&family=Nunito:wght@200&family=Open+Sans:wght@300&display=swap"
+        rel="stylesheet">
 
 </head>
 
@@ -20,24 +23,31 @@
         <div class="retangulo">
 
             <img src="../images/avatar.png" alt="" class="img_avatar">
+            <div class="forms">
+                <label for="usuario" class="rotUsuario">Usuário:</label> <br />
                 <div class="inputBox">
-                    <label for="username" class="LabelInput"> Usuário</label>
-                    <br>
-                    <input type="text" name ="username" id="username" class="inputUser" required>
+                    <input type="text" name="usuario" id="usuario" class="inputUser">
+                </div>
+                <br>
+                <label for="senha" class="rotSenha">Senha:</label> <br />
+                <div class="inputBox">
+                    <input type="password" name="senha" id="senha" class="inputUser">
+                </div>
+                <div class="btnContainer">
+                    <button type="button" onclick="window.location.href='/home'" class="btn_entrar">Entrar</button>
+                </div>
+                <div class="btnContainer">
+                    <button type="button" onclick="window.location.href=''" class="btn_entrar">Cadastro</button>
+                </div>
+            </div>
 
-                </div>
-                <br><br>
-                <div class="inputBox">
-                    <label for="password" class="LabelInput"> Senha</label>
-                    <br>
-                    <input type="text" name ="password" id="password" class="inputUser" required>
-                </div>
-                <button type="button" onclick="validarLogin()" class="btn_entrar">Entrar</button>
+
         </div>
 
     </section>
 
 
- 
+
 </body>
+
 </html>
