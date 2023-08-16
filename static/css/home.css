@@ -9,7 +9,7 @@
 body {
     background-color: #000000;
     margin: 0;
-    height: 100vh;
+    height: 900vh;
 }
 
 header {
@@ -146,4 +146,27 @@ header {
     top: 10px;
     right: 10px;
     cursor: pointer;
+}
+
+
+
+ul li.item-menu:hover{
+    background: #00891E;
+}
+
+ul{
+    text-decoration: none;
+    height: 100%;
+    list-style-type: none;
+}
+
+ul li.item-menu a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    font-size: 18px;
+    padding: 20px 4px;
+    display: flex;
+    margin-bottom: 10px;
+    line-height: 40px;
 }
