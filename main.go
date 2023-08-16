@@ -4,12 +4,18 @@ import (
 	"net/http"
 
 	"github.com/eu-micaeu/TecTec/middlewares"
+	"github.com/eu-micaeu/TecTec/internal/database"
 	"github.com/gin-gonic/gin"
 )
 
 func main() {
 	r := gin.Default()
 	r.Use(middlewares.CorsMiddleware())
+
+	db, err := database.NewDB()
+	if err != nil {
+		panic(err)
+	}
 
 	r.LoadHTMLGlob("views/*.html") 
 
