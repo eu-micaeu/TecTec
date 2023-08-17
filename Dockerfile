@@ -10,6 +10,8 @@ COPY static ./static
 COPY views ./views
 COPY internal ./internal
 COPY middlewares ./middlewares
+COPY routes ./routes
+COPY handlers ./handlers
 COPY main.go ./
 
 # Build do executável
