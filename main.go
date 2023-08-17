@@ -30,6 +30,10 @@ func main() {
 		c.HTML(http.StatusOK, "home.html", nil)
 	})
 
+	r.GET("/register", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "register.html", nil)
+	})
+
 	r.Static("/static", "./static")
 	
 	r.Run()
