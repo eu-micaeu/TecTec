@@ -28,8 +28,6 @@ header {
     
 }
 
-
-
 .navigation_header img {
     width: 20px;
     margin-left: 0;
@@ -71,12 +69,10 @@ header {
 }
 .navigation_escopo p {
     color: #fff;
-    text-align: center; /* Centraliza o texto horizontalmente */
-    margin: 0; /* Remova as margens padrão para evitar espaçamento extra */
-    margin-top: 60px;
-    margin-left: 30px;
+    text-align: center; 
+    margin: 0; 
+
     font-size: 15px;
-    padding: 0px;
     padding-bottom: 0px;
 }
 
@@ -98,23 +94,12 @@ header {
     flex-direction: column;
 }
 
-.navigation_escopo a{
-    text-decoration:none ;
-    list-style: none;
-    color: #00891E;
-    
-}
-
 .navigation_user_post {
-    display: flex;
-    align-items: center; 
-    margin-top: 10px;
-}
-
-.navigation_user_post img {
-    width: 30px; /* Largura da imagem */
-    height: auto; /* Altura automática para manter a proporção */
-    margin-right: 10px; /* Espaçamento entre a imagem e o texto */
+    border: 2px solid white;
+    width: 20vw;
+    height: 15vh;
+    margin: 0 auto;
+    margin-bottom: 25px;
 }
 
 .navigation_escopo{
@@ -123,6 +108,7 @@ header {
     height: 100vh;
     transition: 1s;
 }
+
 .overlay {
     position: fixed;
     top: 0;
