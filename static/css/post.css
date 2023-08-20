@@ -1,0 +1,74 @@
+@font-face {
+    font-family: 'KronaOne';
+    src: url('../fonts/KronaOne-Regular.ttf');
+    font-weight: normal;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: black;
+
+}
+header{
+
+    text-align: center;
+}
+
+.navigation_header img {
+    width: 20px;
+    margin-left: 0;
+    padding: 0;
+    height: auto;
+}
+
+#logo{
+    margin-top: 20px;
+    width: 70px;
+    height: auto;
+}
+
+
+
+.postagem {
+    width: 100%; 
+    height: 300px;
+    text-align: center;
+}
+
+.inputTitle,
+.inputPostagem {
+    display: block;
+    width: 80vh;
+    margin: 5px auto; 
+    border-radius: 10px;
+    border: 5px solid #00891E; 
+    padding: 5px;
+   
+}
+
+.inputTitle{
+    height: 80px;
+    font-size: 30px;
+}
+
+.inputPostagem{
+    width: 80vh;
+    height: 300px;
+    font-size: 20px;
+}
+
+.Salvar,.Publicar{
+    margin: auto;
+    background-color: #00891E;
+    color: white;
+    cursor: pointer;
+    position: fixed;
+    width: 100px;
+    border-radius: 40px;
+    padding: 10px 20px;
+}
