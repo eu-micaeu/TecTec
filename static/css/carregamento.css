@@ -1,0 +1,13 @@
+
+body {
+    justify-content: center;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    height: 95vh;
+}
+
+#logo{
+    height: 100px;
+    width: 100px;
+}

@@ -23,15 +23,19 @@ func main() {
 	r.LoadHTMLGlob("views/*.html") 
 
 	r.GET("/", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "login.html", nil)
+		c.HTML(http.StatusOK, "carregamento.html", nil)
 	})
 
-	r.GET("/home", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "home.html", nil)
+	r.GET("/login", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "login.html", nil)
 	})
 
 	r.GET("/register", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "register.html", nil)
+	})
+
+	r.GET("/home", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "home.html", nil)
 	})
 
 	r.Static("/static", "./static")
