@@ -11,6 +11,7 @@ type Usuario struct {
 	Senha      string `json:"senha"`
 	Telefone   string `json:"telefone"`
 	Tecnologia string `json:"tecnologia"`
+	Biografia string `json:"biografia"`
 }
 
 func (u *Usuario) Login(db *sql.DB) gin.HandlerFunc {
@@ -43,7 +44,7 @@ func (u *Usuario) Register(db *sql.DB) gin.HandlerFunc {
 			c.JSON(400, gin.H{"message": "Erro ao criar usuário"})
 			return
 		}
-		_, err := db.Exec("INSERT INTO usuarios (nickname, senha, telefone, tecnologia) VALUES ($1, $2, $3, $4)", novoUsuario.Nickname, novoUsuario.Senha, novoUsuario.Telefone, novoUsuario.Tecnologia)
+		_, err := db.Exec("INSERT INTO usuarios (nickname, senha, telefone, tecnologia, biografia) VALUES ($1, $2, $3, $4, '')", novoUsuario.Nickname, novoUsuario.Senha, novoUsuario.Telefone, novoUsuario.Tecnologia)
 		if err != nil {
 			c.JSON(500, gin.H{"message": "Erro ao criar usuário"})
 			return
