@@ -3,7 +3,7 @@ package main
 import (
 	"net/http"
 
-	"github.com/eu-micaeu/TecTec/internal/database"
+	"github.com/eu-micaeu/TecTec/database"
 	"github.com/eu-micaeu/TecTec/middlewares"
 	"github.com/eu-micaeu/TecTec/routes"
 	"github.com/gin-gonic/gin"
