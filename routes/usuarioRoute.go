@@ -11,5 +11,6 @@ func UsuarioRoutes(r *gin.Engine, db *sql.DB) {
 	userHandler := handlers.Usuario{}
 
 	r.POST("/login", userHandler.Login(db))
+	r.POST("/register", userHandler.Register(db))
 
 }
