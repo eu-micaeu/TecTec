@@ -3,8 +3,8 @@ package main
 import (
 	"net/http"
 
-	"github.com/eu-micaeu/TecTec/middlewares"
 	"github.com/eu-micaeu/TecTec/internal/database"
+	"github.com/eu-micaeu/TecTec/middlewares"
 	"github.com/eu-micaeu/TecTec/routes"
 	"github.com/gin-gonic/gin"
 )
@@ -19,8 +19,9 @@ func main() {
 	}
 
 	routes.UsuarioRoutes(r, db)
+	routes.PostagemRoutes(r, db)
 
-	r.LoadHTMLGlob("views/*.html") 
+	r.LoadHTMLGlob("views/*.html")
 
 	r.GET("/", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "carregamento.html", nil)
@@ -39,7 +40,6 @@ func main() {
 	})
 
 	r.Static("/static", "./static")
-	
+
 	r.Run()
 }
-
