@@ -1,8 +1,0 @@
-- Casos de uso específicos
-1.1 - > Criar usuário
-1.2 - > Fazer uma publicação
-1.3 - > Curtir uma publicação
-1.4 - > Comentar uma publicação
-1.5 - > Consultar informações sobre determinada tecnologia
-1.6 - > Consultar informações presentes no próprio perfil
-1.7 - > Consultar informações presentes em perfis alheios.
