@@ -45,3 +45,17 @@ func (p *Postagem) Curtir(db *sql.DB) gin.HandlerFunc {
 		c.JSON(200, gin.H{"message": "Curtiu com sucesso!"})
 	}
 }
+
+func (p *Postagem) Feed(db *sql.DB) gin.HandlerFunc {
+	return func(c *gin.Context) {
+		id_postagem := c.Param("id_postagem")
+
+		_, err := db.Exec("SELECT * FROM postagens WHERE id_postagem != $1", id_postagem)
+		if err != nil {
+			c.JSON(500, gin.H{"message": "Erro ao selecionar o feed"})
+			return
+		}
+
+		c.JSON(200, gin.H{"message": "Feed retornado com sucesso!"})
+	}
+}
