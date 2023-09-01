@@ -8,7 +8,7 @@ WORKDIR /build
 COPY go.mod go.sum ./
 COPY static ./static
 COPY views ./views
-COPY internal ./internal
+COPY database ./database
 COPY middlewares ./middlewares
 COPY routes ./routes
 COPY handlers ./handlers
