@@ -62,8 +62,9 @@ header{
     font-size: 20px;
 }
 
-.Salvar,.Publicar{
-    margin: auto;
+
+
+.Publicar{
     background-color: #00891E;
     color: white;
     cursor: pointer;
@@ -71,4 +72,20 @@ header{
     width: 100px;
     border-radius: 40px;
     padding: 10px 20px;
+    left: 40%;
+    transform: translate(-50%);
+    bottom: 20px;
+}
+
+.Salvar{
+    background-color: #00891E;
+    color: white;
+    cursor: pointer;
+    position: fixed;
+    border-radius: 40px;
+    width: 100px;
+    padding: 10px 20px;
+    left: 60%;
+    transform: translate(-50%);
+    bottom: 20px;
 }
