@@ -1,34 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tectec</title>
     <link rel="icon" href="..\static\images\logo.png" type="image/x-icon">
-    <script src="../static/js/script.js" defer></script>
+
     <link rel="stylesheet" href="../static/css/home.css">
 </head>
+
 <body>
+    <div class="centraliza">
+        <header class="navigation_header">
+            <div class="centraliza">
+                <a href="home.html">
+                    <img src="../static/images/la_user.png" alt="" class="user">
+                </a>
+                <a href="home.html">
+                    <img src="../static/images/notificacao.png" alt="" class="user">
+                </a>
 
-    <header class="navigation_header">
-        <a href="home.html">
-            <img src="../static/images/la_user.png" alt="" class="user">
-        </a>
-        <a href="home.html">
-            <img src="../static/images/notificacao.png" alt="" class="user">
-        </a>
+                <img src="../static/images/logo.png" alt="" class="img_logo" id="logo">
 
-        <img src="../static/images/logo.png" alt="" class="img_logo" id="logo">
+                <a href="home.html">
+                    <img src="../static/images/explorar.png" alt="" class="user">
+                </a>
 
-        <a href="home.html">
-            <img src="../static/images/explorar.png" alt="" class="user">
-        </a>
+                <a href="#" id="open-Button">
+                    <img src="../static/images/vector5.png" alt="" class="user">
+                </a>
+            </div>
 
-        <a href="#" id="open-Button">
-            <img src="../static/images/vector5.png" alt="" class="user">
-        </a>
-    </header>
-    
+        </header>
+    </div>
+
+    <div class="centraliza">
+        <div id="carrosel"></div>
+    </div>
+
+
     <div class="overlay" id="overlay">
         <div class="close-button" id="close-Button"><img src="../static/images/mini-vector5-branco.png" alt=""></div>
         <h1>Tecnologias</h1>
@@ -48,8 +59,9 @@
         </ul>
     </div>
 
-    <button class="button_add_post"> + </button>
-
+    <div class="centraliza"> <button class="button_add_post" onclick="window.location.href='/post'"> + </button>
+        </div>
+        <script src="../static/js/home.js" defer></script>
 </body>
-</html>
 
+</html>

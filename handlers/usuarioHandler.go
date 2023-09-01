@@ -26,16 +26,16 @@ func (u *Usuario) Login(db *sql.DB) gin.HandlerFunc {
 			return
 		}
 
-		row := db.QueryRow("SELECT nickname, senha FROM usuarios WHERE nickname = $1 AND senha = $2", usuario.Nickname, usuario.Senha)
+		row := db.QueryRow("SELECT id_usuario, nickname, senha FROM usuarios WHERE nickname = $1 AND senha = $2", usuario.Nickname, usuario.Senha)
 
-		err := row.Scan(&usuario.Nickname, &usuario.Senha)
+		err := row.Scan(&usuario.ID_Usuario, &usuario.Nickname, &usuario.Senha)
 
 		if err != nil {
 			c.JSON(404, gin.H{"message": "Usuário ou senha incorretos"})
 			return
 		}
 
-		c.JSON(200, gin.H{"message": "Login efetuado com sucesso!"})
+		c.JSON(200, gin.H{"message": "Login efetuado com sucesso!", "usuario": usuario})
 	}
 }
 

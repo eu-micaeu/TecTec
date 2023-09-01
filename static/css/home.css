@@ -1,8 +1,7 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: sans-serif;
+@font-face {
+    font-family: 'KronaOne';
+    src: url('../fonts/KronaOne-Regular.ttf');
+    font-weight: normal;
 }
 
 body{
@@ -10,27 +9,17 @@ body{
 }
 
 header{
-    background:  #f4f4f4;
-    box-shadow: 0 0 15px -10px black;
-    padding: 15px 25px;
-    position: fixed;
-    width: 100%;
-    top: 0; 
     background-color: #000 ;
-    color: #00891E;
-    justify-content: space-between;
-    border: 5px solid #00891E; 
-    display: flex;
-    align-items: center;
+    border: 6px solid #00891E;
+    border-radius: 15px;
+    position: fixed;
+    width: 40vw;
 }
-
-
 
 .navigation_header img {
     width: 20px;
-    margin-left: 0;
-    padding: 0;
-    height: auto;
+    padding: 30px;
+    margin-bottom: 10px;
 }
 
 #logo{
@@ -41,75 +30,8 @@ header{
 .navigation_header a {
     text-decoration: none;
     color: #FFF5E1;
-    padding: 10px;
     margin-top: 5px;
     justify-content: center;
-}
-
-
-
-main{
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto ;
-    margin-top:110px ;
-    
-}
-
-
-main article{
-    background-color: #f4f4f4;
-    margin-bottom: 10vh;
-    border-radius: 15px;
-    box-shadow:  0 0 20px -10px black;
-}
-
-
-main article img{
-    width: 100%;
-    border-radius: 15px 15px 0 0 ;
-    height: 100%;
-    object-fit: cover;
-   
-}
-
-main article a {
-    color: black;
-    text-decoration: none;
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-}
-
-main article strong{
-    font-size: 28px;
-    margin-bottom: 15px ;
-
-}
-
-.likeButton{
-    width: fit-content;
-    padding: 10px 20px;
-    margin: 20px;
-    margin-top: 0;
-    background-color: #d5d5d5;
-    border: none;
-    border-radius: 10px ;
-    cursor: pointer;
-
-}
-
-.likeButton:hover{
-    background-color: #c6c6c6;
-}
-
-
-.likeButton.liked {
-    background-color: #fca9c4;
-}
-
-.likeButton.liked:hover{
-    background-color: #ec9cb7;
 }
 
 .overlay {
@@ -136,6 +58,7 @@ main article strong{
     right: 10px;
     cursor: pointer;
 }
+
 ul li.item-menu:hover{
     background: #00891E;
 }
@@ -146,29 +69,16 @@ ul{
     list-style-type: none;
 }
 
-ul li.item-menu a {
-    color: #fff;
-    text-decoration: none;
-    padding: 10px;
-    font-size: 18px;
-    padding: 20px 4px;
-    display: flex;
-    margin-bottom: 10px;
-    line-height: 40px;
-}
-
 .button_add_post {
     background-color: #00891E;
     margin: auto; 
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 30px;
     cursor: pointer;
-    border-radius: 40px;
+    border-radius: 10px;
     position: fixed; 
     bottom: 20px; 
-    left: 50%; 
-    transform: translateX(-50%); 
     width: 100px;
 }
 
@@ -176,4 +86,24 @@ ul li.item-menu a {
 .button_add_post:hover{
     background-color: #fff;
     color: #00891E;
+}
+
+.cartao{
+    width: 40vw;
+    height: 25vh;
+    border: 3px solid green;
+    border-radius: 15px;
+    margin: 10px;
+    color: #00891E;
+}
+
+.centraliza{
+    display: flex;
+    justify-content: center;
+}
+
+#carrosel {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20vh;
 }
