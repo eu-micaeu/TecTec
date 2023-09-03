@@ -81,17 +81,7 @@ header {
     right: 10px;
     cursor: pointer;
 }
-
-ul li.item-menu:hover {
-    background: #00891E;
-}
-
-ul {
-    text-decoration: none;
-    height: 100%;
-    list-style-type: none;
-}
-
+c
 .button_add_post {
     font-family: 'KronaOne';
     background-color: #00891E;
