@@ -133,7 +133,7 @@ ul {
 #carrosel {
     display: flex;
     flex-direction: column;
-    margin-top: 14vh;
+    margin-top: 18vh;
 }
 
 .nameWhite {
