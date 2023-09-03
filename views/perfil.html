@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,13 +8,14 @@
     <link rel="icon" href="..\static\images\logo.png" type="image/x-icon">
     <link rel="stylesheet" href="../static/css/perfil.css">
 </head>
+
 <body>
 
 
     <div class="centraliza">
         <header class="navigation_header">
             <div class="centraliza">
-                <a href="../views/perfil.html">
+                <a href="/perfil">
                     <img src="../static/images/la_user.png" alt="" class="user" id="perfil">
                 </a>
 
@@ -21,18 +23,19 @@
                     <img src="../static/images/notificacao.png" alt="" class="user" id="sino">
                 </a>
 
-                <img src="../static/images/logo.png" alt="" class="img_logo" id="logo">
+                <img src="../static/images/logo.png" onclick="window.location.href='/home'" alt="" class="img_logo"
+                    id="logo">
 
                 <a href="#" id="open-Button">
                     <img src="../static/images/vector5.png" alt="" class="user" id="pesquisa">
                 </a>
 
-                <a href="../views/login.html" >
+                <a href="/login">
                     <img src="../static/images/out.png" alt="" class="user" id="tecnologias">
                 </a>
-      
+
             </div>
-    
+
         </header>
     </div>
 
@@ -56,43 +59,33 @@
     </div>
 
     <div class="centraliza">
-        <div class="perfil_container"> 
-            <img src="../static/images/user.png" alt="">
-            <p id="nome" width="40px" height="30px" >brena freitas</p>
+        <div class="perfil_container">
+            <div class="centraliza">
+                <img src="../static/images/user.png" id="boneco" alt="">
+            </div>
+
+            <div class="centraliza">
+                <p id="nome" width="40px" height="30px"></p>
+            </div>
+
         </div>
     </div>
 
     <div class="centraliza">
         <div class="perfil_container2">
-            <p class="biografia">Nasci há alguns anos atrás. Amo tecnologias para criação de páginas web</p>
-            <hr> 
+            <br>
+            <p id="biografia"></p>
+            <hr>
+            <div class="centraliza">
+                <img src="../static/images/editar.png" alt="Alterar a biografia" id="editar">
+            </div>
+
         </div>
     </div>
 
-    <div class="centraliza">
-        <div class="perfil_opcoes">
-            <button class="editar">Editar perfil</button>
-            <button class="postar" onclick="window.location.href='../views/post.html'">Fazer post</button>
-        </div>
-    </div>
-    
 
-    <div class="centraliza">
-        <div class="perfil_container3">
-            <h3>
-                <span>Publicações</span>
-                <span>Seguidores</span>
-                <span>Curtidas</span>
-            </h3>
-        </div>
-    </div>
-
-    <div class="centraliza">
-        <div id="carrosel"></div>
-    </div>
-
-   
     <script src="../static/js/perfil.js"></script>
-    
+
 </body>
+
 </html>

@@ -44,6 +44,10 @@ func main() {
 		c.HTML(http.StatusOK, "post.html", nil)
 	})
 
+	r.GET("/perfil", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "perfil.html", nil)
+	})
+
 	r.Static("/static", "./static")
 
 	r.Run()

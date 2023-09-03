@@ -80,3 +80,21 @@ func (u *Usuario) Perfil(db *sql.DB) gin.HandlerFunc {
 	}
 }
 
+func (u *Usuario) AtualizarBiografia(db *sql.DB) gin.HandlerFunc {
+	return func(c *gin.Context) {
+		id_usuario := c.Param("id_usuario")
+		var usuario Usuario
+		if err := c.BindJSON(&usuario); err != nil {
+			c.JSON(400, gin.H{"message": "Erro ao atualizar biografia"})
+			return
+		}
+		_, err := db.Exec("UPDATE usuarios SET biografia = $1 WHERE id_usuario = $2", usuario.Biografia, id_usuario)
+		if err != nil {
+			c.JSON(500, gin.H{"message": "Erro ao atualizar biografia"})
+			return
+		}
+		c.JSON(200, gin.H{"message": "Biografia atualizada com sucesso!"})
+	}
+}
+
+

@@ -10,8 +10,8 @@ body {
     margin: 0;
 }
 
-header{
-    background-color: #000 ;
+header {
+    background-color: #000;
     border: 6px solid #00891E;
     position: fixed;
     width: 100%;
@@ -24,19 +24,22 @@ header{
     margin: 20px;
 }
 
-#logo{
+#logo {
     width: 50px;
     height: 45px;
     margin: 0;
 }
 
-#tecnologias, #pesquisa{
+#tecnologias,
+#pesquisa {
     margin-left: 6vw;
 }
 
-#sino, #perfil{
+#sino,
+#perfil {
     margin-right: 6vw;
 }
+
 .user {
     margin: 0.5vw;
 }
@@ -89,15 +92,13 @@ ul li {
 }
 
 ul li a {
-    text-decoration: none; 
-    color: inherit; 
+    text-decoration: none;
+    color: inherit;
 }
 
-.tecnologias{
+.tecnologias {
     color: #C0C0C0;
 }
-
-
 
 .centraliza {
     display: flex;
@@ -114,22 +115,26 @@ ul li a {
     margin-top: 25vh;
 }
 
-.perfil_container{
+.perfil_container {
     margin-top: 20vh;
 }
-.perfil_container p{    
+
+.perfil_container p {
     color: white;
 }
-.perfil_container img{
+
+.perfil_container img {
     margin-left: 5vh;
 }
-.perfil_opcoes{
+
+.perfil_opcoes {
     margin-top: 5vh;
     display: flex;
     justify-content: space-between;
     font-size: 10px;
 }
-.perfil_opcoes button{
+
+.perfil_opcoes button {
     background-color: #00891E;
     color: white;
     border: none;
@@ -140,16 +145,17 @@ ul li a {
     cursor: pointer;
 }
 
-.perfil_opcoes button:hover{
+.perfil_opcoes button:hover {
     background-color: white;
     color: #00891E;
 }
 
-.perfil_container2{
+.perfil_container2 {
     color: #C0C0C0;
     font-size: 12px;
 }
-.perfil_container3{
+
+.perfil_container3 {
     margin-top: 5vh;
     margin-left: 50px;
 }
@@ -159,10 +165,25 @@ h3 {
     justify-content: space-between;
 }
 
-h3 span {
+h3 p {
     color: #00891E;
     font-size: 12px;
-    flex: 1; 
-    margin-right:80px;
+    margin: 5px;
+}
 
+#nome {
+    color: #00891E;
+}
+
+#boneco {
+    margin: 0;
+}
+
+#editar{
+    background-color: transparent;
+    border: none;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    margin: 20px;
 }
