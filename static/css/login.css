@@ -10,8 +10,8 @@ header {
 }
 
 #logo {
-    width: 150px;
-    height: 150px;
+    width: 90px;
+    height: 90px;
 }
 
 .inputBox {
@@ -65,6 +65,11 @@ button:hover {
 .rotSenha {
     color: #ffffff;
     margin: 0 5px;
+}
+
+.centraliza{
+    display: flex;
+    justify-content: center;
 }
 
 @media screen and (max-device-width: 768px) {
