@@ -79,3 +79,4 @@ func (u *Usuario) Perfil(db *sql.DB) gin.HandlerFunc {
 		c.JSON(200, gin.H{"usuario": usuario})
 	}
 }
+

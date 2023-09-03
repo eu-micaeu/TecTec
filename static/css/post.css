@@ -11,15 +11,19 @@ body{
 
 header{
     background-color: #000 ;
-    border: 3px solid #00891E;
+    border: 6px solid #00891E;
     border-radius: 15px;
     width: 40vw;
 }
 
 .navigation_header img {
     width: 20px;
-    padding: 30px;
+    padding: 5px;
     margin-bottom: 10px;
+}
+
+.user{
+    margin: 20px 80px 0 80px;
 }
 
 #logo{

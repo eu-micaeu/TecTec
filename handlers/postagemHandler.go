@@ -74,3 +74,30 @@ func (u *Postagem) Feed(db *sql.DB) gin.HandlerFunc {
 	}
 }
 
+func (u *Postagem) PostagensUsuario(db *sql.DB) gin.HandlerFunc {
+	return func(c *gin.Context) {
+
+		id_usuario := c.Param("id_usuario")
+
+		rows, err := db.Query("SELECT * FROM postagens WHERE id_usuario = $1 ORDER BY data_postagem DESC", id_usuario)
+		if err != nil {
+			c.JSON(500, gin.H{"message": "Erro ao resgatar o Postagens"})
+			return
+		}
+		defer rows.Close()
+
+		postagens := []Postagem{}
+
+		for rows.Next() {
+			var postagem Postagem
+			err := rows.Scan(&postagem.ID_Postagem, &postagem.Texto, &postagem.Data_Postagem, &postagem.Curtidas, &postagem.ID_Usuario, &postagem.Comentarios)
+			if err != nil {
+				c.JSON(500, gin.H{"message": "Erro ao resgatar o Postagens"})
+				return
+			}
+			postagens = append(postagens, postagem)
+		}
+
+		c.JSON(200, gin.H{"message": "Postagens resgatado com sucesso!", "postagens": postagens})
+	}
+}

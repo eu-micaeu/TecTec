@@ -18,8 +18,18 @@ header{
 
 .navigation_header img {
     width: 20px;
-    padding: 30px;
+    padding: 5px;
     margin-bottom: 10px;
+}
+
+.user{
+    margin: 20px 60px 0 60px;
+}
+
+#nome{
+    color: #00891E;
+    font-family: 'KronaOne';
+    font-size: 10px;
 }
 
 #logo{
@@ -70,20 +80,23 @@ ul{
 }
 
 .button_add_post {
+    font-family: 'KronaOne';
     background-color: #00891E;
-    margin: auto; 
     color: white;
     border: none;
-    padding: 30px;
+    padding: 10px;
     cursor: pointer;
     border-radius: 10px;
     position: fixed; 
     bottom: 20px; 
-    width: 100px;
+    width: 60px;
+    height: 60px;
+    font-size: 30px;
 }
 
 
 .button_add_post:hover{
+    font-family: 'KronaOne';
     background-color: #fff;
     color: #00891E;
 }
@@ -95,6 +108,7 @@ ul{
     border-radius: 15px;
     margin: 10px;
     color: #00891E;
+    font-family: 'KronaOne';
 }
 
 .centraliza{
