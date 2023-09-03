@@ -10,26 +10,32 @@ body {
     margin: 0;
 }
 
-header {
-    background-color: #000;
+header{
+    background-color: #000 ;
     border: 6px solid #00891E;
     position: fixed;
     width: 100%;
-    margin-bottom: 3vh;
+    height: 6.5vw;
 }
 
 .navigation_header img {
-    width: 01vw;
+    width: 1vw;
     padding: 0.5vw;
+    margin: 20px;
 }
 
-.user {
-    margin: 0.5vw;
-}
-
-#logo {
+#logo{
     width: 50px;
-    height: auto;
+    height: 45px;
+    margin: 0;
+}
+
+#tecnologias, #pesquisa{
+    margin-left: 6vw;
+}
+
+#sino, #perfil{
+    margin-right: 6vw;
 }
 
 .navigation_header a {
@@ -64,6 +70,8 @@ header {
     padding: 10px 20px;
     border: none;
     font-size: 25px;
+    font-family: 'KronaOne';
+    margin-top: 4vh;
 }
 
 .publicar:hover {
@@ -94,7 +102,7 @@ header {
     }
 
     header {
-        height: 20vw;
+        height: 28vw;
     }
 
     .navigation_header img {

@@ -4,38 +4,53 @@
     font-weight: normal;
 }
 
-body{
+body {
     background-color: #000;
     margin: 0;
 }
 
-header{
-    background-color: #000 ;
+header {
+    background-color: #000;
     border: 6px solid #00891E;
     position: fixed;
     width: 100%;
-    height: 5vw;
+    height: 6.5vw;
 }
 
 .navigation_header img {
-    width: 01vw;
+    width: 1vw;
     padding: 0.5vw;
+    margin: 20px;
 }
 
-.user{
+#logo {
+    width: 50px;
+    height: 45px;
+    margin: 0;
+}
+
+#tecnologias,
+#pesquisa {
+    margin-left: 6vw;
+}
+
+#sino,
+#perfil {
+    margin-right: 6vw;
+}
+
+.user {
     margin: 0.5vw;
 }
 
-#nome{
+#nome {
     color: #00891E;
     font-family: 'KronaOne';
-    font-size: 10px;
+    font-size: 15px;
+    margin: 0;
 }
 
-#logo{
-    width: 50px;
-    height: auto;
-}
+
 
 .navigation_header a {
     text-decoration: none;
@@ -69,11 +84,11 @@ header{
     cursor: pointer;
 }
 
-ul li.item-menu:hover{
+ul li.item-menu:hover {
     background: #00891E;
 }
 
-ul{
+ul {
     text-decoration: none;
     height: 100%;
     list-style-type: none;
@@ -87,21 +102,21 @@ ul{
     padding: 10px;
     cursor: pointer;
     border-radius: 10px;
-    position: fixed; 
-    bottom: 20px; 
+    position: fixed;
+    bottom: 20px;
     width: 60px;
     height: 60px;
     font-size: 30px;
 }
 
 
-.button_add_post:hover{
+.button_add_post:hover {
     font-family: 'KronaOne';
     background-color: #fff;
     color: #00891E;
 }
 
-.cartao{
+.cartao {
     width: 40vw;
     height: 25vh;
     border: 3px solid green;
@@ -112,7 +127,7 @@ ul{
     padding: 25px;
 }
 
-.centraliza{
+.centraliza {
     display: flex;
     justify-content: center;
 }
@@ -123,19 +138,19 @@ ul{
     margin-top: 14vh;
 }
 
-.nameWhite{
+.nameWhite {
     color: white;
 }
 
 @media screen and (max-device-width: 768px) {
     #logo {
-      width: 50px;
-      height: 47px;
-      padding: 0;
+        width: 50px;
+        height: 47px;
+        padding: 0;
     }
-  
-    header{
-        height: 20vw;
+
+    header {
+        height: 28vw;
     }
 
     .navigation_header img {
@@ -143,25 +158,20 @@ ul{
         padding: 3vw;
 
     }
-    
-    #nome{
-    color: #00891E;
-    font-family: 'KronaOne';
-    font-size: 10px;
-    margin: 0;
-    }
 
-    #carrosel{
-        width: 90%;
-    }
-
-    .cartao{
-        width: 100%;
+    #nome {
+        color: #00891E;
+        font-family: 'KronaOne';
+        font-size: 10px;
         margin: 0;
+    }   
+
+    .cartao {
+        width: 78vw;
         margin-top: 2vh;
     }
 
-    .user{
-    margin: 0 0.5vw;
+    .user {
+        margin: 0 0.5vw;
+    }
 }
-  }
