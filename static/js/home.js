@@ -36,8 +36,6 @@ function displayFeed() {
         });
 }
 
-
-
 window.addEventListener("load", displayFeed);
 
 function updateName() {
