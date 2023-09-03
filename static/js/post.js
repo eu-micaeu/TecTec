@@ -19,3 +19,16 @@ document.querySelector(".publicar").addEventListener("click", async () => {
         alert("erro")
     }
 });
+
+function updateName() {
+    var id = parseInt(localStorage.getItem("id_usuario"));
+    fetch('/perfil/' + id)
+        .then(response => response.json())
+        .then(data => {
+            let nickname = data.usuario.nickname;
+            let nameElement = document.getElementById('nome');
+            nameElement.textContent = "@" + nickname;
+        });
+}
+
+window.addEventListener('load', updateName);

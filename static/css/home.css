@@ -14,16 +14,16 @@ header{
     border: 6px solid #00891E;
     position: fixed;
     width: 100%;
+    margin-bottom: 3vh;
 }
 
 .navigation_header img {
-    width: 20px;
-    padding: 1vw;
-    margin-bottom: 0.5vw;
+    width: 01vw;
+    padding: 0.5vw;
 }
 
 .user{
-    margin: 1vw 2vw 0 2vw;
+    margin: 0.5vw;
 }
 
 #nome{
@@ -33,7 +33,7 @@ header{
 }
 
 #logo{
-    width: 70px;
+    width: 50px;
     height: auto;
 }
 
@@ -106,7 +106,7 @@ ul{
     height: 25vh;
     border: 3px solid green;
     border-radius: 15px;
-    margin: 10px;
+    margin: 1vh;
     color: #00891E;
     font-family: 'KronaOne';
 }
@@ -119,5 +119,5 @@ ul{
 #carrosel {
     display: flex;
     flex-direction: column;
-    margin-top: 20vh;
+    margin-top: 23vh;
 }
