@@ -31,7 +31,7 @@ header {
     width: 20vw;
 }
 
-.forms{
+.forms {
     padding: 25px;
     border: 3px solid rgb(255, 255, 255);
     width: 20vw;
@@ -39,7 +39,7 @@ header {
     border-radius: 15px;
 }
 
-.btnContainer{
+.btnContainer {
     display: flex;
     justify-content: center;
 }
@@ -61,17 +61,23 @@ button:hover {
     color: #00891E;
 }
 
-.rotUsuario, .rotSenha{
+.rotUsuario,
+.rotSenha {
     color: #ffffff;
     margin: 0 5px;
 }
 
-@media screen and (max-device-width: 768px){
-    .forms{
+@media screen and (max-device-width: 768px) {
+    .forms {
         width: 80%;
     }
 
     .inputUser {
         width: 75vw;
+    }
+
+    #logo {
+        width: 80px;
+        height: 80px;
     }
 }

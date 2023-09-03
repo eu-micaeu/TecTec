@@ -14,7 +14,7 @@ header{
     border: 6px solid #00891E;
     position: fixed;
     width: 100%;
-    margin-bottom: 3vh;
+    height: 5vw;
 }
 
 .navigation_header img {
@@ -119,5 +119,44 @@ ul{
 #carrosel {
     display: flex;
     flex-direction: column;
-    margin-top: 23vh;
+    margin-top: 14vh;
 }
+
+@media screen and (max-device-width: 768px) {
+    #logo {
+      width: 50px;
+      height: 47px;
+      padding: 0;
+    }
+  
+    header{
+        height: 20vw;
+    }
+
+    .navigation_header img {
+        width: 4vw;
+        padding: 3vw;
+
+    }
+    
+    #nome{
+    color: #00891E;
+    font-family: 'KronaOne';
+    font-size: 10px;
+    margin: 0;
+    }
+
+    #carrosel{
+        width: 90%;
+    }
+
+    .cartao{
+        width: 100%;
+        margin: 0;
+        margin-top: 2vh;
+    }
+
+    .user{
+    margin: 0 0.5vw;
+}
+  }
