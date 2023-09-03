@@ -10,54 +10,35 @@ closeButton.addEventListener('click', function () {
     overlay.classList.remove('active');
 });
 
-function feed() {
-    var cont = 0;
-    var id = parseInt(localStorage.getItem("id_usuario"));
-    var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function () {
-        if (this.readyState === 4 && this.status === 200) {
-            var response = JSON.parse(this.responseText);
-            var feed = response.postagens;
-            var repeatedButtonsContainer = document.querySelector("#carrosel");
-            repeatedButtonsContainer.innerHTML = "";
+function displayFeed() {
+    let id = parseInt(localStorage.getItem("id_usuario"));
+    fetch('/feed/' + id)
+        .then(response => response.json())
+        .then(data => {
+            let postagens = data.postagens;
+            let feedContainer = document.querySelector("#carrosel");
+            feedContainer.innerHTML = "";
+            for (let i = 0; i < postagens.length; i++) {
+                let postagem = postagens[i];
+                let postElement = document.createElement("div");
+                postElement.classList.add("cartao");
 
-            function createAndAppendCard(userId, text) {
-                let clonedButton = document.createElement("div");
-                clonedButton.classList.add("cartao");
-                clonedButton.textContent = '@' + userId;
-                repeatedButtonsContainer.appendChild(clonedButton);
+                let nicknameElement = document.createElement("span");
+                nicknameElement.classList.add("nameWhite");
+                nicknameElement.textContent = '@' + postagem.nickname  +  ': ';
+                postElement.appendChild(nicknameElement);
 
-                let textNode = document.createTextNode(" " + text);
-                clonedButton.appendChild(textNode);
+                let textNode = document.createTextNode(postagem.texto);
+                postElement.appendChild(textNode);
+
+                feedContainer.appendChild(postElement);
             }
-
-            function fetchUserAndPostData(userId) {
-                fetch('/perfil/' + userId)
-                    .then(response => response.json())
-                    .then(data => {
-                        let nickname = data.usuario.nickname;
-                        fetch('/postagens/' + userId)
-                            .then(response => response.json())
-                            .then(data => {
-                                let text = data.postagens[cont].texto;
-                                createAndAppendCard(nickname, text);
-                                cont = cont + 1;
-                            });
-                    });
-            }
-
-            for (var i = 0; i < feed.length; i++) {
-                let userId = feed[i].id_usuario;
-                fetchUserAndPostData(userId);
-            }
-        }
-    };
-    xhr.open("GET", "/feed/" + id, true);
-    xhr.send();
+        });
 }
 
 
-window.addEventListener("load", feed);
+
+window.addEventListener("load", displayFeed);
 
 function updateName() {
     var id = parseInt(localStorage.getItem("id_usuario"));

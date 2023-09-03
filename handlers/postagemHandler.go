@@ -51,18 +51,23 @@ func (u *Postagem) Feed(db *sql.DB) gin.HandlerFunc {
 
 		id_usuario := c.Param("id_usuario")
 
-		rows, err := db.Query("SELECT * FROM postagens WHERE id_usuario != $1 ORDER BY data_postagem DESC", id_usuario)
+		rows, err := db.Query("SELECT p.*, u.nickname FROM postagens p JOIN usuarios u ON p.id_usuario = u.id_usuario WHERE p.id_usuario != $1 ORDER BY p.data_postagem DESC", id_usuario)
 		if err != nil {
 			c.JSON(500, gin.H{"message": "Erro ao resgatar o feed"})
 			return
 		}
 		defer rows.Close()
 
-		postagens := []Postagem{}
+		type PostagemComNickname struct {
+			Postagem
+			Nickname string `json:"nickname"`
+		}
+
+		postagens := []PostagemComNickname{}
 
 		for rows.Next() {
-			var postagem Postagem
-			err := rows.Scan(&postagem.ID_Postagem, &postagem.Texto, &postagem.Data_Postagem, &postagem.Curtidas, &postagem.ID_Usuario, &postagem.Comentarios)
+			var postagem PostagemComNickname
+			err := rows.Scan(&postagem.ID_Postagem, &postagem.Texto, &postagem.Data_Postagem, &postagem.Curtidas, &postagem.ID_Usuario, &postagem.Comentarios, &postagem.Nickname)
 			if err != nil {
 				c.JSON(500, gin.H{"message": "Erro ao resgatar o feed"})
 				return
@@ -71,33 +76,5 @@ func (u *Postagem) Feed(db *sql.DB) gin.HandlerFunc {
 		}
 
 		c.JSON(200, gin.H{"message": "Feed resgatado com sucesso!", "postagens": postagens})
-	}
-}
-
-func (u *Postagem) PostagensUsuario(db *sql.DB) gin.HandlerFunc {
-	return func(c *gin.Context) {
-
-		id_usuario := c.Param("id_usuario")
-
-		rows, err := db.Query("SELECT * FROM postagens WHERE id_usuario = $1 ORDER BY data_postagem DESC", id_usuario)
-		if err != nil {
-			c.JSON(500, gin.H{"message": "Erro ao resgatar o Postagens"})
-			return
-		}
-		defer rows.Close()
-
-		postagens := []Postagem{}
-
-		for rows.Next() {
-			var postagem Postagem
-			err := rows.Scan(&postagem.ID_Postagem, &postagem.Texto, &postagem.Data_Postagem, &postagem.Curtidas, &postagem.ID_Usuario, &postagem.Comentarios)
-			if err != nil {
-				c.JSON(500, gin.H{"message": "Erro ao resgatar o Postagens"})
-				return
-			}
-			postagens = append(postagens, postagem)
-		}
-
-		c.JSON(200, gin.H{"message": "Postagens resgatado com sucesso!", "postagens": postagens})
 	}
 }
