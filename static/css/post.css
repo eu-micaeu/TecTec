@@ -18,12 +18,12 @@ header{
 
 .navigation_header img {
     width: 20px;
-    padding: 5px;
-    margin-bottom: 10px;
+    padding: 1vw;
+    margin-bottom: 0.5vw;
 }
 
 .user{
-    margin: 20px 80px 0 80px;
+    margin: 1vw 2vw 0 2vw;
 }
 
 #logo{

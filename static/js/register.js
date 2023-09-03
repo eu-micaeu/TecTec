@@ -5,12 +5,12 @@ document.querySelector("#cadastrar").addEventListener("click", async () => {
     const tecnologia = document.querySelector("#tecnologia").value;
     const passwordconfirmed = document.querySelector("#confSenha").value;
 
-    if (nickname === "" || password === "" || passwordconfirmed === "") {
+    if (nickname === "" || senha === "" || passwordconfirmed === "") {
         alert("Por favor, preencha todos os campos antes de continuar.");
         return;
     }
 
-    if (password !== passwordconfirmed) {
+    if (senha !== passwordconfirmed) {
         alert("Confirmação da senha e senha estão diferentes.");
         return;
     }
@@ -27,6 +27,7 @@ document.querySelector("#cadastrar").addEventListener("click", async () => {
 
     if (data.message === "Usuário criado com sucesso!") {
             alert("Usuário criado com sucesso!");
+            window.location.href = "/login";
     } else {
         alert("Erro ao criar o usuário!");
     }
