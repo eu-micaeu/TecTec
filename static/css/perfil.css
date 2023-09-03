@@ -63,3 +63,30 @@ header{
 .perfil_container{
     margin-top: 20vh;
 }
+.perfil_container p{    
+    color: white;
+}
+.perfil_container img{
+    margin-left: 5vh;
+}
+.perfil_container2{
+    color: white;
+    font-size: 12px;
+}
+.perfil_container3{
+    margin-top: 5vh;
+    margin-left: 50px;
+}
+
+h3 {
+    display: flex;
+    justify-content: space-between;
+}
+
+h3 span {
+    color: #00891E;
+    font-size: 12px;
+    flex: 1; 
+    margin-right:80px;
+
+}
