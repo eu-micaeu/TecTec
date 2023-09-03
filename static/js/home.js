@@ -11,43 +11,51 @@ closeButton.addEventListener('click', function () {
 });
 
 function feed() {
+    var cont = 0;
     var id = parseInt(localStorage.getItem("id_usuario"));
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
+        if (this.readyState === 4 && this.status === 200) {
             var response = JSON.parse(this.responseText);
             var feed = response.postagens;
             var repeatedButtonsContainer = document.querySelector("#carrosel");
             repeatedButtonsContainer.innerHTML = "";
-            var cont = 0;
-            for (var i = 0; i < feed.length; i++) {
-                let userId = feed[i].id_usuario;
+
+            function createAndAppendCard(userId, text) {
+                let clonedButton = document.createElement("div");
+                clonedButton.classList.add("cartao");
+                clonedButton.textContent = '@' + userId;
+                repeatedButtonsContainer.appendChild(clonedButton);
+
+                let textNode = document.createTextNode(" " + text);
+                clonedButton.appendChild(textNode);
+            }
+
+            function fetchUserAndPostData(userId) {
                 fetch('/perfil/' + userId)
                     .then(response => response.json())
                     .then(data => {
                         let nickname = data.usuario.nickname;
-                        var clonedButton = document.createElement("div");
-                        clonedButton.classList.add("cartao");
-                        clonedButton.textContent = '@' + nickname;
-                        repeatedButtonsContainer.appendChild(clonedButton);
-
                         fetch('/postagens/' + userId)
                             .then(response => response.json())
                             .then(data => {
-                                let textNode = document.createTextNode(" " + data.postagens[cont].texto);
-                                clonedButton.appendChild(textNode);
+                                let text = data.postagens[cont].texto;
+                                createAndAppendCard(nickname, text);
                                 cont = cont + 1;
                             });
-
                     });
             }
-        } else {
-            return;
+
+            for (var i = 0; i < feed.length; i++) {
+                let userId = feed[i].id_usuario;
+                fetchUserAndPostData(userId);
+            }
         }
     };
     xhr.open("GET", "/feed/" + id, true);
     xhr.send();
 }
+
 
 window.addEventListener("load", feed);
 
