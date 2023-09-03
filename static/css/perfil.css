@@ -37,6 +37,9 @@ header{
 #sino, #perfil{
     margin-right: 6vw;
 }
+.user {
+    margin: 0.5vw;
+}
 
 .navigation_header a {
     text-decoration: none;
