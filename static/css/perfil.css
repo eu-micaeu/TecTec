@@ -128,7 +128,6 @@ ul li a {
     display: flex;
     justify-content: space-between;
     font-size: 10px;
-    margin-right: 15px;
 }
 .perfil_opcoes button{
     background-color: #00891E;
@@ -138,6 +137,12 @@ ul li a {
     margin-left: 20px;
     padding-top: 10px;
     padding-bottom: 10px;
+    cursor: pointer;
+}
+
+.perfil_opcoes button:hover{
+    background-color: white;
+    color: #00891E;
 }
 
 .perfil_container2{
