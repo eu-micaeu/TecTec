@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TecTec</title>
     <link rel="icon" href="..\static\images\logo.png" type="image/x-icon">
-
-    <link rel="stylesheet" href="../static/css/home.css">
+    <link rel="stylesheet" href="../static/css/post.css">
 </head>
 
 <body>
@@ -36,41 +35,19 @@
                     </a>
                 </div>
             </div>
-            
-            
-
-
         </header>
     </div>
-
+    <div id="centraliza">
+        <div class="postagem">
+            <textarea id="inputPostagem" placeholder="O que está querendo pensar? 🤔"></textarea>
+        </div>
+    </div>
+    
     <div class="centraliza">
-        <div id="carrosel"></div>
+        <button class="publicar">Publicar</button>
     </div>
 
-
-    <div class="overlay" id="overlay">
-        <div class="close-button" id="close-Button"><img src="../static/images/mini-vector5-branco.png" alt=""></div>
-        <h1>Tecnologias</h1>
-        <ul>
-            <li class="item-menu">
-                <a href="#">Mysql</a>
-            </li>
-            <li class="item-menu">
-                <a href="#">Javascript</a>
-            </li>
-            <li class="item-menu">
-                <a href="#">Golang</a>
-            </li>
-            <li class="item-menu">
-                <a href="#">Html</a>
-            </li>
-        </ul>
-    </div>
-
-    <div class="centraliza"> 
-        <button class="button_add_post" onclick="window.location.href='/post'"> + </button>
-    </div>
-    <script src="../static/js/home.js" defer></script>
+    <script defer src="..\static\js\post.js"></script>
 </body>
 
 </html>
