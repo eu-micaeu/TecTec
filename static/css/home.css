@@ -135,10 +135,6 @@ a{
         padding: 0;
     }
 
-    header {
-        height: 28vw;
-    }
-
     .navigation_header img {
         width: 4vw;
         padding: 3vw;
@@ -153,8 +149,22 @@ a{
     }   
 
     .cartao {
-        width: 78vw;
+        width: 60vw;
         margin-top: 2vh;
+        font-size: 10px;
+        
+    }
+
+    #carrosel {
+        display: flex;
+        flex-direction: column;
+        margin-top: 1vh;
+        margin-left: 17vw;
+    }
+
+    .navigation_header #carrosel{
+        display: none;
+        justify-content: initial;
     }
 
     .user {
