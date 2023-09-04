@@ -52,6 +52,7 @@ function updateBio() {
 
 window.addEventListener('load', updateBio);
 
+
 function displayFeed() {
     let id = parseInt(localStorage.getItem("id_usuario"));
     fetch('/postagens/' + id)
@@ -67,11 +68,23 @@ function displayFeed() {
 
                 let nicknameElement = document.createElement("span");
                 nicknameElement.classList.add("nameWhite");
-                nicknameElement.textContent = '@' + postagem.nickname  +  ': ';
+                nicknameElement.textContent = '@' + postagem.nickname;
                 postElement.appendChild(nicknameElement);
 
-                let textNode = document.createTextNode(postagem.texto);
-                postElement.appendChild(textNode);
+                let textElement = document.createElement("p");
+                textElement.textContent = postagem.texto;
+                postElement.appendChild(textElement);
+
+                let imageContainer = document.createElement("div");
+                imageContainer.classList.add("image-container"); // Adicione uma classe para o container da imagem
+
+                let imageElement = document.createElement("img");
+                imageElement.src = "/static/images/lixo.png";
+                imageElement.style.width = "25px";
+                imageElement.style.height = "25px";
+                imageElement.style.cursor = "pointer";
+                imageContainer.appendChild(imageElement);
+                postElement.appendChild(imageContainer);
 
                 feedContainer.appendChild(postElement);
             }

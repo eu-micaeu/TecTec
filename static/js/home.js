@@ -25,11 +25,12 @@ function displayFeed() {
 
                 let nicknameElement = document.createElement("span");
                 nicknameElement.classList.add("nameWhite");
-                nicknameElement.textContent = '@' + postagem.nickname  +  ': ';
+                nicknameElement.textContent = '@' + postagem.nickname;
                 postElement.appendChild(nicknameElement);
 
-                let textNode = document.createTextNode(postagem.texto);
-                postElement.appendChild(textNode);
+                let textElement = document.createElement("p");
+                textElement.textContent = postagem.texto;
+                postElement.appendChild(textElement);
 
                 feedContainer.appendChild(postElement);
             }

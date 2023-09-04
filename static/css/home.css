@@ -11,36 +11,27 @@ body {
 
 header {
     background-color: #000;
-    border: 6px solid #00891E;
+    width: auto;
+    height: 100%; 
     position: fixed;
-    width: 100%;
-    height: 6.5vw;
+    left: 0; 
+    top: 0; 
 }
 
 .navigation_header img {
     width: 1vw;
-    padding: 0.5vw;
     margin: 20px;
 }
 
 #logo {
     width: 50px;
-    height: 45px;
-    margin: 0;
+    height: 50px;
+    margin-top: 20px;
 }
 
-#tecnologias,
-#pesquisa {
-    margin-left: 6vw;
-}
-
-#sino,
-#perfil {
-    margin-right: 6vw;
-}
-
-.user {
-    margin: 0.5vw;
+#opcoes {
+    position: fixed;
+    bottom: 0;
 }
 
 #nome {
@@ -105,14 +96,17 @@ header {
 }
 
 .cartao {
-    width: 40vw;
-    height: 25vh;
     border: 3px solid green;
     border-radius: 15px;
     margin: 1vh;
     color: #00891E;
     font-family: 'KronaOne';
     padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    width: 90vh;
 }
 
 .centraliza {
@@ -123,7 +117,7 @@ header {
 #carrosel {
     display: flex;
     flex-direction: column;
-    margin-top: 18vh;
+    margin-top: 4vh;
 }
 
 .nameWhite {
