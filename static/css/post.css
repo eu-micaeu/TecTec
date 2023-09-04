@@ -10,32 +10,24 @@ body {
     margin: 0;
 }
 
-header{
-    background-color: #000 ;
-    border: 6px solid #00891E;
+header {
+    background-color: #000;
+    width: auto;
+    height: 100%; 
     position: fixed;
-    width: 100%;
-    height: 6.5vw;
+    left: 0; 
+    top: 0; 
 }
 
 .navigation_header img {
     width: 1vw;
-    padding: 0.5vw;
     margin: 20px;
 }
 
-#logo{
+#logo {
     width: 50px;
-    height: 45px;
-    margin: 0;
-}
-
-#tecnologias, #pesquisa{
-    margin-left: 6vw;
-}
-
-#sino, #perfil{
-    margin-right: 6vw;
+    height: 50px;
+    margin-top: 20px;
 }
 
 .navigation_header a {
@@ -48,6 +40,18 @@ header{
 .postagem {
     width: 100%;
     text-align: center;
+}
+
+#opcoes {
+    position: fixed;
+    bottom: 0;
+}
+
+#nome {
+    color: #00891E;
+    font-family: 'KronaOne';
+    font-size: 10px;
+    margin: 0;
 }
 
 #inputPostagem {
@@ -88,10 +92,8 @@ header{
     cursor: pointer;
 }
 
-#nome {
-    color: #00891E;
-    font-family: 'KronaOne';
-    font-size: 10px;
+a{
+    height: 3vh;
 }
 
 @media screen and (max-device-width: 768px) {
