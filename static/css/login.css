@@ -14,12 +14,12 @@ header {
     height: 90px;
 }
 
-.inputBox {
+.caixa_entrada {
     display: flex;
     justify-content: center;
 }
 
-.inputUser {
+.inserir_texto {
     background-color: black;
     color: white;
     border: 3px solid rgb(255, 255, 255);
@@ -31,7 +31,7 @@ header {
     width: 20vw;
 }
 
-.forms {
+.formulario {
     padding: 25px;
     border: 3px solid rgb(255, 255, 255);
     width: 20vw;

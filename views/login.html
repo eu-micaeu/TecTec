@@ -17,31 +17,43 @@
 
 <body>
 
-    <header class="navigation_header">
+    <header class="header">
         <img src="../static/images/logo.png" alt="" class="logo" id="logo">
     </header>
+
     <div class="centraliza">
         <img src="../static/images/nome.png" alt="" id="nome" width="80px" height="80px">
     </div>
-    <img src="../images/avatar.png" alt="" class="img_avatar">
-    <div class="forms">
+
+    <img src="../images/avatar.png" alt="" class="imagem_avatar">
+
+    <div class="formulario">
         <label for="usuario" class="rotUsuario">Nickname:</label> <br />
-        <div class="inputBox">
-            <input type="text" name="nickname" id="nickname" class="inputUser">
+
+        <div class="caixa_entrada">
+            <input type="text" name="nickname" id="nickname" class="inserir_texto">
         </div>
+
         <br>
+
         <label for="senha" class="rotSenha">Senha:</label> <br />
-        <div class="inputBox">
-            <input type="password" name="senha" id="senha" class="inputUser">
+
+        <div class="caixa_entrada">
+            <input type="password" name="senha" id="senha" class="inserir_texto">
         </div>
+
         <div class="btnContainer">
             <button type="button" class="btn_entrar" id="entrar">Entrar</button>
         </div>
+
         <div class="btnContainer">
             <button type="button" onclick="window.location.href='/register'" class="btn_entrar">Cadastro</button>
         </div>
+        
     </div>
+
     <script defer src="..\static\js\login.js"></script>
+
 </body>
 
 </html>
