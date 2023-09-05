@@ -42,13 +42,27 @@ function displayFeed() {
                 postElement.appendChild(textElement);
 
                 let imageContainer = document.createElement("div");
-                imageContainer.classList.add("image-container"); // Adicione uma classe para o container da imagem
+                imageContainer.classList.add("image-container"); 
 
                 let imageElement = document.createElement("img");
                 imageElement.src = "/static/images/lixo.png";
                 imageElement.style.width = "25px";
                 imageElement.style.height = "25px";
                 imageElement.style.cursor = "pointer";
+                imageElement.id = "lixo";
+                
+                imageElement.addEventListener("click", function() {
+                    let postId = postagem.id_postagem;
+                    
+                    fetch('/excluir-postagem/' + postId, {
+                        method: 'DELETE'
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        displayFeed();
+                    });
+                });
+                
                 imageContainer.appendChild(imageElement);
                 postElement.appendChild(imageContainer);
 

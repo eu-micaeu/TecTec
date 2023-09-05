@@ -110,3 +110,17 @@ func (u *Postagem) PostagensUsuario(db *sql.DB) gin.HandlerFunc {
 		c.JSON(200, gin.H{"message": "Feed resgatado com sucesso!", "postagens": postagens})
 	}
 }
+
+func (p *Postagem) ApagarPostagem(db *sql.DB) gin.HandlerFunc {
+	return func(c *gin.Context) {
+		id_postagem := c.Param("id_postagem")
+
+		_, err := db.Exec("DELETE FROM postagens WHERE id_postagem = $1", id_postagem)
+		if err != nil {
+			c.JSON(500, gin.H{"message": "Erro ao apagar a postagem"})
+			return
+		}
+
+		c.JSON(200, gin.H{"message": "Apagou com sucesso!"})
+	}
+}

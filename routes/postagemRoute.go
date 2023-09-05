@@ -14,4 +14,5 @@ func PostagemRoutes(r *gin.Engine, db *sql.DB) {
 	r.PUT("/curtir/:id_postagem", postHandler.Curtir(db))
 	r.GET("/feed", postHandler.Feed(db))
 	r.GET("/postagens/:id_usuario", postHandler.PostagensUsuario(db))
+	r.DELETE("/excluir-postagem/:id_postagem", postHandler.ApagarPostagem(db))
 }
