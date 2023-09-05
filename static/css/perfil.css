@@ -232,6 +232,28 @@ h3 p {
     justify-content: center;
 }
 
+.button_add_post {
+    font-family: 'KronaOne';
+    background-color: #00891E;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 10px;
+    position: fixed;
+    bottom: 20px;
+    width: 60px;
+    height: 60px;
+    font-size: 30px;
+}
+
+
+.button_add_post:hover {
+    font-family: 'KronaOne';
+    background-color: #fff;
+    color: #00891E;
+}
+
 @media screen and (max-device-width: 768px) {
     #logo {
         width: 50px;
