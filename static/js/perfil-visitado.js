@@ -1,17 +1,21 @@
-const openButton = document.getElementById("btn-abrir");
-const overlay = document.getElementById('sobrepor');
-const closeButton = document.getElementById('btn-fechar');
+function updateName() {
+    var id = parseInt(localStorage.getItem("id_usuario_visitado"));
+    fetch('/perfil/' + id)
+        .then(response => response.json())
+        .then(data => {
+            let nickname = data.usuario.nickname;
+            let nameElement = document.getElementById('nome');
+            nameElement.textContent = "@" + nickname;
+        });
+}
 
-openButton.addEventListener('click', function () {
-    overlay.classList.add('active');
-});
+window.addEventListener('load', updateName);
 
-closeButton.addEventListener('click', function () {
-    overlay.classList.remove('active');
-});
+const id_usuario_visitado = localStorage.getItem("id_usuario_visitado").toString();
 
 function displayFeed() {
-    fetch('/feed')
+    let id = parseInt(localStorage.getItem("id_usuario_visitado"));
+    fetch('/postagens/' + id)
         .then(response => response.json())
         .then(data => {
             let postagens = data.postagens;
@@ -26,14 +30,6 @@ function displayFeed() {
                 nicknameElement.classList.add("nameWhite");
                 nicknameElement.textContent = '@' + postagem.nickname;
                 postElement.appendChild(nicknameElement);
-                nicknameElement.style.cursor = "pointer";
-
-                nicknameElement.addEventListener("click", function() {
-                    localStorage.setItem("id_usuario_visitado", postagem.id_usuario);
-                    
-                    window.location.href = '/perfil-visitado' ;
-                });
-                
 
                 let textElement = document.createElement("p");
                 textElement.textContent = postagem.texto;
@@ -46,15 +42,15 @@ function displayFeed() {
 
 window.addEventListener("load", displayFeed);
 
-function updateName() {
-    var id = parseInt(localStorage.getItem("id_usuario"));
+window.addEventListener('load', function() {
+    var id = parseInt(localStorage.getItem("id_usuario_visitado"));
     fetch('/perfil/' + id)
         .then(response => response.json())
         .then(data => {
-            let nickname = data.usuario.nickname;
-            let nameElement = document.getElementById('nome');
-            nameElement.textContent = "@" + nickname;
+            document.getElementById('biografia').innerHTML = data.usuario.biografia;
         });
-}
+});
 
-window.addEventListener('load', updateName);
+
+
+

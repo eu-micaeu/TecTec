@@ -127,6 +127,7 @@ a{
 
     #inputPostagem { 
         margin-top:50vw;
-        width: 90%;
+        width: 70%;
+        font-size: 12px;
     }
 }

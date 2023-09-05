@@ -13,7 +13,6 @@ document.querySelector("#entrar").addEventListener("click", async () => {
         if (data.usuario) {
             localStorage.setItem("id_usuario", data.usuario.id_usuario);
         } else {
-            // handle error
         }        
         window.location.href = "/home";
     }else{
