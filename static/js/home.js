@@ -11,8 +11,7 @@ closeButton.addEventListener('click', function () {
 });
 
 function displayFeed() {
-    let id = parseInt(localStorage.getItem("id_usuario"));
-    fetch('/feed/' + id)
+    fetch('/feed')
         .then(response => response.json())
         .then(data => {
             let postagens = data.postagens;

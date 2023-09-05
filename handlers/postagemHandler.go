@@ -49,9 +49,8 @@ func (p *Postagem) Curtir(db *sql.DB) gin.HandlerFunc {
 func (u *Postagem) Feed(db *sql.DB) gin.HandlerFunc {
 	return func(c *gin.Context) {
 
-		id_usuario := c.Param("id_usuario")
+		rows, err := db.Query("SELECT p.*, u.nickname FROM postagens p JOIN usuarios u ON p.id_usuario = u.id_usuario ORDER BY p.data_postagem DESC")
 
-		rows, err := db.Query("SELECT p.*, u.nickname FROM postagens p JOIN usuarios u ON p.id_usuario = u.id_usuario WHERE p.id_usuario != $1 ORDER BY p.data_postagem DESC", id_usuario)
 		if err != nil {
 			c.JSON(500, gin.H{"message": "Erro ao resgatar o feed"})
 			return
