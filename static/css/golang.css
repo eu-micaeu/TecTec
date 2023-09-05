@@ -120,7 +120,7 @@ h3{
     margin: 1vh;
     color: #00891E;
     font-family: 'KronaOne';
-    padding: 25px;
+    padding: 12px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -170,12 +170,19 @@ h3{
 
 
 .btn-cartao{
-    border-radius: 20px;
+    border-radius: 5px;
     background:#00891E ; 
     border: none;
     outline: none; 
     padding: 10px;
     margin: 0 auto;
     display: inline-block;
+    color: white;
     
+}
+
+.btn-cartao:hover{
+
+    background: white;
+    color: #00891E;
 }
