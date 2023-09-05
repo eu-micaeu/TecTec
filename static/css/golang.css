@@ -1,0 +1,188 @@
+@font-face {
+    font-family: 'KronaOne';
+    src: url('../fonts/KronaOne-Regular.ttf');
+    font-weight: normal;
+}
+
+body {
+    background-color: #000;
+    margin: 0;
+}
+
+header {
+    background-color: #000;
+    width: auto;
+    height: 100%; 
+    position: fixed;
+    left: 0; 
+    top: 0; 
+}
+
+.navigation_header img {
+    width: 1vw;
+    margin: 20px;
+}
+
+#logo {
+    width: 50px;
+    height: 50px;
+    margin-top: 20px;
+}
+
+#opcoes {
+    position: fixed;
+    bottom: 0;
+}
+
+#nome {
+    color: #00891E;
+    font-family: 'KronaOne';
+    font-size: 10px;
+    margin: 0;
+}
+
+.navigation_header a {
+    text-decoration: none;
+    color: #FFF5E1;
+    margin-top: 5px;
+    justify-content: center;
+}
+
+.sobrepor {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+.sobrepor.active {
+    transform: translateX(0);
+}
+
+
+.btn-fechar {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+
+ul li.item-menu:hover {
+    background: #00891E;
+}
+ul li {
+    text-decoration: none;
+    height: 100%;
+    list-style-type: none;
+    margin-top: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+}
+
+ul li a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.avatar{
+    width: 300px;
+    margin-top: 50px;
+}
+section{
+    display: flex;
+    justify-content: center;
+}
+
+h3{
+    color: white;
+    margin-top: 5em;
+    margin-left: -15em;
+}
+
+.container-cartao{
+
+    margin-top: 10em;
+    margin-left: 20em;
+    margin-right: 20em;
+}
+
+.cartao {
+    border: 3px solid green;
+    border-radius: 15px;
+    margin: 1vh;
+    color: #00891E;
+    font-family: 'KronaOne';
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    width: 90vh;
+}
+
+.cartao h3{
+    margin: 1vh;
+    color: #00891E;
+    font-family: 'KronaOne';   
+    display: flex;
+    justify-content: center;
+}
+
+.overlay-passos,.overlay-biblioteca,.overlay-finalidades{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1; 
+
+}
+
+.cartao-passos, .cartao-bibliotecas , .cartao-finalidades {
+    position: relative;
+    z-index: 2; 
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #000;
+    color: white;
+    border: 3px solid green;
+    max-width: 300px;
+    max-height: 300px;
+    margin: auto;
+    padding-bottom: 80px;
+    margin-top: 10%;
+
+}
+
+.btn-container {
+    text-align: center;
+}
+
+
+.btn-cartao{
+    border-radius: 5px;
+    background:#00891E ; 
+    border: none;
+    outline: none; 
+    padding: 10px;
+    margin: 0 auto;
+    display: inline-block;
+    color: white;
+    
+}
+
+.btn-cartao:hover{
+
+    background: white;
+    color: #00891E;
+}
