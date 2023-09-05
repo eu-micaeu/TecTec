@@ -1,6 +1,6 @@
-const openButton = document.getElementById("open-Button");
-const overlay = document.getElementById('overlay');
-const closeButton = document.getElementById('close-Button');
+const openButton = document.getElementById("btn-abrir");
+const overlay = document.getElementById('sobrepor');
+const closeButton = document.getElementById('btn-fechar');
 
 openButton.addEventListener('click', function () {
     overlay.classList.add('active');
