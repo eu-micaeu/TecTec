@@ -73,11 +73,11 @@ button:hover {
 }
 
 @media screen and (max-device-width: 768px) {
-    .forms {
+    .formulario {
         width: 80%;
     }
 
-    .inputUser {
+    .inputText {
         width: 75vw;
     }
 

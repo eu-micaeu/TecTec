@@ -1,15 +1,3 @@
-const openButton = document.getElementById("btn-abrir");
-const overlay = document.getElementById('sobrepor');
-const closeButton = document.getElementById('btn-fechar');
-
-openButton.addEventListener('click', function () {
-    overlay.classList.add('active');
-});
-
-closeButton.addEventListener('click', function () {
-    overlay.classList.remove('active');
-});
-
 function updateName() {
     var id = parseInt(localStorage.getItem("id_usuario"));
     fetch('/perfil/' + id)
@@ -30,28 +18,6 @@ document.getElementById("editar").addEventListener("click", function() {
 });
 
 const id_usuario = localStorage.getItem("id_usuario").toString();
-
-document.getElementById("biografia").addEventListener("blur", function() {
-    var biografia = document.getElementById("biografia").textContent;
-    var xhr = new XMLHttpRequest();
-    xhr.open("PUT", "/atualizar-biografia/" + id_usuario);
-    xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    xhr.send(JSON.stringify({biografia: biografia}));
-});
-
-function updateBio() {
-    var id = parseInt(localStorage.getItem("id_usuario"));
-    fetch('/perfil/' + id)
-        .then(response => response.json())
-        .then(data => {
-            let bio = data.usuario.biografia;
-            let nameElement = document.getElementById('biografia');
-            nameElement.textContent = bio;
-        });
-}
-
-window.addEventListener('load', updateBio);
-
 
 function displayFeed() {
     let id = parseInt(localStorage.getItem("id_usuario"));
@@ -92,3 +58,24 @@ function displayFeed() {
 }
 
 window.addEventListener("load", displayFeed);
+
+window.addEventListener('load', function() {
+    var userId = id_usuario;
+    fetch('/perfil/' + userId)
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('biografia').value = data.usuario.biografia;
+        });
+});
+
+document.getElementById('biografia').addEventListener('blur', function() {
+    var userId = id_usuario;
+    var biografia = document.getElementById('biografia').value;
+    fetch('/atualizar-biografia/' + userId, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ biografia: biografia })
+    });
+});
