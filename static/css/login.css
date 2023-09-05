@@ -14,12 +14,12 @@ header {
     height: 90px;
 }
 
-.caixa_entrada {
+.inputBox {
     display: flex;
     justify-content: center;
 }
 
-.inserir_texto {
+.inputText {
     background-color: black;
     color: white;
     border: 3px solid rgb(255, 255, 255);
