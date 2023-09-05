@@ -48,7 +48,7 @@ header {
     justify-content: center;
 }
 
-.overlay {
+.sobrepor {
     position: fixed;
     top: 0;
     right: 0;
@@ -61,19 +61,39 @@ header {
     transition: transform 0.3s ease-in-out;
 }
 
-.overlay.active {
+.sobrepor.active {
     transform: translateX(0);
 }
 
 
-.close-button {
+.btn-fechar {
     position: absolute;
     top: 10px;
     right: 10px;
     cursor: pointer;
 }
 
-.button_add_post {
+
+ul li.item-menu:hover {
+    background: #00891E;
+}
+ul li {
+    text-decoration: none;
+    height: 100%;
+    list-style-type: none;
+    margin-top: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+}
+
+ul li a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+.btn-adicionar-post {
     font-family: 'KronaOne';
     background-color: #00891E;
     color: white;
@@ -89,7 +109,7 @@ header {
 }
 
 
-.button_add_post:hover {
+.btn-adicionar-post:hover {
     font-family: 'KronaOne';
     background-color: #fff;
     color: #00891E;
