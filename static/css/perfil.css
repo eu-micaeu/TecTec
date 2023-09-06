@@ -227,10 +227,14 @@ h3 p {
     color: #00891E;
 }
 
+img.user{
+    padding: 1px;
+}
+
 img.user:hover{
     background-color: #fff;
-    border-radius: 10px;
-    padding: 5px;
+    border-radius: 2px;
+    padding: 1px;
 }
 
 @media screen and (max-device-width: 768px) {

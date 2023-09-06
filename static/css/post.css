@@ -92,8 +92,14 @@ header {
     cursor: pointer;
 }
 
-a{
-    height: 3vh;
+img.user{
+    padding: 1px;
+}
+
+img.user:hover{
+    background-color: #fff;
+    border-radius: 2px;
+    padding: 1px;
 }
 
 @media screen and (max-device-width: 768px) {
