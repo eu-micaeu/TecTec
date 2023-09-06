@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     var entrarButton = document.getElementById('entrar');
     
-    if (entrarButton) {
         entrarButton.addEventListener('click', async function () {
             const nickname = document.querySelector("#nickname").value;
             const senha = document.querySelector("#senha").value;
@@ -26,10 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 } else {
                     alert('Authentication failed. Please check your credentials.');
                 }
-            } catch (error) {
-                console.error(error);
-                alert('An error occurred while trying to log in.');
-            }
+
         });
     }
 });
