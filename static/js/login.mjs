@@ -4,9 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
         entrarButton.addEventListener('click', async function () {
             const nickname = document.querySelector("#nickname").value;
             const senha = document.querySelector("#senha").value;
-    
-            try {
-                const response = await fetch("/login", {
+                    const response = await fetch("/login", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
@@ -25,7 +23,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 } else {
                     alert('Authentication failed. Please check your credentials.');
                 }
-
         });
     }
-});
+);
