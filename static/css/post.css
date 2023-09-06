@@ -67,7 +67,7 @@ header {
     font-family: 'KronaOne';
 }
 
-.publicar {
+#publicar {
     background-color: #00891E;
     color: white;
     cursor: pointer;
@@ -79,7 +79,7 @@ header {
     margin-top: 4vh;
 }
 
-.publicar:hover {
+#publicar:hover {
     background-color: white;
     color: #00891E;
 }

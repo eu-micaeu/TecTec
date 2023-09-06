@@ -17,28 +17,6 @@ type Usuario struct {
 	Biografia  string `json:"biografia"`
 }
 
-type Claims struct {
-    ID_Usuario int `json:"id_usuario"`
-    jwt.StandardClaims
-}
-
-var jwtKey = []byte("my_secret_key")
-
-func (u *Usuario) ValidateToken(tokenString string) (int, error) {
-    claims := &Claims{}
-
-    tkn, err := jwt.ParseWithClaims(tokenString, claims, func(token *jwt.Token) (interface{}, error) {
-        return jwtKey, nil
-    })
-
-    if err != nil || !tkn.Valid {
-        return 0, err
-    }
-
-    return claims.ID_Usuario, nil
-}
-
-
 func (u *Usuario) Login(db *sql.DB) gin.HandlerFunc {
     return func(c *gin.Context) {
 
@@ -149,5 +127,7 @@ func (u *Usuario) AtualizarBiografia(db *sql.DB) gin.HandlerFunc {
 		c.JSON(200, gin.H{"message": "Biografia atualizada com sucesso!"})
 	}
 }
+
+
 
 

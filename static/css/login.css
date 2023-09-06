@@ -44,7 +44,7 @@ header {
     justify-content: center;
 }
 
-.btn_entrar {
+#entrar, #cadastro {
     background-color: #00891E;
     font-size: 20px;
     color: white;
@@ -56,7 +56,7 @@ header {
     font-family: 'KronaOne';
 }
 
-button:hover {
+#entrar:hover, #cadastro:hover {
     background-color: aliceblue;
     color: #00891E;
 }

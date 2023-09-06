@@ -1,6 +1,4 @@
-window.onload = function() {
-    localStorage.removeItem("id_usuario");
-};
+const token = localStorage.getItem("token").toString();
 
 const openButton = document.getElementById("btn-abrir");
 const overlay = document.getElementById('sobrepor');
@@ -15,7 +13,11 @@ closeButton.addEventListener('click', function () {
 });
 
 function displayFeed() {
-    fetch('/feed')
+    fetch('/feed', { 
+        headers: {
+            'Authorization': token
+        }
+    })
         .then(response => response.json())
         .then(data => {
             let postagens = data.postagens;
