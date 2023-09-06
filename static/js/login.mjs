@@ -19,7 +19,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     const data = await response.json();
                     if (data && data.message === "Login efetuado com sucesso!" && data.usuario && data.usuario.id_usuario) {
                         localStorage.setItem("token", data.token);
-                        modificarIdUsuario(data.usuario.id_usuario);
                         window.location.href = "/home";
                     } else {
                         alert('Ops! Invalid response data.');
