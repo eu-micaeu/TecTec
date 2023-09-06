@@ -1,3 +1,7 @@
+window.onload = function() {
+    localStorage.removeItem("id_usuario");
+};
+
 const openButton = document.getElementById("btn-abrir");
 const overlay = document.getElementById('sobrepor');
 const closeButton = document.getElementById('btn-fechar');
@@ -29,10 +33,9 @@ function displayFeed() {
                 nicknameElement.style.cursor = "pointer";
 
                 nicknameElement.addEventListener("click", function() {
-                    localStorage.setItem("id_usuario_visitado", postagem.id_usuario);
-                    
-                    window.location.href = '/perfil-visitado' ;
+                    window.location.href = '/perfil-visitado?id=' + postagem.id_usuario;
                 });
+                
                 
 
                 let textElement = document.createElement("p");
@@ -45,16 +48,3 @@ function displayFeed() {
 }
 
 window.addEventListener("load", displayFeed);
-
-function updateName() {
-    var id = parseInt(localStorage.getItem("id_usuario"));
-    fetch('/perfil/' + id)
-        .then(response => response.json())
-        .then(data => {
-            let nickname = data.usuario.nickname;
-            let nameElement = document.getElementById('nome');
-            nameElement.textContent = "@" + nickname;
-        });
-}
-
-window.addEventListener('load', updateName);

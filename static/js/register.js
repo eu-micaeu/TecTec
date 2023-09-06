@@ -1,3 +1,7 @@
+window.onload = function() {
+    localStorage.removeItem("id_usuario");
+};
+
 document.querySelector("#cadastrar").addEventListener("click", async () => {
     const nickname = document.querySelector("#nickname").value;
     const senha = document.querySelector("#senha").value;

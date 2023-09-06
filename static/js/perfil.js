@@ -1,20 +1,10 @@
-function updateName() {
-    var id = parseInt(localStorage.getItem("id_usuario"));
-    fetch('/perfil/' + id)
-        .then(response => response.json())
-        .then(data => {
-            let nickname = data.usuario.nickname;
-            let nameElement = document.getElementById('nome');
-            nameElement.textContent = "@" + nickname;
-        });
-}
+window.onload = function() {
+    localStorage.removeItem("id_usuario");
+};
 
-window.addEventListener('load', updateName);
-
-document.getElementById("editar").addEventListener("click", function() {
+document.getElementById("editar").addEventListener("click", function () {
     document.getElementById("biografia").contentEditable = true;
     document.getElementById("biografia").focus();
-
 });
 
 const id_usuario = localStorage.getItem("id_usuario").toString();
@@ -42,7 +32,7 @@ function displayFeed() {
                 postElement.appendChild(textElement);
 
                 let imageContainer = document.createElement("div");
-                imageContainer.classList.add("image-container"); 
+                imageContainer.classList.add("image-container");
 
                 let imageElement = document.createElement("img");
                 imageElement.src = "/static/images/lixo.png";
@@ -50,19 +40,19 @@ function displayFeed() {
                 imageElement.style.height = "25px";
                 imageElement.style.cursor = "pointer";
                 imageElement.id = "lixo";
-                
-                imageElement.addEventListener("click", function() {
+
+                imageElement.addEventListener("click", function () {
                     let postId = postagem.id_postagem;
-                    
+
                     fetch('/excluir-postagem/' + postId, {
                         method: 'DELETE'
                     })
-                    .then(response => response.json())
-                    .then(data => {
-                        displayFeed();
-                    });
+                        .then(response => response.json())
+                        .then(data => {
+                            displayFeed();
+                        });
                 });
-                
+
                 imageContainer.appendChild(imageElement);
                 postElement.appendChild(imageContainer);
 
@@ -71,24 +61,48 @@ function displayFeed() {
         });
 }
 
-window.addEventListener("load", displayFeed);
 
-window.addEventListener('load', function() {
+function updateBiografia() {
     var userId = id_usuario;
-    fetch('/perfil/' + userId)
+    fetch('/perfil/' + userId, {
+        headers: {
+            'Authorization': token
+        }
+    })
         .then(response => response.json())
         .then(data => {
             document.getElementById('biografia').value = data.usuario.biografia;
         });
-});
+};
 
-document.getElementById('biografia').addEventListener('blur', function() {
+function updateNome() {
+    var id = parseInt(localStorage.getItem("id_usuario"));
+    fetch('/perfil/' + id, {
+        headers: {
+            'Authorization': token
+        }
+    })
+        .then(response => response.json())
+        .then(data => {
+            let nickname = data.usuario.nickname;
+            let nameElement = document.getElementById('nome');
+            nameElement.textContent = "@" + nickname;
+        });
+}
+
+const token = localStorage.getItem("token").toString();
+updateNome();
+updateBiografia();
+displayFeed();
+
+document.getElementById('biografia').addEventListener('blur', function () {
     var userId = id_usuario;
     var biografia = document.getElementById('biografia').value;
     fetch('/atualizar-biografia/' + userId, {
         method: 'PUT',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': token
         },
         body: JSON.stringify({ biografia: biografia })
     });

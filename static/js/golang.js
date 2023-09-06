@@ -1,3 +1,7 @@
+window.onload = function() {
+    localStorage.removeItem("id_usuario");
+};
+
 document.addEventListener("DOMContentLoaded", function () {
     const mostrarOverlayButton = document.getElementById("mostrarOverlay");
     const mostrarOverlay2Button = document.getElementById("mostrarOverlay2");

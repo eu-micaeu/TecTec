@@ -1,5 +1,18 @@
+window.onload = function() {
+    localStorage.removeItem("id_usuario");
+};
+
+function getParameterByName(name, url = window.location.href) {
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
 function updateName() {
-    var id = parseInt(localStorage.getItem("id_usuario_visitado"));
+    var id = parseInt(getParameterByName('id'));
     fetch('/perfil/' + id)
         .then(response => response.json())
         .then(data => {
@@ -11,10 +24,8 @@ function updateName() {
 
 window.addEventListener('load', updateName);
 
-const id_usuario_visitado = localStorage.getItem("id_usuario_visitado").toString();
-
 function displayFeed() {
-    let id = parseInt(localStorage.getItem("id_usuario_visitado"));
+    let id = parseInt(getParameterByName('id'));
     fetch('/postagens/' + id)
         .then(response => response.json())
         .then(data => {
@@ -43,14 +54,10 @@ function displayFeed() {
 window.addEventListener("load", displayFeed);
 
 window.addEventListener('load', function() {
-    var id = parseInt(localStorage.getItem("id_usuario_visitado"));
+    var id = parseInt(getParameterByName('id'));
     fetch('/perfil/' + id)
         .then(response => response.json())
         .then(data => {
             document.getElementById('biografia').innerHTML = data.usuario.biografia;
         });
 });
-
-
-
-

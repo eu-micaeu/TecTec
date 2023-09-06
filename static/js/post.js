@@ -1,3 +1,7 @@
+window.onload = function() {
+    localStorage.removeItem("id_usuario");
+};
+
 const id_usuario = localStorage.getItem("id_usuario").toString();
 
 document.querySelector(".publicar").addEventListener("click", async () => {

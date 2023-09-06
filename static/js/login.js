@@ -1,3 +1,7 @@
+window.onload = function() {
+    localStorage.removeItem("id_usuario");
+};
+
 document.querySelector("#entrar").addEventListener("click", async () => {
     const nickname = document.querySelector("#nickname").value;
     const senha = document.querySelector("#senha").value;
@@ -11,7 +15,7 @@ document.querySelector("#entrar").addEventListener("click", async () => {
     const data = await response.json();
     if (data.message === "Login efetuado com sucesso!") {
         if (data.usuario) {
-            localStorage.setItem("id_usuario", data.usuario.id_usuario);
+            localStorage.setItem("token", data.token);
         } else {
         }        
         window.location.href = "/home";
