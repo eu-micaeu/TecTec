@@ -28,7 +28,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     alert('Authentication failed. Please check your credentials.');
                 }
             } catch (error) {
-                console.error(error);
                 alert('An error occurred while trying to log in.');
             }
         });
