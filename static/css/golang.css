@@ -178,7 +178,7 @@ h3{
     margin: 0 auto;
     display: inline-block;
     color: white;
-    
+    cursor: pointer;
 }
 
 .btn-cartao:hover{
