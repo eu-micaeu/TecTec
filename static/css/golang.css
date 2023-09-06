@@ -116,22 +116,27 @@ h3{
 .cartao {
     border: 3px solid green;
     border-radius: 15px;
-    margin: 1vh;
     color: #00891E;
     font-family: 'KronaOne';
-    padding: 30px;
+    padding: 25px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     position: relative;
-    width: 90vh;
+    width: 80vh;
     cursor: pointer;
-    
-
+    transition: transform 0.3s;    
+    margin: 20px;
 }
 
+.cartao:hover{
+    transform: scale(1.2); 
+}
+
+
+
 .cartao h3{
-    margin: 1vh;
+    margin: 5px;
     color: #00891E;
     font-family: 'KronaOne';   
     display: flex;
@@ -165,6 +170,7 @@ h3{
     margin-top: 10%;
 
 }
+
 
 .btn-container {
     text-align: center;
