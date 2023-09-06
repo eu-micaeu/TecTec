@@ -1,5 +1,3 @@
-import {modificarIdUsuario} from '../js/global.mjs';
-
 document.addEventListener('DOMContentLoaded', function () {
     var entrarButton = document.getElementById('entrar');
     

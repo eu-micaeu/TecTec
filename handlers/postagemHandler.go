@@ -98,15 +98,9 @@ func (p *Postagem) Feed(db *sql.DB) gin.HandlerFunc {
 func (u *Postagem) PostagensUsuario(db *sql.DB) gin.HandlerFunc {
 	return func(c *gin.Context) {
 
-		tknStr := c.Request.Header.Get("Authorization")
-        id_usuario, err := u.ValidateToken(tknStr)
+		id_usuario := c.Param("id_usuario")
 
-        if err != nil {
-            c.JSON(401, gin.H{"message": "Token inválido"})
-            return
-        }
-
-		rows, err := db.Query("SELECT p.*, u.nickname FROM postagens p JOIN usuarios u ON p.id_usuario = u.id_usuario WHERE p.id_usuario = $1 ORDER BY p.data_postagem DESC", id_usuario)
+		rows, err := db.Query("SELECT p.*, u.nickname, u.biografia FROM postagens p JOIN usuarios u ON p.id_usuario = u.id_usuario WHERE p.id_usuario = $1 ORDER BY p.data_postagem DESC", id_usuario)
 		if err != nil {
 			c.JSON(500, gin.H{"message": "Erro ao resgatar o feed"})
 			return
@@ -116,13 +110,14 @@ func (u *Postagem) PostagensUsuario(db *sql.DB) gin.HandlerFunc {
 		type PostagemComNickname struct {
 			Postagem
 			Nickname string `json:"nickname"`
+			Biografia string `json:"biografia"`
 		}
 
 		postagens := []PostagemComNickname{}
 
 		for rows.Next() {
 			var postagem PostagemComNickname
-			err := rows.Scan(&postagem.ID_Postagem, &postagem.Texto, &postagem.Data_Postagem, &postagem.Curtidas, &postagem.ID_Usuario, &postagem.Comentarios, &postagem.Nickname)
+			err := rows.Scan(&postagem.ID_Postagem, &postagem.Texto, &postagem.Data_Postagem, &postagem.Curtidas, &postagem.ID_Usuario, &postagem.Comentarios, &postagem.Nickname, &postagem.Biografia)
 			if err != nil {
 				c.JSON(500, gin.H{"message": "Erro ao resgatar o feed"})
 				return

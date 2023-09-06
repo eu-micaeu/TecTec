@@ -1,6 +1,4 @@
-window.onload = function() {
-    localStorage.removeItem("id_usuario");
-};
+const token = localStorage.getItem("token").toString();
 
 function getParameterByName(name, url = window.location.href) {
     name = name.replace(/[\[\]]/g, '\\$&');
@@ -11,22 +9,13 @@ function getParameterByName(name, url = window.location.href) {
     return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
 
-function updateName() {
-    var id = parseInt(getParameterByName('id'));
-    fetch('/perfil/' + id)
-        .then(response => response.json())
-        .then(data => {
-            let nickname = data.usuario.nickname;
-            let nameElement = document.getElementById('nome');
-            nameElement.textContent = "@" + nickname;
-        });
-}
-
-window.addEventListener('load', updateName);
-
 function displayFeed() {
     let id = parseInt(getParameterByName('id'));
-    fetch('/postagens/' + id)
+    fetch('/postagens/' + id, {
+        headers: {
+            'Authorization': token
+        }
+    })
         .then(response => response.json())
         .then(data => {
             let postagens = data.postagens;
@@ -47,17 +36,16 @@ function displayFeed() {
                 postElement.appendChild(textElement);
 
                 feedContainer.appendChild(postElement);
+
+                let nickname = postagem.nickname;
+                let nameElement = document.getElementById('nome');
+                nameElement.textContent = "@" + nickname;
+
+                document.getElementById('biografia').innerHTML = postagem.biografia;
             }
+
+
         });
 }
 
 window.addEventListener("load", displayFeed);
-
-window.addEventListener('load', function() {
-    var id = parseInt(getParameterByName('id'));
-    fetch('/perfil/' + id)
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById('biografia').innerHTML = data.usuario.biografia;
-        });
-});
