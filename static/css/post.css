@@ -43,7 +43,6 @@ header {
 }
 
 #opcoes {
-    position: fixed;
     bottom: 0;
 }
 
@@ -99,30 +98,23 @@ a{
 
 @media screen and (max-device-width: 768px) {
     #logo {
-        width: 50px;
-        height: 47px;
-        padding: 0;
-    }
-
-    header {
-        height: 28vw;
-    }
-
-    .navigation_header img {
-        width: 4vw;
-        padding: 3vw;
-
-    }
-
-    #nome {
-        color: #00891E;
-        font-family: 'KronaOne';
-        font-size: 10px;
+        width: 35px;
+        height: 32px;
         margin: 0;
     }
 
-    .user {
-        margin: 0 0.5vw;
+    .navigation_header img {
+        width: 3vw;
+    }
+
+    .centraliza .navigation_header{
+        position: absolute;
+        position: fixed;
+    }
+
+    img.user:hover{
+        background-color: transparent;
+        padding: 0px;
     }
 
     #inputPostagem { 

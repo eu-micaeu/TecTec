@@ -30,7 +30,6 @@ header {
 }
 
 #opcoes {
-    position: fixed;
     bottom: 0;
 }
 
@@ -132,33 +131,41 @@ ul li a {
 .centraliza {
     display: flex;
     justify-content: center;
+    margin: auto;
 }
 
 #carrosel {
     display: flex;
     flex-direction: column;
     margin-top: 4vh;
+    
 }
 
 .nameWhite {
     color: white;
 }
 
-a{
-    height: 3vh;
+img.user:hover{
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 5px;
 }
 
 @media screen and (max-device-width: 768px) {
+
     #logo {
-        width: 50px;
-        height: 47px;
-        padding: 0;
+        width: 35px;
+        height: 32px;
+        margin: 0;
     }
 
     .navigation_header img {
-        width: 4vw;
-        padding: 3vw;
+        width: 3vw;
+    }
 
+    .centraliza .navigation_header{
+        position: absolute;
+        position: fixed;
     }
 
     #nome {
@@ -170,24 +177,18 @@ a{
 
     .cartao {
         width: 60vw;
-        margin-top: 2vh;
         font-size: 10px;
-        
     }
 
     #carrosel {
         display: flex;
         flex-direction: column;
         margin-top: 1vh;
-        margin-left: 17vw;
     }
 
-    .navigation_header #carrosel{
-        display: none;
-        justify-content: initial;
+    img.user:hover{
+        background-color: transparent;
+        padding: 0px;
     }
 
-    .user {
-        margin: 0 0.5vw;
-    }
 }

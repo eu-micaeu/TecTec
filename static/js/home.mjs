@@ -1,17 +1,5 @@
 const token = localStorage.getItem("token").toString();
 
-const openButton = document.getElementById("btn-abrir");
-const overlay = document.getElementById('sobrepor');
-const closeButton = document.getElementById('btn-fechar');
-
-openButton.addEventListener('click', function () {
-    overlay.classList.add('active');
-});
-
-closeButton.addEventListener('click', function () {
-    overlay.classList.remove('active');
-});
-
 function displayFeed() {
     fetch('/feed', { 
         headers: {
