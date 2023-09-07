@@ -100,11 +100,12 @@ img.user:hover{
     #logo {
         width: 35px;
         height: 32px;
-        margin: 0;
+        margin: 5px;
     }
 
     .navigation_header img {
         width: 3vw;
+        height: 1.5vh;
     }
 
     .centraliza .navigation_header{

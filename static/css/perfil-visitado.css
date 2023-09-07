@@ -34,29 +34,6 @@ header {
     justify-content: center;
 }
 
-ul li.item-menu:hover {
-    background: #00891E;
-}
-
-ul li {
-    text-decoration: none;
-    height: 100%;
-    list-style-type: none;
-    margin-top: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-
-}
-
-ul li a {
-    text-decoration: none;
-    color: inherit;
-}
-
-.tecnologias {
-    color: #C0C0C0;
-}
-
 .centraliza {
     display: flex;
     justify-content: center;
@@ -89,29 +66,6 @@ ul li a {
     display: flex;
     justify-content: space-between;
     font-size: 10px;
-}
-
-.perfil_opcoes button {
-    background-color: #00891E;
-    color: white;
-    border: none;
-    border-radius: 20px;
-    margin-left: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    cursor: pointer;
-}
-
-.perfil_opcoes button:hover {
-    background-color: white;
-    color: #00891E;
-}
-
-.perfil_container2 {
-    color: #C0C0C0;
-    font-size: 12px;
-    width: 40vw;
-
 }
 
 textarea {
@@ -213,17 +167,19 @@ img.user:hover{
     background-color: #fff;
     border-radius: 2px;
     padding: 1px;
+    cursor: pointer;
 }
 
 @media screen and (max-device-width: 768px) {
     #logo {
         width: 35px;
         height: 32px;
-        margin: 0;
+        margin: 5px;
     }
 
     .navigation_header img {
         width: 3vw;
+        height: 1.5vh;
     }
 
     .centraliza .navigation_header{
