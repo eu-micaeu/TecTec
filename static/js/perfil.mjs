@@ -55,6 +55,14 @@ varIdUsuario().then(() => {
                     imageElement.style.cursor = "pointer";
                     imageElement.id = "lixo";
 
+                    imageElement.addEventListener('mouseover', function() {
+                        imageElement.src = '/static/images/lixobranco.png';
+                    });
+                    imageElement.addEventListener('mouseout', function() {
+                        imageElement.src = '/static/images/lixo.png';
+                    });
+                    
+
                     imageElement.addEventListener("click", function () {
                         let postId = postagem.id_postagem;
 

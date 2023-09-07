@@ -72,6 +72,12 @@ button:hover {
     justify-content: center;
 }
 
+p{
+    color: white;
+    font-family: 'KronaOne';
+    font-size: 12px;
+}
+
 @media screen and (max-device-width: 768px){
     .forms{
         width: 80%;

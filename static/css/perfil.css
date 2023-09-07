@@ -1,8 +1,4 @@
-@font-face {
-    font-family: 'KronaOne';
-    src: url('../fonts/KronaOne-Regular.ttf');
-    font-weight: normal;
-}
+@import url('./global.css');
 
 body {
     background-color: black;
@@ -21,7 +17,8 @@ header {
 
 .navigation_header img {
     width: 1vw;
-    margin: 20px;
+    height: 1vw;
+    margin: 10px;
 }
 
 #logo {
@@ -30,52 +27,11 @@ header {
     margin-top: 20px;
 }
 
-#opcoes {
-    bottom: 0;
-}
-
-
-.user {
-    margin: 0.5vw;
-}
-
 .navigation_header a {
     text-decoration: none;
     color: #FFF5E1;
     margin-top: 5px;
     justify-content: center;
-}
-
-ul li.item-menu:hover {
-    background: #00891E;
-}
-
-ul li {
-    text-decoration: none;
-    height: 100%;
-    list-style-type: none;
-    margin-top: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-
-}
-
-ul li a {
-    text-decoration: none;
-    color: inherit;
-}
-
-.tecnologias {
-    color: #C0C0C0;
-}
-
-.centraliza {
-    display: flex;
-    justify-content: center;
-}
-
-#logo {
-    cursor: pointer;
 }
 
 #carrosel {
@@ -96,36 +52,6 @@ ul li a {
     margin-left: 5vh;
 }
 
-.perfil_opcoes {
-    margin-top: 5vh;
-    display: flex;
-    justify-content: space-between;
-    font-size: 10px;
-}
-
-.perfil_opcoes button {
-    background-color: #00891E;
-    color: white;
-    border: none;
-    border-radius: 20px;
-    margin-left: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    cursor: pointer;
-}
-
-.perfil_opcoes button:hover {
-    background-color: white;
-    color: #00891E;
-}
-
-.perfil_container2 {
-    color: #C0C0C0;
-    font-size: 12px;
-    width: 40vw;
-
-}
-
 textarea {
     resize: none;
     height: 10vh;
@@ -136,17 +62,6 @@ textarea {
     margin-left: 50px;
 }
 
-h3 {
-    display: flex;
-    justify-content: space-between;
-}
-
-h3 p {
-    color: #00891E;
-    font-size: 12px;
-    margin: 5px;
-}
-
 #nome {
     color: #00891E;
     text-align: left;
@@ -154,15 +69,7 @@ h3 p {
 
 #boneco {
     margin: 0;
-}
-
-#editar {
-    background-color: transparent;
-    border: none;
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-    margin: 20px;
+    margin-top: 4vh;
 }
 
 #carrosel {
@@ -185,7 +92,6 @@ h3 p {
     width: 90vh;
 }
 
-
 .nameWhite {
     color: white;
 }
@@ -197,7 +103,6 @@ h3 p {
     border: none;
     text-align: center;
     width: 100%;
-
 }
 
 .centraliza {
@@ -210,16 +115,15 @@ h3 p {
     background-color: #00891E;
     color: white;
     border: none;
-    padding: 10px;
+    padding: 5px;
     cursor: pointer;
     border-radius: 10px;
     position: fixed;
     bottom: 20px;
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     font-size: 30px;
 }
-
 
 .button_add_post:hover {
     font-family: 'KronaOne';
@@ -235,6 +139,7 @@ img.user:hover{
     background-color: #fff;
     border-radius: 2px;
     padding: 1px;
+    cursor: pointer;
 }
 
 @media screen and (max-device-width: 768px) {

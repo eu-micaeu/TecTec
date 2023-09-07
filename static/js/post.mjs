@@ -1,6 +1,7 @@
 let id_usuario;
 const token = localStorage.getItem("token").toString();
 
+
 async function varIdUsuario() {
     try {
         const response = await fetch('/perfil-token/', {
@@ -18,6 +19,33 @@ async function varIdUsuario() {
 }
 
 varIdUsuario().then(() => {
+
+    function exibirImagem(caminhoImagem) {
+        const fundoEscurecido = document.createElement('div');
+        fundoEscurecido.style.position = 'fixed';
+        fundoEscurecido.style.top = '0';
+        fundoEscurecido.style.left = '0';
+        fundoEscurecido.style.width = '100%';
+        fundoEscurecido.style.height = '100%';
+        fundoEscurecido.style.backgroundColor = 'rgba(0, 0, 0, 0.6)';
+        
+        const imagem = document.createElement('img');
+        imagem.src = caminhoImagem;
+        imagem.style.display = 'block';
+        imagem.style.margin = '0 auto';
+        imagem.style.position = 'absolute';
+        imagem.style.top = '50%';
+        imagem.style.left = '50%';
+        imagem.style.transform = 'translate(-50%, -50%)';
+        imagem.style.width = '500px';
+        imagem.style.height = '500px';
+        imagem.style.borderRadius = '100px';
+        
+        fundoEscurecido.appendChild(imagem);
+        document.body.appendChild(fundoEscurecido);
+        
+    }
+
     document.getElementById('publicar').addEventListener('click', function () {
         var texto = document.getElementById('inputPostagem').value;
         fetch('/publicar/' + id_usuario, {
@@ -30,17 +58,18 @@ varIdUsuario().then(() => {
         })
         .then(response => {
             if (response.ok) {
-                alert('Postagem bem-sucedida!');
-                window.location.href = "/home";
+                exibirImagem('../static/images/confirmado.png');
+                setTimeout(() => {
+                    window.location.href = "/home";
+                }, 2000);
+                
             } else {
                 alert('Erro na solicitação POST. Código de status: ' + response.status);
             }
         })
-        .catch(error => {
-            alert('Erro na solicitação POST: ' + error);
-        });
     });
 });
+
 
 
 

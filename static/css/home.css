@@ -1,8 +1,4 @@
-@font-face {
-    font-family: 'KronaOne';
-    src: url('../fonts/KronaOne-Regular.ttf');
-    font-weight: normal;
-}
+@import url('./global.css');
 
 body {
     background-color: #000;
@@ -20,17 +16,14 @@ header {
 
 .navigation_header img {
     width: 1vw;
-    margin: 20px;
+    height: 1vw;
+    margin: 10px;
 }
 
 #logo {
     width: 50px;
     height: 50px;
     margin-top: 20px;
-}
-
-#opcoes {
-    bottom: 0;
 }
 
 #nome {
@@ -97,15 +90,15 @@ ul li a {
     background-color: #00891E;
     color: white;
     border: none;
-    padding: 10px;
+    padding: 5px;
     cursor: pointer;
     border-radius: 10px;
     position: fixed;
     bottom: 20px;
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     font-size: 30px;
-}
+} 
 
 
 .btn-adicionar-post:hover {
@@ -153,6 +146,7 @@ img.user:hover{
     background-color: #fff;
     border-radius: 2px;
     padding: 1px;
+    cursor: pointer;
 }
 
 @media screen and (max-device-width: 768px) {

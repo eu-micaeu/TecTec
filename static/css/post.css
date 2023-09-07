@@ -1,8 +1,4 @@
-@font-face {
-    font-family: 'KronaOne';
-    src: url('../fonts/KronaOne-Regular.ttf');
-    font-weight: normal;
-}
+@import url('./global.css');
 
 body {
     background-color: black;
@@ -21,7 +17,8 @@ header {
 
 .navigation_header img {
     width: 1vw;
-    margin: 20px;
+    height: 1vw;
+    margin: 10px;
 }
 
 #logo {
@@ -39,11 +36,8 @@ header {
 
 .postagem {
     width: 100%;
+    height: 100%;
     text-align: center;
-}
-
-#opcoes {
-    bottom: 0;
 }
 
 #nome {
@@ -54,12 +48,11 @@ header {
 }
 
 #inputPostagem {
-    width: 40vw;
-    height: 10vw;
+    width: 20vw;
     border-radius: 10px;
     border: 5px solid #00891E;
-    height: 30vh;
-    font-size: 25px;
+    height: 20vh;
+    font-size: px;
     background-color: #000;
     color: white;
     margin-top: 15vw;
@@ -73,7 +66,7 @@ header {
     border-radius: 10px;
     padding: 10px 20px;
     border: none;
-    font-size: 25px;
+    font-size: 15px;
     font-family: 'KronaOne';
     margin-top: 4vh;
 }
@@ -100,6 +93,7 @@ img.user:hover{
     background-color: #fff;
     border-radius: 2px;
     padding: 1px;
+    cursor: pointer;
 }
 
 @media screen and (max-device-width: 768px) {
