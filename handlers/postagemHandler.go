@@ -98,9 +98,9 @@ func (p *Postagem) Feed(db *sql.DB) gin.HandlerFunc {
 func (u *Postagem) PostagensUsuario(db *sql.DB) gin.HandlerFunc {
 	return func(c *gin.Context) {
 
-		id_usuario := c.Param("id_usuario")
+		nickname := c.Param("nickname")
 
-		rows, err := db.Query("SELECT p.*, u.nickname, u.biografia FROM postagens p JOIN usuarios u ON p.id_usuario = u.id_usuario WHERE p.id_usuario = $1 ORDER BY p.data_postagem DESC", id_usuario)
+		rows, err := db.Query("SELECT p.*, u.nickname, u.biografia FROM postagens p JOIN usuarios u ON p.id_usuario = u.id_usuario WHERE u.nickname = $1 ORDER BY p.data_postagem DESC", nickname)
 		if err != nil {
 			c.JSON(500, gin.H{"message": "Erro ao resgatar o feed"})
 			return

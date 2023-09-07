@@ -1,5 +1,6 @@
 const token = localStorage.getItem("token").toString();
 
+// Função que serve para 
 function getParameterByName(name, url = window.location.href) {
     name = name.replace(/[\[\]]/g, '\\$&');
     var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
@@ -10,8 +11,8 @@ function getParameterByName(name, url = window.location.href) {
 }
 
 function displayFeed() {
-    let id = parseInt(getParameterByName('id'));
-    fetch('/postagens/' + id, {
+    let nickname = getParameterByName('nickname');
+    fetch('/postagens/' + nickname, {
         headers: {
             'Authorization': token
         }

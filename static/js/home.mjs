@@ -1,5 +1,7 @@
+// Coloca o token em uma variável.
 const token = localStorage.getItem("token").toString();
 
+// Função que serve para carregar o feed principal
 function displayFeed() {
     fetch('/feed', { 
         headers: {
@@ -23,11 +25,9 @@ function displayFeed() {
                 nicknameElement.style.cursor = "pointer";
 
                 nicknameElement.addEventListener("click", function() {
-                    window.location.href = '/perfil-visitado?id=' + postagem.id_usuario;
+                    window.location.href = '/perfil-visitado?nickname=' + postagem.nickname;
                 });
                 
-                
-
                 let textElement = document.createElement("p");
                 textElement.textContent = postagem.texto;
                 postElement.appendChild(textElement);

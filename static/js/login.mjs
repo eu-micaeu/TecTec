@@ -1,3 +1,4 @@
+// Função DOM que serve para carregar outra função para verificação do login.
 document.addEventListener('DOMContentLoaded', function () {
     var entrarButton = document.getElementById('entrar');
     
@@ -6,9 +7,6 @@ document.addEventListener('DOMContentLoaded', function () {
             const senha = document.querySelector("#senha").value;
                     const response = await fetch("/login", {
                     method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
                     body: JSON.stringify({ nickname, senha })
                 });
     
@@ -18,10 +16,10 @@ document.addEventListener('DOMContentLoaded', function () {
                         localStorage.setItem("token", data.token);
                         window.location.href = "/home";
                     } else {
-                        alert('Ops! Invalid response data.');
+                        alert('Ops! Usuário inexistente');
                     }
                 } else {
-                    alert('Authentication failed. Please check your credentials.');
+                    alert('Ops! Usuário inexistente');
                 }
         });
     }

@@ -1,7 +1,7 @@
 let id_usuario;
 const token = localStorage.getItem("token").toString();
 
-
+// Função para retornar informações do usuário através do token que o mesmo criou.
 async function varIdUsuario() {
     try {
         const response = await fetch('/perfil-token/', {

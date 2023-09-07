@@ -61,7 +61,6 @@ varIdUsuario().then(() => {
                     imageElement.addEventListener('mouseout', function() {
                         imageElement.src = '/static/images/lixo.png';
                     });
-                    
 
                     imageElement.addEventListener("click", function () {
                         let postId = postagem.id_postagem;
@@ -83,9 +82,9 @@ varIdUsuario().then(() => {
             });
     }
 
-    function updateBiografia(id_usuario) { // adicione o parâmetro id
-        let id = parseInt(id_usuario); // use o valor do parâmetro id
-        fetch('/perfil/' + id, { // use o valor do parâmetro id
+    function updateBiografia(id_usuario) {
+        let id = parseInt(id_usuario); 
+        fetch('/perfil/' + id, { 
             headers: {
                 'Authorization': token
             }
@@ -130,10 +129,6 @@ varIdUsuario().then(() => {
         });
     });
 });
-
-
-
-
 
 document.getElementById("editar").addEventListener("click", function () {
     document.getElementById("biografia").contentEditable = true;

@@ -1,7 +1,4 @@
-window.onload = function() {
-    localStorage.removeItem("id_usuario");
-};
-
+// Função que serve para registrar um usuário no banco de dados do site
 document.querySelector("#cadastrar").addEventListener("click", async () => {
     const nickname = document.querySelector("#nickname").value;
     const senha = document.querySelector("#senha").value;
@@ -21,9 +18,6 @@ document.querySelector("#cadastrar").addEventListener("click", async () => {
 
     const response = await fetch("/register", {
         method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
         body: JSON.stringify({nickname, senha, telefone, tecnologia})
     });
 
