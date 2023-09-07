@@ -7,21 +7,18 @@
     <title>TecTec</title>
     <link rel="icon" href="..\static\images\logo.png" type="image/x-icon">
     <link rel="stylesheet" href="../static/css/login.css">
-    <link rel="shortcut icon" href="../static/images/logo.png" type="image/x-icon">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Lato:wght@100&family=Nunito:wght@200&family=Open+Sans:wght@300&display=swap"
-        rel="stylesheet">
-
-
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Lato:wght@100&family=Nunito:wght@200&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
 </head>
 
 <body>
-
-    <header class="header">
+    <!-- Logo do site -->
+    <header>
         <img src="../static/images/logo.png" alt="" class="logo" id="logo">
     </header>
 
-    <div class="formulario">
+    <!-- Formulário para o login do site -->
+    <form>
+        <!-- Preenchimento do nickname para o login do site -->
         <label for="usuario" class="rotUsuario">Nickname:</label> <br />
 
         <div class="inputBox">
@@ -29,19 +26,75 @@
         </div>
 
         <br>
-
+        <!-- Preenchimento da senha para o login do site -->
         <label for="senha" class="rotSenha">Senha:</label> <br />
 
         <div class="inputBox">
             <input type="password" name="senha" id="senha" class="inputText">
         </div>
-
+        <!-- Botão de "Entrar" para o login do site -->
         <div class="btnContainer">
             <button type="button" id="entrar">Entrar</button>
         </div>
-
+        <!-- Botão de "Registrar" para o cadastro do site -->
         <div class="btnContainer">
             <button type="button" onclick="window.location.href='/register'" id="cadastro">Cadastro</button>
+        </div>
+
+    </form>
+
+    <div class="meio">
+        <p>Desenvolvedores:</p>
+    </div>
+
+    <div class="centraliza">
+
+        <div class="cartao">
+
+            <div class="meio">
+                <p>Nome: Micael Ribeiro Rocha</p>
+            </div>
+            
+            <div class="meio">
+                <p>Área: Full-Stack</p>
+            </div>
+            
+            <div class="meio">
+                <img src="../static/images/micael.jpg" height="200" width="150">
+            </div>
+            
+        </div>
+
+        <div class="cartao">
+
+            <div class="meio">
+                <p>Nome: Brena dos Santos Freitas</p>
+            </div>
+            
+            <div class="meio">
+                <p>Área: Front-End</p>
+            </div>
+            
+            <div class="meio">
+                <img src="../static/images/micael.jpg" height="200" width="150">
+            </div>
+            
+        </div>
+
+        <div class="cartao">
+
+            <div class="meio">
+                <p>Nome: João Pedro Botter Monegatto</p>
+            </div>
+
+            <div class="meio">
+                <p>Área: DBA</p>
+            </div>
+            
+            <div class="meio">
+                <img src="../static/images/micael.jpg" height="200" width="150">
+            </div>
+
         </div>
 
     </div>
