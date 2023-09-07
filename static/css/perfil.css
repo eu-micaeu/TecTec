@@ -76,6 +76,7 @@ textarea {
     display: flex;
     flex-direction: column;
     margin-top: 8vh;
+    margin-bottom: 8vh;
 }
 
 .cartao {

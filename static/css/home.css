@@ -86,7 +86,7 @@ header {
     display: flex;
     flex-direction: column;
     margin-top: 4vh;
-    
+    margin-bottom: 8vh;
 }
 
 .nameWhite {
