@@ -40,51 +40,6 @@ header {
     justify-content: center;
 }
 
-.sobrepor {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 300px;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    color: white;
-    padding: 20px;
-    transform: translateX(100%);
-    transition: transform 0.3s ease-in-out;
-}
-
-.sobrepor.active {
-    transform: translateX(0);
-}
-
-
-.btn-fechar {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
-}
-
-
-ul li.item-menu:hover {
-    background: #00891E;
-}
-ul li {
-    text-decoration: none;
-    height: 100%;
-    list-style-type: none;
-    margin-top: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-
-}
-
-ul li a {
-    text-decoration: none;
-    color: inherit;
-}
-
-
 .btn-adicionar-post {
     font-family: 'KronaOne';
     background-color: #00891E;
