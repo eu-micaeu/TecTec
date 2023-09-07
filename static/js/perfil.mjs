@@ -70,7 +70,7 @@ varIdUsuario().then(() => {
                         })
                             .then(response => response.json())
                             .then(data => {
-                                displayFeed(id);
+                                displayFeed(name);
                             });
                     });
 
@@ -95,9 +95,9 @@ varIdUsuario().then(() => {
             });
     };
 
-    function updateNome(id_usuario) { // adicione o parâmetro id
-        let id = parseInt(id_usuario); // use o valor do parâmetro id
-        fetch('/perfil/' + id, { // use o valor do parâmetro id
+    function updateNome(id_usuario) { 
+        let id = parseInt(id_usuario); 
+        fetch('/perfil/' + id, { 
             headers: {
                 'Authorization': token
             }
