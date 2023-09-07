@@ -2,8 +2,9 @@ package handlers
 
 import (
 	"database/sql"
+	"time"
+
 	"github.com/dgrijalva/jwt-go"
-    "time"
 
 	"github.com/gin-gonic/gin"
 )
@@ -74,10 +75,10 @@ func (u *Usuario) Register(db *sql.DB) gin.HandlerFunc {
 
 func (u *Usuario) Perfil(db *sql.DB) gin.HandlerFunc {
     return func(c *gin.Context) {
+        nickname := c.Param("nickname")
 
         tknStr := c.Request.Header.Get("Authorization")
-        id_usuario, err := u.ValidateToken(tknStr)
-
+        _, err := u.ValidateToken(tknStr)
         if err != nil {
             c.JSON(401, gin.H{"message": "Token inválido"})
             return
@@ -85,11 +86,9 @@ func (u *Usuario) Perfil(db *sql.DB) gin.HandlerFunc {
 
         var usuario Usuario
 
-        row := db.QueryRow("SELECT nickname, senha, telefone, tecnologia, biografia FROM usuarios WHERE id_usuario = $1", id_usuario)
+        row := db.QueryRow("SELECT id_usuario, nickname, senha, telefone, tecnologia, biografia FROM usuarios WHERE nickname = $1", nickname)
 
-        err = row.Scan(&usuario.Nickname, &usuario.Senha, &usuario.Telefone, &usuario.Tecnologia, &usuario.Biografia)
-
-        usuario.ID_Usuario = id_usuario
+        err = row.Scan(&usuario.ID_Usuario, &usuario.Nickname, &usuario.Senha, &usuario.Telefone, &usuario.Tecnologia, &usuario.Biografia)
 
         if err != nil {
             c.JSON(404, gin.H{"message": "Usuário inexistente"})
@@ -101,32 +100,36 @@ func (u *Usuario) Perfil(db *sql.DB) gin.HandlerFunc {
 }
 
 
+
+
 func (u *Usuario) AtualizarBiografia(db *sql.DB) gin.HandlerFunc {
-	return func(c *gin.Context) {
+    return func(c *gin.Context) {
 
-		tknStr := c.Request.Header.Get("Authorization")
-        id_usuario, err := u.ValidateToken(tknStr)
+        nickname := c.Param("nickname")
 
+        tknStr := c.Request.Header.Get("Authorization")
+        _, err := u.ValidateToken(tknStr)
         if err != nil {
             c.JSON(401, gin.H{"message": "Token inválido"})
             return
         }
 
-		var usuario Usuario
+        var usuario Usuario
 
-		if err := c.BindJSON(&usuario); err != nil {
-			c.JSON(400, gin.H{"message": "Erro ao atualizar biografia"})
-			return
-		}
-		
-		_, err = db.Exec("UPDATE usuarios SET biografia = $1 WHERE id_usuario = $2", usuario.Biografia, id_usuario)
-		if err != nil {
-			c.JSON(500, gin.H{"message": "Erro ao atualizar biografia"})
-			return
-		}
-		c.JSON(200, gin.H{"message": "Biografia atualizada com sucesso!"})
-	}
+        if err := c.BindJSON(&usuario); err != nil {
+            c.JSON(400, gin.H{"message": "Erro ao atualizar biografia"})
+            return
+        }
+        
+        _, err = db.Exec("UPDATE usuarios SET biografia = $1 WHERE nickname = $2", usuario.Biografia, nickname)
+        if err != nil {
+            c.JSON(500, gin.H{"message": "Erro ao atualizar biografia"})
+            return
+        }
+        c.JSON(200, gin.H{"message": "Biografia atualizada com sucesso!"})
+    }
 }
+
 
 
 

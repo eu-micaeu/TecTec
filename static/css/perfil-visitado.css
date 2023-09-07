@@ -53,6 +53,10 @@ header {
     margin-top: 1vh;
 }
 
+.perfil_container2 {
+    width: 60vw;
+}
+
 .perfil_container p {
     color: white;
 }

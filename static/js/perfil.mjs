@@ -82,9 +82,9 @@ varIdUsuario().then(() => {
             });
     }
 
-    function updateBiografia(id_usuario) {
-        let id = parseInt(id_usuario); 
-        fetch('/perfil/' + id, { 
+    function updateBiografia(nickname) {
+        let name = nickname;
+        fetch('/perfil/' + name, { 
             headers: {
                 'Authorization': token
             }
@@ -95,9 +95,9 @@ varIdUsuario().then(() => {
             });
     };
 
-    function updateNome(id_usuario) { 
-        let id = parseInt(id_usuario); 
-        fetch('/perfil/' + id, { 
+    function updateNome(nickname) { 
+        let name = nickname;
+        fetch('/perfil/' + name, { 
             headers: {
                 'Authorization': token
             }
@@ -117,9 +117,9 @@ varIdUsuario().then(() => {
 
 
     document.getElementById('biografia').addEventListener('blur', function () {
-        var userId = id_usuario;
+        let name = nickname;
         var biografia = document.getElementById('biografia').value;
-        fetch('/atualizar-biografia/' + userId, {
+        fetch('/atualizar-biografia/' + name, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
