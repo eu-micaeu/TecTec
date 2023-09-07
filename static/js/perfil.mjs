@@ -1,4 +1,4 @@
-let id_usuario;
+let nickname;
 const token = localStorage.getItem("token").toString();
 
 async function varIdUsuario() {
@@ -11,16 +11,16 @@ async function varIdUsuario() {
             body: JSON.stringify({ token: token })
         });
         const data = await response.json();
-        id_usuario = data.usuario.id_usuario;
+        nickname = data.usuario.nickname;
     } catch (error) {
         console.error(error);
     }
 }
 
 varIdUsuario().then(() => {
-    function displayFeed(id_usuario) {
-        let id = parseInt(id_usuario);
-        fetch('/postagens/' + id, {
+    function displayFeed(nickname) {
+        let name = nickname;
+        fetch('/postagens/' + name, {
             headers: {
                 'Authorization': token
             }
@@ -111,9 +111,9 @@ varIdUsuario().then(() => {
     }
 
 
-    updateNome(id_usuario);
-    updateBiografia(id_usuario);
-    displayFeed(id_usuario);
+    updateNome(nickname);
+    updateBiografia(nickname);
+    displayFeed(nickname);
 
 
     document.getElementById('biografia').addEventListener('blur', function () {
