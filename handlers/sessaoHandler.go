@@ -28,7 +28,8 @@ func (s *Sessao) Entrada(db *sql.DB) gin.HandlerFunc {
             return
         }
 
-		_, err = db.Exec("INSERT INTO sessoes (data_entrada, id_usuario) VALUES (NOW(), $1)", usuario.ID_Usuario)
+		_, err = db.Exec("INSERT INTO sessoes (data_entrada, id_usuario) VALUES (NOW() - INTERVAL '3 hours', $1)", usuario.ID_Usuario)
+
 		if err != nil {
 			c.JSON(500, gin.H{"message": "Erro ao criar sessão"})
 			return
