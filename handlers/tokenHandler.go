@@ -90,3 +90,17 @@ func (u *Postagem) ValidateToken(tokenString string) (int, error) {
     return claims.ID_Usuario, nil
 }
 
+func (u *Sessao) ValidateToken(tokenString string) (int, error) {
+    claims := &Claims{}
+
+    tkn, err := jwt.ParseWithClaims(tokenString, claims, func(token *jwt.Token) (interface{}, error) {
+        return jwtKey, nil
+    })
+
+    if err != nil || !tkn.Valid {
+        return 0, err
+    }
+
+    return claims.ID_Usuario, nil
+}
+
