@@ -10,11 +10,11 @@ import (
 
 func NewDB() (*sql.DB, error) {
 
-	dbUser := "root"
-	dbPassword := "NsPP0Cl4Xus4NjgoUvLnkTFpUtz9nN5I"
-	dbHost := "dpg-cjd7jk7db61s73cdigjg-a.oregon-postgres.render.com"
-	dbPort := "5432"
-	dbName := "tectec"
+	dbUser := "DB_USER"
+	dbPassword := "DB_PASSWORD"
+	dbHost := "DB_HOST"
+	dbPort := "DB_PORT"
+	dbName := "DB_NAME"
 
 	dsn := fmt.Sprintf("postgres://%s:%s@%s:%s/%s?sslmode=require", dbUser, dbPassword, dbHost, dbPort, dbName)
 	db, err := sql.Open("postgres", dsn)
