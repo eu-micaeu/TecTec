@@ -88,14 +88,6 @@ header {
 img.user{
     padding: 1px;
 }
-
-img.user:hover{
-    background-color: #fff;
-    border-radius: 2px;
-    padding: 1px;
-    cursor: pointer;
-}
-
 @media screen and (max-device-width: 768px) {
     #logo {
         width: 35px;
@@ -111,11 +103,6 @@ img.user:hover{
     .centraliza .navigation_header{
         position: absolute;
         position: fixed;
-    }
-
-    img.user:hover{
-        background-color: transparent;
-        padding: 0px;
     }
 
     #inputPostagem { 

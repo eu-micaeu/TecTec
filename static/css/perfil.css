@@ -141,13 +141,6 @@ img.user{
     padding: 1px;
 }
 
-img.user:hover{
-    background-color: #fff;
-    border-radius: 2px;
-    padding: 1px;
-    cursor: pointer;
-}
-
 img[src="../static/images/editar.png"]{
     cursor: pointer;
     width: 25px;
@@ -180,7 +173,7 @@ img[src="../static/images/editar.png"]{
 
     .cartao {
         width: 60vw;
-        font-size: 10px;
+        font-size: 8px;
     }
 
     #carrosel {
@@ -189,9 +182,8 @@ img[src="../static/images/editar.png"]{
         margin-top: 1vh;
     }
 
-    img.user:hover{
-        background-color: transparent;
-        padding: 0px;
+    #biografia{
+        font-size: 8px;
     }
     
 }

@@ -1,3 +1,5 @@
+localStorage.clear();
+
 document.addEventListener('DOMContentLoaded', function () {
     var entrarButton = document.getElementById('entrar');
     

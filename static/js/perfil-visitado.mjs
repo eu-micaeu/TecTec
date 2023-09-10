@@ -50,3 +50,39 @@ function displayFeed() {
 }
 
 window.addEventListener("load", displayFeed);
+
+let homeImage = document.querySelector("#casa");
+
+homeImage.addEventListener('mouseover', function() {
+    homeImage.src = '/static/images/homebranco.png';
+});
+homeImage.addEventListener('mouseout', function() {
+    homeImage.src = '/static/images/home.png';
+});
+
+let userImage = document.querySelector("#perfil");
+
+userImage.addEventListener('mouseover', function() {
+    userImage.src = '/static/images/la_userbranco.png';
+});
+userImage.addEventListener('mouseout', function() {
+    userImage.src = '/static/images/la_user.png';
+});
+
+let pesquisaImage = document.querySelector("#pesquisa");
+
+pesquisaImage.addEventListener('mouseover', function() {
+    pesquisaImage.src = '/static/images/pesquisabranco.png';
+});
+pesquisaImage.addEventListener('mouseout', function() {
+    pesquisaImage.src = '/static/images/pesquisa.png';
+});
+
+let outImage = document.querySelector("#sair");
+
+outImage.addEventListener('mouseover', function() {
+    outImage.src = '/static/images/outbranco.png';
+});
+outImage.addEventListener('mouseout', function() {
+    outImage.src = '/static/images/out.png';
+});

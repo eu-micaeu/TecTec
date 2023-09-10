@@ -1,14 +1,10 @@
 @font-face {
     font-family: 'KronaOne';
     src: url('../fonts/KronaOne-Regular.ttf');
-    font-weight: normal;
 }
 
 body {
     font-family: 'KronaOne', sans-serif;
-    margin: 0;
-    padding: 0;
-    font-size: 14px;
     display: flex;
     flex-direction: column;
 }
