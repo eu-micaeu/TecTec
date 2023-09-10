@@ -1,0 +1,41 @@
+
+#postagem-principal{
+    margin-top: 2%;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.postagem-comentarios {
+    margin-top: 5%;
+    padding: 10px;
+}
+
+.postagem-comentarios textarea {
+    width: 40vw;
+    border-radius: 10px;
+    border: 5px solid #00891E;
+    height: 15vh;
+    font-size: px;
+    background-color: #000;
+    color: white;
+    margin-top: 15vw;
+    font-family: 'KronaOne';
+
+}
+
+
+.botao{
+    background-color: #00891E;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    margin-left: 40%;
+}
+
+
+.botao:hover{
+    background-color: white;
+    color: #00891E;
+}

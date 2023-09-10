@@ -1,9 +1,18 @@
-// Coloca o token em uma variável.
 const token = localStorage.getItem("token").toString();
 
-// Função que serve para carregar o feed principal
+// Função que serve para 
+function getParameterByName(name, url = window.location.href) {
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
 function displayFeed() {
-    fetch('/feed', { 
+    let nickname = getParameterByName('nickname');
+    fetch('/postagens/' + nickname, {
         headers: {
             'Authorization': token
         }
@@ -22,29 +31,21 @@ function displayFeed() {
                 nicknameElement.classList.add("nameWhite");
                 nicknameElement.textContent = '@' + postagem.nickname;
                 postElement.appendChild(nicknameElement);
-                nicknameElement.style.cursor = "pointer";
 
-                nicknameElement.addEventListener("click", function() {
-                    window.location.href = '/perfil-visitado?nickname=' + postagem.nickname;
-                });
-                
                 let textElement = document.createElement("p");
                 textElement.textContent = postagem.texto;
                 postElement.appendChild(textElement);
 
-                let comentElement = document.createElement('img');
-                comentElement.src = '../static/images/coment.png'
-                comentElement.width = 30; 
-                comentElement.height = 30;
-
-                comentElement.addEventListener('click', function () {
-                    window.location.href = '/comentario?nickname=' + postagem.nickname ;
-                });
-                                               
-                postElement.appendChild(comentElement);
-
                 feedContainer.appendChild(postElement);
+
+                let nickname = postagem.nickname;
+                let nameElement = document.getElementById('nome');
+                nameElement.textContent = "@" + nickname;
+
+                document.getElementById('biografia').innerHTML = postagem.biografia;
             }
+
+
         });
 }
 
@@ -85,3 +86,4 @@ outImage.addEventListener('mouseover', function() {
 outImage.addEventListener('mouseout', function() {
     outImage.src = '/static/images/out.png';
 });
+

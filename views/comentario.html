@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tectec</title>
+    <link rel="icon" href="..\static\images\logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="../static/css/home.css">
+    <link rel="stylesheet" href="../static/css/comentario.css">
+
+</head>
+<body>
+
+    <div class="centraliza">
+        <header class="navigation_header">
+            <div class="centraliza">
+                <img src="../static/images/logo.png" alt="" class="img_logo" id="logo">
+            </div>
+            <div class="centraliza">
+                <div id="opcoes">
+                    <img src="../static/images/casinha.png" alt="" class="user" id="casa" onclick="window.location.href='/home'">
+                    <br>
+                    <img src="../static/images/la_user.png" alt="" class="user" id="perfil" onclick="window.location.href='/perfil'">
+                    <br>
+                    <img src="../static/images/pesquisa.png" alt="" class="user" id="pesquisa">
+                    <br>
+                    <img src="../static/images/out.png" alt="" class="user" id="sair" onclick="window.location.href='/login'">
+                </div>
+            </div>
+            
+        </header>
+    </div>
+
+    <div class="centraliza">
+        <div id="postagem-principal">
+        </div>
+    </div>
+
+    <div class="centraliza">
+        <div class="postagem-comentarios">
+            <textarea id="inputComentario" placeholder="Adicione um comentario para o post!"></textarea>
+            <br>
+            <button class="botao">COMENTAR</button>
+        </div>
+    </div>
+
+    
+    <script src="../static/js/comentario.mjs"></script>
+</body>
+</html>
