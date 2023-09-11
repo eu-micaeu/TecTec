@@ -142,3 +142,35 @@ func (p *Postagem) ApagarPostagem(db *sql.DB) gin.HandlerFunc {
 		c.JSON(200, gin.H{"message": "Apagou com sucesso!"})
 	}
 }
+
+func (u *Postagem) ComentariosDaPostagem(db *sql.DB) gin.HandlerFunc {
+	return func(c *gin.Context) {
+
+		id_postagem := c.Param("id_postagem")
+
+		rows, err := db.Query("SELECT c.* FROM postagens p JOIN comentarios c ON p.id_postagem = c.id_postagem WHERE p.id_postagem = $1 ORDER BY p.data_postagem DESC", id_postagem)
+		if err != nil {
+			c.JSON(500, gin.H{"message": "Erro ao resgatar o feed"})
+			return
+		}
+		defer rows.Close()
+
+		type ComentariosDaPostagem struct {
+			Comentario
+		}
+
+		comentarios := []ComentariosDaPostagem{}
+
+		for rows.Next() {
+			var comentario ComentariosDaPostagem
+			err := rows.Scan(&comentario.Comentario.ID_Comentario, &comentario.Comentario.Texto, &comentario.Comentario.Data_Postagem, &comentario.Comentario.ID_Postagem)
+			if err != nil {
+				c.JSON(500, gin.H{"message": "Erro ao resgatar o feed"})
+				return
+			}
+			comentarios = append(comentarios, comentario)
+		}
+
+		c.JSON(200, gin.H{"message": "Post resgatado com sucesso!", "comentários": comentarios})
+	}
+}

@@ -63,6 +63,7 @@ varIdUsuario().then(() => {
                     });
 
                     imageElement.addEventListener("click", function () {
+                        
                         let postId = postagem.id_postagem;
 
                         fetch('/excluir-postagem/' + postId, {
