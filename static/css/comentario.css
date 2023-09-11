@@ -32,10 +32,12 @@
     border: none;
     color: white;
     margin-left: 40%;
+    font-family: 'KronaOne';
 }
 
 
 .botao:hover{
     background-color: white;
     color: #00891E;
+    font-family: 'KronaOne';
 }

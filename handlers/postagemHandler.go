@@ -11,7 +11,7 @@ type Postagem struct {
 	Data_Postagem string `json:"data_postagem"`
 	Curtidas      string `json:"curtidas"`
 	ID_Usuario    int    `json:"id_usuario"`
-	Comentarios   string `json:"comentarios"`
+	Comentarios   int `json:"comentarios"`
 }
 
 func (p *Postagem) Publicar(db *sql.DB) gin.HandlerFunc {
@@ -173,4 +173,24 @@ func (u *Postagem) ComentariosDaPostagem(db *sql.DB) gin.HandlerFunc {
 
 		c.JSON(200, gin.H{"message": "Post resgatado com sucesso!", "comentários": comentarios})
 	}
+}
+
+func (u *Postagem) GetPostagemById(db *sql.DB) gin.HandlerFunc {
+    return func(c *gin.Context) {
+
+        id_postagem := c.Param("id_postagem")
+
+        var postagem Postagem
+
+        row := db.QueryRow("SELECT * FROM postagens WHERE id_postagem = $1", id_postagem)
+
+        err := row.Scan(&postagem.ID_Postagem, &postagem.Texto, &postagem.Data_Postagem, &postagem.Curtidas, &postagem.ID_Usuario, &postagem.Comentarios)
+
+        if err != nil {
+            c.JSON(404, gin.H{"message": "Postagem inexistente"})
+            return
+        }
+
+        c.JSON(200, gin.H{"postagem": postagem})
+    }
 }

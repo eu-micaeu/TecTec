@@ -1,55 +1,33 @@
-const token = localStorage.getItem("token").toString();
+// Função que serve para resgatar o posId da URL
+function getParameterByName(name, url = window.location.href) {
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
 
-// Resgatar o valor do cookie
-let cookies = document.cookie.split('; ');
-for (let i = 0; i < cookies.length; i++) {
-    let cookie = cookies[i];
-    let [name, value] = cookie.split('=');
-    if (name === 'postId') {
-        console.log('O ID da postagem é: ' + value);
+let postId = getParameterByName('postId');
+
+// Função que serve para comentar
+document.querySelector("#botaoComentario").addEventListener("click", async () => {
+
+    const texto = document.querySelector("#inputComentario").value;
+
+    const response = await fetch("/comentar/" + postId, {
+        method: "POST",
+        body: JSON.stringify({texto})
+    });
+
+    const data = await response.json();
+
+    if (data.message === "Comentário criada com sucesso!") {
+            alert("Comentário feito!");
+    } else {
+        alert("Erro ao criar o comentário!");
     }
-}
-
-function displayPostagem() {
-    fetch("/postagem/" + postId, {
-        headers: {
-            'Authorization': token
-        }
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log(data);
-        let postagens = data.postagens;
-        let postagemContainer = document.querySelector("#postagem-principal");
-        postagemContainer.innerHTML = "";
-        for (let i = 0; i < postagens.length; i++) {
-            let postagem = postagens[i];
-            postId = postagem.id_postagem;
-        }
-    });
-}
-
-function loadComentarios() {
-    fetch("/comentar/" + postId, {
-        method: 'GET'
-    })
-    .then(response => response.json())
-    .then(data => {
-        displayPostagem();
-    });
-}
-
-displayPostagem();
-
-
-
-
-loadComentarios
-
-
-
-
-
+});
 
 
 
