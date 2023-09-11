@@ -10,6 +10,80 @@ function getParameterByName(name, url = window.location.href) {
 
 let postId = getParameterByName('postId');
 
+
+let nickname;
+const token = localStorage.getItem("token").toString();
+
+async function varIdUsuario() {
+    try {
+        const response = await fetch('/perfil-token/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ token: token })
+        });
+        const data = await response.json();
+        nickname = data.usuario.nickname;
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+varIdUsuario().then(() => {
+
+    // Função que mostra/retorna a publicação
+    function showPost(postId){
+
+        let name = nickname;
+        fetch('/postagens/' + name, {
+            headers: {
+                'Authorization': token
+            }
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+
+                let postagens = data.postagens;
+
+                let postagemContainer = document.querySelector("#postagem-principal");
+                postagemContainer.innerHTML = "";
+
+                for (let i = 0; i < postagens.length; i++) {
+                    let postagem = postagens[i];
+                    let postElement = document.createElement("div");
+                    postElement.classList.add("cartao");
+
+                    let nicknameElement = document.createElement("span");
+                    nicknameElement.classList.add("nameWhite");
+                    nicknameElement.textContent = '@' + postagem.nickname;
+                    postElement.appendChild(nicknameElement);
+
+                    let textElement = document.createElement("p");
+                    textElement.textContent = postagem.texto;
+                    postElement.appendChild(textElement);
+
+                    let imageContainer = document.createElement("div");
+                    imageContainer.classList.add("image-container");
+
+
+                    postagemContainer.appendChild(postElement);
+
+                }
+            });
+
+    }
+
+    showPost(postId);
+
+
+});
+
+
+
+
+
 // Função que serve para comentar
 document.querySelector("#botaoComentario").addEventListener("click", async () => {
 
