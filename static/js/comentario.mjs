@@ -33,10 +33,10 @@ async function varIdUsuario() {
 varIdUsuario().then(() => {
 
     // Função que mostra/retorna a publicação
-    function showPost(postId){
+    function showPost(postId) {
 
         let name = nickname;
-        fetch('/postagens/' + name, {
+        fetch('/postagem/' + postId, {
             headers: {
                 'Authorization': token
             }
@@ -45,44 +45,35 @@ varIdUsuario().then(() => {
             .then(data => {
                 console.log(data)
 
-                let postagens = data.postagens;
+                let postagem = data.postagem;
 
                 let postagemContainer = document.querySelector("#postagem-principal");
                 postagemContainer.innerHTML = "";
 
-                for (let i = 0; i < postagens.length; i++) {
-                    let postagem = postagens[i];
-                    let postElement = document.createElement("div");
-                    postElement.classList.add("cartao");
 
-                    let nicknameElement = document.createElement("span");
-                    nicknameElement.classList.add("nameWhite");
-                    nicknameElement.textContent = '@' + postagem.nickname;
-                    postElement.appendChild(nicknameElement);
+                let postElement = document.createElement("div");
+                postElement.classList.add("cartao");
 
-                    let textElement = document.createElement("p");
-                    textElement.textContent = postagem.texto;
-                    postElement.appendChild(textElement);
+                let nicknameElement = document.createElement("span");
+                nicknameElement.classList.add("nameWhite");
+                nicknameElement.textContent = '@' + data.postagem.nickname;
+                postElement.appendChild(nicknameElement);
 
-                    let imageContainer = document.createElement("div");
-                    imageContainer.classList.add("image-container");
+                let textElement = document.createElement("p");
+                textElement.textContent = postagem.texto;
+                postElement.appendChild(textElement);
+
+                let imageContainer = document.createElement("div");
+                imageContainer.classList.add("image-container");
 
 
-                    postagemContainer.appendChild(postElement);
+                postagemContainer.appendChild(postElement);
 
-                }
-            });
-
+            })
     }
 
-    showPost(postId);
-
-
+    showPost(postId)
 });
-
-
-
-
 
 // Função que serve para comentar
 document.querySelector("#botaoComentario").addEventListener("click", async () => {
@@ -91,13 +82,13 @@ document.querySelector("#botaoComentario").addEventListener("click", async () =>
 
     const response = await fetch("/comentar/" + postId, {
         method: "POST",
-        body: JSON.stringify({texto})
+        body: JSON.stringify({ texto })
     });
 
     const data = await response.json();
 
     if (data.message === "Comentário criada com sucesso!") {
-            alert("Comentário feito!");
+        alert("Comentário feito!");
     } else {
         alert("Erro ao criar o comentário!");
     }
@@ -108,36 +99,36 @@ document.querySelector("#botaoComentario").addEventListener("click", async () =>
 
 let homeImage = document.querySelector("#casa");
 
-homeImage.addEventListener('mouseover', function() {
+homeImage.addEventListener('mouseover', function () {
     homeImage.src = '/static/images/homebranco.png';
 });
-homeImage.addEventListener('mouseout', function() {
+homeImage.addEventListener('mouseout', function () {
     homeImage.src = '/static/images/home.png';
 });
 
 let userImage = document.querySelector("#perfil");
 
-userImage.addEventListener('mouseover', function() {
+userImage.addEventListener('mouseover', function () {
     userImage.src = '/static/images/la_userbranco.png';
 });
-userImage.addEventListener('mouseout', function() {
+userImage.addEventListener('mouseout', function () {
     userImage.src = '/static/images/la_user.png';
 });
 
 let pesquisaImage = document.querySelector("#pesquisa");
 
-pesquisaImage.addEventListener('mouseover', function() {
+pesquisaImage.addEventListener('mouseover', function () {
     pesquisaImage.src = '/static/images/pesquisabranco.png';
 });
-pesquisaImage.addEventListener('mouseout', function() {
+pesquisaImage.addEventListener('mouseout', function () {
     pesquisaImage.src = '/static/images/pesquisa.png';
 });
 
 let outImage = document.querySelector("#sair");
 
-outImage.addEventListener('mouseover', function() {
+outImage.addEventListener('mouseover', function () {
     outImage.src = '/static/images/outbranco.png';
 });
-outImage.addEventListener('mouseout', function() {
+outImage.addEventListener('mouseout', function () {
     outImage.src = '/static/images/out.png';
 });

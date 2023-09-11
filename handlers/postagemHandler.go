@@ -180,11 +180,18 @@ func (u *Postagem) GetPostagemById(db *sql.DB) gin.HandlerFunc {
 
         id_postagem := c.Param("id_postagem")
 
-        var postagem Postagem
 
-        row := db.QueryRow("SELECT * FROM postagens WHERE id_postagem = $1", id_postagem)
+		type PostagemComNickname struct {
+			Postagem
+			Nickname string `json:"nickname"`
+		}
 
-        err := row.Scan(&postagem.ID_Postagem, &postagem.Texto, &postagem.Data_Postagem, &postagem.Curtidas, &postagem.ID_Usuario, &postagem.Comentarios)
+        var postagem PostagemComNickname
+
+
+        row := db.QueryRow("SELECT p.*, u.nickname FROM postagens p, usuarios u WHERE id_postagem = $1 AND u.id_usuario = p.id_usuario", id_postagem)
+
+        err := row.Scan(&postagem.ID_Postagem, &postagem.Texto, &postagem.Data_Postagem, &postagem.Curtidas, &postagem.ID_Usuario, &postagem.Comentarios, &postagem.Nickname)
 
         if err != nil {
             c.JSON(404, gin.H{"message": "Postagem inexistente"})
