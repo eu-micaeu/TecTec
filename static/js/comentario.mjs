@@ -1,55 +1,68 @@
+let postId;
 const token = localStorage.getItem("token").toString();
 
-// Função que serve para 
-function getParameterByName(name, url = window.location.href) {
-    name = name.replace(/[\[\]]/g, '\\$&');
-    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
-        results = regex.exec(url);
-    if (!results) return null;
-    if (!results[2]) return '';
-    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+async function varIdPostagem() {
+    try {
+        const response = await fetch('/perfil-token/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ token: token, requestType: 'id_postagem' })
+        });
+
+        const data = await response.json();
+
+        postId = data.postagens.id_postagem;
+    } catch (error) {
+        console.error(error);
+    }
 }
 
-function displayFeed() {
-    let nickname = getParameterByName('nickname');
-    fetch('/postagens/' + nickname, {
-        headers: {
-            'Authorization': token
-        }
-    })
+varIdPostagem().then(() => {
+
+    function displayComent(id_postagem) {
+
+        fetch("/postagem/:id_postagem" + postId, {
+            headers: {
+                'Authorization': token
+            }
+        })
         .then(response => response.json())
         .then(data => {
-            let postagens = data.postagens;
-            let feedContainer = document.querySelector("#carrosel");
-            feedContainer.innerHTML = "";
-            for (let i = 0; i < postagens.length; i++) {
-                let postagem = postagens[i];
-                let postElement = document.createElement("div");
-                postElement.classList.add("cartao");
+            console.log(data); 
+            let postagem = data.postagens;
+            let postagemContainer = document.querySelector("#postagem-principal");
+            postagemContainer.innerHTML = "";
 
-                let nicknameElement = document.createElement("span");
-                nicknameElement.classList.add("nameWhite");
-                nicknameElement.textContent = '@' + postagem.nickname;
-                postElement.appendChild(nicknameElement);
+            let postElement = document.createElement("div");
+            postElement.classList.add("cartao");
 
-                let textElement = document.createElement("p");
-                textElement.textContent = postagem.texto;
-                postElement.appendChild(textElement);
+            let nicknameElement = document.createElement("span");
+            nicknameElement.classList.add("nameWhite");
+            nicknameElement.textContent = '@' + postagem.nickname;
+            postElement.appendChild(nicknameElement);
 
-                feedContainer.appendChild(postElement);
+            let textElement = document.createElement("p");
+            textElement.textContent = postagem.texto;
+            postElement.appendChild(textElement);
 
-                let nickname = postagem.nickname;
-                let nameElement = document.getElementById('nome');
-                nameElement.textContent = "@" + nickname;
-
-                document.getElementById('biografia').innerHTML = postagem.biografia;
-            }
+            postagemContainer.appendChild(postElement);
 
 
-        });
-}
+        })
+        
+    }
 
-window.addEventListener("load", displayFeed);
+    displayComent(postId);
+
+
+});
+
+
+
+
+
 
 let homeImage = document.querySelector("#casa");
 
@@ -86,4 +99,3 @@ outImage.addEventListener('mouseover', function() {
 outImage.addEventListener('mouseout', function() {
     outImage.src = '/static/images/out.png';
 });
-

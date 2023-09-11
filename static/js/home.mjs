@@ -32,16 +32,25 @@ function displayFeed() {
                 textElement.textContent = postagem.texto;
                 postElement.appendChild(textElement);
 
-                let comentElement = document.createElement('img');
-                comentElement.src = '../static/images/coment.png'
-                comentElement.width = 30; 
-                comentElement.height = 30;
+                let imageElement = document.createElement('img');
 
-                comentElement.addEventListener('click', function () {
-                    window.location.href = '/comentario?nickname=' + postagem.nickname ;
+                imageElement.src = '../static/images/coment.png'
+                imageElement.width = 30; 
+                imageElement.height = 30;
+
+                imageElement.addEventListener('mouseover', function() {
+                    imageElement.src = '/static/images/lixobranco.png';
+                });
+                imageElement.addEventListener('mouseout', function() {
+                    imageElement.src = '/static/images/coment.png';
+                });
+
+                imageElement.addEventListener('click', function () {
+                    let postId = postagem.id_postagem;
+                    window.location.href = '/comentario?postId=' + postagem.id_postagem ;
                 });
                                                
-                postElement.appendChild(comentElement);
+                postElement.appendChild(imageElement);
 
                 feedContainer.appendChild(postElement);
             }
