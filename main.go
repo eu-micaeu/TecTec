@@ -53,6 +53,10 @@ func main() {
 		c.HTML(http.StatusOK, "perfil-visitado.html", nil)
 	})
 
+	r.GET("/comentario", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "comentario.html", nil)
+	})
+
 	r.Static("/static", "./static")
 
 	r.Run()

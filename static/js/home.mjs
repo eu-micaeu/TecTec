@@ -39,17 +39,18 @@ function displayFeed() {
                 imageElement.height = 30;
 
                 imageElement.addEventListener('mouseover', function() {
-                    imageElement.src = '/static/images/lixobranco.png';
+                    imageElement.src = '/static/images/comentario-branco.png';
                 });
                 imageElement.addEventListener('mouseout', function() {
                     imageElement.src = '/static/images/coment.png';
-                });
+                });                
 
                 imageElement.addEventListener('click', function () {
                     let postId = postagem.id_postagem;
-                    window.location.href = '/comentario?postId=' + postagem.id_postagem ;
+                    document.cookie = "postId=" + postId;
+                    window.location.href = 'comentario?postId=' + postId;
                 });
-                                               
+                                                
                 postElement.appendChild(imageElement);
 
                 feedContainer.appendChild(postElement);

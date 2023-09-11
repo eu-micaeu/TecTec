@@ -85,7 +85,7 @@ varIdUsuario().then(() => {
 
     function updateBiografia(nickname) {
         let name = nickname;
-        fetch('/perfil/' + name, { 
+        fetch('/perfil/' + name, {
             headers: {
                 'Authorization': token
             }

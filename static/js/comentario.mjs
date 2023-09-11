@@ -1,63 +1,53 @@
-let postId;
 const token = localStorage.getItem("token").toString();
 
-async function varIdPostagem() {
-    try {
-        const response = await fetch('/perfil-token/', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ token: token, requestType: 'id_postagem' })
-        });
-
-        const data = await response.json();
-
-        postId = data.postagens.id_postagem;
-    } catch (error) {
-        console.error(error);
+// Resgatar o valor do cookie
+let cookies = document.cookie.split('; ');
+for (let i = 0; i < cookies.length; i++) {
+    let cookie = cookies[i];
+    let [name, value] = cookie.split('=');
+    if (name === 'postId') {
+        console.log('O ID da postagem é: ' + value);
     }
 }
 
-varIdPostagem().then(() => {
+function displayPostagem() {
+    fetch("/postagem/" + postId, {
+        headers: {
+            'Authorization': token
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+        let postagens = data.postagens;
+        let postagemContainer = document.querySelector("#postagem-principal");
+        postagemContainer.innerHTML = "";
+        for (let i = 0; i < postagens.length; i++) {
+            let postagem = postagens[i];
+            postId = postagem.id_postagem;
+        }
+    });
+}
 
-    function displayComent(id_postagem) {
+function loadComentarios() {
+    fetch("/comentar/" + postId, {
+        method: 'GET'
+    })
+    .then(response => response.json())
+    .then(data => {
+        displayPostagem();
+    });
+}
 
-        fetch("/postagem/:id_postagem" + postId, {
-            headers: {
-                'Authorization': token
-            }
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log(data); 
-            let postagem = data.postagens;
-            let postagemContainer = document.querySelector("#postagem-principal");
-            postagemContainer.innerHTML = "";
-
-            let postElement = document.createElement("div");
-            postElement.classList.add("cartao");
-
-            let nicknameElement = document.createElement("span");
-            nicknameElement.classList.add("nameWhite");
-            nicknameElement.textContent = '@' + postagem.nickname;
-            postElement.appendChild(nicknameElement);
-
-            let textElement = document.createElement("p");
-            textElement.textContent = postagem.texto;
-            postElement.appendChild(textElement);
-
-            postagemContainer.appendChild(postElement);
-
-
-        })
-        
-    }
-
-    displayComent(postId);
+displayPostagem();
 
 
-});
+
+
+loadComentarios
+
+
+
 
 
 
