@@ -34,7 +34,7 @@ function displayFeed() {
 
                 let imageElement = document.createElement('img');
 
-                imageElement.src = '../static/images/coment.png'
+                imageElement.src = '../static/images/comentario.png'
                 imageElement.width = 30; 
                 imageElement.height = 30;
 
@@ -42,7 +42,7 @@ function displayFeed() {
                     imageElement.src = '/static/images/comentario-branco.png';
                 });
                 imageElement.addEventListener('mouseout', function() {
-                    imageElement.src = '/static/images/coment.png';
+                    imageElement.src = '/static/images/comentario.png';
                 });                
 
                 imageElement.addEventListener('click', function () {

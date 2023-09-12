@@ -49,38 +49,29 @@ header {
     margin-top: 25vh;
 }
 
-.perfil_container {
+.perfil-usuario {
     margin-top: 1vh;
 }
 
-.perfil_container2 {
+.perfil-biografia {
     width: 60vw;
 }
 
-.perfil_container p {
+
+.perfil_usuario p {
     color: white;
 }
 
-.perfil_container img {
+.perfil-usuario img {
     margin-left: 5vh;
 }
 
-.perfil_opcoes {
-    margin-top: 5vh;
-    display: flex;
-    justify-content: space-between;
-    font-size: 10px;
-}
 
 textarea {
     resize: none;
     height: 10vh;
 }
 
-.perfil_container3 {
-    margin-top: 5vh;
-    margin-left: 50px;
-}
 
 h3 {
     display: flex;
