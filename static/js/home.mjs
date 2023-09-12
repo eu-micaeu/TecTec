@@ -47,7 +47,6 @@ function displayFeed() {
 
                 imageElement.addEventListener('click', function () {
                     let postId = postagem.id_postagem;
-                    document.cookie = "postId=" + postId;
                     window.location.href = 'comentario?postId=' + postId;
                 });
                                                 

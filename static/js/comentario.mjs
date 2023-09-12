@@ -10,12 +10,13 @@ function getParameterByName(name, url = window.location.href) {
 
 let postId = getParameterByName('postId');
 
+let id_usuario;
 
-let nickname;
 const token = localStorage.getItem("token").toString();
 
 async function varIdUsuario() {
     try {
+        let nickname;
         const response = await fetch('/perfil-token/', {
             method: 'POST',
             headers: {
@@ -25,77 +26,99 @@ async function varIdUsuario() {
         });
         const data = await response.json();
         nickname = data.usuario.nickname;
+        id_usuario = data.usuario.id_usuario;
+        document.querySelector("#botaoComentario").addEventListener("click", async () => {
+
+            const texto = document.querySelector("#inputComentario").value;
+
+            const response = await fetch("/comentar/" + postId, {
+                method: "POST",
+                body: JSON.stringify({ texto, id_usuario })
+            });
+
+            const data = await response.json();
+
+            if (data.message === "Comentário criada com sucesso!") {
+                alert("Comentário feito!");
+                showComments(postId);
+            } else {
+                alert("Erro ao criar o comentário!");
+            }
+        });
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+async function showPost(postId) {
+    try {
+        const response = await fetch('/postagem/' + postId, {
+            headers: {
+                'Authorization': token
+            }
+        });
+
+        const data = await response.json();
+        console.log(data);
+
+        let postagem = data.postagem;
+
+        let postagemContainer = document.querySelector("#postagem-principal");
+        postagemContainer.innerHTML = "";
+
+        let postElement = document.createElement("div");
+        postElement.classList.add("cartao");
+
+        let nicknameElement = document.createElement("span");
+        nicknameElement.classList.add("nameWhite");
+        nicknameElement.textContent = '@' + postagem.nickname;
+        postElement.appendChild(nicknameElement);
+
+        let textElement = document.createElement("p");
+        textElement.textContent = postagem.texto;
+        postElement.appendChild(textElement);
+
+        postagemContainer.appendChild(postElement);
+
+        // Chame uma função separada para buscar e exibir os comentários
+        showComments(postId);
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+async function showComments(postId) {
+    try {
+        const response = await fetch('/comentarios/' + postId);
+        const data = await response.json();
+
+        let comentarios = data.comentarios;
+
+        let comentariosContainer = document.querySelector("#postagem-principal");
+
+        comentarios.forEach(comentario => {
+            let comentarioElement = document.createElement("div");
+            comentarioElement.classList.add("cartaoComen");
+
+            let nicknameElement = document.createElement("span");
+            nicknameElement.classList.add("nameGreen");
+            nicknameElement.textContent = '@' + comentario.nickname;
+            comentarioElement.appendChild(nicknameElement);
+
+            let textElement = document.createElement("p");
+            textElement.textContent = comentario.texto;
+            comentarioElement.appendChild(textElement);
+
+            comentariosContainer.appendChild(comentarioElement);
+        });
     } catch (error) {
         console.error(error);
     }
 }
 
 varIdUsuario().then(() => {
-
-    // Função que mostra/retorna a publicação
-    function showPost(postId) {
-
-        let name = nickname;
-        fetch('/postagem/' + postId, {
-            headers: {
-                'Authorization': token
-            }
-        })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-
-                let postagem = data.postagem;
-
-                let postagemContainer = document.querySelector("#postagem-principal");
-                postagemContainer.innerHTML = "";
-
-
-                let postElement = document.createElement("div");
-                postElement.classList.add("cartao");
-
-                let nicknameElement = document.createElement("span");
-                nicknameElement.classList.add("nameWhite");
-                nicknameElement.textContent = '@' + data.postagem.nickname;
-                postElement.appendChild(nicknameElement);
-
-                let textElement = document.createElement("p");
-                textElement.textContent = postagem.texto;
-                postElement.appendChild(textElement);
-
-                let imageContainer = document.createElement("div");
-                imageContainer.classList.add("image-container");
-
-
-                postagemContainer.appendChild(postElement);
-
-            })
-    }
-
-    showPost(postId)
+    showPost(postId);
 });
-
-// Função que serve para comentar
-document.querySelector("#botaoComentario").addEventListener("click", async () => {
-
-    const texto = document.querySelector("#inputComentario").value;
-
-    const response = await fetch("/comentar/" + postId, {
-        method: "POST",
-        body: JSON.stringify({ texto })
-    });
-
-    const data = await response.json();
-
-    if (data.message === "Comentário criada com sucesso!") {
-        alert("Comentário feito!");
-    } else {
-        alert("Erro ao criar o comentário!");
-    }
-});
-
-
-
 
 let homeImage = document.querySelector("#casa");
 

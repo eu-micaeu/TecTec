@@ -67,7 +67,10 @@ varIdUsuario().then(() => {
                         let postId = postagem.id_postagem;
 
                         fetch('/excluir-postagem/' + postId, {
-                            method: 'DELETE'
+                            method: 'DELETE',
+                            headers: {
+                                'Authorization': token
+                            }
                         })
                             .then(response => response.json())
                             .then(data => {
