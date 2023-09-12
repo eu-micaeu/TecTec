@@ -80,7 +80,7 @@ varIdUsuario().then(() => {
 
                     let image2Element = document.createElement('img');
 
-                    image2Element.src = '../static/images/coment.png'
+                    image2Element.src = '../static/images/comentario.png'
                     image2Element.width = 25; 
                     image2Element.height = 25;
 
