@@ -40,20 +40,20 @@ header {
     margin-top: 25vh;
 }
 
-.perfil_container {
+.perfil-usuario {
     margin-top: 1vh;
 }
 
-.perfil_container2 {
+.perfil-biografia {
     width: 60vw;
 }
 
 
-.perfil_container p {
+.perfil_usuario p {
     color: white;
 }
 
-.perfil_container img {
+.perfil-usuario img {
     margin-left: 5vh;
 }
 
@@ -62,10 +62,7 @@ textarea {
     height: 10vh;
 }
 
-.perfil_container3 {
-    margin-top: 5vh;
-    margin-left: 50px;
-}
+
 
 #nome {
     color: #00891E;
@@ -111,12 +108,20 @@ textarea {
     width: 100%;
 }
 
-.centraliza {
+.centraliza{
     display: flex;
     justify-content: center;
+    margin: auto;
 }
 
-.button_add_post {
+.principal{
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center;
+}
+
+.botao-adicionar-postagem {
     font-family: 'KronaOne';
     background-color: #00891E;
     color: white;
@@ -129,9 +134,10 @@ textarea {
     width: 50px;
     height: 50px;
     font-size: 30px;
-}
+} 
 
-.button_add_post:hover {
+
+.botao-adicionar-postagem:hover {
     font-family: 'KronaOne';
     background-color: #fff;
     color: #00891E;

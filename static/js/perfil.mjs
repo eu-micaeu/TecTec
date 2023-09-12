@@ -85,10 +85,10 @@ varIdUsuario().then(() => {
                     image2Element.height = 25;
 
                     image2Element.addEventListener('mouseover', function() {
-                        image2Element.src = '/static/images/comentario-branco.png';
+                        image2Element.src = '/static/images/comentariobranco.png';
                     });
                     image2Element.addEventListener('mouseout', function() {
-                        image2Element.src = '/static/images/coment.png';
+                        image2Element.src = '/static/images/comentario.png';
                     });                
 
                     image2Element.addEventListener('click', function () {
