@@ -119,7 +119,7 @@ img.user{
 
     .navigation_header img {
         width: 3vw;
-        height: 1.5vh;
+        height: 2vh;
     }
 
     .principal .navigation_header{
@@ -143,11 +143,6 @@ img.user{
         display: flex;
         flex-direction: column;
         margin-top: 1vh;
-    }
-
-    #casa{
-        width: 30px;
-        height: 40px;
     }
 
 }
