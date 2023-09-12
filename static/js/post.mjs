@@ -47,7 +47,7 @@ varIdUsuario().then(() => {
     }
 
     document.getElementById('publicar').addEventListener('click', function () {
-        var texto = document.getElementById('inputPostagem').value;
+        var texto = document.getElementById('inserirPostagem').value;
         fetch('/publicar/' + id_usuario, {
             method: 'POST',
             headers: {
