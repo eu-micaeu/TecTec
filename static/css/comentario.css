@@ -11,14 +11,14 @@
 }
 
 .postagem-comentario textarea {
-    width: 40vw;
+    width: 43vw;
     border-radius: 10px;
-    border: 5px solid #00891E;
+    border: 3px solid #00891E;
     height: 15vh;
     font-size: px;
     background-color: #000;
     color: white;
-    margin-top: 15vw;
+    margin-top: 30px;
     font-family: 'KronaOne';
 
 }
