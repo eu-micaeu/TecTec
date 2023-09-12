@@ -39,7 +39,7 @@ function displayFeed() {
                 imageElement.height = 30;
 
                 imageElement.addEventListener('mouseover', function() {
-                    imageElement.src = '/static/images/comentario-branco.png';
+                    imageElement.src = '/static/images/comentariobranco.png';
                 });
                 imageElement.addEventListener('mouseout', function() {
                     imageElement.src = '/static/images/comentario.png';
