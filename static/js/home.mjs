@@ -32,25 +32,35 @@ function displayFeed() {
                 textElement.textContent = postagem.texto;
                 postElement.appendChild(textElement);
 
-                let imageElement = document.createElement('img');
+                let divEmbaixo = document.createElement("div");
+                divEmbaixo.classList.add("centraliza");
 
-                imageElement.src = '../static/images/comentario.png'
-                imageElement.width = 30; 
-                imageElement.height = 30;
+                let comentarioImagem = document.createElement('img');
 
-                imageElement.addEventListener('mouseover', function() {
-                    imageElement.src = '/static/images/comentariobranco.png';
+                comentarioImagem.src = '../static/images/comentario.png'
+                comentarioImagem.width = 30; 
+                comentarioImagem.height = 30;
+
+                comentarioImagem.addEventListener('mouseover', function() {
+                    comentarioImagem.src = '/static/images/comentariobranco.png';
                 });
-                imageElement.addEventListener('mouseout', function() {
-                    imageElement.src = '/static/images/comentario.png';
+                comentarioImagem.addEventListener('mouseout', function() {
+                    comentarioImagem.src = '/static/images/comentario.png';
                 });                
 
-                imageElement.addEventListener('click', function () {
+                comentarioImagem.addEventListener('click', function () {
                     let postId = postagem.id_postagem;
                     window.location.href = 'comentario?postId=' + postId;
                 });
+
+                divEmbaixo.appendChild(comentarioImagem);
+
+                let comentarioQuantidade = document.createElement('p');
+                comentarioQuantidade.textContent = postagem.comentarios;
                                                 
-                postElement.appendChild(imageElement);
+                divEmbaixo.appendChild(comentarioQuantidade);
+
+                postElement.appendChild(divEmbaixo);
 
                 feedContainer.appendChild(postElement);
             }

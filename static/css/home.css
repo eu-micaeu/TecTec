@@ -79,7 +79,6 @@ header {
 .centraliza{
     display: flex;
     justify-content: center;
-    margin: auto;
 }
 
 .principal{
