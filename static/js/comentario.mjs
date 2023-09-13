@@ -40,7 +40,7 @@ async function varIdUsuario() {
 
             if (data.message === "Comentário criada com sucesso!") {
                 alert("Comentário feito!");
-                showComments(postId);
+                window.location.reload(true);
             } else {
                 alert("Erro ao criar o comentário!");
             }

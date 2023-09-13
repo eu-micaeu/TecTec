@@ -42,6 +42,34 @@ function displayFeed() {
                 let nameElement = document.getElementById('nome');
                 nameElement.textContent = "@" + nickname;
 
+                let imageContainer = document.createElement("div");
+                imageContainer.classList.add("image-container");
+
+                let image2Element = document.createElement('img');
+
+                image2Element.src = '../static/images/comentario.png'
+                image2Element.width = 25; 
+                image2Element.height = 25;
+                imageElement.style.cursor = "pointer";
+
+
+                image2Element.addEventListener('mouseover', function() {
+                    image2Element.src = '/static/images/comentariobranco.png';
+                });
+                image2Element.addEventListener('mouseout', function() {
+                    image2Element.src = '/static/images/comentario.png';
+                });                
+
+                image2Element.addEventListener('click', function () {
+                    let postId = postagem.id_postagem;
+                    document.cookie = "postId=" + postId;
+                    window.location.href = 'comentario?postId=' + postId;
+                });
+
+                imageContainer.appendChild(image2Element);
+                postElement.appendChild(imageContainer);
+
+
                 document.getElementById('biografia').innerHTML = postagem.biografia;
             }
 

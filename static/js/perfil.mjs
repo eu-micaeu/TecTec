@@ -81,7 +81,7 @@ varIdUsuario().then(() => {
                     let image2Element = document.createElement('img');
 
                     image2Element.src = '../static/images/comentario.png'
-                    image2Element.width = 25;
+                    image2Element.width = 25; 
                     image2Element.height = 25;
 
                     image2Element.addEventListener('mouseover', function () {
