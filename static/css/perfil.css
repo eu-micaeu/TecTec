@@ -62,9 +62,7 @@ textarea {
     height: 10vh;
 }
 
-
-
-#nome {
+#nome, #tecnologia {
     color: #00891E;
     text-align: left;
 }

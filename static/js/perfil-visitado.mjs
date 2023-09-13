@@ -50,8 +50,6 @@ function displayFeed() {
                 image2Element.src = '../static/images/comentario.png'
                 image2Element.width = 25; 
                 image2Element.height = 25;
-                imageElement.style.cursor = "pointer";
-
 
                 image2Element.addEventListener('mouseover', function() {
                     image2Element.src = '/static/images/comentariobranco.png';
@@ -69,8 +67,11 @@ function displayFeed() {
                 imageContainer.appendChild(image2Element);
                 postElement.appendChild(imageContainer);
 
-
                 document.getElementById('biografia').innerHTML = postagem.biografia;
+
+                let tecnologia = postagem.tecnologia;
+                let tecnologiaElement = document.getElementById('tecnologia');
+                tecnologiaElement.textContent = "Tecnologia: " + tecnologia;
             }
 
 

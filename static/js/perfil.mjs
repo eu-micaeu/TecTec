@@ -141,9 +141,25 @@ varIdUsuario().then(() => {
             });
     }
 
+    function updateTecnologia(nickname) {
+        let name = nickname;
+        fetch('/perfil/' + name, {
+            headers: {
+                'Authorization': token
+            }
+        })
+            .then(response => response.json())
+            .then(data => {
+                let tecnologia = data.usuario.tecnologia;
+                let nameElement = document.getElementById('tecnologia');
+                nameElement.textContent = "Tecnologia: " + tecnologia;
+            });
+    }
+
 
     updateNome(nickname);
     updateBiografia(nickname);
+    updateTecnologia(nickname);
     displayFeed(nickname);
 
 

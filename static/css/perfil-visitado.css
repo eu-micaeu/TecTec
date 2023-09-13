@@ -84,7 +84,7 @@ h3 p {
     margin: 5px;
 }
 
-#nome {
+#nome, #tecnologia {
     color: #00891E;
     text-align: left;
 }

@@ -100,7 +100,7 @@ func (u *Postagem) PostagensUsuario(db *sql.DB) gin.HandlerFunc {
 
 		nickname := c.Param("nickname")
 
-		rows, err := db.Query("SELECT p.*, u.nickname, u.biografia FROM postagens p JOIN usuarios u ON p.id_usuario = u.id_usuario WHERE u.nickname = $1 ORDER BY p.data_postagem DESC", nickname)
+		rows, err := db.Query("SELECT p.*, u.nickname, u.biografia, u.tecnologia FROM postagens p JOIN usuarios u ON p.id_usuario = u.id_usuario WHERE u.nickname = $1 ORDER BY p.data_postagem DESC", nickname)
 		if err != nil {
 			c.JSON(500, gin.H{"message": "Erro ao resgatar o feed"})
 			return
@@ -111,13 +111,14 @@ func (u *Postagem) PostagensUsuario(db *sql.DB) gin.HandlerFunc {
 			Postagem
 			Nickname string `json:"nickname"`
 			Biografia string `json:"biografia"`
+			Tecnologia string `json:"tecnologia"`
 		}
 
 		postagens := []PostagemComNickname{}
 
 		for rows.Next() {
 			var postagem PostagemComNickname
-			err := rows.Scan(&postagem.ID_Postagem, &postagem.Texto, &postagem.Data_Postagem, &postagem.Curtidas, &postagem.ID_Usuario, &postagem.Comentarios, &postagem.Nickname, &postagem.Biografia)
+			err := rows.Scan(&postagem.ID_Postagem, &postagem.Texto, &postagem.Data_Postagem, &postagem.Curtidas, &postagem.ID_Usuario, &postagem.Comentarios, &postagem.Nickname, &postagem.Biografia, &postagem.Tecnologia)
 			if err != nil {
 				c.JSON(500, gin.H{"message": "Erro ao resgatar o feed"})
 				return
