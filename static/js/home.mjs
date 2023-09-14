@@ -84,10 +84,11 @@ function ajustarTamanhoDoCartao() {
     if (larguraDaTela <= 768) {
         var cartoes = document.querySelectorAll(".cartao");
         cartoes.forEach(function (cartao) {
-            cartao.style.width = "80%";
+            cartao.style.width = "60vh";
             cartao.style.fontSize = "10px"; 
             cartao.style.padding = "15px";
             cartao.style.margin = "0.5vh"; 
+            cartao.style.marginLeft = "65px"; 
         });
     } else {
         var cartoes = document.querySelectorAll(".cartao");
