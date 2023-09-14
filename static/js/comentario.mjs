@@ -80,6 +80,9 @@ async function showPost(postId) {
 
         postagemContainer.appendChild(postElement);
 
+        window.addEventListener("resize", ajustarTamanhoDoCartao);  
+        ajustarTamanhoDoCartao();
+
         // Chame uma função separada para buscar e exibir os comentários
         showComments(postId);
     } catch (error) {
@@ -110,11 +113,45 @@ async function showComments(postId) {
             comentarioElement.appendChild(textElement);
 
             comentariosContainer.appendChild(comentarioElement);
+
+            window.addEventListener("resize", ajustarTamanhoDoCartao);  
+            ajustarTamanhoDoCartao();
         });
     } catch (error) {
         console.error(error);
     }
 }
+
+function ajustarTamanhoDoCartao() {
+    var larguraDaTela = window.innerWidth;
+    
+    if (larguraDaTela <= 768) {
+        var cartoes = document.querySelectorAll(".cartao");
+        cartoes.forEach(function (cartao) {
+            cartao.style.width = "50vh";
+            cartao.style.fontSize = "10px";
+            cartao.style.marginLeft = "5px"
+ 
+        });
+
+        var cartoes = document.querySelectorAll(".cartaoComen");
+        cartoes.forEach(function (cartao) {
+            cartao.style.width = "50vh";
+            cartao.style.fontSize = "10px"; 
+            cartao.style.marginLeft = "5px"
+        });
+    }  
+    else {
+        var cartoes = document.querySelectorAll(".cartao");
+        cartoes.forEach(function (cartao) {
+            cartao.style.width = "80vh"; 
+            cartao.style.fontSize = "16px"; 
+            cartao.style.padding = "20px"; 
+            cartao.style.margin = "1vh"; 
+        });
+    }
+}
+
 
 varIdUsuario().then(() => {
     showPost(postId);
