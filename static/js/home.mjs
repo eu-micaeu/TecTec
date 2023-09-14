@@ -89,8 +89,8 @@ varIdUsuario().then(() => {
                         divEmbaixo.appendChild(comentarioQuantidade);
 
                         let likeButton = document.createElement('img');
-                        likeButton.width = 25;
-                        likeButton.height = 25;
+                        likeButton.width = 20;
+                        likeButton.height = 20;
                         likeButton.style.cursor = 'pointer';
                         likeButton.dataset.postId = postagem.id_postagem;
 

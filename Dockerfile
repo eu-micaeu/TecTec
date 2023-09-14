@@ -15,7 +15,7 @@ COPY handlers ./handlers
 COPY cmd ./cmd
 
 # Build do executável
-RUN go build -o main ./cmd/main.go
+RUN go build ./cmd/main.go
 
 # Exponha a porta 8080 para acesso externo
 EXPOSE 8080
