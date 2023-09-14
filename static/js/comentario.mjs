@@ -128,7 +128,7 @@ function ajustarTamanhoDoCartao() {
     if (larguraDaTela <= 768) {
         var cartoes = document.querySelectorAll(".cartao");
         cartoes.forEach(function (cartao) {
-            cartao.style.width = "70%";
+            cartao.style.width = "40vh";
             cartao.style.fontSize = "10px";
             cartao.style.marginLeft = "5px";
  
@@ -136,7 +136,7 @@ function ajustarTamanhoDoCartao() {
 
         var cartoes = document.querySelectorAll(".cartaoComen");
         cartoes.forEach(function (cartao) {
-            cartao.style.width = "80%";
+            cartao.style.width = "40vh";
             cartao.style.fontSize = "10px"; 
             cartao.style.marginLeft = "5px";
         });
@@ -144,7 +144,7 @@ function ajustarTamanhoDoCartao() {
     else {
         var cartoes = document.querySelectorAll(".cartao");
         cartoes.forEach(function (cartao) {
-            cartao.style.width = "70%"; 
+            cartao.style.width = "80vh"; 
             cartao.style.fontSize = "16px"; 
             cartao.style.padding = "20px"; 
             cartao.style.margin = "1vh"; 

@@ -135,7 +135,7 @@ varIdUsuario().then(() => {
             cartoes.forEach(function (cartao) {
                 cartao.style.width = "80vh"; 
                 cartao.style.fontSize = "16px"; 
-                cartao.style.padding = "3rem"; 
+                cartao.style.padding = "25px"; 
                 cartao.style.margin = "1vh"; 
             });
         }
