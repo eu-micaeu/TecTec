@@ -61,9 +61,8 @@ header {
 }
 
 .cartao {
-    border: 3px solid green;
-    border-radius: 15px;
-    margin: 1vh;
+    border: 1px solid green;
+    border-radius: 2px;
     color: #00891E;
     font-family: 'KronaOne';
     padding: 25px;

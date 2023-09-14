@@ -12,6 +12,7 @@ func PostagemRoutes(r *gin.Engine, db *sql.DB) {
 
 	r.POST("/publicar/:id_usuario", postHandler.Publicar(db))
 	r.PUT("/curtir/:id_postagem", postHandler.Curtir(db))
+	r.PUT("/descurtir/:id_postagem", postHandler.Descurtir(db))
 	r.GET("/feed", postHandler.Feed(db))
 	r.GET("/postagens/:nickname", postHandler.PostagensUsuario(db))
 	r.GET("/postagem/:id_postagem", postHandler.GetPostagemById(db))
