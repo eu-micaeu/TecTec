@@ -35,5 +35,9 @@ img[src="../static/images/editar.png"]{
     #biografia{
         font-size: 12px;
     }
+    .cartao {
+        width: 10vw;
+        font-size: 12px;
+    }
     
 }

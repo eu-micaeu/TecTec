@@ -27,5 +27,11 @@
         margin-top: 1vh;
     }
 
+    .cartao {
+        width: 10vw;
+        font-size: 12px;
+        margin-right: 20px;
+    }
+
 
 }

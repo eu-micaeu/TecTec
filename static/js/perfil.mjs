@@ -127,7 +127,7 @@ varIdUsuario().then(() => {
                 cartao.style.fontSize = "10px"; 
                 cartao.style.padding = "15px";
                 cartao.style.margin = "0.5vh"; 
-                cartao.style.marginLeft = "65px"; 
+                cartao.style.marginLeft = "1.5vh"; 
 
             });
         } else {
@@ -135,7 +135,7 @@ varIdUsuario().then(() => {
             cartoes.forEach(function (cartao) {
                 cartao.style.width = "80vh"; 
                 cartao.style.fontSize = "16px"; 
-                cartao.style.padding = "25px"; 
+                cartao.style.padding = "3rem"; 
                 cartao.style.margin = "1vh"; 
             });
         }
