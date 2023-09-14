@@ -22,8 +22,8 @@
 
 #inserirPostagem {
     width: 40vw;
-    border-radius: 2px;
-    border: 1px solid #00891E;
+    border-radius: 0px;
+    border: 2px solid #00891E;
     height: 40vh;
     font-size: 20px;
     background-color: #000;
@@ -51,10 +51,6 @@
 
 @media screen and (max-device-width: 768px) {
 
-    .navigation_header img {
-        width: 3vw;
-        height: 2vh;
-    }
 
     .centraliza .navigation_header{
         position: absolute;
@@ -63,7 +59,7 @@
 
     #inserirPostagem { 
         margin-top:50vw;
-        width: 70%;
+        width: 75%;
         font-size: 12px;
     }
 }
