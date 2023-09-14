@@ -10,42 +10,29 @@ function displayFeed() {
     })
         .then(response => response.json())
         .then(data => {
-
             let postagens = data.postagens;
-
             let feedContainer = document.querySelector("#carrosel");
             feedContainer.innerHTML = "";
-
             for (let i = 0; i < postagens.length; i++) {
-
                 let postagem = postagens[i];
-
                 let postElement = document.createElement("div");
-
                 postElement.classList.add("cartao");
 
                 let nicknameElement = document.createElement("span");
-
                 nicknameElement.classList.add("nameWhite");
-
                 nicknameElement.textContent = '@' + postagem.nickname;
-
+                postElement.appendChild(nicknameElement);
                 nicknameElement.style.cursor = "pointer";
 
                 nicknameElement.addEventListener("click", function() {
                     window.location.href = '/perfil-visitado?nickname=' + postagem.nickname;
                 });
-
-                postElement.appendChild(nicknameElement);
                 
                 let textElement = document.createElement("p");
-
                 textElement.textContent = postagem.texto;
-
                 postElement.appendChild(textElement);
 
                 let divEmbaixo = document.createElement("div");
-
                 divEmbaixo.classList.add("centraliza");
 
                 let comentarioImagem = document.createElement('img');
@@ -57,23 +44,42 @@ function displayFeed() {
                 comentarioImagem.addEventListener('mouseover', function() {
                     comentarioImagem.src = '/static/images/comentariobranco.png';
                 });
-
                 comentarioImagem.addEventListener('mouseout', function() {
                     comentarioImagem.src = '/static/images/comentario.png';
                 });                
 
                 comentarioImagem.addEventListener('click', function () {
-
                     let postId = postagem.id_postagem;
-
                     window.location.href = 'comentario?postId=' + postId;
-
                 });
+
+
+                function ajustarTamanhoDoCartao() {
+                    var larguraDaTela = window.innerWidth;
+                    
+                    if (larguraDaTela <= 768) {
+                        var cartoes = document.querySelectorAll(".cartao");
+                        cartoes.forEach(function (cartao) {
+                            cartao.style.width = "90%";
+                            cartao.style.fontSize = "10px"; 
+                            cartao.style.padding = "15px";
+                            cartao.style.margin = "0.5vh"; 
+                        });
+                    } else {
+                        var cartoes = document.querySelectorAll(".cartao");
+                        cartoes.forEach(function (cartao) {
+                            cartao.style.width = "80vh"; 
+                            cartao.style.fontSize = "16px"; 
+                            cartao.style.padding = "25px"; 
+                            cartao.style.margin = "1vh"; 
+                        });
+                    }
+                }
+                
 
                 divEmbaixo.appendChild(comentarioImagem);
 
                 let comentarioQuantidade = document.createElement('p');
-                
                 comentarioQuantidade.textContent = postagem.comentarios;
                                                 
                 divEmbaixo.appendChild(comentarioQuantidade);
@@ -81,6 +87,11 @@ function displayFeed() {
                 postElement.appendChild(divEmbaixo);
 
                 feedContainer.appendChild(postElement);
+
+
+                window.addEventListener("resize", ajustarTamanhoDoCartao);  
+                ajustarTamanhoDoCartao();
+
             }
         });
 }
