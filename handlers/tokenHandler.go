@@ -15,20 +15,6 @@ type Claims struct {
 
 var jwtKey = []byte("my_secret_key")
 
-func ValidateTokenAndGetUserID(tokenString string) (int, error) {
-    claims := &Claims{}
-
-    tkn, err := jwt.ParseWithClaims(tokenString, claims, func(token *jwt.Token) (interface{}, error) {
-        return jwtKey, nil
-    })
-
-    if err != nil || !tkn.Valid {
-        return 0, err
-    }
-
-    return claims.ID_Usuario, nil
-}
-
 func GetUsuarioFromTokenHandler(db *sql.DB) gin.HandlerFunc {
     return func(c *gin.Context) {
         var reqBody struct {
@@ -40,12 +26,18 @@ func GetUsuarioFromTokenHandler(db *sql.DB) gin.HandlerFunc {
             return
         }
 
-        idUsuario, err := ValidateTokenAndGetUserID(reqBody.Token)
+        claims := &Claims{}
 
-        if err != nil {
+        tkn, err := jwt.ParseWithClaims(reqBody.Token, claims, func(token *jwt.Token) (interface{}, error) {
+            return jwtKey, nil
+        })
+
+        if err != nil || !tkn.Valid {
             c.JSON(401, gin.H{"message": "Token inválido"})
             return
         }
+
+        idUsuario := claims.ID_Usuario
 
         var usuario Usuario
 
@@ -62,45 +54,4 @@ func GetUsuarioFromTokenHandler(db *sql.DB) gin.HandlerFunc {
     }
 }
 
-func (u *Usuario) ValidateToken(tokenString string) (int, error) {
-    claims := &Claims{}
-
-    tkn, err := jwt.ParseWithClaims(tokenString, claims, func(token *jwt.Token) (interface{}, error) {
-        return jwtKey, nil
-    })
-
-    if err != nil || !tkn.Valid {
-        return 0, err
-    }
-
-    return claims.ID_Usuario, nil
-}
-
-func (u *Postagem) ValidateToken(tokenString string) (int, error) {
-    claims := &Claims{}
-
-    tkn, err := jwt.ParseWithClaims(tokenString, claims, func(token *jwt.Token) (interface{}, error) {
-        return jwtKey, nil
-    })
-
-    if err != nil || !tkn.Valid {
-        return 0, err
-    }
-
-    return claims.ID_Usuario, nil
-}
-
-func (u *Sessao) ValidateToken(tokenString string) (int, error) {
-    claims := &Claims{}
-
-    tkn, err := jwt.ParseWithClaims(tokenString, claims, func(token *jwt.Token) (interface{}, error) {
-        return jwtKey, nil
-    })
-
-    if err != nil || !tkn.Valid {
-        return 0, err
-    }
-
-    return claims.ID_Usuario, nil
-}
 

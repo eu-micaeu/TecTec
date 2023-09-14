@@ -23,6 +23,7 @@ func main() {
 	routes.ComentarioRoutes(r, db)
 	routes.SessaoRoutes(r, db)
 	routes.CurtidaRoutes(r, db)
+	routes.TokenRoutes(r, db)
 
 	r.LoadHTMLGlob("views/*.html")
 

@@ -17,21 +17,13 @@ type Postagem struct {
 func (p *Postagem) Publicar(db *sql.DB) gin.HandlerFunc {
 	return func(c *gin.Context) {
 
-		tknStr := c.Request.Header.Get("Authorization")
-        _, err := p.ValidateToken(tknStr)
-
-        if err != nil {
-            c.JSON(401, gin.H{"message": "Token inválido"})
-            return
-        }
-
 		id_usuario := c.Param("id_usuario")
 		var novaPostagem Postagem
 		if err := c.BindJSON(&novaPostagem); err != nil {
 			c.JSON(400, gin.H{"message": "Erro ao criar postagem"})
 			return
 		}
-		_, err = db.Exec("INSERT INTO postagens (texto, data_postagem, id_usuario) VALUES ($1, NOW(), $2)", novaPostagem.Texto, id_usuario)
+		_, err := db.Exec("INSERT INTO postagens (texto, data_postagem, id_usuario) VALUES ($1, NOW(), $2)", novaPostagem.Texto, id_usuario)
 		if err != nil {
 			c.JSON(500, gin.H{"message": "Erro ao criar postagem"})
 			return
@@ -43,14 +35,6 @@ func (p *Postagem) Publicar(db *sql.DB) gin.HandlerFunc {
 
 func (p *Postagem) Feed(db *sql.DB) gin.HandlerFunc {
 	return func(c *gin.Context) {
-
-		tknStr := c.Request.Header.Get("Authorization")
-        _, err := p.ValidateToken(tknStr)
-
-        if err != nil {
-            c.JSON(401, gin.H{"message": "Token inválido"})
-            return
-        }
 
 		rows, err := db.Query("SELECT p.*, u.nickname FROM postagens p JOIN usuarios u ON p.id_usuario = u.id_usuario ORDER BY p.data_postagem DESC")
 
@@ -119,17 +103,9 @@ func (u *Postagem) PostagensUsuario(db *sql.DB) gin.HandlerFunc {
 func (p *Postagem) ApagarPostagem(db *sql.DB) gin.HandlerFunc {
 	return func(c *gin.Context) {
 
-		tknStr := c.Request.Header.Get("Authorization")
-        _, err := p.ValidateToken(tknStr)
-
-        if err != nil {
-            c.JSON(401, gin.H{"message": "Token inválido"})
-            return
-        }
-
 		id_postagem := c.Param("id_postagem")
 
-		_, err = db.Exec("DELETE FROM comentarios WHERE id_postagem = $1", id_postagem)
+		_, err := db.Exec("DELETE FROM comentarios WHERE id_postagem = $1", id_postagem)
 		if err != nil {
 			c.JSON(500, gin.H{"message": "Erro ao apagar os comentários da postagem"})
 			return
@@ -145,14 +121,10 @@ func (p *Postagem) ApagarPostagem(db *sql.DB) gin.HandlerFunc {
 	}
 }
 
-
-
-
 func (u *Postagem) GetPostagemById(db *sql.DB) gin.HandlerFunc {
     return func(c *gin.Context) {
 
         id_postagem := c.Param("id_postagem")
-
 
 		type PostagemComNickname struct {
 			Postagem
@@ -160,7 +132,6 @@ func (u *Postagem) GetPostagemById(db *sql.DB) gin.HandlerFunc {
 		}
 
         var postagem PostagemComNickname
-
 
         row := db.QueryRow("SELECT p.*, u.nickname FROM postagens p, usuarios u WHERE id_postagem = $1 AND u.id_usuario = p.id_usuario", id_postagem)
 

@@ -18,6 +18,20 @@ type Usuario struct {
 	Biografia  string `json:"biografia"`
 }
 
+func (u *Usuario) ValidateToken(tokenString string) (int, error) {
+    claims := &Claims{}
+
+    tkn, err := jwt.ParseWithClaims(tokenString, claims, func(token *jwt.Token) (interface{}, error) {
+        return jwtKey, nil
+    })
+
+    if err != nil || !tkn.Valid {
+        return 0, err
+    }
+
+    return claims.ID_Usuario, nil
+}
+
 func (u *Usuario) Login(db *sql.DB) gin.HandlerFunc {
     return func(c *gin.Context) {
 
