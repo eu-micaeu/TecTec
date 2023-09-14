@@ -109,9 +109,35 @@ varIdUsuario().then(() => {
                     postElement.appendChild(imageContainer);
 
                     feedContainer.appendChild(postElement);
+
+                    
+                    window.addEventListener("resize", ajustarTamanhoDoCartao);  
+                    ajustarTamanhoDoCartao();
                 }
             });
     }
+
+    function ajustarTamanhoDoCartao() {
+        var larguraDaTela = window.innerWidth;
+        
+        if (larguraDaTela <= 768) {
+            var cartoes = document.querySelectorAll(".cartao");
+            cartoes.forEach(function (cartao) {
+                cartao.style.width = "70vh";
+                cartao.style.fontSize = "10px"; 
+                cartao.style.padding = "15px";
+                cartao.style.margin = "0.5vh"; 
+            });
+        } else {
+            var cartoes = document.querySelectorAll(".cartao");
+            cartoes.forEach(function (cartao) {
+                cartao.style.width = "80vh"; 
+                cartao.style.fontSize = "16px"; 
+                cartao.style.padding = "25px"; 
+                cartao.style.margin = "1vh"; 
+            });
+        }
+    } 
 
     function updateBiografia(nickname) {
         let name = nickname;
