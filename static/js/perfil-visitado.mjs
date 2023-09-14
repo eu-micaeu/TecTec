@@ -19,44 +19,53 @@ function displayFeed() {
     })
         .then(response => response.json())
         .then(data => {
+
             let postagens = data.postagens;
+
             let feedContainer = document.querySelector("#carrosel");
             feedContainer.innerHTML = "";
+
             for (let i = 0; i < postagens.length; i++) {
+
                 let postagem = postagens[i];
+
                 let postElement = document.createElement("div");
+
                 postElement.classList.add("cartao");
 
                 let nicknameElement = document.createElement("span");
+
                 nicknameElement.classList.add("nameWhite");
+
                 nicknameElement.textContent = '@' + postagem.nickname;
+
                 postElement.appendChild(nicknameElement);
 
                 let textElement = document.createElement("p");
-                textElement.textContent = postagem.texto;
-                postElement.appendChild(textElement);
 
-                feedContainer.appendChild(postElement);
+                textElement.textContent = postagem.texto;
+
+                postElement.appendChild(textElement);
 
                 let nickname = postagem.nickname;
                 let nameElement = document.getElementById('nome');
                 nameElement.textContent = "@" + nickname;
 
                 let imageContainer = document.createElement("div");
-                imageContainer.classList.add("image-container");
+                imageContainer.classList.add("centraliza");
 
                 let image2Element = document.createElement('img');
 
                 image2Element.src = '../static/images/comentario.png'
-                image2Element.width = 25; 
+                image2Element.width = 25;
                 image2Element.height = 25;
 
-                image2Element.addEventListener('mouseover', function() {
+                image2Element.addEventListener('mouseover', function () {
                     image2Element.src = '/static/images/comentariobranco.png';
                 });
-                image2Element.addEventListener('mouseout', function() {
+                image2Element.addEventListener('mouseout', function () {
                     image2Element.src = '/static/images/comentario.png';
-                });                
+                });
 
                 image2Element.addEventListener('click', function () {
                     let postId = postagem.id_postagem;
@@ -65,12 +74,22 @@ function displayFeed() {
                 });
 
                 imageContainer.appendChild(image2Element);
+
+                let comentarioQuantidade = document.createElement('p');
+                comentarioQuantidade.textContent = postagem.comentarios;
+
+                imageContainer.appendChild(comentarioQuantidade);
+
                 postElement.appendChild(imageContainer);
+
+                feedContainer.appendChild(postElement);
 
                 document.getElementById('biografia').innerHTML = postagem.biografia;
 
                 let tecnologia = postagem.tecnologia;
+
                 let tecnologiaElement = document.getElementById('tecnologia');
+                
                 tecnologiaElement.textContent = "Tecnologia: " + tecnologia;
             }
 
@@ -82,36 +101,36 @@ window.addEventListener("load", displayFeed);
 
 let homeImage = document.querySelector("#casa");
 
-homeImage.addEventListener('mouseover', function() {
+homeImage.addEventListener('mouseover', function () {
     homeImage.src = '/static/images/homebranco.png';
 });
-homeImage.addEventListener('mouseout', function() {
+homeImage.addEventListener('mouseout', function () {
     homeImage.src = '/static/images/home.png';
 });
 
 let userImage = document.querySelector("#perfil");
 
-userImage.addEventListener('mouseover', function() {
+userImage.addEventListener('mouseover', function () {
     userImage.src = '/static/images/la_userbranco.png';
 });
-userImage.addEventListener('mouseout', function() {
+userImage.addEventListener('mouseout', function () {
     userImage.src = '/static/images/la_user.png';
 });
 
 let pesquisaImage = document.querySelector("#pesquisa");
 
-pesquisaImage.addEventListener('mouseover', function() {
+pesquisaImage.addEventListener('mouseover', function () {
     pesquisaImage.src = '/static/images/pesquisabranco.png';
 });
-pesquisaImage.addEventListener('mouseout', function() {
+pesquisaImage.addEventListener('mouseout', function () {
     pesquisaImage.src = '/static/images/pesquisa.png';
 });
 
 let outImage = document.querySelector("#sair");
 
-outImage.addEventListener('mouseover', function() {
+outImage.addEventListener('mouseover', function () {
     outImage.src = '/static/images/outbranco.png';
 });
-outImage.addEventListener('mouseout', function() {
+outImage.addEventListener('mouseout', function () {
     outImage.src = '/static/images/out.png';
 });

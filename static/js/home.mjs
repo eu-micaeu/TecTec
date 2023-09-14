@@ -10,52 +10,70 @@ function displayFeed() {
     })
         .then(response => response.json())
         .then(data => {
+
             let postagens = data.postagens;
+
             let feedContainer = document.querySelector("#carrosel");
             feedContainer.innerHTML = "";
+
             for (let i = 0; i < postagens.length; i++) {
+
                 let postagem = postagens[i];
+
                 let postElement = document.createElement("div");
+
                 postElement.classList.add("cartao");
 
                 let nicknameElement = document.createElement("span");
+
                 nicknameElement.classList.add("nameWhite");
+
                 nicknameElement.textContent = '@' + postagem.nickname;
-                postElement.appendChild(nicknameElement);
+
                 nicknameElement.style.cursor = "pointer";
 
                 nicknameElement.addEventListener("click", function() {
                     window.location.href = '/perfil-visitado?nickname=' + postagem.nickname;
                 });
+
+                postElement.appendChild(nicknameElement);
                 
                 let textElement = document.createElement("p");
+
                 textElement.textContent = postagem.texto;
+
                 postElement.appendChild(textElement);
 
                 let divEmbaixo = document.createElement("div");
+
                 divEmbaixo.classList.add("centraliza");
 
                 let comentarioImagem = document.createElement('img');
 
                 comentarioImagem.src = '../static/images/comentario.png'
-                comentarioImagem.width = 30; 
-                comentarioImagem.height = 30;
+                comentarioImagem.width = 25; 
+                comentarioImagem.height = 25;
 
                 comentarioImagem.addEventListener('mouseover', function() {
                     comentarioImagem.src = '/static/images/comentariobranco.png';
                 });
+
                 comentarioImagem.addEventListener('mouseout', function() {
                     comentarioImagem.src = '/static/images/comentario.png';
                 });                
 
                 comentarioImagem.addEventListener('click', function () {
+
                     let postId = postagem.id_postagem;
+
                     window.location.href = 'comentario?postId=' + postId;
+
                 });
 
                 divEmbaixo.appendChild(comentarioImagem);
 
                 let comentarioQuantidade = document.createElement('p');
+                
                 comentarioQuantidade.textContent = postagem.comentarios;
                                                 
                 divEmbaixo.appendChild(comentarioQuantidade);
