@@ -22,6 +22,7 @@ func main() {
 	routes.PostagemRoutes(r, db)
 	routes.ComentarioRoutes(r, db)
 	routes.SessaoRoutes(r, db)
+	routes.CurtidaRoutes(r, db)
 
 	r.LoadHTMLGlob("views/*.html")
 
