@@ -54,10 +54,6 @@ varIdUsuario().then(() => {
                             postElement.appendChild(nicknameElement);
                             nicknameElement.style.cursor = "pointer";
 
-                            nicknameElement.addEventListener("click", function () {
-                                window.location.href = '/perfil-visitado?nickname=' + postagem.nickname;
-                            });
-
                             let textElement = document.createElement("p");
                             textElement.textContent = postagem.texto;
                             postElement.appendChild(textElement);
