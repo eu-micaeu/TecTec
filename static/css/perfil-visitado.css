@@ -1,174 +1,11 @@
 @import url('./global.css');
 
-body {
-    background-color: black;
-    font-family: 'KronaOne';
-    margin: 0;
-}
-
-header {
-    background-color: #000;
-    width: auto;
-    height: 100%;
-    position: fixed;
-    left: 0;
-    top: 0;
-}
-
-.navigation_header img {
-    width: 1vw;
-    height: 1vw;
-    margin: 10px;
-}
-
-#logo {
-    width: 50px;
-    height: 50px;
-    margin-top: 20px;
-}
-
-.navigation_header a {
-    text-decoration: none;
-    color: #FFF5E1;
-    margin-top: 5px;
-    justify-content: center;
-}
-
-.centraliza {
-    display: flex;
-    justify-content: center;
-}
-
-#logo {
-    cursor: pointer;
-}
-
-#carrosel {
-    display: flex;
-    flex-direction: column;
-    margin-top: 25vh;
-}
-
-.perfil-usuario {
-    margin-top: 1vh;
-}
-
-.perfil-biografia {
-    width: 60vw;
-}
-
-
-.perfil_usuario p {
-    color: white;
-}
-
-.perfil-usuario img {
-    margin-left: 5vh;
-}
-
-
-textarea {
-    resize: none;
-    height: 10vh;
-}
-
-
-h3 {
-    display: flex;
-    justify-content: space-between;
-}
-
-h3 p {
-    color: #00891E;
-    font-size: 12px;
-    margin: 5px;
-}
-
 #nome, #tecnologia {
     color: #00891E;
     text-align: left;
 }
 
-#boneco {
-    margin: 0;
-}
-
-#carrosel {
-    display: flex;
-    flex-direction: column;
-    margin-top: 8vh;
-}
-
-.cartao {
-    border: 3px solid green;
-    border-radius: 15px;
-    margin: 1vh;
-    color: #00891E;
-    font-family: 'KronaOne';
-    padding: 25px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    position: relative;
-    width: 90vh;
-}
-
-
-.nameWhite {
-    color: white;
-}
-
-#biografia {
-    font-family: 'KronaOne';
-    color: #fff;
-    background-color: transparent;
-    border: none;
-    text-align: center;
-    width: 100%;
-}
-
-.centraliza {
-    display: flex;
-    justify-content: center;
-}
-
-.button_add_post {
-    font-family: 'KronaOne';
-    background-color: #00891E;
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 10px;
-    position: fixed;
-    bottom: 20px;
-    width: 60px;
-    height: 60px;
-    font-size: 30px;
-}
-
-
-.button_add_post:hover {
-    font-family: 'KronaOne';
-    background-color: #fff;
-    color: #00891E;
-}
-
-img.user{
-    padding: 1px;
-}
-
 @media screen and (max-device-width: 768px) {
-    #logo {
-        width: 35px;
-        height: 32px;
-        margin: 5px;
-    }
-
-    .navigation_header img {
-        width: 3vw;
-        height: 2vh;
-    }
 
     .centraliza .navigation_header{
         position: absolute;
@@ -181,11 +18,6 @@ img.user{
         font-size: 10px;
         margin: 0;
     }   
-
-    .cartao {
-        width: 60vw;
-        font-size: 10px;
-    }
 
     #carrosel {
         display: flex;

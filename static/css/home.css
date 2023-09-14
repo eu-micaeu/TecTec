@@ -1,106 +1,10 @@
 @import url('./global.css');
 
-body {
-    background-color: #000;
-    margin: 0;
-}
-
-header {
-    background-color: #000;
-    width: auto;
-    height: 100%; 
-    position: fixed;
-    left: 0; 
-    top: 0; 
-}
-
-.navigation_header img {
-    width: 1vw;
-    height: 1vw;
-    margin: 10px;
-}
-
-#logo {
-    width: 50px;
-    height: 50px;
-    margin-top: 20px;
-}
-
 #nome {
     color: #00891E;
     font-family: 'KronaOne';
     font-size: 10px;
     margin: 0;
-}
-
-.navigation_header a {
-    text-decoration: none;
-    color: #FFF5E1;
-    margin-top: 5px;
-    justify-content: center;
-}
-
-.botao-adicionar-postagem {
-    font-family: 'KronaOne';
-    background-color: #00891E;
-    color: white;
-    border: none;
-    padding: 5px;
-    cursor: pointer;
-    border-radius: 10px;
-    position: fixed;
-    bottom: 20px;
-    width: 50px;
-    height: 50px;
-    font-size: 30px;
-} 
-
-
-.botao-adicionar-postagem:hover {
-    font-family: 'KronaOne';
-    background-color: #fff;
-    color: #00891E;
-}
-
-.cartao {
-    border: 3px solid green;
-    border-radius: 15px;
-    margin: 1vh;
-    color: #00891E;
-    font-family: 'KronaOne';
-    padding: 25px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    position: relative;
-    width: 90vh;
-}
-
-.centraliza{
-    display: flex;
-    justify-content: center;
-}
-
-.principal{
-    display: flex; 
-    flex-direction: column; 
-    justify-content: center; 
-    align-items: center;
-}
-
-#carrosel {
-    display: flex;
-    flex-direction: column;
-    margin-top: 2vh;
-    margin-bottom: 8vh;
-}
-
-.nameWhite {
-    color: white;
-}
-
-img.user{
-    padding: 1px;
 }
 
 #titulo{
@@ -110,33 +14,12 @@ img.user{
 
 @media screen and (max-device-width: 768px) {
 
-    #logo {
-        width: 35px;
-        height: 32px;
-        margin: 5px;
-    }
-
-    .navigation_header img {
-        width: 3vw;
-        height: 2vh;
-    }
-
-    .principal .navigation_header{
-        position: absolute;
-        position: fixed;
-    }
-
     #nome {
         color: #00891E;
         font-family: 'KronaOne';
         font-size: 10px;
         margin: 0;
     }   
-
-    .cartao {
-        width: 60vw;
-        font-size: 10px;
-    }
 
     #carrosel {
         display: flex;

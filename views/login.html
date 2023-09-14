@@ -13,7 +13,13 @@
 <body>
     <!-- Logo do site -->
     <header>
-        <img src="../static/images/logo.png" alt="" class="logo" id="logo">
+
+        <div class="centraliza">
+
+            <img src="../static/images/logo.png" alt="" id="logo">
+
+        </div>
+        
     </header>
 
     <!-- Formulário para o login do site -->
@@ -22,7 +28,9 @@
         <label for="usuario" class="rotUsuario">Nickname:</label> <br />
 
         <div class="inputBox">
+
             <input type="text" name="nickname" id="nickname" class="inputText">
+
         </div>
 
         <br>
@@ -30,39 +38,52 @@
         <label for="senha" class="rotSenha">Senha:</label> <br />
 
         <div class="inputBox">
+
             <input type="password" name="senha" id="senha" class="inputText">
+
         </div>
         <!-- Botão de "Entrar" para o login do site -->
         <div class="btnContainer">
+
             <button type="button" id="entrar">Entrar</button>
+
         </div>
         <!-- Botão de "Registrar" para o cadastro do site -->
         <div class="btnContainer">
+
             <button type="button" onclick="window.location.href='/register'" id="cadastro">Cadastro</button>
+
         </div>
 
     </form>
 
     <div class="meio">
+
         <p id="tituloDesenvolvedores">Desenvolvedores:</p>
+
     </div>
 
-    <div class="centraliza">
 
         <div class="meio">
 
-            <div class="cartao">
+            <div class="cartaoDev">
 
                 <div class="meio">
+
                     <p>Nome: Micael Ribeiro Rocha</p>
+
                 </div>
                 
                 <div class="meio">
+
                     <p>Área: Full-Stack</p>
+
                 </div>
                 
                 <div class="meio">
+
                     <img src="../static/images/micael.jpg" height="100" width="100">
+
                 </div>
                 
             </div>
@@ -71,18 +92,24 @@
 
         <div class="meio">
 
-            <div class="cartao">
+            <div class="cartaoDev">
 
                 <div class="meio">
+
                     <p>Nome: Brena dos Santos Freitas</p>
+
                 </div>
                 
                 <div class="meio">
+
                     <p>Área: Front-End</p>
+
                 </div>
                 
                 <div class="meio">
+
                     <img src="../static/images/brena.jpeg" height="100" width="100">
+
                 </div>
                 
             </div>
@@ -91,25 +118,29 @@
 
         <div class="meio">
             
-            <div class="cartao">
+            <div class="cartaoDev">
 
                 <div class="meio">
+
                     <p>Nome: João Pedro Botter Monegatto</p>
+
                 </div>
     
                 <div class="meio">
+
                     <p>Área: DBA</p>
+                    
                 </div>
                 
                 <div class="meio">
+
                     <img src="../static/images/joao.png" height="100" width="100">
+
                 </div>
     
             </div>
 
         </div>
-
-    </div>
 
     <script type="module" src="../static/js/login.mjs"></script>
 

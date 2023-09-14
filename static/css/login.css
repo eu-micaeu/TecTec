@@ -1,17 +1,12 @@
 @import url('./global.css');
 
-body {
+header{
     background-color: #000;
-}
-
-header {
-    display: flex;
-    justify-content: center;
-}
-
-#logo {
-    width: 90px;
-    height: 90px;
+    width: auto;
+    height: 100%; 
+    position: relative;
+    left: auto; 
+    top: auto; 
 }
 
 .inputBox {
@@ -39,12 +34,12 @@ form {
     border-radius: 15px;
 }
 
-.cartao{
-    padding: 15px;
+.cartaoDev{
+    padding: 5px;
     width: 20vw;
     height: 25vh;
     border-radius: 15px;
-    margin: 10px;
+    margin: 5px;
     border: 3px solid #00891E;
 }
 
@@ -79,16 +74,7 @@ form {
 
 p{
     color: #00891E;
-    font-size: 10px;
-}
-
-.centraliza, .meio{
-    display: flex;
-    justify-content: center;
-}
-
-#tituloDesenvolvedores{
-    font-size: 25px;
+    font-size: 15px;
 }
 
 img[src="../static/images/micael.jpg"]{
@@ -113,6 +99,12 @@ img[src="../static/images/joao.png"]{
 }
 
 @media screen and (max-device-width: 768px) {
+
+    #logo{
+        width: 80px;
+        height: 80px;
+    }
+
     form {
         width: 80%;
     }
@@ -121,17 +113,7 @@ img[src="../static/images/joao.png"]{
         width: 75vw;
     }
 
-    #logo {
-        width: 80px;
-        height: 80px;
-    }
-
-    .centraliza{
-        display: block;
-        justify-content:flex-start;
-    }
-
-    .cartao{
+    .cartaoDev{
         width: 80%;
     }
 }

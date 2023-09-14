@@ -4,7 +4,135 @@
 }
 
 body {
-    font-family: 'KronaOne', sans-serif;
+    background-color: #000;
+    font-family: 'KronaOne';
+}
+
+header {
+    background-color: #000;
+    width: auto;
+    height: 100%; 
+    position: fixed;
+    left: 0; 
+    top: 0; 
+}
+
+#logo {
+    width: 70px;
+    height: 70px;
+}
+
+.navigation_header img {
+    width: 1.5vw;
+    height: 3vh;
+    margin: 1vw;
+}
+
+.centraliza {
+    display: flex;
+    justify-content: center;
+}
+
+.principal{
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center;
+}
+
+#biografia {
+    font-family: 'KronaOne';
+    color: #fff;
+    background-color: transparent;
+    border: none;
+    text-align: center;
+    width: 100%;
+}
+
+.perfil-biografia {
+    width: 40vw;
+}
+
+#carrosel {
     display: flex;
     flex-direction: column;
+    margin-top: 2vh;
+    margin-bottom: 8vh;
+}
+
+.cartao {
+    border: 3px solid green;
+    border-radius: 15px;
+    margin: 1vh;
+    color: #00891E;
+    font-family: 'KronaOne';
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    width: 80vh;
+}
+
+.centraliza, .meio{
+    display: flex;
+    justify-content: center;
+}
+
+textarea {
+    resize: none;
+}
+
+.nameWhite {
+    color: white;
+}
+
+.nameGreen {
+    color: #00891E;
+}
+
+.botao-adicionar-postagem {
+    font-family: 'KronaOne';
+    background-color: #00891E;
+    color: white;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 10px;
+    position: fixed;
+    bottom: 20px;
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+} 
+
+.botao-adicionar-postagem:hover {
+    font-family: 'KronaOne';
+    background-color: #fff;
+    color: #00891E;
+}
+
+#boneco {
+    margin: 0;
+}
+
+@media screen and (max-device-width: 768px) {
+
+    #logo {
+        width: 40px;
+        height: 40px;
+        margin: 5px;
+    }
+
+    .navigation_header img {
+        width: 20px;
+        height: 20px;
+        margin: 3vw;
+    }
+
+    .cartao {
+        width: 60vw;
+        font-size: 12px;
+    }
+    
 }

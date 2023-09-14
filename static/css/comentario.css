@@ -1,11 +1,7 @@
+@import url('./global.css');
 
 #postagem-principal{
     margin-top: 2%;
-    padding: 10px;
-}
-
-.postagem-comentarios {
-    margin-top: 5%;
     padding: 10px;
 }
 
@@ -33,15 +29,10 @@
 
 }
 
-
 .botao:hover{
     background-color: white;
     color: #00891E;
     font-family: 'KronaOne';
-}
-
-.nameGreen {
-    color: #00891E;
 }
 
 .cartaoComen {
@@ -55,12 +46,7 @@
     flex-direction: column;
     align-items: flex-start;
     position: relative;
-    width: 90vh;
-}
-
-.centraliza{
-    display: flex;
-    justify-content: center;
+    width: 80vh;
 }
 
 @media screen and (max-device-width: 768px) {
@@ -92,5 +78,4 @@
         font-size: 8px;
     }
 
-    
 }

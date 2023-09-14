@@ -1,18 +1,12 @@
 @import url('./global.css');
 
-body {
+header{
     background-color: #000;
-}
-
-header {
-    display: flex;
-    justify-content: center;
-}
-
-#logo {
-    width: 90px;
-    height: 90px;
-    cursor: pointer;
+    width: auto;
+    height: 100%; 
+    position: relative;
+    left: auto; 
+    top: auto; 
 }
 
 .inputBox {
@@ -79,6 +73,12 @@ p{
 }
 
 @media screen and (max-device-width: 768px){
+
+    #logo{
+        width: 80px;
+        height: 80px;
+    }
+
     .forms{
         width: 80%;
     }
@@ -87,8 +87,4 @@ p{
         width: 75vw;
     }
 
-    #logo {
-        width: 80px;
-        height: 80px;
-    }
 }
