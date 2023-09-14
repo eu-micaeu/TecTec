@@ -13,10 +13,9 @@ COPY middlewares ./middlewares
 COPY routes ./routes
 COPY handlers ./handlers
 COPY cmd ./cmd
-COPY main.go ./
 
 # Build do executável
-RUN go build -o main
+RUN go build -o main ./cmd/main.go
 
 # Exponha a porta 8080 para acesso externo
 EXPOSE 8080
