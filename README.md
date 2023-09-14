@@ -1,7 +1,3 @@
-<center>
-  <img src="logo.png" alt="Logo">
-</center>
-
 # Integrantes:
 
 - Brena dos Santos Freitas / RA: 2465710
