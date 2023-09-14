@@ -1,4 +1,7 @@
 let nickname;
+
+let idUsuario;
+
 const token = localStorage.getItem("token").toString();
 
 async function varIdUsuario() {
@@ -12,134 +15,205 @@ async function varIdUsuario() {
         });
         const data = await response.json();
         nickname = data.usuario.nickname;
+        idUsuario = data.usuario.id_usuario;
     } catch (error) {
         console.error(error);
     }
 }
 
 varIdUsuario().then(() => {
-    function displayFeed(nickname) {
-        let name = nickname;
-        fetch('/postagens/' + name, {
+    function displayFeed() {
+        fetch(`/postagens-curtidas/${idUsuario}`, {
             headers: {
                 'Authorization': token
             }
         })
             .then(response => response.json())
             .then(data => {
-                console.log(data)
-                let postagens = data.postagens;
-                let feedContainer = document.querySelector("#carrosel");
-                feedContainer.innerHTML = "";
-                for (let i = 0; i < postagens.length; i++) {
-                    let postagem = postagens[i];
-                    let postElement = document.createElement("div");
-                    postElement.classList.add("cartao");
+                
+                const curtidasUsuario = data.postagens;
 
-                    let nicknameElement = document.createElement("span");
-                    nicknameElement.classList.add("nameWhite");
-                    nicknameElement.textContent = '@' + postagem.nickname;
-                    postElement.appendChild(nicknameElement);
+                fetch('/postagens/' + nickname, {
+                    headers: {
+                        'Authorization': token
+                    }
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        let postagens = data.postagens;
+                        let feedContainer = document.querySelector("#carrosel");
+                        feedContainer.innerHTML = "";
+                        for (let i = 0; i < postagens.length; i++) {
+                            let postagem = postagens[i];
+                            let postElement = document.createElement("div");
+                            postElement.classList.add("cartao");
 
-                    let textElement = document.createElement("p");
-                    textElement.textContent = postagem.texto;
-                    postElement.appendChild(textElement);
+                            let nicknameElement = document.createElement("span");
+                            nicknameElement.classList.add("nameWhite");
+                            nicknameElement.textContent = '@' + postagem.nickname;
+                            postElement.appendChild(nicknameElement);
+                            nicknameElement.style.cursor = "pointer";
 
-                    let imageContainer = document.createElement("div");
-                    imageContainer.classList.add("centraliza");
-
-                    let imageElement = document.createElement("img");
-                    imageElement.src = "/static/images/lixo.png";
-                    imageElement.style.width = "25px";
-                    imageElement.style.height = "25px";
-                    imageElement.style.cursor = "pointer";
-                    imageElement.id = "lixo";
-
-                    imageElement.addEventListener('mouseover', function () {
-                        imageElement.src = '/static/images/lixobranco.png';
-                    });
-                    imageElement.addEventListener('mouseout', function () {
-                        imageElement.src = '/static/images/lixo.png';
-                    });
-
-                    imageElement.addEventListener("click", function () {
-
-                        let postId = postagem.id_postagem;
-
-                        fetch('/excluir-postagem/' + postId, {
-                            method: 'DELETE',
-                            headers: {
-                                'Authorization': token
-                            }
-                        })
-                            .then(response => response.json())
-                            .then(data => {
-                                displayFeed(name);
+                            nicknameElement.addEventListener("click", function () {
+                                window.location.href = '/perfil-visitado?nickname=' + postagem.nickname;
                             });
+
+                            let textElement = document.createElement("p");
+                            textElement.textContent = postagem.texto;
+                            postElement.appendChild(textElement);
+
+                            let divEmbaixo = document.createElement("div");
+                            divEmbaixo.classList.add("centraliza");
+
+                            let comentarioImagem = document.createElement('img');
+
+                            comentarioImagem.src = '../static/images/comentario.png'
+                            comentarioImagem.width = 25;
+                            comentarioImagem.height = 25;
+
+                            comentarioImagem.addEventListener('mouseover', function () {
+                                comentarioImagem.src = '/static/images/comentariobranco.png';
+                            });
+                            comentarioImagem.addEventListener('mouseout', function () {
+                                comentarioImagem.src = '/static/images/comentario.png';
+                            });
+
+                            comentarioImagem.addEventListener('click', function () {
+                                let postId = postagem.id_postagem;
+                                window.location.href = 'comentario?postId=' + postId;
+                            });
+
+                            divEmbaixo.appendChild(comentarioImagem);
+
+                            let comentarioQuantidade = document.createElement('p');
+                            comentarioQuantidade.textContent = postagem.comentarios;
+
+                            divEmbaixo.appendChild(comentarioQuantidade);
+
+                            let likeButton = document.createElement('img');
+                            likeButton.width = 20;
+                            likeButton.height = 20;
+                            likeButton.style.cursor = 'pointer';
+                            likeButton.dataset.postId = postagem.id_postagem;
+
+                            // Verifique se a postagem está no conjunto de postagens curtidas
+                            if (curtidasUsuario.some(curtida => curtida.id_postagem === postagem.id_postagem)) {
+                                likeButton.src = '/static/images/coracaofechado.png'; // Postagem curtida
+                            } else {
+                                likeButton.src = '/static/images/coracao.png'; // Postagem não curtida
+                            }
+
+                            divEmbaixo.appendChild(likeButton);
+                            let curtidaQuantidade = document.createElement('p');
+                            curtidaQuantidade.textContent = postagem.curtidas;
+                            divEmbaixo.appendChild(curtidaQuantidade);
+
+                            likeButton.addEventListener('click', function () {
+                                const postId = likeButton.dataset.postId;
+                                const liked = likeButton.src.endsWith('coracaofechado.png');
+
+                                if (!liked) {
+                                    fetch(`/curtir/` + idUsuario + '/' + postId, {
+                                        method: 'POST',
+                                    })
+                                        .then(response => {
+                                            if (response.status === 200) {
+                                                likeButton.src = '/static/images/coracaofechado.png';
+
+
+                                                postagem.curtidas++;
+                                                curtidaQuantidade.textContent = postagem.curtidas;
+                                            }
+                                        })
+                                        .catch(error => {
+                                            console.error('Error liking post:', error);
+                                        });
+                                } else {
+                                    fetch(`/descurtir/` + idUsuario + '/' + postId, {
+                                        method: 'DELETE',
+                                    })
+                                        .then(response => {
+                                            if (response.status === 200) {
+                                                likeButton.src = '/static/images/coracao.png';
+
+                                                postagem.curtidas--;
+                                                curtidaQuantidade.textContent = postagem.curtidas;
+                                            }
+                                        })
+                                        .catch(error => {
+                                            console.error('Error disliking post:', error);
+                                        });
+                                }
+                            });
+
+                            let imageElement = document.createElement("img");
+                            imageElement.src = "/static/images/lixo.png";
+                            imageElement.style.width = "25px";
+                            imageElement.style.height = "25px";
+                            imageElement.style.cursor = "pointer";
+                            imageElement.id = "lixo";
+
+                            imageElement.addEventListener('mouseover', function () {
+                                imageElement.src = '/static/images/lixobranco.png';
+                            });
+                            imageElement.addEventListener('mouseout', function () {
+                                imageElement.src = '/static/images/lixo.png';
+                            });
+
+                            imageElement.addEventListener("click", function () {
+
+                                let postId = postagem.id_postagem;
+
+                                fetch('/excluir-postagem/' + postId, {
+                                    method: 'DELETE',
+                                    headers: {
+                                        'Authorization': token
+                                    }
+                                })
+                                    .then(response => response.json())
+                                    .then(data => {
+                                        displayFeed(name);
+                                    });
+                            });
+
+                            divEmbaixo.appendChild(imageElement);
+
+                            postElement.appendChild(divEmbaixo);
+
+                            feedContainer.appendChild(postElement);
+
+                            window.addEventListener("resize", ajustarTamanhoDoCartao);
+
+                            ajustarTamanhoDoCartao();
+
+                        }
                     });
-
-                    let image2Element = document.createElement('img');
-
-                    image2Element.src = '../static/images/comentario.png'
-                    image2Element.width = 25; 
-                    image2Element.height = 25;
-
-                    image2Element.addEventListener('mouseover', function () {
-                        image2Element.src = '/static/images/comentariobranco.png';
-                    });
-                    image2Element.addEventListener('mouseout', function () {
-                        image2Element.src = '/static/images/comentario.png';
-                    });
-
-                    image2Element.addEventListener('click', function () {
-                        let postId = postagem.id_postagem;
-                        document.cookie = "postId=" + postId;
-                        window.location.href = 'comentario?postId=' + postId;
-                    });
-
-                    imageContainer.appendChild(image2Element);
-
-                    let comentarioQuantidade = document.createElement('p');
-                    comentarioQuantidade.textContent = postagem.comentarios;
-
-                    imageContainer.appendChild(comentarioQuantidade);
-
-                    imageContainer.appendChild(imageElement);
-
-                    postElement.appendChild(imageContainer);
-
-                    feedContainer.appendChild(postElement);
-
-                    
-                    window.addEventListener("resize", ajustarTamanhoDoCartao);  
-                    ajustarTamanhoDoCartao();
-                }
-            });
+            })
     }
 
     function ajustarTamanhoDoCartao() {
         var larguraDaTela = window.innerWidth;
-        
+
         if (larguraDaTela <= 768) {
             var cartoes = document.querySelectorAll(".cartao");
             cartoes.forEach(function (cartao) {
                 cartao.style.width = "70%";
-                cartao.style.fontSize = "10px"; 
+                cartao.style.fontSize = "10px";
                 cartao.style.padding = "15px";
-                cartao.style.margin = "0.5vh"; 
-                cartao.style.marginLeft = "1.5vh"; 
+                cartao.style.margin = "0.5vh";
+                cartao.style.marginLeft = "1.5vh";
 
             });
         } else {
             var cartoes = document.querySelectorAll(".cartao");
             cartoes.forEach(function (cartao) {
-                cartao.style.width = "80vh"; 
-                cartao.style.fontSize = "16px"; 
-                cartao.style.padding = "25px"; 
-                cartao.style.margin = "1vh"; 
+                cartao.style.width = "80vh";
+                cartao.style.fontSize = "16px";
+                cartao.style.padding = "25px";
+                cartao.style.margin = "1vh";
             });
         }
-    } 
+    }
 
     function updateBiografia(nickname) {
         let name = nickname;
@@ -188,7 +262,7 @@ varIdUsuario().then(() => {
     updateNome(nickname);
     updateBiografia(nickname);
     updateTecnologia(nickname);
-    displayFeed(nickname);
+    displayFeed();
 
 
     document.getElementById('biografia').addEventListener('blur', function () {

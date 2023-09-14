@@ -25,7 +25,7 @@ func main() {
 	routes.CurtidaRoutes(r, db)
 	routes.TokenRoutes(r, db)
 
-	r.LoadHTMLGlob("./views/*.html")
+	r.LoadHTMLGlob("../views/*.html")
 
 	r.GET("/", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "carregamento.html", nil)
@@ -59,7 +59,7 @@ func main() {
 		c.HTML(http.StatusOK, "comentario.html", nil)
 	})
 
-	r.Static("./static", "./static")
+	r.Static("../static", "../static")
 
 	r.Run()
 }
