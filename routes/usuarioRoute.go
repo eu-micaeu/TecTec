@@ -14,6 +14,5 @@ func UsuarioRoutes(r *gin.Engine, db *sql.DB) {
 	r.POST("/register", userHandler.Register(db))
 	r.GET("/perfil/:nickname", userHandler.Perfil(db))
 	r.PUT("/atualizar-biografia/:nickname", userHandler.AtualizarBiografia(db))
-	r.POST("/perfil-token", handlers.GetUsuarioFromTokenHandler(db))
 
 }

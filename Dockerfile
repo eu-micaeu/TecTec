@@ -12,6 +12,7 @@ COPY database ./database
 COPY middlewares ./middlewares
 COPY routes ./routes
 COPY handlers ./handlers
+COPY cmd ./cmd
 COPY main.go ./
 
 # Build do executável
