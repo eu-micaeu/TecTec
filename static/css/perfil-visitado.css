@@ -26,5 +26,10 @@
         flex-direction: column;
         margin-top: 1vh;
     }
+
+    .cartao {
+        width: 20vw;
+        font-size: 12px;
+    }
     
 }
