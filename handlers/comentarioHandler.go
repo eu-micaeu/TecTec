@@ -45,7 +45,7 @@ func (u *Comentario) ComentariosDePostagem(db *sql.DB) gin.HandlerFunc {
 
 		id_postagem := c.Param("id_postagem")
 
-		rows, err := db.Query("SELECT c.id_comentario, c.texto, c.data_postagem, c.id_postagem, u.nickname FROM comentarios c JOIN usuarios u ON c.id_usuario = u.id_usuario WHERE c.id_postagem = $1 ORDER BY c.data_postagem DESC", id_postagem)
+		rows, err := db.Query("SELECT c.id_comentario, c.texto, c.data_postagem, c.id_postagem, u.nickname FROM comentarios c JOIN usuarios u ON c.id_usuario = u.id_usuario WHERE c.id_postagem = $1 ORDER BY c.data_postagem", id_postagem)
 		if err != nil {
 			c.JSON(500, gin.H{"message": "Erro ao resgatar os comentários"})
 			return
