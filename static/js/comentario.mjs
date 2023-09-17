@@ -11,6 +11,7 @@ function getParameterByName(name, url = window.location.href) {
 let postId = getParameterByName('postId');
 
 let id_usuario;
+let nickname;
 
 const token = localStorage.getItem("token").toString();
 
