@@ -14,11 +14,6 @@ img[src="../static/images/editar.png"]{
 
 @media screen and (max-device-width: 768px) {
 
-    .centraliza .navigation_header{
-        position: absolute;
-        position: fixed;
-    }
-
     #nome {
         color: #00891E;
         font-family: 'KronaOne';
@@ -29,15 +24,11 @@ img[src="../static/images/editar.png"]{
     #carrosel {
         display: flex;
         flex-direction: column;
-        margin-top: 1vh;
     }
 
     #biografia{
         font-size: 12px;
     }
-    .cartao {
-        width: 40vw;
-        font-size: 12px;
-    }
+
     
 }

@@ -92,11 +92,10 @@ varIdUsuario().then(() => {
                             likeButton.style.cursor = 'pointer';
                             likeButton.dataset.postId = postagem.id_postagem;
 
-                            // Verifique se a postagem está no conjunto de postagens curtidas
                             if (curtidasUsuario.some(curtida => curtida.id_postagem === postagem.id_postagem)) {
-                                likeButton.src = '/static/images/coracaofechado.png'; // Postagem curtida
+                                likeButton.src = '/static/images/coracaofechado.png'; 
                             } else {
-                                likeButton.src = '/static/images/coracao.png'; // Postagem não curtida
+                                likeButton.src = '/static/images/coracao.png'; 
                             }
 
                             divEmbaixo.appendChild(likeButton);
@@ -178,37 +177,10 @@ varIdUsuario().then(() => {
 
                             feedContainer.appendChild(postElement);
 
-                            window.addEventListener("resize", ajustarTamanhoDoCartao);
-
-                            ajustarTamanhoDoCartao();
 
                         }
                     });
             })
-    }
-
-    function ajustarTamanhoDoCartao() {
-        var larguraDaTela = window.innerWidth;
-
-        if (larguraDaTela <= 768) {
-            var cartoes = document.querySelectorAll(".cartao");
-            cartoes.forEach(function (cartao) {
-                cartao.style.width = "70%";
-                cartao.style.fontSize = "10px";
-                cartao.style.padding = "15px";
-                cartao.style.margin = "0.5vh";
-                cartao.style.marginLeft = "1.5vh";
-
-            });
-        } else {
-            var cartoes = document.querySelectorAll(".cartao");
-            cartoes.forEach(function (cartao) {
-                cartao.style.width = "80vh";
-                cartao.style.fontSize = "16px";
-                cartao.style.padding = "25px";
-                cartao.style.margin = "1vh";
-            });
-        }
     }
 
     function updateBiografia(nickname) {

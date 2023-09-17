@@ -4,28 +4,30 @@
 }
 
 body {
-    background-color: #000;
+    background-color: #000000f8;
     font-family: 'KronaOne';
+    line-height: 1.6;
+    margin: 0;
 }
 
 header {
     background-color: #000;
-    width: auto;
-    height: 100%; 
+    height: auto;
+    width: 100%;
+    border-radius: 0px;
+    border: 2px solid #00891E;
     position: fixed;
-    left: 0; 
-    top: 0; 
-}
-
-#logo {
-    width: 70px;
-    height: 70px;
 }
 
 .navigation_header img {
-    width: 20px;
-    height: 20px;
+    width: 27px;
+    height: 27px;
     margin: 1vw;
+}
+
+#logo {
+    width: 37px;
+    height: 37px;
 }
 
 .centraliza {
@@ -33,10 +35,10 @@ header {
     justify-content: center;
 }
 
-.principal{
-    display: flex; 
-    flex-direction: column; 
-    justify-content: center; 
+.principal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 
@@ -56,7 +58,7 @@ header {
 #carrosel {
     display: flex;
     flex-direction: column;
-    margin-top: 2vh;
+    margin-top: 10vh;
     margin-bottom: 8vh;
 }
 
@@ -69,11 +71,13 @@ header {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    position: relative;
     width: 80vh;
+    background-color: #000;
+    margin: 1vw;
 }
 
-.centraliza, .meio{
+.centraliza,
+.meio {
     display: flex;
     justify-content: center;
 }
@@ -103,7 +107,7 @@ textarea {
     width: 50px;
     height: 50px;
     font-size: 30px;
-} 
+}
 
 .botao-adicionar-postagem:hover {
     font-family: 'KronaOne';
@@ -112,10 +116,14 @@ textarea {
 }
 
 #boneco {
-    margin: 0;
+    margin-top: 10vh;
 }
 
 @media screen and (max-device-width: 768px) {
+
+    header {
+        width: 100%;
+    }
 
     #logo {
         width: 40px;
@@ -129,9 +137,15 @@ textarea {
         margin: 3vw;
     }
 
-    .cartao {
-        width: 60vw;
+    .cartao, .cartaoComen {
+        width: 80vw;
         font-size: 12px;
+        margin: 2vw;
     }
-    
+
+    #carrosel {
+        display: flex;
+        flex-direction: column;
+    }
+
 }

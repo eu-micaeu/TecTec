@@ -1,11 +1,13 @@
 package handlers
 
+// Importando bibliotecas para a criação da classe e funções da curtida.
 import (
 	"database/sql"
 
 	"github.com/gin-gonic/gin"
 )
 
+// Estrutura da curtida.
 type Curtida struct {
 	ID_Curtida    int    `json:"id_curtida"`
 	Data_Postagem string `json:"data_postagem"`
@@ -13,6 +15,7 @@ type Curtida struct {
 	ID_Usuario    int    `json:"id_usuario"`
 }
 
+// Função com a finalidade de curtir determinada postagem e criar uma curtida.
 func (p *Curtida) Curtir(db *sql.DB) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		
@@ -36,6 +39,7 @@ func (p *Curtida) Curtir(db *sql.DB) gin.HandlerFunc {
 	}
 }
 
+// Função com a finalidade de descurtir determinada postagem e criar uma curtida.
 func (p *Curtida) Descurtir(db *sql.DB) gin.HandlerFunc {
 	return func(c *gin.Context) {
 
@@ -59,6 +63,7 @@ func (p *Curtida) Descurtir(db *sql.DB) gin.HandlerFunc {
 	}
 }
 
+// Função com a finalidade de retornar as postagens que determinado usuário curtiu usando o id do mesmo.
 func (p *Curtida) PostagensCurtidas(db *sql.DB) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		idUsuario := c.Param("id_usuario")

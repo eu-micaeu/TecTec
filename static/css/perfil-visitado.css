@@ -7,13 +7,6 @@
 
 @media screen and (max-device-width: 768px) {
 
-    .centraliza .navigation_header{
-        position: absolute;
-        position: fixed;
-        padding: 20px;
-        margin: 20px;
-    }
-
     #nome {
         color: #00891E;
         font-family: 'KronaOne';
@@ -24,11 +17,9 @@
     #carrosel {
         display: flex;
         flex-direction: column;
-        margin-top: 1vh;
     }
 
-    .cartao {
-        width: 20vw;
+    #biografia{
         font-size: 12px;
     }
     

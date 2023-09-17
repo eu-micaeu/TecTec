@@ -16,7 +16,6 @@ const token = localStorage.getItem("token").toString();
 
 async function varIdUsuario() {
     try {
-        let nickname;
         const response = await fetch('/perfil-token/', {
             method: 'POST',
             headers: {
@@ -80,10 +79,6 @@ async function showPost(postId) {
 
         postagemContainer.appendChild(postElement);
 
-        window.addEventListener("resize", ajustarTamanhoDoCartao);  
-        ajustarTamanhoDoCartao();
-
-        // Chame uma função separada para buscar e exibir os comentários
         showComments(postId);
     } catch (error) {
         console.error(error);
@@ -114,51 +109,11 @@ async function showComments(postId) {
 
             comentariosContainer.appendChild(comentarioElement);
 
-            window.addEventListener("resize", ajustarTamanhoDoCartao);  
-            ajustarTamanhoDoCartao();
         });
     } catch (error) {
         console.error(error);
     }
 }
-
-function ajustarTamanhoDoCartao() {
-    var larguraDaTela = window.innerWidth;
-    
-    if (larguraDaTela <= 768) {
-        var cartoes = document.querySelectorAll(".cartao");
-        cartoes.forEach(function (cartao) {
-            cartao.style.width = "40vh";
-            cartao.style.fontSize = "10px";
-            cartao.style.marginLeft = "5px";
- 
-        });
-
-        var cartoes = document.querySelectorAll(".cartaoComen");
-        cartoes.forEach(function (cartao) {
-            cartao.style.width = "40vh";
-            cartao.style.fontSize = "10px"; 
-            cartao.style.marginLeft = "5px";
-        });
-    }  
-    else {
-        var cartoes = document.querySelectorAll(".cartao");
-        cartoes.forEach(function (cartao) {
-            cartao.style.width = "80vh"; 
-            cartao.style.fontSize = "16px"; 
-            cartao.style.padding = "20px"; 
-            cartao.style.margin = "1vh"; 
-        });
-        var cartoes = document.querySelectorAll(".cartaoComen");
-        cartoes.forEach(function (cartao) {
-            cartao.style.width = "80vh"; 
-            cartao.style.fontSize = "16px"; 
-            cartao.style.padding = "20px"; 
-            cartao.style.margin = "1vh"; 
-        });
-    }
-}
-
 
 varIdUsuario().then(() => {
     showPost(postId);

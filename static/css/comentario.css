@@ -1,7 +1,7 @@
 @import url('./global.css');
 
 #postagem-principal{
-    margin-top: 2%;
+    margin-top: 10vh;
     padding: 10px;
 }
 
@@ -37,15 +37,16 @@
 
 .cartaoComen {
     border: 1px solid rgb(255, 255, 255);
-    margin: 1vh;
+    border-radius: 2px;
     color: #ffffff;
     font-family: 'KronaOne';
     padding: 25px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    position: relative;
     width: 80vh;
+    background-color: #000;
+    margin: 1vw;
 }
 
 @media screen and (max-device-width: 768px) {
@@ -71,10 +72,5 @@
         font-size: 10px;
         margin: 0;
     }   
-
-    .cartaoComen {
-        width: 90vw;
-        font-size: 8px;
-    }
 
 }

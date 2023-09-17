@@ -1,17 +1,20 @@
 package handlers
 
+// Importando bibliotecas para a criação da classe e funções da postagem.
 import (
 	"database/sql"
+
 	"github.com/gin-gonic/gin"
 )
 
+// Estrutura da postagem.
 type Postagem struct {
 	ID_Postagem   int    `json:"id_postagem"`
 	Texto         string `json:"texto"`
 	Data_Postagem string `json:"data_postagem"`
 	Curtidas      string `json:"curtidas"`
 	ID_Usuario    int    `json:"id_usuario"`
-	Comentarios   int `json:"comentarios"`
+	Comentarios   int    `json:"comentarios"`
 }
 
 func (p *Postagem) Publicar(db *sql.DB) gin.HandlerFunc {
@@ -79,8 +82,8 @@ func (u *Postagem) PostagensUsuario(db *sql.DB) gin.HandlerFunc {
 
 		type PostagemComNickname struct {
 			Postagem
-			Nickname string `json:"nickname"`
-			Biografia string `json:"biografia"`
+			Nickname   string `json:"nickname"`
+			Biografia  string `json:"biografia"`
 			Tecnologia string `json:"tecnologia"`
 		}
 
@@ -111,6 +114,12 @@ func (p *Postagem) ApagarPostagem(db *sql.DB) gin.HandlerFunc {
 			return
 		}
 
+		_, err = db.Exec("UPDATE postagens SET comentarios = comentarios - 1 WHERE id_postagem = $1", id_postagem)
+		if err != nil {
+			c.JSON(500, gin.H{"message": "Erro ao dominuir a quantidade dos comentários da postagem"})
+			return
+		}
+
 		_, err = db.Exec("DELETE FROM postagens WHERE id_postagem = $1", id_postagem)
 		if err != nil {
 			c.JSON(500, gin.H{"message": "Erro ao apagar a postagem"})
@@ -122,26 +131,26 @@ func (p *Postagem) ApagarPostagem(db *sql.DB) gin.HandlerFunc {
 }
 
 func (u *Postagem) GetPostagemById(db *sql.DB) gin.HandlerFunc {
-    return func(c *gin.Context) {
+	return func(c *gin.Context) {
 
-        id_postagem := c.Param("id_postagem")
+		id_postagem := c.Param("id_postagem")
 
 		type PostagemComNickname struct {
 			Postagem
 			Nickname string `json:"nickname"`
 		}
 
-        var postagem PostagemComNickname
+		var postagem PostagemComNickname
 
-        row := db.QueryRow("SELECT p.*, u.nickname FROM postagens p, usuarios u WHERE id_postagem = $1 AND u.id_usuario = p.id_usuario", id_postagem)
+		row := db.QueryRow("SELECT p.*, u.nickname FROM postagens p, usuarios u WHERE id_postagem = $1 AND u.id_usuario = p.id_usuario", id_postagem)
 
-        err := row.Scan(&postagem.ID_Postagem, &postagem.Texto, &postagem.Data_Postagem, &postagem.Curtidas, &postagem.ID_Usuario, &postagem.Comentarios, &postagem.Nickname)
+		err := row.Scan(&postagem.ID_Postagem, &postagem.Texto, &postagem.Data_Postagem, &postagem.Curtidas, &postagem.ID_Usuario, &postagem.Comentarios, &postagem.Nickname)
 
-        if err != nil {
-            c.JSON(404, gin.H{"message": "Postagem inexistente"})
-            return
-        }
+		if err != nil {
+			c.JSON(404, gin.H{"message": "Postagem inexistente"})
+			return
+		}
 
-        c.JSON(200, gin.H{"postagem": postagem})
-    }
+		c.JSON(200, gin.H{"postagem": postagem})
+	}
 }
