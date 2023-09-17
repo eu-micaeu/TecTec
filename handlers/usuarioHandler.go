@@ -1,14 +1,15 @@
 package handlers
 
+// Importando bibliotecas para a criação da classe e funções do usuário.
 import (
 	"database/sql"
 	"time"
 
 	"github.com/dgrijalva/jwt-go"
-
 	"github.com/gin-gonic/gin"
 )
 
+// Estrutura do usuário.
 type Usuario struct {
 	ID_Usuario int    `json:"id_usuario"`
 	Nickname   string `json:"nickname"`
@@ -18,6 +19,7 @@ type Usuario struct {
 	Biografia  string `json:"biografia"`
 }
 
+// Função com finalidade de validação do token.
 func (u *Usuario) ValidateToken(tokenString string) (int, error) {
     claims := &Claims{}
 
@@ -32,6 +34,7 @@ func (u *Usuario) ValidateToken(tokenString string) (int, error) {
     return claims.ID_Usuario, nil
 }
 
+// Função com finalidade de login do usuário.
 func (u *Usuario) Login(db *sql.DB) gin.HandlerFunc {
     return func(c *gin.Context) {
 
@@ -70,6 +73,7 @@ func (u *Usuario) Login(db *sql.DB) gin.HandlerFunc {
     }
 }
 
+// Função com finalidad de registrar um usuário no sistema.
 func (u *Usuario) Register(db *sql.DB) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		var novoUsuario Usuario
@@ -87,6 +91,7 @@ func (u *Usuario) Register(db *sql.DB) gin.HandlerFunc {
 	}
 }
 
+// Função com a finalidade de retornar as informações de qualquer usuário utilizando o nickname do mesmo.
 func (u *Usuario) Perfil(db *sql.DB) gin.HandlerFunc {
     return func(c *gin.Context) {
         nickname := c.Param("nickname")
@@ -113,9 +118,7 @@ func (u *Usuario) Perfil(db *sql.DB) gin.HandlerFunc {
     }
 }
 
-
-
-
+// Função com a finalidade de atualizar a biografia de usuário através do nickname do mesmo.
 func (u *Usuario) AtualizarBiografia(db *sql.DB) gin.HandlerFunc {
     return func(c *gin.Context) {
 
