@@ -4,11 +4,15 @@
 }
 
 body {
-    background-color: #000000f8;
+    background-image: url('../images/peak_background.png');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
     font-family: 'KronaOne';
     line-height: 1.6;
     margin: 0;
 }
+
 
 header {
     background-color: #000;
@@ -22,7 +26,7 @@ header {
 .navigation_header img {
     width: 27px;
     height: 27px;
-    margin: 1vw;
+    margin: 0.9vw;
 }
 
 #logo {
@@ -63,8 +67,8 @@ header {
 }
 
 .cartao {
-    border: 1px solid green;
-    border-radius: 2px;
+    border: 3px solid green;
+    border-radius: 10px 0 10px 0;
     color: #00891E;
     font-family: 'KronaOne';
     padding: 25px;
@@ -73,7 +77,7 @@ header {
     align-items: flex-start;
     width: 80vh;
     background-color: #000;
-    margin: 1vw;
+    margin: 0.5vw;
 }
 
 .centraliza,
@@ -117,6 +121,12 @@ textarea {
 
 #boneco {
     margin-top: 10vh;
+}
+
+#logo{
+    width: 45px;
+    height: 45px;
+    margin-top: 1.2vh;
 }
 
 @media screen and (max-device-width: 768px) {

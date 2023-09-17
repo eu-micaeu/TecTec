@@ -1,12 +1,13 @@
 @import url('./global.css');
 
 header{
-    background-color: #000;
+    background-color: #000000f8;
     width: auto;
     height: 100%; 
     position: relative;
     left: auto; 
-    top: auto; 
+    top: auto;
+    border: none;
 }
 
 .inputBox {
@@ -96,6 +97,12 @@ img[src="../static/images/joao.png"]{
     height: 100px;
     border: 2px solid #00891E;
     border-radius: 10px;
+}
+
+#logo{
+    width: 70px;
+    height: 70px;
+    margin-bottom: 3vh;
 }
 
 @media screen and (max-device-width: 768px) {
