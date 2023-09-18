@@ -65,8 +65,8 @@ varIdUsuario().then(() => {
                             let comentarioImagem = document.createElement('img');
 
                             comentarioImagem.src = '../static/images/comentario.png'
-                            comentarioImagem.width = 25;
-                            comentarioImagem.height = 25;
+                            comentarioImagem.width = 18;
+                            comentarioImagem.height = 18;
 
                             comentarioImagem.addEventListener('mouseover', function () {
                                 comentarioImagem.src = '/static/images/comentariobranco.png';
@@ -88,16 +88,15 @@ varIdUsuario().then(() => {
                             divEmbaixo.appendChild(comentarioQuantidade);
 
                             let likeButton = document.createElement('img');
-                            likeButton.width = 20;
-                            likeButton.height = 20;
+                            likeButton.width = 18;
+                            likeButton.height = 18;
                             likeButton.style.cursor = 'pointer';
                             likeButton.dataset.postId = postagem.id_postagem;
 
-                            // Verifique se a postagem está no conjunto de postagens curtidas
                             if (curtidasUsuario.some(curtida => curtida.id_postagem === postagem.id_postagem)) {
-                                likeButton.src = '/static/images/coracaofechado.png'; // Postagem curtida
+                                likeButton.src = '/static/images/coracaofechado.png'; 
                             } else {
-                                likeButton.src = '/static/images/coracao.png'; // Postagem não curtida
+                                likeButton.src = '/static/images/coracao.png'; 
                             }
 
                             divEmbaixo.appendChild(likeButton);

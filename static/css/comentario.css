@@ -6,16 +6,16 @@
 }
 
 .postagem-comentario textarea {
-    width: 43vw;
+    width: 30vw;
     border-radius: 10px;
     border: 3px solid #00891E;
-    height: 15vh;
+    height: 9vh;
     font-size: px;
     background-color: #000;
     color: white;
-    margin-top: 3vw;
     font-family: 'KronaOne';
 }
+
 
 .botao{
     background-color: #00891E;
@@ -25,8 +25,7 @@
     border: none;
     color: white;
     font-family: 'KronaOne';
-    margin-bottom: 3vw;
-
+    margin-bottom: 3vh;
 }
 
 .botao:hover{
