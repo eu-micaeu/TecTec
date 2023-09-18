@@ -75,6 +75,7 @@ varIdUsuario().then(() => {
                                 window.location.href = '/perfil-visitado?nickname=' + postagem.nickname;
                             });
 
+                           
                             let textElement = document.createElement("p");
                             textElement.textContent = postagem.texto;
                             postElement.appendChild(textElement);
@@ -161,6 +162,22 @@ varIdUsuario().then(() => {
                                         });
                                 }
                             });
+
+                            let seguidorImagem = document.createElement('img');
+
+                            seguidorImagem.src = '../static/images/seguidor.png'
+                            seguidorImagem.width = 18;
+                            seguidorImagem.height = 18;
+
+                            seguidorImagem.addEventListener('mouseover', function () {
+                                seguidorImagem.src = '/static/images/seguidorbranco.png';
+                            });
+                            seguidorImagem.addEventListener('mouseout', function () {
+                                seguidorImagem.src = '/static/images/seguidor.png';
+                            });
+
+                            divEmbaixo.appendChild(seguidorImagem);
+
 
                             postElement.appendChild(divEmbaixo);
 
