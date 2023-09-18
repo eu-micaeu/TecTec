@@ -36,10 +36,12 @@ func (p *Postagem) Publicar(db *sql.DB) gin.HandlerFunc {
 	}
 }
 
+// Função com a finalidade de mostrar o feed de um usuário.
 func (p *Postagem) Feed(db *sql.DB) gin.HandlerFunc {
 	return func(c *gin.Context) {
+		idUsuario := c.Param("id_usuario")
 
-		rows, err := db.Query("SELECT p.*, u.nickname FROM postagens p JOIN usuarios u ON p.id_usuario = u.id_usuario ORDER BY p.data_postagem DESC")
+		rows, err := db.Query("SELECT p.*, u.nickname FROM postagens p JOIN usuarios u ON p.id_usuario = u.id_usuario JOIN amizades a ON a.id_usuario_seguindo = p.id_usuario WHERE a.id_usuario = $1 ORDER BY p.data_postagem DESC", idUsuario)
 
 		if err != nil {
 			c.JSON(500, gin.H{"message": "Erro ao resgatar o feed"})
@@ -67,6 +69,7 @@ func (p *Postagem) Feed(db *sql.DB) gin.HandlerFunc {
 		c.JSON(200, gin.H{"message": "Feed resgatado com sucesso!", "postagens": postagens})
 	}
 }
+
 
 func (u *Postagem) PostagensUsuario(db *sql.DB) gin.HandlerFunc {
 	return func(c *gin.Context) {

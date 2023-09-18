@@ -2,6 +2,8 @@ const token = localStorage.getItem("token").toString();
 
 let idUsuario;
 
+
+
 async function varIdUsuario() {
     try {
         const response = await fetch('/perfil-token/', {
@@ -21,6 +23,24 @@ async function varIdUsuario() {
 varIdUsuario().then(() => {
 
     function displayFeed() {
+
+        fetch(`/contar_amizades/${idUsuario}`)
+            .then(response => response.json())
+            .then(data => {
+                const numberOfFriends = data.quantidade_amizades;
+
+                if (numberOfFriends === 0) {
+                    const carrossel = document.querySelector("#carrosel");
+                    carrossel.style.display = "none";
+
+                } else if (numberOfFriends > 0) {
+                }
+            })
+            .catch(error => {
+                console.error('Error counting friends:', error);
+            });
+
+
         fetch(`/postagens-curtidas/${idUsuario}`, {
             headers: {
                 'Authorization': token
@@ -30,7 +50,7 @@ varIdUsuario().then(() => {
             .then(data => {
                 const curtidasUsuario = data.postagens;
 
-                fetch('/feed', {
+                fetch('/feed/' + idUsuario, {
                     headers: {
                         'Authorization': token
                     }
@@ -94,9 +114,9 @@ varIdUsuario().then(() => {
                             likeButton.dataset.postId = postagem.id_postagem;
 
                             if (curtidasUsuario.some(curtida => curtida.id_postagem === postagem.id_postagem)) {
-                                likeButton.src = '/static/images/coracaofechado.png'; 
+                                likeButton.src = '/static/images/coracaofechado.png';
                             } else {
-                                likeButton.src = '/static/images/coracao.png'; 
+                                likeButton.src = '/static/images/coracao.png';
                             }
 
                             divEmbaixo.appendChild(likeButton);
@@ -149,6 +169,65 @@ varIdUsuario().then(() => {
                     });
             })
     }
+
+    function loadFriendSuggestions() {
+        fetch(`/sugerir_amizades/${idUsuario}`)
+            .then(response => response.json())
+            .then(data => {
+                const friendSuggestions = data.sugestoes_amigos;
+    
+                if (Array.isArray(friendSuggestions)) {
+                    const amigosDiv = document.querySelector("#adicionar-amigos");
+                    amigosDiv.innerHTML = "";
+    
+                    const titulo = document.createElement("span");
+                    titulo.textContent = "Sugestões para seguir:";
+                    amigosDiv.appendChild(titulo);
+                    titulo.classList.add("titleSugestao");
+                    titulo.classList.add("centraliza");
+    
+                    for (const suggestion of friendSuggestions) {
+                        const suggestionBox = document.createElement("div");
+                        suggestionBox.classList.add("sugestao-amizade");
+    
+                        const nicknameElement = document.createElement("span");
+                        nicknameElement.textContent = suggestion.nickname;
+                        suggestionBox.appendChild(nicknameElement);
+    
+                        const addButton = document.createElement("button");
+                        addButton.textContent = "Seguir";
+                        suggestionBox.appendChild(addButton);
+    
+                        addButton.addEventListener("click", async () => {
+                            const response = await fetch("/criar_amizade", {
+                                method: "POST",
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify({
+                                    id_usuario: idUsuario,
+                                    id_usuario_seguindo: suggestion.id_usuario
+                                })
+                            });
+            
+                            if (response.ok) {
+                                loadFriendSuggestions()
+                                displayFeed()
+                            }
+                        });
+    
+                        amigosDiv.appendChild(suggestionBox);
+                    }
+                } else {
+                    console.error('Friend suggestions is not an array:', friendSuggestions);
+                }
+            })
+            .catch(error => {
+                console.error('Error loading friend suggestions:', error);
+            });
+    }
+
+    loadFriendSuggestions()
     displayFeed()
 })
 

@@ -62,7 +62,7 @@ header {
 #carrosel {
     display: flex;
     flex-direction: column;
-    margin-top: 10vh;
+    margin-top: 5vh;
     margin-bottom: 8vh;
 }
 

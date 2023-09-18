@@ -7,10 +7,61 @@
     margin: 0;
 }
 
-#titulo{
+#titulo {
     color: #00891E;
     font-size: 20px;
 }
+
+#adicionar-amigos {
+    background-color: black;
+    width: 15vw;
+    height: 30vh; /* Alterado para 100vh para cobrir toda a altura da janela de visualização */
+    padding: 20px;
+    border-radius: 0 0px 10px 10px;
+    border: 3px solid #00891E;
+    margin-top: 5vh;
+}
+
+
+/* Estilo para o cartão de sugestão de amigo */
+.sugestao-amizade {
+    background-color: #000000;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 3px solid #00891E;
+}
+
+.sugestao-amizade span {
+    font-weight: bold;
+    color: #00891E;
+}
+
+.sugestao-amizade button {
+    background-color: #00891E;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-family: 'KronaOne';
+}
+
+.sugestao-amizade button:hover {
+    background-color: #00590C;
+    font-family: 'KronaOne';
+}
+
+.titleSugestao{
+    color: #00891E;
+    margin-bottom: 2vh;
+    font-size: 12px;
+}
+
 
 @media screen and (max-device-width: 768px) {
 
