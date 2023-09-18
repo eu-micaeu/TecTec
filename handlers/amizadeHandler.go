@@ -88,7 +88,7 @@ func (a *Amizade) SugerirAmigos(db *sql.DB) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		idUsuario := c.Param("id_usuario")
 
-		rows, err := db.Query("SELECT u.id_usuario, u.nickname, u.tecnologia, u.biografia FROM usuarios u WHERE u.id_usuario != $1 AND u.id_usuario NOT IN (SELECT a.id_usuario_seguindo FROM amizades a WHERE a.id_usuario = $1) ORDER BY RANDOM() LIMIT 4", idUsuario)
+		rows, err := db.Query("SELECT u.id_usuario, u.nickname, u.tecnologia, u.biografia FROM usuarios u WHERE u.id_usuario != $1 AND u.id_usuario NOT IN (SELECT a.id_usuario_seguindo FROM amizades a WHERE a.id_usuario = $1) ORDER BY RANDOM() LIMIT 3", idUsuario)
 
 		if err != nil {
 			c.JSON(500, gin.H{"message": "Erro ao sugerir amigos"})
