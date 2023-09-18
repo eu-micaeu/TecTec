@@ -38,6 +38,29 @@ func (a *Amizade) CriarAmizade(db *sql.DB) gin.HandlerFunc {
 	}
 }
 
+// Função com a finalidade de desfazer uma amizade.
+func (a *Amizade) DesfazerAmizade(db *sql.DB) gin.HandlerFunc {
+
+	return func(c *gin.Context) {
+
+		var novaAmizade Amizade
+
+		if err := c.BindJSON(&novaAmizade); err != nil {
+			c.JSON(400, gin.H{"message": "Erro ao desfazer amizade"})
+			return
+		}
+
+		_, err := db.Exec("DELETE FROM amizades WHERE id_usuario = $1 AND id_usuario_seguindo = $2", novaAmizade.ID_Usuario, novaAmizade.ID_Usuario_Seguindo)
+
+		if err != nil {
+			c.JSON(500, gin.H{"message": "Erro ao desfazer amizade"})
+			return
+		}
+
+		c.JSON(200, gin.H{"message": "Amizade desfeita com sucesso!"})
+	}
+}
+
 // Função com a finalidade de mostrar todas as amizades de um usuário.
 func (a *Amizade) MostrarAmizades(db *sql.DB) gin.HandlerFunc {
 	return func(c *gin.Context) {

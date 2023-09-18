@@ -22,7 +22,7 @@
                 <br>
                 <img src="../static/images/logo.png" alt="" class="img_logo" id="logo">
                 <br>
-                <img src="../static/images/pesquisa.png" alt="" class="user" id="pesquisa">
+                <img id="pesquisa" src="/static/images/explorar.png">
                 <br>
                 <img src="../static/images/out.png" alt="" class="user" id="sair" onclick="window.location.href='/'">
             </div>
@@ -32,23 +32,34 @@
 
     <br>
 
-    
+
 
     <main class="principal">
 
         <div id="adicionar-amigos">
-            
+
         </div>
 
         <div id="carrosel">
-            
+
         </div>
 
-        <button class="botao-adicionar-postagem" onclick="window.location.href='/post'">+</button>
+        <div class="centraliza">
+
+            <button class="botao-recarregar-postagem">
+                <img src="static\images\refresh.png" alt="Reccaregar feed">
+            </button>
+
+
+            <button class="botao-adicionar-postagem" onclick="window.location.href='/post'">+</button>
+
+        </div>
+
+
 
     </main>
 
-    
+
 
     <script src="../static/js/home.mjs" defer></script>
 

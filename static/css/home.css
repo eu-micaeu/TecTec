@@ -60,8 +60,25 @@
     font-size: 12px;
 }
 
+#listaUsuarios {
+    list-style-type: none; /* Remove os marcadores de lista */
+    padding: 0; /* Remove o padding */
+    margin: 0; /* Remove a margem */
+}
+
+#listaUsuarios li {
+    padding: 10px; /* Adiciona um pouco de espaço ao redor do texto */
+    border-bottom: 1px solid #ddd; /* Adiciona uma linha entre cada item da lista */
+}
+
+#listaUsuarios li:last-child {
+    border-bottom: none; /* Remove a linha do último item da lista */
+}
+
+
 
 @media screen and (max-device-width: 768px) {
+
 
     #nome {
         color: #00891E;
@@ -72,7 +89,7 @@
 
     #adicionar-amigos {
         margin-top: 3vh;
-        width: 40vw;
+        width: 60vw;
         height: 25vh;
 
     }

@@ -63,7 +63,7 @@ header {
     display: flex;
     flex-direction: column;
     margin-top: 5vh;
-    margin-bottom: 8vh;
+    margin-bottom: 14vh;
 }
 
 .cartao {
@@ -113,7 +113,22 @@ textarea {
     font-size: 30px;
 }
 
-.botao-adicionar-postagem:hover {
+.botao-recarregar-postagem {
+    font-family: 'KronaOne';
+    background-color: #00891E;
+    color: white;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 10px;
+    position: fixed;
+    bottom: 80px;
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+}
+
+.botao-adicionar-postagem:hover, .botao-recarregar-postagem:hover{
     font-family: 'KronaOne';
     background-color: #fff;
     color: #00891E;
@@ -123,7 +138,7 @@ textarea {
     margin-top: 10vh;
 }
 
-#logo{
+#logo {
     width: 45px;
     height: 45px;
     margin-top: 1.2vh;
@@ -147,7 +162,8 @@ textarea {
         margin: 3vw;
     }
 
-    .cartao, .cartaoComen {
+    .cartao,
+    .cartaoComen {
         width: 80vw;
         font-size: 12px;
         margin: 2vw;
@@ -156,6 +172,8 @@ textarea {
     #carrosel {
         display: flex;
         flex-direction: column;
+        margin-bottom: 15vh;
+
     }
 
 }

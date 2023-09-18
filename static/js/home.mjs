@@ -75,6 +75,7 @@ varIdUsuario().then(() => {
                                 window.location.href = '/perfil-visitado?nickname=' + postagem.nickname;
                             });
 
+
                             let textElement = document.createElement("p");
                             textElement.textContent = postagem.texto;
                             postElement.appendChild(textElement);
@@ -162,6 +163,42 @@ varIdUsuario().then(() => {
                                 }
                             });
 
+                            let seguidorImagem = document.createElement('img');
+
+                            seguidorImagem.src = '../static/images/seguidor.png'
+                            seguidorImagem.width = 18;
+                            seguidorImagem.height = 18;
+                            seguidorImagem.title = 'Deixar de seguir';
+
+                            seguidorImagem.addEventListener('mouseover', function () {
+                                seguidorImagem.src = '/static/images/seguidorbranco.png';
+                            });
+                            seguidorImagem.addEventListener('mouseout', function () {
+                                seguidorImagem.src = '/static/images/seguidor.png';
+                            });
+
+                            seguidorImagem.addEventListener('click', async function () {
+                                const response = await fetch(`/desfazer_amizade`, {
+                                    method: 'DELETE',
+                                    headers: {
+                                        'Content-Type': 'application/json'
+                                    },
+                                    body: JSON.stringify({
+                                        id_usuario: idUsuario,
+                                        id_usuario_seguindo: postagem.id_usuario
+                                    })
+                                });
+
+                                if (response.ok) {
+                                    displayFeed()
+                                } else {
+                                    console.error('Erro ao desfazer amizade');
+                                }
+                            });
+
+                            divEmbaixo.appendChild(seguidorImagem);
+
+
                             postElement.appendChild(divEmbaixo);
 
                             feedContainer.appendChild(postElement);
@@ -175,29 +212,29 @@ varIdUsuario().then(() => {
             .then(response => response.json())
             .then(data => {
                 const friendSuggestions = data.sugestoes_amigos;
-    
+
                 if (Array.isArray(friendSuggestions)) {
                     const amigosDiv = document.querySelector("#adicionar-amigos");
                     amigosDiv.innerHTML = "";
-    
+
                     const titulo = document.createElement("span");
                     titulo.textContent = "Sugestões para seguir:";
                     amigosDiv.appendChild(titulo);
                     titulo.classList.add("titleSugestao");
                     titulo.classList.add("centraliza");
-    
+
                     for (const suggestion of friendSuggestions) {
                         const suggestionBox = document.createElement("div");
                         suggestionBox.classList.add("sugestao-amizade");
-    
+
                         const nicknameElement = document.createElement("span");
                         nicknameElement.textContent = suggestion.nickname;
                         suggestionBox.appendChild(nicknameElement);
-    
+
                         const addButton = document.createElement("button");
                         addButton.textContent = "Seguir";
                         suggestionBox.appendChild(addButton);
-    
+
                         addButton.addEventListener("click", async () => {
                             const response = await fetch("/criar_amizade", {
                                 method: "POST",
@@ -209,13 +246,13 @@ varIdUsuario().then(() => {
                                     id_usuario_seguindo: suggestion.id_usuario
                                 })
                             });
-            
+
                             if (response.ok) {
                                 loadFriendSuggestions()
                                 displayFeed()
                             }
                         });
-    
+
                         amigosDiv.appendChild(suggestionBox);
                     }
                 } else {
@@ -229,7 +266,20 @@ varIdUsuario().then(() => {
 
     loadFriendSuggestions()
     displayFeed()
+
+    var botao = document.querySelector('.botao-recarregar-postagem');
+    var imagem = botao.querySelector('img'); // seleciona a imagem dentro do botão
+
+    botao.addEventListener('mouseover', function () {
+        imagem.src = '/static/images/refreshverde.png';
+    });
+    botao.addEventListener('mouseout', function () {
+        imagem.src = '/static/images/refresh.png';
+    });
+
+    botao.addEventListener('click', displayFeed);
 })
+
 
 let homeImage = document.querySelector("#casa");
 
@@ -250,12 +300,14 @@ userImage.addEventListener('mouseout', function () {
 });
 
 let pesquisaImage = document.querySelector("#pesquisa");
+let pesquisaInput = document.querySelector("#pesquisaInput");
 
+// Altera a imagem quando o mouse passa por cima
 pesquisaImage.addEventListener('mouseover', function () {
-    pesquisaImage.src = '/static/images/pesquisabranco.png';
+    pesquisaImage.src = '/static/images/explorarbranco.png';
 });
 pesquisaImage.addEventListener('mouseout', function () {
-    pesquisaImage.src = '/static/images/pesquisa.png';
+    pesquisaImage.src = '/static/images/explorar.png';
 });
 
 let outImage = document.querySelector("#sair");

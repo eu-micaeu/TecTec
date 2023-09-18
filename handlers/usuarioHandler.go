@@ -118,6 +118,33 @@ func (u *Usuario) Perfil(db *sql.DB) gin.HandlerFunc {
     }
 }
 
+func (u *Usuario) TodosExcetoEu(db *sql.DB) gin.HandlerFunc {
+    return func(c *gin.Context) {
+
+        id_usuario := c.Param("id_usuario")
+
+        rows, err := db.Query("SELECT id_usuario, nickname, telefone, tecnologia, biografia FROM usuarios WHERE id_usuario != $1", id_usuario)
+        if err != nil {
+            c.JSON(500, gin.H{"message": "Erro ao buscar usuários"})
+            return
+        }
+
+        var usuarios []Usuario
+        for rows.Next() {
+            var usuario Usuario
+            err = rows.Scan(&usuario.ID_Usuario, &usuario.Nickname, &usuario.Telefone, &usuario.Tecnologia, &usuario.Biografia)
+            if err != nil {
+                c.JSON(500, gin.H{"message": "Erro ao processar usuários"})
+                return
+            }
+            usuarios = append(usuarios, usuario)
+        }
+
+        c.JSON(200, gin.H{"usuarios": usuarios})
+    }
+}
+
+
 // Função com a finalidade de atualizar a biografia de usuário através do nickname do mesmo.
 func (u *Usuario) AtualizarBiografia(db *sql.DB) gin.HandlerFunc {
     return func(c *gin.Context) {

@@ -141,10 +141,10 @@ userImage.addEventListener('mouseout', function () {
 let pesquisaImage = document.querySelector("#pesquisa");
 
 pesquisaImage.addEventListener('mouseover', function () {
-    pesquisaImage.src = '/static/images/pesquisabranco.png';
+    pesquisaImage.src = '/static/images/explorarbranco.png';
 });
 pesquisaImage.addEventListener('mouseout', function () {
-    pesquisaImage.src = '/static/images/pesquisa.png';
+    pesquisaImage.src = '/static/images/explorar.png';
 });
 
 let outImage = document.querySelector("#sair");
