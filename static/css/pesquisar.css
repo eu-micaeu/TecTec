@@ -1,0 +1,14 @@
+@import url('./global.css');
+
+
+#searchInput{
+    border-radius: 2px;
+    width: 140px;
+}
+
+
+@media screen and (max-device-width: 768px) {
+
+
+
+}
