@@ -167,7 +167,7 @@ varIdUsuario().then(() => {
                                 })
                                     .then(response => response.json())
                                     .then(data => {
-                                        displayFeed(name);
+                                        displayFeed();
                                     });
                             });
 
@@ -270,7 +270,7 @@ userImage.addEventListener('mouseout', function () {
     userImage.src = '/static/images/la_user.png';
 });
 
-let pesquisaImage = document.querySelector("#pesquisa");
+let pesquisaImage = document.querySelector("#pesquisar");
 
 pesquisaImage.addEventListener('mouseover', function () {
     pesquisaImage.src = '/static/images/explorarbranco.png';

@@ -18,6 +18,7 @@ async function varIdUsuario() {
     } catch (error) {
         console.error(error);
     }
+    
 }
 
 varIdUsuario().then(() => {
@@ -255,7 +256,7 @@ varIdUsuario().then(() => {
                         amigosDiv.appendChild(suggestionBox);
                     }
                 } else {
-                    amigosDiv.style.display = "none"; // Ocultar a amigosDiv quando não houver sugestões
+                    amigosDiv.style.display = "none";
                     console.log('No friend suggestions available or friendSuggestions is not an array:', friendSuggestions);
                 }
             })
@@ -264,7 +265,6 @@ varIdUsuario().then(() => {
             });
     }
     
-
     loadFriendSuggestions()
     displayFeed()
 
@@ -300,10 +300,8 @@ userImage.addEventListener('mouseout', function () {
     userImage.src = '/static/images/la_user.png';
 });
 
-let pesquisaImage = document.querySelector("#pesquisa");
-let pesquisaInput = document.querySelector("#pesquisaInput");
+let pesquisaImage = document.querySelector("#pesquisar");
 
-// Altera a imagem quando o mouse passa por cima
 pesquisaImage.addEventListener('mouseover', function () {
     pesquisaImage.src = '/static/images/explorarbranco.png';
 });
