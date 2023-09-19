@@ -8,6 +8,11 @@
     height: 2rem;
 }
 
+ul{
+    list-style: none;
+    margin-left: 0px;
+}
+
 
 @media screen and (max-device-width: 768px) {
 

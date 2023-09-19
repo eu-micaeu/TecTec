@@ -22,7 +22,6 @@ async function varIdUsuario() {
 }
 
 
-
 function searchNicknames() {
     var searchTerm = document.getElementById("searchInput").value;
     var resultsUl = document.getElementById("results");
@@ -31,9 +30,20 @@ function searchNicknames() {
     if (usuariosData.length > 0) {
         for (var i = 0; i < usuariosData.length; i++) {
             if (usuariosData[i].nickname === searchTerm) {
-                var li = document.createElement("li");
-                li.textContent = usuariosData[i].nickname;
-                resultsUl.appendChild(li);
+                var lista = document.createElement("li");
+                lista.textContent = usuariosData[i].nickname;
+                resultsUl.appendChild(lista);
+
+                lista.setAttribute("data-nickname", usuariosData[i].nickname);
+                
+                resultsUl.appendChild(lista);
+
+                lista.style.cursor = "pointer";
+
+                lista.addEventListener("click", function () {
+                    var nickname = this.getAttribute("data-nickname");
+                    window.location.href = '/perfil-visitado?nickname=' + nickname;
+                });
             }
         }
     } else {
