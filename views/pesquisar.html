@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TecTec</title>
+    <link rel="icon" href="..\static\images\logo.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="../static/css/home.css">
+</head>
+
+<body>
+    <div class="centraliza">
+        <header class="navigation_header">
+            <div class="centraliza">
+                <img src="../static/images/casinha.png" alt="" class="user" id="casa"
+                    onclick="window.location.href='/home'">
+                <br>
+                <img src="../static/images/la_user.png" alt="" class="user" id="perfil"
+                    onclick="window.location.href='/perfil'">
+                <br>
+                <img src="../static/images/logo.png" alt="" class="img_logo" id="logo">
+                <br>
+                <img id="pesquisa" src="/static/images/explorar.png">
+                <br>
+                <img src="../static/images/out.png" alt="" class="user" id="sair" onclick="window.location.href='/'">
+            </div>
+
+        </header>
+    </div>
+
+    <div class="centraliza">
+        <h1>Barra de Pesquisa de Nicknames</h1>
+    </div>
+    <div class="centraliza">
+        <input type="text" id="searchInput" placeholder="Digite o nickname" oninput="searchNicknames()">
+    </div>
+    <div class="centraliza">
+        <h2>Resultados:</h2>
+    </div>
+    <div class="centraliza">
+        <ul id="results"></ul>
+
+    </div>
+  
+    
+    <script src="../static/js/pesquisar.mjs" defer></script>
+    
+</body>

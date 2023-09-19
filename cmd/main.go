@@ -59,6 +59,10 @@ func main() {
 	r.GET("/comentario", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "comentario.html", nil)
 	})
+	
+	r.GET("/pesquisar",func(c *gin.Context){
+		c.HTML(http.StatusOK,"pesquisar.html",nil)
+	})
 
 	r.Static("./static", "./static")
 
