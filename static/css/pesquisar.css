@@ -8,9 +8,19 @@
     height: 2rem;
 }
 
-ul{
+ul {
     list-style: none;
-    margin-left: 0px;
+    width: 10rem;
+    
+}
+
+ul li:hover {
+    background-color: black;
+    color: white;
+    border-radius: 0px 5px 0px 5px;
+    width: auto; 
+    padding: 5px 10px; 
+
 }
 
 
