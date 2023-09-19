@@ -66,7 +66,7 @@ func (a *Amizade) MostrarAmizades(db *sql.DB) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		idUsuario := c.Param("id_usuario")
 
-		rows, err := db.Query("SELECT u.id_usuario, u.nickname, u.tecnologia, u.biografia FROM amizades a JOIN usuarios u ON a.id_usuario_seguindo = u.id_usuario WHERE a.id_usuario = $1", idUsuario)
+		rows, err := db.Query("SELECT u.id_usuario, u.nickname, u.tecnologia FROM amizades a JOIN usuarios u ON a.id_usuario_seguindo = u.id_usuario WHERE a.id_usuario = $1", idUsuario)
 		if err != nil {
 			c.JSON(500, gin.H{"message": "Erro ao buscar amizades"})
 			return
@@ -77,7 +77,7 @@ func (a *Amizade) MostrarAmizades(db *sql.DB) gin.HandlerFunc {
 
 		for rows.Next() {
 			var amigo Usuario
-			if err := rows.Scan(&amigo.ID_Usuario, &amigo.Nickname, &amigo.Tecnologia, &amigo.Biografia); err != nil {
+			if err := rows.Scan(&amigo.ID_Usuario, &amigo.Nickname, &amigo.Tecnologia); err != nil {
 				c.JSON(500, gin.H{"message": "Erro ao buscar amizades"})
 				return
 			}
@@ -91,6 +91,7 @@ func (a *Amizade) MostrarAmizades(db *sql.DB) gin.HandlerFunc {
 // Função com a finalidade de contar todas as amizades de um usuário.
 func (a *Amizade) ContarAmizades(db *sql.DB) gin.HandlerFunc {
 	return func(c *gin.Context) {
+		
 		idUsuario := c.Param("id_usuario")
 
 		row := db.QueryRow("SELECT COUNT(*) FROM amizades WHERE id_usuario = $1", idUsuario)
@@ -105,33 +106,25 @@ func (a *Amizade) ContarAmizades(db *sql.DB) gin.HandlerFunc {
 		c.JSON(200, gin.H{"quantidade_amizades": quantidade})
 	}
 }
-
-// Função com a finalidade de sugerir amigos aleatórios para um usuário.
-func (a *Amizade) SugerirAmigos(db *sql.DB) gin.HandlerFunc {
+	
+func (a *Amizade) VerificarAmizade(db *sql.DB) gin.HandlerFunc {
 	return func(c *gin.Context) {
-		idUsuario := c.Param("id_usuario")
+		var amizade Amizade
 
-		rows, err := db.Query("SELECT u.id_usuario, u.nickname, u.tecnologia, u.biografia FROM usuarios u WHERE u.id_usuario != $1 AND u.id_usuario NOT IN (SELECT a.id_usuario_seguindo FROM amizades a WHERE a.id_usuario = $1) ORDER BY RANDOM() LIMIT 3", idUsuario)
-
-		if err != nil {
-			c.JSON(500, gin.H{"message": "Erro ao sugerir amigos"})
+		if err := c.BindJSON(&amizade); err != nil {
+			c.JSON(400, gin.H{"message": "Erro ao criar amizade"})
 			return
 		}
-		defer rows.Close()
 
-		var amigos []Usuario
+		row := db.QueryRow("SELECT EXISTS (SELECT 1 FROM amizades WHERE id_usuario = $1 AND id_usuario_seguindo = $2)", amizade.ID_Usuario, amizade.ID_Usuario_Seguindo)
 
-		for rows.Next() {
-			var amigo Usuario
-			if err := rows.Scan(&amigo.ID_Usuario, &amigo.Nickname, &amigo.Tecnologia, &amigo.Biografia); err != nil {
-				c.JSON(500, gin.H{"message": "Erro ao sugerir amigos"})
-				return
-			}
-			amigos = append(amigos, amigo)
+		var existe bool
+		err := row.Scan(&existe)
+		if err != nil {
+			c.JSON(500, gin.H{"message": "Erro ao verificar amizade"})
+			return
 		}
 
-		c.JSON(200, gin.H{"sugestoes_amigos": amigos})
+		c.JSON(200, gin.H{"amizade_existe": existe})
 	}
 }
-
-

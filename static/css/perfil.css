@@ -1,7 +1,7 @@
 @import url('./global.css');
 
 #nome, #tecnologia {
-    color: #00891E;
+    color: white;
     text-align: left;
 }
 
@@ -15,7 +15,7 @@ img[src="../static/images/editar.png"]{
 @media screen and (max-device-width: 768px) {
 
     #nome {
-        color: #00891E;
+        color: white;
         font-family: 'KronaOne';
         font-size: 10px;
         margin: 0;

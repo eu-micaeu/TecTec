@@ -1,6 +1,7 @@
 let nickname;
 
 let idUsuario;
+let idUsuarioSeguindo;
 
 const token = localStorage.getItem("token").toString();
 
@@ -26,6 +27,7 @@ async function varIdUsuario() {
         });
         const data = await response.json();
         nickname = data.usuario.nickname;
+        idUsuarioSeguindo = data.usuario.id_usuario;
     } catch (error) {
         console.error(error);
     }
@@ -46,6 +48,10 @@ async function varIdUsuario() {
 }
 
 varIdUsuario().then(() => {
+
+        
+
+
     function displayFeed() {
         fetch(`/postagens-curtidas/${idUsuario}`, {
             headers: {
@@ -176,19 +182,6 @@ varIdUsuario().then(() => {
             })
     }
 
-    function updateBiografia(nickname) {
-        let name = nickname;
-        fetch('/perfil/' + name, {
-            headers: {
-                'Authorization': token
-            }
-        })
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById('biografia').textContent = data.usuario.biografia;
-            });
-    };
-
     function updateNome(nickname) {
         let name = nickname;
         fetch('/perfil/' + name, {
@@ -221,44 +214,62 @@ varIdUsuario().then(() => {
 
 
     updateNome(nickname);
-    updateBiografia(nickname);
     updateTecnologia(nickname);
     displayFeed();
 
+});
+
+varIdUsuario().then(async () => {
+    const response = await fetch("/verificar_amizade", {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ id_usuario: idUsuario, id_usuario_seguindo: idUsuarioSeguindo })
+    })
+    
+    if (response.ok) {
+        const data = await response.json();
+        console.log(data);
+        if (data.amizade_existe) {
+            document.getElementById("seguir").textContent = "Seguindo";
+            document.getElementById("seguir").addEventListener("click", async function () {
+                const response = await fetch("/desfazer_amizade", {
+                    method: "DELETE",
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ id_usuario: idUsuario, id_usuario_seguindo: idUsuarioSeguindo })
+                })
+    
+                if (response.ok) {
+                    document.getElementById("seguir").textContent = "Seguir";
+                }
+            });
+        } else {
+            document.getElementById("seguir").addEventListener("click", async function () {
+                const response = await fetch("/criar_amizade", {
+                    method: "POST",
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ id_usuario: idUsuario, id_usuario_seguindo: idUsuarioSeguindo })
+                })
+    
+                if (response.ok) {
+                    document.getElementById("seguir").textContent = "Seguindo";
+                }
+            });
+        }
+    }
 })
 
-let homeImage = document.querySelector("#casa");
 
-homeImage.addEventListener('mouseover', function () {
-    homeImage.src = '/static/images/homebranco.png';
-});
-homeImage.addEventListener('mouseout', function () {
-    homeImage.src = '/static/images/home.png';
-});
 
-let userImage = document.querySelector("#perfil");
 
-userImage.addEventListener('mouseover', function () {
-    userImage.src = '/static/images/la_userbranco.png';
-});
-userImage.addEventListener('mouseout', function () {
-    userImage.src = '/static/images/la_user.png';
-});
+console.log(idUsuario);
+console.log(idUsuarioSeguindo);
 
-let pesquisaImage = document.querySelector("#pesquisar");
+import { iconsHover } from './global.mjs';
 
-pesquisaImage.addEventListener('mouseover', function () {
-    pesquisaImage.src = '/static/images/explorarbranco.png';
-});
-pesquisaImage.addEventListener('mouseout', function () {
-    pesquisaImage.src = '/static/images/explorar.png';
-});
-
-let outImage = document.querySelector("#sair");
-
-outImage.addEventListener('mouseover', function () {
-    outImage.src = '/static/images/outbranco.png';
-});
-outImage.addEventListener('mouseout', function () {
-    outImage.src = '/static/images/out.png';
-});
+iconsHover();

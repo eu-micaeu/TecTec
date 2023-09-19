@@ -14,5 +14,5 @@ func AmizadeRoutes(r *gin.Engine, db *sql.DB) {
 	r.DELETE("/desfazer_amizade", friedHandler.DesfazerAmizade(db))
 	r.GET("/mostrar_amizades/:id_usuario", friedHandler.MostrarAmizades(db))
 	r.GET("/contar_amizades/:id_usuario", friedHandler.ContarAmizades(db))
-	r.GET("/sugerir_amizades/:id_usuario", friedHandler.SugerirAmigos(db))
+	r.POST("/verificar_amizade", friedHandler.VerificarAmizade(db))
 }

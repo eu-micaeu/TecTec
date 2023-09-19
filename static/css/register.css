@@ -1,12 +1,13 @@
 @import url('./global.css');
 
 header{
-    background-color: #000;
+    background-color: transparent;
     width: auto;
     height: 100%; 
     position: relative;
     left: auto; 
-    top: auto; 
+    top: auto;
+    border: none;
 }
 
 .inputBox {
@@ -32,6 +33,7 @@ header{
     width: 20vw;
     margin: 0 auto 20px auto;
     border-radius: 15px;
+    background-color: black;
 }
 
 .btnContainer{
@@ -70,6 +72,13 @@ p{
     color: white;
     font-family: 'KronaOne';
     font-size: 12px;
+}
+
+#logo{
+    width: 70px;
+    height: 70px;
+    margin-bottom: 3vh;
+    margin-top: 3vh;
 }
 
 @media screen and (max-device-width: 768px){

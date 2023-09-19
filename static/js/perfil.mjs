@@ -183,19 +183,6 @@ varIdUsuario().then(() => {
             })
     }
 
-    function updateBiografia(nickname) {
-        let name = nickname;
-        fetch('/perfil/' + name, {
-            headers: {
-                'Authorization': token
-            }
-        })
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById('biografia').value = data.usuario.biografia;
-            });
-    };
-
     function updateNome(nickname) {
         let name = nickname;
         fetch('/perfil/' + name, {
@@ -226,12 +213,9 @@ varIdUsuario().then(() => {
             });
     }
 
-
     updateNome(nickname);
-    updateBiografia(nickname);
     updateTecnologia(nickname);
     displayFeed();
-
 
     document.getElementById('biografia').addEventListener('blur', function () {
         let name = nickname;
@@ -247,43 +231,6 @@ varIdUsuario().then(() => {
     });
 });
 
-document.getElementById("editar").addEventListener("click", function () {
-    document.getElementById("biografia").contentEditable = true;
-    document.getElementById("biografia").focus();
-});
+import { iconsHover } from './global.mjs';
 
-let homeImage = document.querySelector("#casa");
-
-homeImage.addEventListener('mouseover', function () {
-    homeImage.src = '/static/images/homebranco.png';
-});
-homeImage.addEventListener('mouseout', function () {
-    homeImage.src = '/static/images/home.png';
-});
-
-let userImage = document.querySelector("#perfil");
-
-userImage.addEventListener('mouseover', function () {
-    userImage.src = '/static/images/la_userbranco.png';
-});
-userImage.addEventListener('mouseout', function () {
-    userImage.src = '/static/images/la_user.png';
-});
-
-let pesquisaImage = document.querySelector("#pesquisar");
-
-pesquisaImage.addEventListener('mouseover', function () {
-    pesquisaImage.src = '/static/images/explorarbranco.png';
-});
-pesquisaImage.addEventListener('mouseout', function () {
-    pesquisaImage.src = '/static/images/explorar.png';
-});
-
-let outImage = document.querySelector("#sair");
-
-outImage.addEventListener('mouseover', function () {
-    outImage.src = '/static/images/outbranco.png';
-});
-outImage.addEventListener('mouseout', function () {
-    outImage.src = '/static/images/out.png';
-});
+iconsHover();

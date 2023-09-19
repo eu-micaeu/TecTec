@@ -16,7 +16,6 @@ type Usuario struct {
 	Senha      string `json:"senha"`
 	Telefone   string `json:"telefone"`
 	Tecnologia string `json:"tecnologia"`
-	Biografia  string `json:"biografia"`
 }
 
 // Função com finalidade de validação do token.
@@ -105,9 +104,9 @@ func (u *Usuario) Perfil(db *sql.DB) gin.HandlerFunc {
 
         var usuario Usuario
 
-        row := db.QueryRow("SELECT id_usuario, nickname, senha, telefone, tecnologia, biografia FROM usuarios WHERE nickname = $1", nickname)
+        row := db.QueryRow("SELECT id_usuario, nickname, senha, telefone, tecnologia FROM usuarios WHERE nickname = $1", nickname)
 
-        err = row.Scan(&usuario.ID_Usuario, &usuario.Nickname, &usuario.Senha, &usuario.Telefone, &usuario.Tecnologia, &usuario.Biografia)
+        err = row.Scan(&usuario.ID_Usuario, &usuario.Nickname, &usuario.Senha, &usuario.Telefone, &usuario.Tecnologia)
 
         if err != nil {
             c.JSON(404, gin.H{"message": "Usuário inexistente"})
@@ -123,7 +122,7 @@ func (u *Usuario) TodosExcetoEu(db *sql.DB) gin.HandlerFunc {
 
         id_usuario := c.Param("id_usuario")
 
-        rows, err := db.Query("SELECT id_usuario, nickname, telefone, tecnologia, biografia FROM usuarios WHERE id_usuario != $1", id_usuario)
+        rows, err := db.Query("SELECT id_usuario, nickname, telefone, tecnologia FROM usuarios WHERE id_usuario != $1", id_usuario)
         if err != nil {
             c.JSON(500, gin.H{"message": "Erro ao buscar usuários"})
             return
@@ -132,7 +131,7 @@ func (u *Usuario) TodosExcetoEu(db *sql.DB) gin.HandlerFunc {
         var usuarios []Usuario
         for rows.Next() {
             var usuario Usuario
-            err = rows.Scan(&usuario.ID_Usuario, &usuario.Nickname, &usuario.Telefone, &usuario.Tecnologia, &usuario.Biografia)
+            err = rows.Scan(&usuario.ID_Usuario, &usuario.Nickname, &usuario.Telefone, &usuario.Tecnologia)
             if err != nil {
                 c.JSON(500, gin.H{"message": "Erro ao processar usuários"})
                 return
@@ -144,35 +143,6 @@ func (u *Usuario) TodosExcetoEu(db *sql.DB) gin.HandlerFunc {
     }
 }
 
-
-// Função com a finalidade de atualizar a biografia de usuário através do nickname do mesmo.
-func (u *Usuario) AtualizarBiografia(db *sql.DB) gin.HandlerFunc {
-    return func(c *gin.Context) {
-
-        nickname := c.Param("nickname")
-
-        tknStr := c.Request.Header.Get("Authorization")
-        _, err := u.ValidateToken(tknStr)
-        if err != nil {
-            c.JSON(401, gin.H{"message": "Token inválido"})
-            return
-        }
-
-        var usuario Usuario
-
-        if err := c.BindJSON(&usuario); err != nil {
-            c.JSON(400, gin.H{"message": "Erro ao atualizar biografia"})
-            return
-        }
-        
-        _, err = db.Exec("UPDATE usuarios SET biografia = $1 WHERE nickname = $2", usuario.Biografia, nickname)
-        if err != nil {
-            c.JSON(500, gin.H{"message": "Erro ao atualizar biografia"})
-            return
-        }
-        c.JSON(200, gin.H{"message": "Biografia atualizada com sucesso!"})
-    }
-}
 
 
 
