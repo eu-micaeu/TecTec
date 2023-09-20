@@ -49,9 +49,6 @@ async function varIdUsuario() {
 
 varIdUsuario().then(() => {
 
-        
-
-
     function displayFeed() {
         fetch(`/postagens-curtidas/${idUsuario}`, {
             headers: {
@@ -220,55 +217,54 @@ varIdUsuario().then(() => {
 });
 
 varIdUsuario().then(async () => {
-    const response = await fetch("/verificar_amizade", {
-        method: "POST",
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ id_usuario: idUsuario, id_usuario_seguindo: idUsuarioSeguindo })
-    })
-    
-    if (response.ok) {
-        const data = await response.json();
-        console.log(data);
-        if (data.amizade_existe) {
-            document.getElementById("seguir").textContent = "Seguindo";
-            document.getElementById("seguir").addEventListener("click", async function () {
+    const seguirBotao = document.getElementById("seguir");
+
+    async function seguir(idUsuario, idUsuarioSeguindo) {
+        const response = await fetch("/verificar_amizade", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ id_usuario: idUsuario, id_usuario_seguindo: idUsuarioSeguindo })
+        });
+
+        if (response.ok) {
+            const data = await response.json();
+            console.log(data);
+
+            if (data.amizade_existe) {
                 const response = await fetch("/desfazer_amizade", {
                     method: "DELETE",
                     headers: {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({ id_usuario: idUsuario, id_usuario_seguindo: idUsuarioSeguindo })
-                })
-    
+                });
+
                 if (response.ok) {
-                    document.getElementById("seguir").textContent = "Seguir";
+                    seguirBotao.textContent = "Seguir";
                 }
-            });
-        } else {
-            document.getElementById("seguir").addEventListener("click", async function () {
+            } else {
                 const response = await fetch("/criar_amizade", {
                     method: "POST",
                     headers: {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({ id_usuario: idUsuario, id_usuario_seguindo: idUsuarioSeguindo })
-                })
-    
+                });
+
                 if (response.ok) {
-                    document.getElementById("seguir").textContent = "Seguindo";
+                    seguirBotao.textContent = "Seguindo";
                 }
-            });
+            }
         }
     }
+
+    seguirBotao.addEventListener("click", () => {
+        seguir(idUsuario, idUsuarioSeguindo);
+    });
+
 })
-
-
-
-
-console.log(idUsuario);
-console.log(idUsuarioSeguindo);
 
 import { iconsHover } from './global.mjs';
 
