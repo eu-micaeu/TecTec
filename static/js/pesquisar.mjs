@@ -1,5 +1,5 @@
 const token = localStorage.getItem("token").toString();
-let usuariosData = []; 
+let usuariosData = [];
 let idUsuario;
 
 async function varIdUsuario() {
@@ -15,30 +15,25 @@ async function varIdUsuario() {
         const data = await response.json();
 
         idUsuario = data.usuario.id_usuario;
+
+        console.log(idUsuario)
         searchNicknames();
     } catch (error) {
         console.error(error);
     }
 }
 
-varIdUsuario();
-
-
 function searchNicknames() {
     var searchTerm = document.getElementById("searchInput").value;
     var resultsUl = document.getElementById("results");
-    resultsUl.innerHTML = ""; 
+    resultsUl.innerHTML = "";
 
     if (usuariosData.length > 0) {
         for (var i = 0; i < usuariosData.length; i++) {
-            if (usuariosData[i].nickname.includes(searchTerm)) { 
+            if (usuariosData[i].nickname.includes(searchTerm)) { // Alterado para correspondência parcial
                 var lista = document.createElement("button");
                 lista.textContent = usuariosData[i].nickname;
-                resultsUl.appendChild(lista);
-
                 lista.setAttribute("data-nickname", usuariosData[i].nickname);
-                
-                resultsUl.appendChild(lista);
 
                 lista.style.cursor = "pointer";
 
@@ -46,10 +41,34 @@ function searchNicknames() {
                     var nickname = this.getAttribute("data-nickname");
                     window.location.href = '/perfil-visitado?nickname=' + nickname;
                 });
+
+                resultsUl.appendChild(lista);
             }
         }
+    } else {
+        fetch('/usuarios/' + idUsuario)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Erro na solicitação: ' + response.status);
+                }
+                return response.json();
+            })
+            .then(data => {
+                usuariosData = data.usuarios;
+                searchNicknames();
+            })
+            .catch(error => {
+                console.error(error.message);
+            });
     }
 }
+
+var searchInput = document.getElementById("searchInput");
+searchInput.addEventListener("input", function () {
+    searchNicknames();
+});
+
+varIdUsuario();
 
 
 
