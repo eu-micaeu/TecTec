@@ -122,8 +122,6 @@ varIdUsuario().then(() => {
                             if (curtidasUsuario.some(curtida => curtida.id_postagem === postagem.id_postagem)) {
                                 likeButton.src = '/static/images/coracaofechado.png'; // Postagem curtida
                             } else {
-                                console.log(curtidasUsuario);
-                                console.log(postagens);
                                 likeButton.src = '/static/images/coracao.png'; // Postagem não curtida
                             }
 
@@ -217,7 +215,25 @@ varIdUsuario().then(() => {
 });
 
 varIdUsuario().then(async () => {
+
     const seguirBotao = document.getElementById("seguir");
+    const response = await fetch("/verificar_amizade", {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ id_usuario: idUsuario, id_usuario_seguindo: idUsuarioSeguindo })
+    });
+
+    if (response.ok) {
+        const data = await response.json();
+
+        if (data.amizade_existe) {
+            seguirBotao.textContent = "Seguindo";
+        } else {
+            seguirBotao.textContent = "Seguir";
+        }
+    }
 
     async function seguir(idUsuario, idUsuarioSeguindo) {
         const response = await fetch("/verificar_amizade", {
@@ -230,7 +246,6 @@ varIdUsuario().then(async () => {
 
         if (response.ok) {
             const data = await response.json();
-            console.log(data);
 
             if (data.amizade_existe) {
                 const response = await fetch("/desfazer_amizade", {
