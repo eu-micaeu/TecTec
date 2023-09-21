@@ -41,7 +41,7 @@ varIdUsuario().then(() => {
 
                     const p = document.createElement("p");
                     carrossel.appendChild(p);
-                    p.textContent = "Aperte na lupa para buscar alguem.";
+                    p.textContent = "Aperte na lupa para buscar alguém.";
                     p.classList.add("centraliza");
 
                 } else {
