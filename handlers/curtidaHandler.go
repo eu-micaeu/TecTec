@@ -29,12 +29,6 @@ func (p *Curtida) Curtir(db *sql.DB) gin.HandlerFunc {
 			return
 		}
 
-		_, err = db.Exec("UPDATE postagens SET curtidas = curtidas + 1 WHERE id_postagem = $1", id_postagem)
-		if err != nil {
-			c.JSON(500, gin.H{"message": "Erro ao descurtir postagem"})
-			return
-		}
-
 		c.JSON(200, gin.H{"message": "Curtiu com sucesso!"})
 	}
 }

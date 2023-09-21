@@ -37,12 +37,6 @@ func (p *Comentario) Comentar(db *sql.DB) gin.HandlerFunc {
 			return
 		}
 
-		_, err = db.Exec("UPDATE postagens SET comentarios = comentarios + 1 WHERE id_postagem = $1", id_postagem)
-		if err != nil {
-			c.JSON(500, gin.H{"message": "Erro ao atualizar a quantidade de comentarios"})
-			return
-		}
-
 		c.JSON(200, gin.H{"message": "Comentário criada com sucesso!"})
 
 	}
