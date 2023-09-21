@@ -106,7 +106,7 @@ func (u *Usuario) Perfil(db *sql.DB) gin.HandlerFunc {
 
         var usuario Usuario
 
-        row := db.QueryRow("SELECT id_usuario, nickname, senha, telefone, tecnologia FROM usuarios WHERE nickname = $1", nickname)
+        row := db.QueryRow("SELECT id_usuario, nickname, senha, telefone, tecnologia, seguidores FROM usuarios WHERE nickname = $1", nickname)
 
         err = row.Scan(&usuario.ID_Usuario, &usuario.Nickname, &usuario.Senha, &usuario.Telefone, &usuario.Tecnologia, &usuario.Seguidores)
 

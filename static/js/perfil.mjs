@@ -233,20 +233,6 @@ varIdUsuario().then(() => {
     updateAmizades(nickname);
     displayFeed();
 
-
-
-    document.getElementById('biografia').addEventListener('blur', function () {
-        let name = nickname;
-        var biografia = document.getElementById('biografia').value;
-        fetch('/atualizar-biografia/' + name, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': token
-            },
-            body: JSON.stringify({ biografia: biografia })
-        });
-    });
 });
 
 import { iconsHover } from './global.mjs';
