@@ -46,6 +46,7 @@ function searchNicknames() {
             }
         }
     } else {
+
         fetch('/usuarios/' + idUsuario)
             .then(response => {
                 if (!response.ok) {
