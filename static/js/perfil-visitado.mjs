@@ -207,9 +207,25 @@ varIdUsuario().then(() => {
             });
     }
 
+    function updateAmizades(nickname){
+        let name = nickname;
+        fetch('/perfil/' + name, {
+            headers: {
+                'Authorization': token
+            }
+        })
+            .then(response => response.json())
+            .then(data =>{
+                let seguidores = data.usuario.seguidores;
+                let nameElement = document.getElementById('seguidores');
+                nameElement.textContent = "Seguidores: " + seguidores;
+            })
+    }
+
 
     updateNome(nickname);
     updateTecnologia(nickname);
+    updateAmizades(nickname);
     displayFeed();
 
 });
