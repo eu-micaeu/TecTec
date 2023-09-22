@@ -74,7 +74,7 @@ func (u *Usuario) Login(db *sql.DB) gin.HandlerFunc {
     }
 }
 
-// Função com finalidad de registrar um usuário no sistema.
+// Função com finalidade de registrar um usuário no sistema.
 func (u *Usuario) Register(db *sql.DB) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		var novoUsuario Usuario
@@ -119,6 +119,7 @@ func (u *Usuario) Perfil(db *sql.DB) gin.HandlerFunc {
     }
 }
 
+// Função com a finalidade de retornar os nicknames de todos os usuários.
 func (u *Usuario) TodosExcetoEu(db *sql.DB) gin.HandlerFunc {
     return func(c *gin.Context) {
 
