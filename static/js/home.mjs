@@ -81,6 +81,7 @@ varIdUsuario().then(() => {
 
 
                                         let textElement = document.createElement("p");
+                                        textElement.classList.add("texto");
                                         textElement.textContent = postagem.texto;
                                         postElement.appendChild(textElement);
 

@@ -55,6 +55,7 @@ varIdUsuario().then(() => {
                             nicknameElement.style.cursor = "pointer";
 
                             let textElement = document.createElement("p");
+                            textElement.classList.add("texto");
                             textElement.textContent = postagem.texto;
                             postElement.appendChild(textElement);
 

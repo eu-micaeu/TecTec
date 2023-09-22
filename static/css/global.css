@@ -78,6 +78,7 @@ header {
     width: 80vh;
     background-color: #000;
     margin: 0.5vw;
+    text-wrap: wrap;
 }
 
 .centraliza,
@@ -142,6 +143,10 @@ textarea {
     width: 45px;
     height: 45px;
     margin-top: 1.2vh;
+}
+
+.texto{
+    word-break: break-all;
 }
 
 @media screen and (max-device-width: 768px) {

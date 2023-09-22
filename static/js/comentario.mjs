@@ -75,6 +75,7 @@ async function showPost(postId) {
         postElement.appendChild(nicknameElement);
 
         let textElement = document.createElement("p");
+        textElement.classList.add("texto");
         textElement.textContent = postagem.texto;
         postElement.appendChild(textElement);
 
