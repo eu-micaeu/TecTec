@@ -64,6 +64,10 @@ func main() {
 		c.HTML(http.StatusOK,"pesquisar.html",nil)
 	})
 
+	r.GET("/golang",func(c *gin.Context){
+		c.HTML(http.StatusOK,"golang.html",nil)
+	})
+
 	r.Static("./static", "./static")
 
 	r.Run()
