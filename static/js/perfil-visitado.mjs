@@ -16,6 +16,21 @@ function getParameterByName(name, url = window.location.href) {
 
 nickname = getParameterByName('nickname');
 
+function updateAmizades(nickname){
+    let name = nickname;
+    fetch('/perfil/' + name, {
+        headers: {
+            'Authorization': token
+        }
+    })
+        .then(response => response.json())
+        .then(data =>{
+            let seguidores = data.usuario.seguidores;
+            let nameElement = document.getElementById('seguidores');
+            nameElement.textContent = "Seguidores: " + seguidores;
+        })
+}
+
 async function varIdUsuario() {
     try {
         const response = await fetch('/perfil/' + nickname, {
@@ -208,22 +223,6 @@ varIdUsuario().then(() => {
             });
     }
 
-    function updateAmizades(nickname){
-        let name = nickname;
-        fetch('/perfil/' + name, {
-            headers: {
-                'Authorization': token
-            }
-        })
-            .then(response => response.json())
-            .then(data =>{
-                let seguidores = data.usuario.seguidores;
-                let nameElement = document.getElementById('seguidores');
-                nameElement.textContent = "Seguidores: " + seguidores;
-            })
-    }
-
-
     updateNome(nickname);
     updateTecnologia(nickname);
     updateAmizades(nickname);
@@ -275,6 +274,7 @@ varIdUsuario().then(async () => {
 
                 if (response.ok) {
                     seguirBotao.textContent = "Seguir";
+                    updateAmizades(nickname);
                 }
             } else {
                 const response = await fetch("/criar_amizade", {
@@ -287,6 +287,7 @@ varIdUsuario().then(async () => {
 
                 if (response.ok) {
                     seguirBotao.textContent = "Seguindo";
+                    updateAmizades(nickname);
                 }
             }
         }

@@ -2,9 +2,8 @@ const token = localStorage.getItem("token").toString();
 
 let idUsuario;
 
-
-
 async function varIdUsuario() {
+    
     try {
         const response = await fetch('/perfil-token/', {
             method: 'POST',

@@ -16,7 +16,7 @@ type Usuario struct {
 	Senha      string `json:"senha"`
 	Telefone   string `json:"telefone"`
 	Tecnologia string `json:"tecnologia"`
-    Seguidores string `json:"seguidores"`
+    Seguidores int `json:"seguidores"`
 
 }
 
@@ -125,7 +125,7 @@ func (u *Usuario) TodosExcetoEu(db *sql.DB) gin.HandlerFunc {
 
         id_usuario := c.Param("id_usuario")
 
-        rows, err := db.Query("SELECT id_usuario, nickname, telefone, tecnologia FROM usuarios WHERE id_usuario != $1", id_usuario)
+        rows, err := db.Query("SELECT id_usuario, nickname, telefone, tecnologia, seguidores FROM usuarios WHERE id_usuario != $1", id_usuario)
         if err != nil {
             c.JSON(500, gin.H{"message": "Erro ao buscar usuários"})
             return
@@ -134,7 +134,7 @@ func (u *Usuario) TodosExcetoEu(db *sql.DB) gin.HandlerFunc {
         var usuarios []Usuario
         for rows.Next() {
             var usuario Usuario
-            err = rows.Scan(&usuario.ID_Usuario, &usuario.Nickname, &usuario.Telefone, &usuario.Tecnologia)
+            err = rows.Scan(&usuario.ID_Usuario, &usuario.Nickname, &usuario.Telefone, &usuario.Tecnologia, &usuario.Seguidores)
             if err != nil {
                 c.JSON(500, gin.H{"message": "Erro ao processar usuários"})
                 return

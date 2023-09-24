@@ -9,10 +9,10 @@ import (
 
 // Estrutura da amizade.
 type Amizade struct {
-	ID_Amizade int `json:"id_amizade"`
-	ID_Usuario   int `json:"id_usuario"`
-	ID_Usuario_Seguindo   int `json:"id_usuario_seguindo"`
-	Data_Seguindo string `json:"data_seguindo"`
+	ID_Amizade          int    `json:"id_amizade"`
+	ID_Usuario_Seguidor int    `json:"id_usuario"`
+	ID_Usuario_Seguido  int    `json:"id_usuario_seguindo"`
+	Data_Seguindo       string `json:"data_seguindo"`
 }
 
 // Função com a finalidade de criar uma amizade.
@@ -27,7 +27,7 @@ func (a *Amizade) CriarAmizade(db *sql.DB) gin.HandlerFunc {
 			return
 		}
 
-		_, err := db.Exec("INSERT INTO amizades (id_usuario, id_usuario_seguindo, data_seguindo) VALUES ($1, $2, NOW())", novaAmizade.ID_Usuario, novaAmizade.ID_Usuario_Seguindo)
+		_, err := db.Exec("INSERT INTO seguidores (id_usuario_seguidor, id_usuario_seguido, data_seguindo) VALUES ($1, $2, NOW())", novaAmizade.ID_Usuario_Seguidor, novaAmizade.ID_Usuario_Seguido)
 
 		if err != nil {
 			c.JSON(500, gin.H{"message": "Erro ao criar amizade"})
@@ -50,7 +50,7 @@ func (a *Amizade) DesfazerAmizade(db *sql.DB) gin.HandlerFunc {
 			return
 		}
 
-		_, err := db.Exec("DELETE FROM amizades WHERE id_usuario = $1 AND id_usuario_seguindo = $2", novaAmizade.ID_Usuario, novaAmizade.ID_Usuario_Seguindo)
+		_, err := db.Exec("DELETE FROM seguidores WHERE id_usuario_seguidor = $1 AND id_usuario_seguido = $2", novaAmizade.ID_Usuario_Seguidor, novaAmizade.ID_Usuario_Seguido)
 
 		if err != nil {
 			c.JSON(500, gin.H{"message": "Erro ao desfazer amizade"})
@@ -91,10 +91,10 @@ func (a *Amizade) MostrarAmizades(db *sql.DB) gin.HandlerFunc {
 // Função com a finalidade de contar todas as amizades de um usuário.
 func (a *Amizade) ContarAmizades(db *sql.DB) gin.HandlerFunc {
 	return func(c *gin.Context) {
-		
+
 		idUsuario := c.Param("id_usuario")
 
-		row := db.QueryRow("SELECT COUNT(*) FROM amizades WHERE id_usuario = $1", idUsuario)
+		row := db.QueryRow("SELECT COUNT(*) FROM seguidores WHERE id_usuario_seguidor = $1", idUsuario)
 
 		var quantidade int
 		err := row.Scan(&quantidade)
@@ -106,7 +106,7 @@ func (a *Amizade) ContarAmizades(db *sql.DB) gin.HandlerFunc {
 		c.JSON(200, gin.H{"quantidade_amizades": quantidade})
 	}
 }
-	
+
 func (a *Amizade) VerificarAmizade(db *sql.DB) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		var amizade Amizade
@@ -116,7 +116,7 @@ func (a *Amizade) VerificarAmizade(db *sql.DB) gin.HandlerFunc {
 			return
 		}
 
-		row := db.QueryRow("SELECT EXISTS (SELECT 1 FROM amizades WHERE id_usuario = $1 AND id_usuario_seguindo = $2)", amizade.ID_Usuario, amizade.ID_Usuario_Seguindo)
+		row := db.QueryRow("SELECT EXISTS (SELECT 1 FROM seguidores WHERE id_usuario_seguidor = $1 AND id_usuario_seguido = $2)", amizade.ID_Usuario_Seguidor, amizade.ID_Usuario_Seguido)
 
 		var existe bool
 		err := row.Scan(&existe)
