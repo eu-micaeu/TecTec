@@ -129,7 +129,8 @@ textarea {
     font-size: 30px;
 }
 
-.botao-adicionar-postagem:hover, .botao-recarregar-postagem:hover{
+.botao-adicionar-postagem:hover,
+.botao-recarregar-postagem:hover {
     font-family: 'KronaOne';
     background-color: #fff;
     color: #00891E;
@@ -145,8 +146,58 @@ textarea {
     margin-top: 1.2vh;
 }
 
-.texto{
+.texto {
     word-break: break-all;
+}
+
+/* Barra de Tecnologias  */
+
+#mySidebar {
+    width: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #000000;
+    overflow-x: hidden;
+    padding: 2px 0;
+    border-radius: 0px 0px 0px 10px;
+    border: 2px solid #00891E;
+}
+
+#mySidebar a {
+    padding-top: 8px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #00891E;
+    display: block;
+}
+
+#mySidebar a:hover {
+    color: #fff;
+    ;
+}
+
+a img {
+    margin-top: 3vh;
+}
+
+img[src="/static/images/golang.jpg"] {
+    border-radius: 10px;
+}
+
+#mySidebar .centraliza {
+    align-items: center;
+    flex-direction: column;
+    color: #00891E;
+}
+
+#mySidebar .centraliza h3 {
+    color: #00891E;
+}
+
+#mySidebar .centraliza:hover {
+    color: #fff;
+    cursor: pointer;
 }
 
 @media screen and (max-device-width: 768px) {

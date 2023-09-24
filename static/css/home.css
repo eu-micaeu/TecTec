@@ -61,24 +61,21 @@
 }
 
 #listaUsuarios {
-    list-style-type: none; /* Remove os marcadores de lista */
-    padding: 0; /* Remove o padding */
-    margin: 0; /* Remove a margem */
+    list-style-type: none; 
+    padding: 0; 
+    margin: 0; 
 }
 
 #listaUsuarios li {
-    padding: 10px; /* Adiciona um pouco de espaço ao redor do texto */
-    border-bottom: 1px solid #ddd; /* Adiciona uma linha entre cada item da lista */
+    padding: 10px; 
+    border-bottom: 1px solid #ddd; 
 }
 
 #listaUsuarios li:last-child {
-    border-bottom: none; /* Remove a linha do último item da lista */
+    border-bottom: none; 
 }
 
-
-
 @media screen and (max-device-width: 768px) {
-
 
     #nome {
         color: #00891E;

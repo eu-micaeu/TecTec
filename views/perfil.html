@@ -15,33 +15,25 @@
     <div class="centraliza">
 
         <header class="navigation_header">
-
             <div class="centraliza">
-
+                <img src="../static/images/logo.png" alt="" class="img_logo" id="logo">
+                <br>
                 <img src="../static/images/casinha.png" alt="" class="user" id="casa"
                     onclick="window.location.href='/home'">
-
                 <br>
-
                 <img src="../static/images/la_user.png" alt="" class="user" id="perfil"
                     onclick="window.location.href='/perfil'">
                 <br>
-
-                <img src="../static/images/logo.png" alt="" class="img_logo" id="logo">
-
-                <br>
-
                 <img src="../static/images/explorar.png" alt="" class="user" id="pesquisar"
-                onclick="window.location.href='/pesquisar'">
-
+                    onclick="window.location.href='/pesquisar'">
                 <br>
-
                 <img src="../static/images/out.png" alt="" class="user" id="sair" onclick="window.location.href='/'">
-
+                <br>
+                <img src="../static/images/pesquisa.png" alt="" class="user" id="busca">
             </div>
 
         </header>
-        
+
     </div>
 
 
@@ -49,7 +41,7 @@
 
         <div class="perfil-usuario">
 
-         <br><br><br>
+            <br><br><br>
 
             <div class="centraliza">
 
@@ -75,7 +67,29 @@
 
     <main class="principal">
 
-            <div id="carrosel"></div>
+        <div id="mySidebar">
+            <div class="centraliza">
+                <h3>Tecnologias:</h3>
+            </div>
+            <div class="centraliza">
+                <a href="#"><img src="/static/images/golang.jpg" width="80px" height="90px"></a>
+                <a>GoLang</a>
+            </div>
+            <div class="centraliza">
+                <a href="#"><img src="/static/images/java.png" width="80px" height="90px"></a>
+                <a>Java</a>
+            </div>
+            <div class="centraliza">
+                <a href="#"><img src="/static/images/c.png" width="80px" height="90px"></a>
+                <a>C</a>
+            </div>
+            <div class="centraliza">
+                <a href="#"><img src="/static/images/postgre.png" width="80px" height="90px"></a>
+                <a>PostgreSQL</a>
+            </div>
+        </div>
+
+        <div id="carrosel"></div>
 
         <button class="botao-adicionar-postagem" onclick="window.location.href='/post'">+</button>
 

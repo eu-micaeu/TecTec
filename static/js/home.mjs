@@ -3,7 +3,7 @@ const token = localStorage.getItem("token").toString();
 let idUsuario;
 
 async function varIdUsuario() {
-    
+
     try {
         const response = await fetch('/perfil-token/', {
             method: 'POST',
@@ -21,6 +21,12 @@ async function varIdUsuario() {
 }
 
 varIdUsuario().then(() => {
+
+    function openSidebar() {
+        document.getElementById("mySidebar").style.width = "250px";
+      }
+
+
 
     function displayFeed() {
 
@@ -216,18 +222,22 @@ varIdUsuario().then(() => {
 
     displayFeed()
 
-    var botao = document.querySelector('.botao-recarregar-postagem');
-    var imagem = botao.querySelector('img'); // seleciona a imagem dentro do botão
-
-    botao.addEventListener('mouseover', function () {
-        imagem.src = '/static/images/refreshverde.png';
-    });
-    botao.addEventListener('mouseout', function () {
-        imagem.src = '/static/images/refresh.png';
-    });
-
-    botao.addEventListener('click', displayFeed);
 })
+
+var sidebarOpen = false;
+
+document.getElementById("busca").addEventListener("click", function() {
+  if (!sidebarOpen) {
+    document.getElementById("mySidebar").style.width = "13vw";
+    document.getElementById("mySidebar").style.height = "100%";
+    sidebarOpen = true;
+  } else {
+    document.getElementById("mySidebar").style.width = "0";
+    document.getElementById("mySidebar").style.height = "0";
+    document.getElementById("mySidebar").style.marginTop = "0";
+    sidebarOpen = false;
+  }
+});
 
 import { iconsHover } from './global.mjs';
 

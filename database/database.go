@@ -14,10 +14,10 @@ import (
 func NewDB() (*sql.DB, error) {
 
 	dbUser := os.Getenv("DB_USER")
-	dbPassword := os.Getenv("DB_PASSWORD")
-	dbHost := os.Getenv("DB_HOST")
-	dbPort := os.Getenv("DB_PORT")
-	dbName := os.Getenv("DB_NAME")
+dbPassword := os.Getenv("DB_PASSWORD")
+dbHost := os.Getenv("DB_HOST")
+dbPort := os.Getenv("DB_PORT")
+dbName := os.Getenv("DB_NAME")
 
 	dsn := fmt.Sprintf("postgres://%s:%s@%s:%s/%s?sslmode=require", dbUser, dbPassword, dbHost, dbPort, dbName) // String utilizada para criar a URL da conexão
 

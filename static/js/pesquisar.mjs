@@ -71,8 +71,21 @@ searchInput.addEventListener("input", function () {
 
 varIdUsuario();
 
-
-
 import { iconsHover } from './global.mjs';
 
 iconsHover();
+
+var sidebarOpen = false;
+
+document.getElementById("busca").addEventListener("click", function() {
+  if (!sidebarOpen) {
+    document.getElementById("mySidebar").style.width = "13vw";
+    document.getElementById("mySidebar").style.height = "100%";
+    sidebarOpen = true;
+  } else {
+    document.getElementById("mySidebar").style.width = "0";
+    document.getElementById("mySidebar").style.height = "0";
+    document.getElementById("mySidebar").style.marginTop = "0";
+    sidebarOpen = false;
+  }
+});

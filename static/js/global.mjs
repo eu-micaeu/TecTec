@@ -34,4 +34,13 @@ export function iconsHover() {
     outImage.addEventListener('mouseout', function () {
         outImage.src = '/static/images/out.png';
     });
+
+    let buscaImage = document.querySelector("#busca");
+
+    buscaImage.addEventListener('mouseover', function () {
+        buscaImage.src = '/static/images/pesquisabranco.png';
+    });
+    buscaImage.addEventListener('mouseout', function () {
+        buscaImage.src = '/static/images/pesquisa.png';
+    });
 }
