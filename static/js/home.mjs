@@ -1,6 +1,29 @@
-import { iconsHover, sidebarModule, varIdUsuarioHome } from './global.mjs';
+import { iconsHover, sidebarModule } from './global.mjs';
 
 const token = localStorage.getItem("token").toString();
+
+async function varIdUsuarioHome() {
+
+    const token = localStorage.getItem("token").toString();
+
+    let idUsuario;
+
+    try {
+        const response = await fetch('/perfil-token/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ token: token })
+        });
+        const data = await response.json();
+        idUsuario = data.usuario.id_usuario;
+    } catch (error) {
+        console.error(error);
+    }
+
+    return idUsuario;
+}
 
 varIdUsuarioHome().then(idUsuario => {
 

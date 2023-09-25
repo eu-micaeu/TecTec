@@ -1,8 +1,28 @@
-import { iconsHover, sidebarModule, varIdUsuarioPerfil } from './global.mjs';
+import { iconsHover, sidebarModule } from './global.mjs';
 
 const token = localStorage.getItem("token").toString();
 
-varIdUsuarioPerfil().then(({idUsuario, nickname}) => {
+let idUsuario;
+let nickname;
+
+async function varIdUsuarioPerfil() {
+    try {
+        const response = await fetch('/perfil-token/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ token: token })
+        });
+        const data = await response.json();
+        idUsuario = data.usuario.id_usuario;
+        nickname = data.usuario.nickname;;
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+varIdUsuarioPerfil().then(() => {
     function displayFeed() {
         fetch(`/postagens-curtidas/${idUsuario}`, {
             headers: {
@@ -11,7 +31,7 @@ varIdUsuarioPerfil().then(({idUsuario, nickname}) => {
         })
             .then(response => response.json())
             .then(data => {
-                
+
                 const curtidasUsuario = data.postagens;
 
                 fetch('/postagens/' + nickname, {
@@ -75,9 +95,9 @@ varIdUsuarioPerfil().then(({idUsuario, nickname}) => {
                             likeButton.dataset.postId = postagem.id_postagem;
 
                             if (curtidasUsuario.some(curtida => curtida.id_postagem === postagem.id_postagem)) {
-                                likeButton.src = '/static/images/coracaofechado.png'; 
+                                likeButton.src = '/static/images/coracaofechado.png';
                             } else {
-                                likeButton.src = '/static/images/coracao.png'; 
+                                likeButton.src = '/static/images/coracao.png';
                             }
 
                             divEmbaixo.appendChild(likeButton);
@@ -195,7 +215,7 @@ varIdUsuarioPerfil().then(({idUsuario, nickname}) => {
             });
     }
 
-    function updateAmizades(nickname){
+    function updateAmizades(nickname) {
         let name = nickname;
         fetch('/perfil/' + name, {
             headers: {
@@ -203,7 +223,7 @@ varIdUsuarioPerfil().then(({idUsuario, nickname}) => {
             }
         })
             .then(response => response.json())
-            .then(data =>{
+            .then(data => {
                 let seguidores = data.usuario.seguidores;
                 let nameElement = document.getElementById('seguidores');
                 nameElement.textContent = "Seguidores: " + seguidores;
