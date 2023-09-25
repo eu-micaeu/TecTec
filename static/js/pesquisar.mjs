@@ -71,21 +71,9 @@ searchInput.addEventListener("input", function () {
 
 varIdUsuario();
 
-import { iconsHover } from './global.mjs';
+import { iconsHover, sidebarModule } from './global.mjs';
 
 iconsHover();
 
-var sidebarOpen = false;
-
-document.getElementById("busca").addEventListener("click", function() {
-  if (!sidebarOpen) {
-    document.getElementById("mySidebar").style.width = "13vw";
-    document.getElementById("mySidebar").style.borderColor = "white";
-    document.getElementById("mySidebar").style.border= "2px";
-    document.getElementById("mySidebar").style.borderStyle= "solid";
-    sidebarOpen = true;
-  } else {
-    document.getElementById("mySidebar").style.width = "0";
-    sidebarOpen = false;
-  }
-});
+var sidebar = sidebarModule();
+document.getElementById("busca").addEventListener("click", sidebar.toggleSidebar);

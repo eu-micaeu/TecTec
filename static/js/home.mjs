@@ -1,32 +1,8 @@
+import { iconsHover, sidebarModule, varIdUsuario } from './global.mjs';
+
 const token = localStorage.getItem("token").toString();
 
-let idUsuario;
-
-async function varIdUsuario() {
-
-    try {
-        const response = await fetch('/perfil-token/', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ token: token })
-        });
-        const data = await response.json();
-        idUsuario = data.usuario.id_usuario;
-    } catch (error) {
-        console.error(error);
-    }
-
-}
-
-varIdUsuario().then(() => {
-
-    function openSidebar() {
-        document.getElementById("mySidebar").style.width = "250px";
-      }
-
-
+varIdUsuario().then(idUsuario => {
 
     function displayFeed() {
 
@@ -224,21 +200,7 @@ varIdUsuario().then(() => {
 
 })
 
-var sidebarOpen = false;
-
-document.getElementById("busca").addEventListener("click", function() {
-  if (!sidebarOpen) {
-    document.getElementById("mySidebar").style.width = "13vw";
-    document.getElementById("mySidebar").style.borderColor = "white";
-    document.getElementById("mySidebar").style.border= "2px";
-    document.getElementById("mySidebar").style.borderStyle= "solid";
-    sidebarOpen = true;
-  } else {
-    document.getElementById("mySidebar").style.width = "0";
-    sidebarOpen = false;
-  }
-});
-
-import { iconsHover } from './global.mjs';
-
 iconsHover();
+
+var sidebar = sidebarModule();
+document.getElementById("busca").addEventListener("click", sidebar.toggleSidebar);

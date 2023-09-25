@@ -44,3 +44,46 @@ export function iconsHover() {
         buscaImage.src = '/static/images/pesquisa.png';
     });
 }
+
+export function sidebarModule() {
+    var sidebarOpen = false;
+
+    function toggleSidebar() {
+        if (!sidebarOpen) {
+            document.getElementById("mySidebar").style.width = "13vw";
+            sidebarOpen = true;
+        } else {
+            document.getElementById("mySidebar").style.width = "0";
+            sidebarOpen = false;
+        }
+    }
+
+    return {
+        toggleSidebar: toggleSidebar
+    };
+}
+
+export async function varIdUsuario() {
+
+    const token = localStorage.getItem("token").toString();
+
+    let idUsuario;
+    let nickname;
+
+    try {
+        const response = await fetch('/perfil-token/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ token: token })
+        });
+        const data = await response.json();
+        idUsuario = data.usuario.id_usuario;
+        nickname = data.usuario.nickname;
+    } catch (error) {
+        console.error(error);
+    }
+
+    return { idUsuario, nickname };
+}

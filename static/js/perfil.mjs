@@ -1,27 +1,8 @@
-let nickname;
-
-let idUsuario;
+import { iconsHover, sidebarModule, varIdUsuario } from './global.mjs';
 
 const token = localStorage.getItem("token").toString();
 
-async function varIdUsuario() {
-    try {
-        const response = await fetch('/perfil-token/', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ token: token })
-        });
-        const data = await response.json();
-        nickname = data.usuario.nickname;
-        idUsuario = data.usuario.id_usuario;
-    } catch (error) {
-        console.error(error);
-    }
-}
-
-varIdUsuario().then(() => {
+varIdUsuario().then(({idUsuario, nickname}) => {
     function displayFeed() {
         fetch(`/postagens-curtidas/${idUsuario}`, {
             headers: {
@@ -236,21 +217,7 @@ varIdUsuario().then(() => {
 
 });
 
-import { iconsHover } from './global.mjs';
-
 iconsHover();
 
-var sidebarOpen = false;
-
-document.getElementById("busca").addEventListener("click", function() {
-  if (!sidebarOpen) {
-    document.getElementById("mySidebar").style.width = "13vw";
-    document.getElementById("mySidebar").style.borderColor = "white";
-    document.getElementById("mySidebar").style.border= "2px";
-    document.getElementById("mySidebar").style.borderStyle= "solid";
-    sidebarOpen = true;
-  } else {
-    document.getElementById("mySidebar").style.width = "0";
-    sidebarOpen = false;
-  }
-});
+var sidebar = sidebarModule();
+document.getElementById("busca").addEventListener("click", sidebar.toggleSidebar);
