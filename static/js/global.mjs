@@ -63,7 +63,32 @@ export function sidebarModule() {
     };
 }
 
-export async function varIdUsuario() {
+// Var Id_Usuario para a home.mjs
+export async function varIdUsuarioHome() {
+
+    const token = localStorage.getItem("token").toString();
+
+    let idUsuario;
+
+    try {
+        const response = await fetch('/perfil-token/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ token: token })
+        });
+        const data = await response.json();
+        idUsuario = data.usuario.id_usuario;
+    } catch (error) {
+        console.error(error);
+    }
+
+    return idUsuario;
+}
+
+// Var Id_Usuario para a perfil.mjs
+export async function varIdUsuarioPerfil() {
 
     const token = localStorage.getItem("token").toString();
 
@@ -80,10 +105,10 @@ export async function varIdUsuario() {
         });
         const data = await response.json();
         idUsuario = data.usuario.id_usuario;
-        nickname = data.usuario.nickname;
+        nickname = data.usuario.id_usuario;;
     } catch (error) {
         console.error(error);
     }
 
-    return { idUsuario, nickname };
+    return {idUsuario, nickname};
 }

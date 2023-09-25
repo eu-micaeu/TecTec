@@ -1,8 +1,8 @@
-import { iconsHover, sidebarModule, varIdUsuario } from './global.mjs';
+import { iconsHover, sidebarModule, varIdUsuarioHome } from './global.mjs';
 
 const token = localStorage.getItem("token").toString();
 
-varIdUsuario().then(idUsuario => {
+varIdUsuarioHome().then(idUsuario => {
 
     function displayFeed() {
 

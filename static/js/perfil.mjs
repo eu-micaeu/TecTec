@@ -1,8 +1,8 @@
-import { iconsHover, sidebarModule, varIdUsuario } from './global.mjs';
+import { iconsHover, sidebarModule, varIdUsuarioPerfil } from './global.mjs';
 
 const token = localStorage.getItem("token").toString();
 
-varIdUsuario().then(({idUsuario, nickname}) => {
+varIdUsuarioPerfil().then(({idUsuario, nickname}) => {
     function displayFeed() {
         fetch(`/postagens-curtidas/${idUsuario}`, {
             headers: {
