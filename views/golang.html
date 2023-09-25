@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TecTec</title>
+    <link rel="stylesheet" href="../static/css/golang.css">
+</head>
+<body>
+
+    <div class="centraliza">
+        <header class="navigation_header">
+            <div class="centraliza">
+                <img src="../static/images/logo.png" alt="" class="img_logo" id="logo">
+                <br>
+                <img src="../static/images/casinha.png" alt="" class="user" id="casa"
+                    onclick="window.location.href='/home'">
+                <br>
+                <img src="../static/images/la_user.png" alt="" class="user" id="perfil"
+                    onclick="window.location.href='/perfil'">
+                <br>
+                <img src="../static/images/explorar.png" alt="" class="user" id="pesquisar"
+                    onclick="window.location.href='/pesquisar'">
+                <br>
+                <img src="../static/images/pesquisa.png" alt="" class="user" id="busca">
+                <br>
+                <img src="../static/images/out.png" alt="" class="user" id="sair" onclick="window.location.href='/'">
+            </div>
+
+        </header>
+    </div>
+
+    <div class="centraliza">
+        <div id="carrosel"></div>
+    </div>
+
+    <div id="mySidebar">
+        <div class="centraliza">
+            <h3>Tecnologias:</h3>
+        </div>
+        <div class="centraliza">
+            <a href="/golang"><img src="/static/images/golang.jpg" width="80px" height="90px"></a>
+            <a href="/golang">GoLang</a>
+        </div>            
+        <div class="centraliza">
+            <a href="#"><img src="/static/images/java.png" width="80px" height="90px"></a>
+            <a>Java</a>
+        </div>
+        <div class="centraliza">
+            <a href="#"><img src="/static/images/c.png" width="80px" height="90px"></a>
+            <a>C</a>
+        </div>
+        <div class="centraliza">
+            <a href="#"><img src="/static/images/postgre.png" width="80px" height="90px"></a>
+            <a>PostgreSQL</a>
+        </div>
+    </div>
+
+    <div class="sobrepor" id="sobrepor">
+        <h1>Tecnologias</h1>
+        <ul>
+            <li class="item-menu">
+                <a href="#">Mysql</a>
+            </li>
+            <li class="item-menu">
+                <a href="#">Javascript</a>
+            </li>
+            <li class="item-menu">
+                <a href="#">Golang</a>
+            </li>
+            <li class="item-menu">
+                <a href="#">Html</a>
+            </li>
+        </ul>
+    </div>
+
+    <section class="container">
+        <img src="../static/images/golang-bg.png" alt="" class="avatar">
+    </section>
+
+
+    <section class="container-cartao">
+        <div class="cartao" id="mostrarOverlay" > 
+            <h4>Primeiros passos</h4>
+        </div>
+        <div class="cartao" id="mostrarOverlay2" > 
+            <h4>Bibliotecas</h4>
+        </div>
+        <div class="cartao" id="mostrarOverlay3"> 
+            <h4>Finalidades</h4>
+        </div>
+    </section>
+
+    <div class="overlay-passos" id="overlay-passos">
+        <div class="cartao-passos">
+            <h1>Primeiros Passos Golang</h1>
+            <p>Conteúdo da minha página.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta laborum in, odio dignissimos labore impedit! Aliquam deleniti necessitatibus dignissimos, quas doloribus aut ducimus accusamus, molestias corporis voluptatum voluptates reprehenderit quaerat?</p>
+
+            <div class="btn-container">
+                <button class="btn-cartao"  id="fecharOverlay">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay-biblioteca" id="overlay-biblioteca">
+        <div class="cartao-bibliotecas">
+            <h1>Bibliotecas Golang</h1>
+            <p>Conteúdo da minha página.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta laborum in, odio dignissimos labore impedit! Aliquam deleniti necessitatibus dignissimos, quas doloribus aut ducimus accusamus, molestias corporis voluptatum voluptates reprehenderit quaerat?</p>
+
+            <div class="btn-container">
+                <button class="btn-cartao"  id="fecharOverlay2">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay-finalidades" id="overlay-finalidades">
+        <div class="cartao-finalidades">
+            <h1>Finalidades Golang</h1>
+            <p>Conteúdo da minha página.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta laborum in, odio dignissimos labore impedit! Aliquam deleniti necessitatibus dignissimos, quas doloribus aut ducimus accusamus, molestias corporis voluptatum voluptates reprehenderit quaerat?</p>
+
+            <div class="btn-container">
+                <button class="btn-cartao"  id="fecharOverlay3">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+
+<script type="module" src="../static/js/golang.mjs"></script>
+
+
+
+</body>
+</html>

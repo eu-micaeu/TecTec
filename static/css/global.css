@@ -158,10 +158,9 @@ textarea {
     top: 0;
     right: 0;
     background-color: #000000;
-    overflow-x: hidden;
-    padding: 2px 0;
+    overflow: hidden;
     border-radius: 0px 0px 0px 10px;
-    border: 2px solid #00891E;
+    transition: 0.5s;
 }
 
 #mySidebar a {
@@ -174,11 +173,11 @@ textarea {
 
 #mySidebar a:hover {
     color: #fff;
-    ;
 }
 
-a img {
+a {
     margin-top: 3vh;
+    margin-bottom: 3vh;
 }
 
 img[src="/static/images/golang.jpg"] {
@@ -198,6 +197,14 @@ img[src="/static/images/golang.jpg"] {
 #mySidebar .centraliza:hover {
     color: #fff;
     cursor: pointer;
+}
+
+#seguidores{
+    color: #fff;
+    border: 2px solid green;
+    border-radius: 10px;
+    padding: 10px;  
+    background-color: #000;
 }
 
 @media screen and (max-device-width: 768px) {

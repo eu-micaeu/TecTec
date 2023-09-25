@@ -229,12 +229,12 @@ var sidebarOpen = false;
 document.getElementById("busca").addEventListener("click", function() {
   if (!sidebarOpen) {
     document.getElementById("mySidebar").style.width = "13vw";
-    document.getElementById("mySidebar").style.height = "100%";
+    document.getElementById("mySidebar").style.borderColor = "white";
+    document.getElementById("mySidebar").style.border= "2px";
+    document.getElementById("mySidebar").style.borderStyle= "solid";
     sidebarOpen = true;
   } else {
     document.getElementById("mySidebar").style.width = "0";
-    document.getElementById("mySidebar").style.height = "0";
-    document.getElementById("mySidebar").style.marginTop = "0";
     sidebarOpen = false;
   }
 });
