@@ -50,7 +50,13 @@ export function sidebarModule() {
 
     function toggleSidebar() {
         if (!sidebarOpen) {
-            document.getElementById("mySidebar").style.width = "13vw";
+            if (window.innerWidth < 768) {
+                document.getElementById("mySidebar").style.width = "24vw"; 
+            }
+            else{
+                document.getElementById("mySidebar").style.width = "13vw";
+            }
+           
             document.getElementById("mySidebar").style.height = "100%";
             document.getElementById("mySidebar").style.border = "2px solid green";
             sidebarOpen = true;

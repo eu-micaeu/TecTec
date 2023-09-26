@@ -234,4 +234,15 @@ img[src="/static/images/golang.jpg"] {
 
     }
 
+    
+    #mySidebar a {
+        font-size: 8px;
+    }
+
+    h3{
+        font-size: 10px;
+    }
+
+   
+
 }
