@@ -164,20 +164,15 @@ textarea {
 }
 
 #mySidebar a {
-    padding-top: 8px;
-    text-decoration: none;
-    font-size: 25px;
+    margin: 8px 10px 10px 10px;
+    text-decoration: none;  
+    font-size: 15px;
     color: #00891E;
     display: block;
 }
 
 #mySidebar a:hover {
     color: #fff;
-}
-
-a {
-    margin-top: 3vh;
-    margin-bottom: 3vh;
 }
 
 img[src="/static/images/golang.jpg"] {

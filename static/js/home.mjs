@@ -2,11 +2,11 @@ import { iconsHover, sidebarModule } from './global.mjs';
 
 const token = localStorage.getItem("token").toString();
 
+let idUsuario;
+
 async function varIdUsuarioHome() {
 
     const token = localStorage.getItem("token").toString();
-
-    let idUsuario;
 
     try {
         const response = await fetch('/perfil-token/', {

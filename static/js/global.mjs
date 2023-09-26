@@ -51,9 +51,13 @@ export function sidebarModule() {
     function toggleSidebar() {
         if (!sidebarOpen) {
             document.getElementById("mySidebar").style.width = "13vw";
+            document.getElementById("mySidebar").style.height = "100%";
+            document.getElementById("mySidebar").style.border = "2px solid green";
             sidebarOpen = true;
         } else {
             document.getElementById("mySidebar").style.width = "0";
+            document.getElementById("mySidebar").style.height = "0";
+            document.getElementById("mySidebar").style.border = "none";
             sidebarOpen = false;
         }
     }
