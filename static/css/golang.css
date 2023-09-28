@@ -1,76 +1,8 @@
 @import url('./global.css');
 
-#opcoes {
-    position: fixed;
-    bottom: 0;
-}
-
-#nome {
-    color: #00891E;
-    font-family: 'KronaOne';
-    font-size: 10px;
-    margin: 0;
-}
-
-.navigation_header a {
-    text-decoration: none;
-    color: #FFF5E1;
-    margin-top: 5px;
-    justify-content: center;
-}
-
-.sobrepor {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 300px;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    color: white;
-    padding: 20px;
-    transform: translateX(100%);
-    transition: transform 0.3s ease-in-out;
-}
-
-.sobrepor.active {
-    transform: translateX(0);
-}
-
-
-.btn-fechar {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
-}
-
-
-ul li.item-menu:hover {
-    background: #00891E;
-}
-ul li {
-    text-decoration: none;
-    height: 100%;
-    list-style-type: none;
-    margin-top: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-
-}
-
-ul li a {
-    text-decoration: none;
-    color: inherit;
-}
-
 .avatar{
     width: 300px;
     margin-top: 15vh;
-}
-
-section{
-    display: flex;
-    justify-content: center;
 }
 
 h4{
@@ -80,10 +12,5 @@ h4{
 }
 
 .textoGo{
-    margin: 0 20rem  0 20rem;
-  
-}
-
-.textoGo .golang h3{
-    margin-left: -45rem;
+    margin: 0 15vw;
 }
