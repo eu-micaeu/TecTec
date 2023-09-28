@@ -65,23 +65,9 @@ ul li a {
 
 .avatar{
     width: 300px;
-    margin-top: 50px;
+    margin-top: 15vh;
 }
 
-.avatar2{
-    width: 200px;
-    margin-top: 10px;
-}
-
-.avatar3{
-    width: 200px;
-    margin-top: 40px;
-}
-
-.avatar4{
-    width: 200px;
-    margin-top: 40px;
-}
 section{
     display: flex;
     justify-content: center;
@@ -98,6 +84,6 @@ h4{
   
 }
 
-h3{
+.textoGo .golang h3{
     margin-left: -45rem;
 }
