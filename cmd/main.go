@@ -68,6 +68,19 @@ func main() {
 		c.HTML(http.StatusOK,"golang.html",nil)
 	})
 
+	r.GET("/java",func(c *gin.Context){
+		c.HTML(http.StatusOK,"java.html",nil)
+	})
+
+	r.GET("/c",func(c *gin.Context){
+		c.HTML(http.StatusOK,"c.html",nil)
+	})
+
+	r.GET("/postgreSQL",func(c *gin.Context){
+		c.HTML(http.StatusOK,"postgreSQL.html",nil)
+	})
+
+
 	r.Static("./static", "./static")
 
 	r.Run()

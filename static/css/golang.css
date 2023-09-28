@@ -67,6 +67,21 @@ ul li a {
     width: 300px;
     margin-top: 50px;
 }
+
+.avatar2{
+    width: 200px;
+    margin-top: 10px;
+}
+
+.avatar3{
+    width: 200px;
+    margin-top: 40px;
+}
+
+.avatar4{
+    width: 200px;
+    margin-top: 40px;
+}
 section{
     display: flex;
     justify-content: center;
