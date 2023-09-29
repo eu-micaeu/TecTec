@@ -155,3 +155,22 @@ func (u *Postagem) GetPostagemById(db *sql.DB) gin.HandlerFunc {
 		c.JSON(200, gin.H{"postagem": postagem})
 	}
 }
+
+func (a *Postagem) ContarPostagens(db *sql.DB) gin.HandlerFunc {
+	return func(c *gin.Context) {
+
+		idUsuario := c.Param("id_usuario")
+
+		query := "SELECT COUNT(*) FROM postagens WHERE id_usuario = $1"
+		row := db.QueryRow(query, idUsuario)
+
+		var quantidade int
+		err := row.Scan(&quantidade)
+		if err != nil {
+			c.JSON(500, gin.H{"message": "Erro ao contar postagens"})
+			return
+		}
+
+		c.JSON(200, gin.H{"quantidade_postagens": quantidade})
+	}
+}

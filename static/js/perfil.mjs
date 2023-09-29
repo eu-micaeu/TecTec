@@ -24,166 +24,190 @@ async function varIdUsuarioPerfil() {
 
 varIdUsuarioPerfil().then(() => {
     function displayFeed() {
-        fetch(`/postagens-curtidas/${idUsuario}`, {
-            headers: {
-                'Authorization': token
-            }
-        })
-            .then(response => response.json())
-            .then(data => {
 
-                const curtidasUsuario = data.postagens;
+        fetch(`/contar_postagens/${idUsuario}`)
+        .then(response => response.json())
+        .then(data => {
 
-                fetch('/postagens/' + nickname, {
+            const numberOfFriends = data.quantidade_postagens;
+
+            if (numberOfFriends === 0) {
+                const carrossel = document.querySelector("#carrosel");
+
+                const aviso = document.createElement("p");
+                carrossel.appendChild(aviso);
+                aviso.textContent = "Você não possui postagens :(";
+                aviso.classList.add("centraliza");
+
+                const p = document.createElement("p");
+                carrossel.appendChild(p);
+                p.textContent = "Aperte no botão para fazer postagem.";
+                p.classList.add("centraliza");
+
+            } else {
+                fetch(`/postagens-curtidas/${idUsuario}`, {
                     headers: {
                         'Authorization': token
                     }
                 })
                     .then(response => response.json())
                     .then(data => {
-                        let postagens = data.postagens;
-                        let feedContainer = document.querySelector("#carrosel");
-                        feedContainer.innerHTML = "";
-                        for (let i = 0; i < postagens.length; i++) {
-                            let postagem = postagens[i];
-                            let postElement = document.createElement("div");
-                            postElement.classList.add("cartao");
 
-                            let nicknameElement = document.createElement("span");
-                            nicknameElement.classList.add("nameWhite");
-                            nicknameElement.textContent = '@' + postagem.nickname;
-                            postElement.appendChild(nicknameElement);
-                            nicknameElement.style.cursor = "pointer";
+                        const curtidasUsuario = data.postagens;
 
-                            let textElement = document.createElement("p");
-                            textElement.classList.add("texto");
-                            textElement.textContent = postagem.texto;
-                            postElement.appendChild(textElement);
-
-                            let divEmbaixo = document.createElement("div");
-                            divEmbaixo.classList.add("centraliza");
-
-                            let comentarioImagem = document.createElement('img');
-
-                            comentarioImagem.src = '../static/images/comentario.png'
-                            comentarioImagem.width = 25;
-                            comentarioImagem.height = 25;
-
-                            comentarioImagem.addEventListener('mouseover', function () {
-                                comentarioImagem.src = '/static/images/comentariobranco.png';
-                            });
-                            comentarioImagem.addEventListener('mouseout', function () {
-                                comentarioImagem.src = '/static/images/comentario.png';
-                            });
-
-                            comentarioImagem.addEventListener('click', function () {
-                                let postId = postagem.id_postagem;
-                                window.location.href = 'comentario?postId=' + postId;
-                            });
-
-                            divEmbaixo.appendChild(comentarioImagem);
-
-                            let comentarioQuantidade = document.createElement('p');
-                            comentarioQuantidade.textContent = postagem.comentarios;
-
-                            divEmbaixo.appendChild(comentarioQuantidade);
-
-                            let likeButton = document.createElement('img');
-                            likeButton.width = 20;
-                            likeButton.height = 20;
-                            likeButton.style.cursor = 'pointer';
-                            likeButton.dataset.postId = postagem.id_postagem;
-
-                            if (curtidasUsuario.some(curtida => curtida.id_postagem === postagem.id_postagem)) {
-                                likeButton.src = '/static/images/coracaofechado.png';
-                            } else {
-                                likeButton.src = '/static/images/coracao.png';
+                        fetch('/postagens/' + nickname, {
+                            headers: {
+                                'Authorization': token
                             }
+                        })
+                            .then(response => response.json())
+                            .then(data => {
+                                let postagens = data.postagens;
+                                let feedContainer = document.querySelector("#carrosel");
+                                feedContainer.innerHTML = "";
+                                for (let i = 0; i < postagens.length; i++) {
+                                    let postagem = postagens[i];
+                                    let postElement = document.createElement("div");
+                                    postElement.classList.add("cartao");
 
-                            divEmbaixo.appendChild(likeButton);
-                            let curtidaQuantidade = document.createElement('p');
-                            curtidaQuantidade.textContent = postagem.curtidas;
-                            divEmbaixo.appendChild(curtidaQuantidade);
+                                    let nicknameElement = document.createElement("span");
+                                    nicknameElement.classList.add("nameWhite");
+                                    nicknameElement.textContent = '@' + postagem.nickname;
+                                    postElement.appendChild(nicknameElement);
+                                    nicknameElement.style.cursor = "pointer";
 
-                            likeButton.addEventListener('click', function () {
-                                const postId = likeButton.dataset.postId;
-                                const liked = likeButton.src.endsWith('coracaofechado.png');
+                                    let textElement = document.createElement("p");
+                                    textElement.classList.add("texto");
+                                    textElement.textContent = postagem.texto;
+                                    postElement.appendChild(textElement);
 
-                                if (!liked) {
-                                    fetch(`/curtir/` + idUsuario + '/' + postId, {
-                                        method: 'POST',
-                                    })
-                                        .then(response => {
-                                            if (response.status === 200) {
-                                                likeButton.src = '/static/images/coracaofechado.png';
+                                    let divEmbaixo = document.createElement("div");
+                                    divEmbaixo.classList.add("centraliza");
 
+                                    let comentarioImagem = document.createElement('img');
 
-                                                postagem.curtidas++;
-                                                curtidaQuantidade.textContent = postagem.curtidas;
-                                            }
-                                        })
-                                        .catch(error => {
-                                            console.error('Error liking post:', error);
-                                        });
-                                } else {
-                                    fetch(`/descurtir/` + idUsuario + '/' + postId, {
-                                        method: 'DELETE',
-                                    })
-                                        .then(response => {
-                                            if (response.status === 200) {
-                                                likeButton.src = '/static/images/coracao.png';
+                                    comentarioImagem.src = '../static/images/comentario.png'
+                                    comentarioImagem.width = 25;
+                                    comentarioImagem.height = 25;
 
-                                                postagem.curtidas--;
-                                                curtidaQuantidade.textContent = postagem.curtidas;
-                                            }
-                                        })
-                                        .catch(error => {
-                                            console.error('Error disliking post:', error);
-                                        });
-                                }
-                            });
-
-                            let imageElement = document.createElement("img");
-                            imageElement.src = "/static/images/lixo.png";
-                            imageElement.style.width = "25px";
-                            imageElement.style.height = "25px";
-                            imageElement.style.cursor = "pointer";
-                            imageElement.id = "lixo";
-
-                            imageElement.addEventListener('mouseover', function () {
-                                imageElement.src = '/static/images/lixobranco.png';
-                            });
-                            imageElement.addEventListener('mouseout', function () {
-                                imageElement.src = '/static/images/lixo.png';
-                            });
-
-                            imageElement.addEventListener("click", function () {
-
-                                let postId = postagem.id_postagem;
-
-                                fetch('/excluir-postagem/' + postId, {
-                                    method: 'DELETE',
-                                    headers: {
-                                        'Authorization': token
-                                    }
-                                })
-                                    .then(response => response.json())
-                                    .then(data => {
-                                        displayFeed();
+                                    comentarioImagem.addEventListener('mouseover', function () {
+                                        comentarioImagem.src = '/static/images/comentariobranco.png';
                                     });
-                            });
+                                    comentarioImagem.addEventListener('mouseout', function () {
+                                        comentarioImagem.src = '/static/images/comentario.png';
+                                    });
 
-                            divEmbaixo.appendChild(imageElement);
+                                    comentarioImagem.addEventListener('click', function () {
+                                        let postId = postagem.id_postagem;
+                                        window.location.href = 'comentario?postId=' + postId;
+                                    });
 
-                            postElement.appendChild(divEmbaixo);
+                                    divEmbaixo.appendChild(comentarioImagem);
 
-                            feedContainer.appendChild(postElement);
+                                    let comentarioQuantidade = document.createElement('p');
+                                    comentarioQuantidade.textContent = postagem.comentarios;
+
+                                    divEmbaixo.appendChild(comentarioQuantidade);
+
+                                    let likeButton = document.createElement('img');
+                                    likeButton.width = 20;
+                                    likeButton.height = 20;
+                                    likeButton.style.cursor = 'pointer';
+                                    likeButton.dataset.postId = postagem.id_postagem;
+
+                                    if (curtidasUsuario.some(curtida => curtida.id_postagem === postagem.id_postagem)) {
+                                        likeButton.src = '/static/images/coracaofechado.png';
+                                    } else {
+                                        likeButton.src = '/static/images/coracao.png';
+                                    }
+
+                                    divEmbaixo.appendChild(likeButton);
+                                    let curtidaQuantidade = document.createElement('p');
+                                    curtidaQuantidade.textContent = postagem.curtidas;
+                                    divEmbaixo.appendChild(curtidaQuantidade);
+
+                                    likeButton.addEventListener('click', function () {
+                                        const postId = likeButton.dataset.postId;
+                                        const liked = likeButton.src.endsWith('coracaofechado.png');
+
+                                        if (!liked) {
+                                            fetch(`/curtir/` + idUsuario + '/' + postId, {
+                                                method: 'POST',
+                                            })
+                                                .then(response => {
+                                                    if (response.status === 200) {
+                                                        likeButton.src = '/static/images/coracaofechado.png';
 
 
-                        }
+                                                        postagem.curtidas++;
+                                                        curtidaQuantidade.textContent = postagem.curtidas;
+                                                    }
+                                                })
+                                                .catch(error => {
+                                                    console.error('Error liking post:', error);
+                                                });
+                                        } else {
+                                            fetch(`/descurtir/` + idUsuario + '/' + postId, {
+                                                method: 'DELETE',
+                                            })
+                                                .then(response => {
+                                                    if (response.status === 200) {
+                                                        likeButton.src = '/static/images/coracao.png';
+
+                                                        postagem.curtidas--;
+                                                        curtidaQuantidade.textContent = postagem.curtidas;
+                                                    }
+                                                })
+                                                .catch(error => {
+                                                    console.error('Error disliking post:', error);
+                                                });
+                                        }
+                                    });
+
+                                    let imageElement = document.createElement("img");
+                                    imageElement.src = "/static/images/lixo.png";
+                                    imageElement.style.width = "25px";
+                                    imageElement.style.height = "25px";
+                                    imageElement.style.cursor = "pointer";
+                                    imageElement.id = "lixo";
+
+                                    imageElement.addEventListener('mouseover', function () {
+                                        imageElement.src = '/static/images/lixobranco.png';
+                                    });
+                                    imageElement.addEventListener('mouseout', function () {
+                                        imageElement.src = '/static/images/lixo.png';
+                                    });
+
+                                    imageElement.addEventListener("click", function () {
+
+                                        let postId = postagem.id_postagem;
+
+                                        fetch('/excluir-postagem/' + postId, {
+                                            method: 'DELETE',
+                                            headers: {
+                                                'Authorization': token
+                                            }
+                                        })
+                                            .then(response => response.json())
+                                            .then(data => {
+                                                displayFeed();
+                                            });
+                                    });
+
+                                    divEmbaixo.appendChild(imageElement);
+
+                                    postElement.appendChild(divEmbaixo);
+
+                                    feedContainer.appendChild(postElement);
+
+
+                                }
+                        });
                     });
-            })
+            }
+        });
     }
+
 
     function updateNome(nickname) {
         let name = nickname;
