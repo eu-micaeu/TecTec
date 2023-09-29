@@ -6,6 +6,8 @@
     background-color: transparent;
     width: 20rem;
     height: 2rem;
+    font-family: monospace;
+    font-size: 16px;
 }
 
 input:focus {
@@ -19,8 +21,8 @@ button{
     padding: 20px;
     border: 2px solid #00891E;
     background-color: black;
-    font-family: 'KronaOne';
     margin: 10px;
+    font-family: monospace;
 }
 
 #results{
