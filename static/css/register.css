@@ -23,7 +23,6 @@ header{
     padding: 10px 4px;
     font-size: 20px;
     margin: 10px;
-    font-family: 'KronaOne';
     width: 20vw;
 }
 
@@ -50,7 +49,6 @@ header{
     border-radius: 15px;
     margin-top: 15px;
     border: none;
-    font-family: 'KronaOne';
 }
 
 button:hover {

@@ -13,7 +13,6 @@
     font-size: px;
     background-color: #000;
     color: white;
-    font-family: 'KronaOne';
 }
 
 
@@ -24,21 +23,18 @@
     border-radius: 10px;
     border: none;
     color: white;
-    font-family: 'KronaOne';
     margin-bottom: 3vh;
 }
 
 .botao:hover{
     background-color: white;
     color: #00891E;
-    font-family: 'KronaOne';
 }
 
 .cartaoComen {
     border: 3px solid rgb(255, 255, 255);
     border-radius: 10px 0 10px 0;
     color: #ffffff;
-    font-family: 'KronaOne';
     padding: 25px;
     display: flex;
     flex-direction: column;
@@ -66,7 +62,6 @@
 
     #nome {
         color: #00891E;
-        font-family: 'KronaOne';
         font-size: 10px;
         margin: 0;
     }   

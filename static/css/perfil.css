@@ -5,11 +5,8 @@
     text-align: left;
 }
 
-img[src="../static/images/editar.png"]{
-    cursor: pointer;
-    width: 25px;
-    height: 22px;
-    margin: 5px;
+#carrosel{
+    margin-top: 0;
 }
 
 @media screen and (max-device-width: 768px) {

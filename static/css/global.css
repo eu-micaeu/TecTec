@@ -1,14 +1,9 @@
-@font-face {
-    font-family: 'KronaOne';
-    src: url('../fonts/KronaOne-Regular.ttf');
-}
-
 body {
     background-image: url('../images/peak_background.png');
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
-    font-family: 'KronaOne';
+    font-family: monospace;
     line-height: 1.6;
     margin: 0;
 }
@@ -47,7 +42,7 @@ header {
 }
 
 #biografia {
-    font-family: 'KronaOne';
+    font-family: monospace;
     color: #fff;
     background-color: transparent;
     border: none;
@@ -62,7 +57,7 @@ header {
 #carrosel {
     display: flex;
     flex-direction: column;
-    margin-top: 5vh;
+    margin-top: 10vh;
     margin-bottom: 14vh;
 }
 
@@ -70,7 +65,7 @@ header {
     border: 3px solid green;
     border-radius: 10px 0 10px 0;
     color: #00891E;
-    font-family: 'KronaOne';
+    font-family: monospace;
     padding: 25px;
     display: flex;
     flex-direction: column;
@@ -100,7 +95,7 @@ textarea {
 }
 
 .botao-adicionar-postagem {
-    font-family: 'KronaOne';
+    font-family: monospace;
     background-color: #00891E;
     color: white;
     border: none;
@@ -114,24 +109,8 @@ textarea {
     font-size: 30px;
 }
 
-.botao-recarregar-postagem {
-    font-family: 'KronaOne';
-    background-color: #00891E;
-    color: white;
-    border: none;
-    padding: 5px;
-    cursor: pointer;
-    border-radius: 10px;
-    position: fixed;
-    bottom: 80px;
-    width: 50px;
-    height: 50px;
-    font-size: 30px;
-}
-
-.botao-adicionar-postagem:hover,
-.botao-recarregar-postagem:hover {
-    font-family: 'KronaOne';
+.botao-adicionar-postagem:hover{
+    font-family: monospace;
     background-color: #fff;
     color: #00891E;
 }
@@ -153,6 +132,7 @@ textarea {
 /* Barra de Tecnologias  */
 
 #mySidebar {
+    font-family: monospace;
     width: 0;
     position: fixed;
     top: 0;

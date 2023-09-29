@@ -1,15 +1,5 @@
 @import url('./global.css');
 
-header{
-    background-color: #000000f8;
-    width: auto;
-    height: 100%; 
-    position: relative;
-    left: auto; 
-    top: auto;
-    border: none;
-}
-
 .inputBox {
     display: flex;
     justify-content: center;
@@ -23,8 +13,8 @@ header{
     padding: 10px 4px;
     font-size: 20px;
     margin: 10px;
-    font-family: 'KronaOne';
     width: 20vw;
+    font-family: monospace;
 }
 
 form {
@@ -33,16 +23,6 @@ form {
     width: 20vw;
     margin: 0 auto 20px auto;
     border-radius: 15px;
-    background-color: black;
-}
-
-.cartaoDev{
-    padding: 5px;
-    width: 20vw;
-    height: 25vh;
-    border-radius: 15px;
-    margin: 5px;
-    border: 3px solid #00891E;
     background-color: black;
 }
 
@@ -60,13 +40,14 @@ form {
     border-radius: 15px;
     margin-top: 15px;
     border: none;
-    font-family: 'KronaOne';
+    font-family: monospace;
 }
 
 #entrar:hover, #cadastro:hover {
     background-color: aliceblue;
     color: #00891E;
-    font-family: 'KronaOne';
+    font-family: monospace;
+
 }
 
 .rotUsuario,
@@ -78,27 +59,6 @@ form {
 p{
     color: #00891E;
     font-size: 15px;
-}
-
-img[src="../static/images/micael.jpg"]{
-    border: 2px solid #00891E;
-    border-radius: 10px;
-    width: 100px;
-    height: 100px;
-}
-
-img[src="../static/images/brena.jpeg"]{
-    width: 100px;
-    height: 100px;
-    border: 2px solid #00891E;
-    border-radius: 10px;
-}
-
-img[src="../static/images/joao.png"]{
-    width: 100px;
-    height: 100px;
-    border: 2px solid #00891E;
-    border-radius: 10px;
 }
 
 #logo{
