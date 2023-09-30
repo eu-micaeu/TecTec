@@ -41,6 +41,8 @@
     align-items: flex-start;
     background-color: #000;
     margin: 0.5vw;
+    font-size: 14px;
+    font-family: monospace;
 }
 
 @media screen and (max-device-width: 768px) {
