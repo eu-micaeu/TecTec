@@ -1,5 +1,3 @@
-import { iconsHover, sidebarModule } from './global.mjs';
-
 const token = localStorage.getItem("token").toString();
 
 let idUsuario;
@@ -97,6 +95,7 @@ varIdUsuarioHome().then(idUsuario => {
                                         comentarioImagem.src = '../static/images/comentario.png'
                                         comentarioImagem.width = 18;
                                         comentarioImagem.height = 18;
+                                        comentarioImagem.title = "Comentar";
 
                                         comentarioImagem.addEventListener('mouseover', function () {
                                             comentarioImagem.src = '/static/images/comentariobranco.png';
@@ -122,6 +121,7 @@ varIdUsuarioHome().then(idUsuario => {
                                         likeButton.height = 18;
                                         likeButton.style.cursor = 'pointer';
                                         likeButton.dataset.postId = postagem.id_postagem;
+                                        likeButton.title = "Curtir";
 
                                         if (curtidasUsuario.some(curtida => curtida.id_postagem === postagem.id_postagem)) {
                                             likeButton.src = '/static/images/coracaofechado.png';
@@ -222,6 +222,29 @@ varIdUsuarioHome().then(idUsuario => {
     displayFeed()
 
 })
+
+const loadingDiv = document.getElementById("loading");
+const contentDiv = document.getElementById("carrosel");
+
+varIdUsuarioHome().then(idUsuario => {
+
+    function displayFeed() {
+
+        loadingDiv.style.display = "block";
+        contentDiv.style.display = "none";
+
+        fetch(`/contar_amizades/${idUsuario}`)
+            .then(response => response.json())
+            .then(data => {
+                loadingDiv.style.display = "none";
+                contentDiv.style.display = "block";
+            });
+    }
+
+    displayFeed()
+});
+
+import { iconsHover, sidebarModule } from './global.mjs';
 
 iconsHover();
 

@@ -43,6 +43,15 @@ export function iconsHover() {
     buscaImage.addEventListener('mouseout', function () {
         buscaImage.src = '/static/images/pesquisa.png';
     });
+
+    let addImage = document.querySelector("#addpost");
+
+    addImage.addEventListener('mouseover', function () {
+        addImage.src = '/static/images/addpostbranco.png';
+    });
+    addImage.addEventListener('mouseout', function () {
+        addImage.src = '/static/images/addpost.png';
+    });
 }
 
 export function sidebarModule() {
@@ -72,3 +81,5 @@ export function sidebarModule() {
         toggleSidebar: toggleSidebar
     };
 }
+
+

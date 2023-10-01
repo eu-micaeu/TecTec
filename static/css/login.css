@@ -24,6 +24,10 @@ form {
     margin: 0 auto 20px auto;
     border-radius: 15px;
     background-color: black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .btnContainer {
@@ -54,11 +58,6 @@ form {
 .rotSenha {
     color: #ffffff;
     margin: 10px 10px;
-}
-
-p{
-    color: #00891E;
-    font-size: 15px;
 }
 
 #logo{
