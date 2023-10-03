@@ -22,12 +22,12 @@ header {
 header img {
     width: 27px;
     height: 27px;
-    margin: 0.9vw;
+    margin: 15px 60px 15px 60px;
 }
 
 #logo {
-    width: 37px;
-    height: 37px;
+    width: 35px;
+    height: 35px;
 }
 
 .centraliza {
@@ -42,39 +42,26 @@ main {
     align-items: center;
 }
 
-#biografia {
-    font-family: monospace;
-    color: #fff;
-    background-color: transparent;
-    border: none;
-    text-align: center;
-    width: 100%;
-}
-
-.perfil-biografia {
-    width: 40vw;
-}
-
 #carrosel {
     display: flex;
     flex-direction: column;
-    margin-top: 10vh;
-    margin-bottom: 14vh;
+    margin-top: 7vh;
+    margin-bottom: 1.5vh;
+    background-color: #000;
 }
 
 .cartao {
-    border: 5px solid green;
+    border: 1px solid green;
     color: #00891E;
     font-family: monospace;
     padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    width: 80vh;
+    width: 95vh;
     background-color: #000;
-    font-size: 16px;
-    margin: 1vh;
-    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
 }
 
 .centraliza,
@@ -85,14 +72,6 @@ main {
 
 textarea {
     resize: none;
-}
-
-.nameWhite {
-    color: white;
-}
-
-.nameGreen {
-    color: #00891E;
 }
 
 .botao-adicionar-postagem {
@@ -116,16 +95,6 @@ textarea {
     color: #00891E;
 }
 
-#boneco {
-    margin-top: 10vh;
-}
-
-#logo {
-    width: 45px;
-    height: 45px;
-    margin-top: 1.2vh;
-}
-
 .texto {
     word-break: break-all;
 }
@@ -140,7 +109,6 @@ textarea {
     right: 0;
     background-color: #000000;
     overflow: hidden;
-    border-radius: 0px 0px 0px 10px;
     transition: 0.5s;
 }
 
@@ -211,10 +179,6 @@ footer p {
     transform: translate(-50%, -50%);
 }
 
-#content {
-    display: block;
-}
-
 @media screen and (max-device-width: 768px) {
 
     header {
@@ -238,7 +202,6 @@ footer p {
     #inputComentario {
         width: 80vw;
         font-size: 12px;
-        margin: 2vw;
     }
 
     #carrosel {
@@ -256,6 +219,11 @@ footer p {
         font-size: 10px;
     }
 
+    header img {
+        width: 20px;
+        height: 20px;
+        margin: 15px;
+    }
 
 
 }

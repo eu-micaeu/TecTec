@@ -4,8 +4,6 @@ let idUsuario;
 
 async function varIdUsuarioHome() {
 
-    const token = localStorage.getItem("token").toString();
-
     try {
         const response = await fetch('/perfil-token/', {
             method: 'POST',
@@ -21,6 +19,20 @@ async function varIdUsuarioHome() {
     }
 
     return idUsuario;
+}
+
+function displayFeedCarregar() {
+
+    const loadingDiv = document.getElementById("loading");
+    const contentDiv = document.getElementById("carrosel");
+
+    loadingDiv.style.display = "block";
+    contentDiv.style.display = "none";
+
+    setTimeout(function () {
+        loadingDiv.style.display = "none";
+        contentDiv.style.display = "block";
+    }, 1500);
 }
 
 varIdUsuarioHome().then(idUsuario => {
@@ -221,28 +233,13 @@ varIdUsuarioHome().then(idUsuario => {
 
     displayFeed()
 
+    displayFeedCarregar()
+
 })
 
-const loadingDiv = document.getElementById("loading");
-const contentDiv = document.getElementById("carrosel");
 
-varIdUsuarioHome().then(idUsuario => {
 
-    function displayFeed() {
-
-        loadingDiv.style.display = "block";
-        contentDiv.style.display = "none";
-
-        fetch(`/contar_amizades/${idUsuario}`)
-            .then(response => response.json())
-            .then(data => {
-                loadingDiv.style.display = "none";
-                contentDiv.style.display = "block";
-            });
-    }
-
-    displayFeed()
-});
+/* Importação de funções do global.mjs */
 
 import { iconsHover, sidebarModule } from './global.mjs';
 

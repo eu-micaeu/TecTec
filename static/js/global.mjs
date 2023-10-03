@@ -63,11 +63,11 @@ export function sidebarModule() {
                 document.getElementById("mySidebar").style.width = "24vw"; 
             }
             else{
-                document.getElementById("mySidebar").style.width = "13vw";
+                document.getElementById("mySidebar").style.width = "10vw";
             }
            
             document.getElementById("mySidebar").style.height = "100%";
-            document.getElementById("mySidebar").style.border = "2px solid green";
+            document.getElementById("mySidebar").style.borderLeft = "2px solid green";
             sidebarOpen = true;
         } else {
             document.getElementById("mySidebar").style.width = "0";
