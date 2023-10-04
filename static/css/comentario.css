@@ -2,7 +2,6 @@
 
 #postagem-principal{
     margin-top: 10vh;
-    padding: 10px;
 }
 
 textarea{
@@ -28,6 +27,8 @@ textarea{
     font-family: monospace;
     bottom: 0;
     position: fixed;
+    border: 2px solid white;
+    font-weight: bold;
 }
 
 .botao:hover{
@@ -36,14 +37,19 @@ textarea{
 }
 
 .cartaoComen {
-    border: 3px solid rgb(255, 255, 255);
-    border-radius: 10px 0 10px 0;
+    border: 5px solid rgb(255, 255, 255);
     color: #ffffff;
     padding: 25px;
-    display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    width: 65vh;
     background-color: #000;
-    font-size: 16px;
-    font-family: monospace;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 15px 0 15px 0 ;
+    margin: 10px;
+}
+
+#inputComentario{
+    font-size: 15px;
+    font-weight: bold;
 }
