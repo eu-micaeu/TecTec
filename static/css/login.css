@@ -45,6 +45,7 @@ form {
     margin-top: 15px;
     border: none;
     font-family: monospace;
+    border: 2px solid white;
 }
 
 #entrar:hover, #cadastro:hover {

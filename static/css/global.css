@@ -58,7 +58,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    width: 95vh;
+    width: 65vh;
     background-color: #000;
     font-size: 18px;
     font-weight: bold;
@@ -160,6 +160,7 @@ footer {
     width: 100%;
     background-color: black;
     border-top: 2px solid #00891E;
+    margin-top: 5vh;
 }
 
 footer p {
