@@ -71,10 +71,9 @@ varIdUsuarioPerfil().then(() => {
                                     postElement.classList.add("cartao");
 
                                     let nicknameElement = document.createElement("span");
-                                    nicknameElement.classList.add("nameWhite");
+                                    nicknameElement.style.color = "white";
                                     nicknameElement.textContent = '@' + postagem.nickname;
                                     postElement.appendChild(nicknameElement);
-                                    nicknameElement.style.cursor = "pointer";
 
                                     let textElement = document.createElement("p");
                                     textElement.classList.add("texto");
@@ -89,6 +88,7 @@ varIdUsuarioPerfil().then(() => {
                                     comentarioImagem.src = '../static/images/comentario.png'
                                     comentarioImagem.width = 25;
                                     comentarioImagem.height = 25;
+                                    comentarioImagem.style.cursor = 'pointer';
 
                                     comentarioImagem.addEventListener('mouseover', function () {
                                         comentarioImagem.src = '/static/images/comentariobranco.png';

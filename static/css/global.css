@@ -178,6 +178,11 @@ footer p {
     transform: translate(-50%, -50%);
 }
 
+#seguir{
+    font-family: monospace;
+    font-size: 15px;
+}
+
 @media screen and (max-device-width: 768px) {
 
     header {
