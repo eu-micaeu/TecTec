@@ -35,6 +35,10 @@ export function iconsHover() {
         outImage.src = '/static/images/out.png';
     });
 
+    document.getElementById('sair').addEventListener('click', async function () {
+        localStorage.clear();
+    })
+
     let buscaImage = document.querySelector("#busca");
 
     buscaImage.addEventListener('mouseover', function () {

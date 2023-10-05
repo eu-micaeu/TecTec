@@ -1,5 +1,3 @@
-localStorage.clear();
-
 document.getElementById('entrar').addEventListener('click', async function () {
     const nickname = document.querySelector("#nickname").value;
     const senha = document.querySelector("#senha").value;
@@ -43,6 +41,13 @@ document.getElementById('entrar').addEventListener('click', async function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
+
+    const token = localStorage.getItem("token");
+
+    if (token) {
+
+        window.location.href = "/home"; 
+    }
 
     const entrarButton = document.querySelector("#entrar");
 

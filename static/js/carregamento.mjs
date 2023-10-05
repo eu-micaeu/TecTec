@@ -4,5 +4,3 @@ window.addEventListener("load", function () {
         window.location.href = "/login";
     }, 2000);
 });
-
-localStorage.clear();
