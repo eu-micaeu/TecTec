@@ -172,42 +172,6 @@ async function showPost(postId) {
                     }
                 });
 
-                let seguidorImagem = document.createElement('img');
-
-                seguidorImagem.src = '../static/images/seguidor.png'
-                seguidorImagem.width = 18;
-                seguidorImagem.height = 18;
-                seguidorImagem.title = 'Deixar de seguir';
-
-                seguidorImagem.addEventListener('mouseover', function () {
-                    seguidorImagem.src = '/static/images/seguidorbranco.png';
-                });
-                seguidorImagem.addEventListener('mouseout', function () {
-                    seguidorImagem.src = '/static/images/seguidor.png';
-                });
-
-                seguidorImagem.addEventListener('click', async function () {
-                    const response = await fetch(`/desfazer_amizade`, {
-                        method: 'DELETE',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({
-                            id_usuario: id_usuario,
-                            id_usuario_seguindo: postagem.id_usuario
-                        })
-                    });
-
-                    if (response.ok) {
-                        displayFeed()
-                    } else {
-                        console.error('Erro ao desfazer amizade');
-                    }
-                });
-
-                divEmbaixo.appendChild(seguidorImagem);
-
-
                 postElement.appendChild(divEmbaixo);
             })
 
@@ -253,21 +217,9 @@ varIdUsuario().then(() => {
     showPost(postId);
 });
 
-import { iconsHover } from './global.mjs';
+import { iconsHover, sidebarModule } from './global.mjs';
 
 iconsHover();
 
-var sidebarOpen = false;
-
-document.getElementById("busca").addEventListener("click", function () {
-    if (!sidebarOpen) {
-        document.getElementById("mySidebar").style.width = "13vw";
-        document.getElementById("mySidebar").style.borderColor = "white";
-        document.getElementById("mySidebar").style.border = "2px";
-        document.getElementById("mySidebar").style.borderStyle = "solid";
-        sidebarOpen = true;
-    } else {
-        document.getElementById("mySidebar").style.width = "0";
-        sidebarOpen = false;
-    }
-});
+var sidebar = sidebarModule();
+document.getElementById("busca").addEventListener("click", sidebar.toggleSidebar);
