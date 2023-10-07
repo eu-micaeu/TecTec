@@ -1,4 +1,3 @@
-const token = localStorage.getItem("token").toString();
 let usuariosData = [];
 let idUsuario;
 
@@ -9,7 +8,6 @@ async function varIdUsuario() {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ token: token })
         });
 
         const data = await response.json();
@@ -30,7 +28,7 @@ function searchNicknames() {
 
     if (usuariosData.length > 0) {
         for (var i = 0; i < usuariosData.length; i++) {
-            if (usuariosData[i].nickname.includes(searchTerm)) { // Alterado para correspondência parcial
+            if (usuariosData[i].nickname.includes(searchTerm)) { 
                 var lista = document.createElement("button");
                 lista.textContent = usuariosData[i].nickname;
                 lista.setAttribute("data-nickname", usuariosData[i].nickname);

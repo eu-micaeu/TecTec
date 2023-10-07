@@ -3,8 +3,6 @@ let nickname;
 let idUsuario;
 let idUsuarioSeguindo;
 
-const token = localStorage.getItem("token").toString();
-
 function getParameterByName(name, url = window.location.href) {
     name = name.replace(/[\[\]]/g, '\\$&');
     var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
@@ -18,11 +16,7 @@ nickname = getParameterByName('nickname');
 
 function updateAmizades(nickname){
     let name = nickname;
-    fetch('/perfil/' + name, {
-        headers: {
-            'Authorization': token
-        }
-    })
+    fetch('/perfil/' + name)
         .then(response => response.json())
         .then(data =>{
             let seguidores = data.usuario.seguidores;
@@ -37,7 +31,6 @@ async function varIdUsuario() {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': token
             },
         });
         const data = await response.json();
@@ -53,7 +46,6 @@ async function varIdUsuario() {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ token: token })
         });
         const data = await response.json();
         idUsuario = data.usuario.id_usuario;
@@ -65,21 +57,13 @@ async function varIdUsuario() {
 varIdUsuario().then(() => {
 
     function displayFeed() {
-        fetch(`/postagens-curtidas/${idUsuario}`, {
-            headers: {
-                'Authorization': token
-            }
-        })
+        fetch(`/postagens-curtidas/${idUsuario}`)
             .then(response => response.json())
             .then(data => {
 
                 const curtidasUsuario = data.postagens;
 
-                fetch('/postagens/' + nickname, {
-                    headers: {
-                        'Authorization': token
-                    }
-                })
+                fetch('/postagens/' + nickname)
                     .then(response => response.json())
                     .then(data => {
                         let postagens = data.postagens;
@@ -195,11 +179,7 @@ varIdUsuario().then(() => {
 
     function updateNome(nickname) {
         let name = nickname;
-        fetch('/perfil/' + name, {
-            headers: {
-                'Authorization': token
-            }
-        })
+        fetch('/perfil/' + name)
             .then(response => response.json())
             .then(data => {
                 let nickname = data.usuario.nickname;
@@ -210,11 +190,7 @@ varIdUsuario().then(() => {
 
     function updateTecnologia(nickname) {
         let name = nickname;
-        fetch('/perfil/' + name, {
-            headers: {
-                'Authorization': token
-            }
-        })
+        fetch('/perfil/' + name)
             .then(response => response.json())
             .then(data => {
                 let tecnologia = data.usuario.tecnologia;

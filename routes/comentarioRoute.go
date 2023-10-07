@@ -14,6 +14,6 @@ func ComentarioRoutes(r *gin.Engine, db *sql.DB) {
 
 	r.POST("/comentar/:id_postagem", commentHandler.Comentar(db))
 
-	r.GET("/comentarios/:id_postagem", commentHandler.ComentariosDePostagem(db))
+	r.GET("/comentarios/:id_postagem", commentHandler.ComentariosDeDeterminadaPostagem(db))
 
 }

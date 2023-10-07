@@ -1,5 +1,3 @@
-const token = localStorage.getItem("token").toString();
-
 let idUsuario;
 
 async function varIdUsuarioHome() {
@@ -10,7 +8,6 @@ async function varIdUsuarioHome() {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ token: token })
         });
         const data = await response.json();
         idUsuario = data.usuario.id_usuario;
@@ -59,20 +56,12 @@ varIdUsuarioHome().then(idUsuario => {
                     p.classList.add("centraliza");
 
                 } else {
-                    fetch(`/postagens-curtidas/${idUsuario}`, {
-                        headers: {
-                            'Authorization': token
-                        }
-                    })
+                    fetch(`/postagens-curtidas/${idUsuario}`)
                         .then(response => response.json())
                         .then(data => {
                             const curtidasUsuario = data.postagens;
 
-                            fetch('/feed/' + idUsuario, {
-                                headers: {
-                                    'Authorization': token
-                                }
-                            })
+                            fetch('/feed/' + idUsuario)
                                 .then(response => response.json())
                                 .then(data => {
                                     let postagens = data.postagens;

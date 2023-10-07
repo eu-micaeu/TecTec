@@ -1,7 +1,5 @@
 import { iconsHover, sidebarModule } from './global.mjs';
 
-const token = localStorage.getItem("token").toString();
-
 let idUsuario;
 let nickname;
 
@@ -12,7 +10,6 @@ async function varIdUsuarioPerfil() {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ token: token })
         });
         const data = await response.json();
         idUsuario = data.usuario.id_usuario;
@@ -45,21 +42,13 @@ varIdUsuarioPerfil().then(() => {
                 p.classList.add("centraliza");
 
             } else {
-                fetch(`/postagens-curtidas/${idUsuario}`, {
-                    headers: {
-                        'Authorization': token
-                    }
-                })
+                fetch(`/postagens-curtidas/${idUsuario}`)
                     .then(response => response.json())
                     .then(data => {
 
                         const curtidasUsuario = data.postagens;
 
-                        fetch('/postagens/' + nickname, {
-                            headers: {
-                                'Authorization': token
-                            }
-                        })
+                        fetch('/postagens/' + nickname)
                             .then(response => response.json())
                             .then(data => {
                                 let postagens = data.postagens;
@@ -211,11 +200,7 @@ varIdUsuarioPerfil().then(() => {
 
     function updateNome(nickname) {
         let name = nickname;
-        fetch('/perfil/' + name, {
-            headers: {
-                'Authorization': token
-            }
-        })
+        fetch('/perfil/' + name)
             .then(response => response.json())
             .then(data => {
                 let nickname = data.usuario.nickname;
@@ -226,11 +211,7 @@ varIdUsuarioPerfil().then(() => {
 
     function updateTecnologia(nickname) {
         let name = nickname;
-        fetch('/perfil/' + name, {
-            headers: {
-                'Authorization': token
-            }
-        })
+        fetch('/perfil/' + name)
             .then(response => response.json())
             .then(data => {
                 let tecnologia = data.usuario.tecnologia;
@@ -241,11 +222,7 @@ varIdUsuarioPerfil().then(() => {
 
     function updateAmizades(nickname) {
         let name = nickname;
-        fetch('/perfil/' + name, {
-            headers: {
-                'Authorization': token
-            }
-        })
+        fetch('/perfil/' + name)
             .then(response => response.json())
             .then(data => {
                 let seguidores = data.usuario.seguidores;

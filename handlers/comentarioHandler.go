@@ -43,7 +43,7 @@ func (p *Comentario) Comentar(db *sql.DB) gin.HandlerFunc {
 }
 
 // Função com a finalidade de resgatar os comentários de determinada postagem utilizando o id da mesma.
-func (u *Comentario) ComentariosDePostagem(db *sql.DB) gin.HandlerFunc {
+func (u *Comentario) ComentariosDeDeterminadaPostagem(db *sql.DB) gin.HandlerFunc {
 
 	return func(c *gin.Context) {
 

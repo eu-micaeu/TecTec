@@ -1,11 +1,8 @@
 package handlers
 
 import (
-	"database/sql"
-	"net/http"
 
 	"github.com/dgrijalva/jwt-go"
-	"github.com/gin-gonic/gin"
 )
 
 type Claims struct {
@@ -14,60 +11,3 @@ type Claims struct {
 }
 
 var jwtKey = []byte("my_secret_key")
-
-// Função com finalidade de validação do token para as funções do usuário.
-func (u *Usuario) ValidarOToken(tokenString string) (int, error) {
-    claims := &Claims{}
-
-    tkn, err := jwt.ParseWithClaims(tokenString, claims, func(token *jwt.Token) (interface{}, error) {
-        return jwtKey, nil
-    })
-
-    if err != nil || !tkn.Valid {
-        return 0, err
-    }
-
-    return claims.ID_Usuario, nil
-}
-
-//Função com a finalidade de pegar as informações do usuário, utilizando o token do mesmo.
-func PegarInformacoesDoUsuarioAtravesDoToken(db *sql.DB) gin.HandlerFunc {
-    return func(c *gin.Context) {
-        var reqBody struct {
-            Token string `json:"token"`
-        }
-
-        if err := c.ShouldBindJSON(&reqBody); err != nil {
-            c.JSON(http.StatusBadRequest, gin.H{"message": "Erro no corpo da solicitação"})
-            return
-        }
-
-        claims := &Claims{}
-
-        tkn, err := jwt.ParseWithClaims(reqBody.Token, claims, func(token *jwt.Token) (interface{}, error) {
-            return jwtKey, nil
-        })
-
-        if err != nil || !tkn.Valid {
-            c.JSON(401, gin.H{"message": "Token inválido"})
-            return
-        }
-
-        idUsuario := claims.ID_Usuario
-
-        var usuario Usuario
-
-        row := db.QueryRow("SELECT id_usuario, nickname, senha, telefone, tecnologia FROM usuarios WHERE id_usuario = $1", idUsuario)
-
-        err = row.Scan(&usuario.ID_Usuario, &usuario.Nickname, &usuario.Senha, &usuario.Telefone, &usuario.Tecnologia)
-
-        if err != nil {
-            c.JSON(404, gin.H{"message": "Usuário inexistente"})
-            return
-        }
-
-        c.JSON(200, gin.H{"usuario": usuario})
-    }
-}
-
-

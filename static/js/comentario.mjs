@@ -12,8 +12,6 @@ let postId = getParameterByName('postId');
 
 let id_usuario;
 
-const token = localStorage.getItem("token").toString();
-
 async function varIdUsuario() {
     let nickname;
     try {
@@ -22,7 +20,6 @@ async function varIdUsuario() {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ token: token })
         });
         const data = await response.json();
         nickname = data.usuario.nickname;
@@ -52,11 +49,7 @@ async function varIdUsuario() {
 
 async function showPost(postId) {
     try {
-        const response = await fetch('/postagem/' + postId, {
-            headers: {
-                'Authorization': token
-            }
-        });
+        const response = await fetch('/postagem/' + postId);
 
         const data = await response.json();
         console.log(data);
@@ -79,11 +72,7 @@ async function showPost(postId) {
         textElement.textContent = postagem.texto;
         postElement.appendChild(textElement);
 
-        fetch(`/postagens-curtidas/${id_usuario}`, {
-            headers: {
-                'Authorization': token
-            }
-        })
+        fetch(`/postagens-curtidas/${id_usuario}`)
             .then(response => response.json())
             .then(data => {
                 const curtidasUsuario = data.postagens;
