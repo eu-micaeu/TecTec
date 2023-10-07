@@ -22,12 +22,14 @@
 #inserirPostagem {
     width: 40vw;
     border-radius: 0px;
-    border: 2px solid #00891E;
+    border: 5px solid #00891E;
     height: 40vh;
     font-size: 20px;
     background-color: #000;
     color: white;
     margin-top: 15vw;
+    border-radius: 10px;
+    font-weight: bold;
 }
 
 #publicar {
@@ -39,6 +41,9 @@
     border: none;
     font-size: 15px;
     margin-top: 4vh;
+    font-family: monospace;
+    font-weight: bold;
+    border: 2px solid white;
 }
 
 #publicar:hover {

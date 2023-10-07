@@ -35,6 +35,10 @@ export function iconsHover() {
         outImage.src = '/static/images/out.png';
     });
 
+    document.getElementById('sair').addEventListener('click', async function () {
+        localStorage.clear();
+    })
+
     let buscaImage = document.querySelector("#busca");
 
     buscaImage.addEventListener('mouseover', function () {
@@ -42,6 +46,15 @@ export function iconsHover() {
     });
     buscaImage.addEventListener('mouseout', function () {
         buscaImage.src = '/static/images/pesquisa.png';
+    });
+
+    let addImage = document.querySelector("#addpost");
+
+    addImage.addEventListener('mouseover', function () {
+        addImage.src = '/static/images/addpostbranco.png';
+    });
+    addImage.addEventListener('mouseout', function () {
+        addImage.src = '/static/images/addpost.png';
     });
 }
 
@@ -54,11 +67,11 @@ export function sidebarModule() {
                 document.getElementById("mySidebar").style.width = "24vw"; 
             }
             else{
-                document.getElementById("mySidebar").style.width = "13vw";
+                document.getElementById("mySidebar").style.width = "10vw";
             }
            
             document.getElementById("mySidebar").style.height = "100%";
-            document.getElementById("mySidebar").style.border = "2px solid green";
+            document.getElementById("mySidebar").style.borderLeft = "2px solid green";
             sidebarOpen = true;
         } else {
             document.getElementById("mySidebar").style.width = "0";
@@ -72,3 +85,5 @@ export function sidebarModule() {
         toggleSidebar: toggleSidebar
     };
 }
+
+
