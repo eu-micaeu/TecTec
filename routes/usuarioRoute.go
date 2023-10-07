@@ -10,9 +10,9 @@ import (
 func UsuarioRoutes(r *gin.Engine, db *sql.DB) {
 	userHandler := handlers.Usuario{}
 
-	r.POST("/login", userHandler.Login(db))
-	r.POST("/register", userHandler.Register(db))
-	r.GET("/perfil/:nickname", userHandler.Perfil(db))
-	r.GET("/usuarios/:id_usuario", userHandler.TodosExcetoEu(db))
+	r.POST("/login", userHandler.Entrar(db))
+	r.POST("/register", userHandler.Registrar(db))
+	r.GET("/perfil/:nickname", userHandler.PegarInformacoesDoUsuarioAtravesDoNickname(db))
+	r.GET("/usuarios/:id_usuario", userHandler.PegarInformacoesDeTodosOsUsuariosMenosAsMinhas(db))
 
 }

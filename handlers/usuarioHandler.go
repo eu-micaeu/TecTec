@@ -2,15 +2,18 @@ package handlers
 
 // Importando bibliotecas para a criação da classe e funções do usuário.
 import (
+
 	"database/sql"
 	"time"
 
 	"github.com/dgrijalva/jwt-go"
 	"github.com/gin-gonic/gin"
+    
 )
 
 // Estrutura do usuário.
 type Usuario struct {
+
 	ID_Usuario int    `json:"id_usuario"`
 	Nickname   string `json:"nickname"`
 	Senha      string `json:"senha"`
@@ -20,23 +23,8 @@ type Usuario struct {
 
 }
 
-// Função com finalidade de validação do token.
-func (u *Usuario) ValidateToken(tokenString string) (int, error) {
-    claims := &Claims{}
-
-    tkn, err := jwt.ParseWithClaims(tokenString, claims, func(token *jwt.Token) (interface{}, error) {
-        return jwtKey, nil
-    })
-
-    if err != nil || !tkn.Valid {
-        return 0, err
-    }
-
-    return claims.ID_Usuario, nil
-}
-
 // Função com finalidade de login do usuário.
-func (u *Usuario) Login(db *sql.DB) gin.HandlerFunc {
+func (u *Usuario) Entrar(db *sql.DB) gin.HandlerFunc {
     return func(c *gin.Context) {
 
         var usuario Usuario
@@ -75,7 +63,7 @@ func (u *Usuario) Login(db *sql.DB) gin.HandlerFunc {
 }
 
 // Função com finalidade de registrar um usuário no sistema.
-func (u *Usuario) Register(db *sql.DB) gin.HandlerFunc {
+func (u *Usuario) Registrar(db *sql.DB) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		var novoUsuario Usuario
 		if err := c.BindJSON(&novoUsuario); err != nil {
@@ -93,12 +81,12 @@ func (u *Usuario) Register(db *sql.DB) gin.HandlerFunc {
 }
 
 // Função com a finalidade de retornar as informações de qualquer usuário utilizando o nickname do mesmo.
-func (u *Usuario) Perfil(db *sql.DB) gin.HandlerFunc {
+func (u *Usuario) PegarInformacoesDoUsuarioAtravesDoNickname(db *sql.DB) gin.HandlerFunc {
     return func(c *gin.Context) {
         nickname := c.Param("nickname")
 
         tknStr := c.Request.Header.Get("Authorization")
-        _, err := u.ValidateToken(tknStr)
+        _, err := u.ValidarOToken(tknStr)
         if err != nil {
             c.JSON(401, gin.H{"message": "Token inválido"})
             return
@@ -120,7 +108,7 @@ func (u *Usuario) Perfil(db *sql.DB) gin.HandlerFunc {
 }
 
 // Função com a finalidade de retornar os nicknames de todos os usuários.
-func (u *Usuario) TodosExcetoEu(db *sql.DB) gin.HandlerFunc {
+func (u *Usuario) PegarInformacoesDeTodosOsUsuariosMenosAsMinhas(db *sql.DB) gin.HandlerFunc {
     return func(c *gin.Context) {
 
         id_usuario := c.Param("id_usuario")

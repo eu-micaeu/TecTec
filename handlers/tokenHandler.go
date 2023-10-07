@@ -15,7 +15,23 @@ type Claims struct {
 
 var jwtKey = []byte("my_secret_key")
 
-func GetUsuarioFromTokenHandler(db *sql.DB) gin.HandlerFunc {
+// Função com finalidade de validação do token para as funções do usuário.
+func (u *Usuario) ValidarOToken(tokenString string) (int, error) {
+    claims := &Claims{}
+
+    tkn, err := jwt.ParseWithClaims(tokenString, claims, func(token *jwt.Token) (interface{}, error) {
+        return jwtKey, nil
+    })
+
+    if err != nil || !tkn.Valid {
+        return 0, err
+    }
+
+    return claims.ID_Usuario, nil
+}
+
+//Função com a finalidade de pegar as informações do usuário, utilizando o token do mesmo.
+func PegarInformacoesDoUsuarioAtravesDoToken(db *sql.DB) gin.HandlerFunc {
     return func(c *gin.Context) {
         var reqBody struct {
             Token string `json:"token"`
