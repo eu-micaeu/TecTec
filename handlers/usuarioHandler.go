@@ -93,8 +93,9 @@ func (u *Usuario) Entrar(db *sql.DB) gin.HandlerFunc {
 			Expires:  time.Now().Add(24 * time.Hour),
 			HttpOnly: true,
 			Secure:   true,
+			SameSite: http.SameSiteStrictMode,
 		})
-
+		
 		c.JSON(200, gin.H{"message": "Login efetuado com sucesso!", "token": token, "usuario": usuario})
 	}
 }
@@ -172,9 +173,9 @@ func (u *Usuario) PegarInformacoesDoUsuarioAtravesDoToken(db *sql.DB) gin.Handle
 			return
 		}
 
-		row := db.QueryRow("SELECT id_usuario, nickname, senha, telefone, tecnologia FROM usuarios WHERE id_usuario = $1", idUsuario)
+		row := db.QueryRow("SELECT id_usuario, nickname, senha, telefone, tecnologia, seguidores FROM usuarios WHERE id_usuario = $1", idUsuario)
 
-		err = row.Scan(&usuario.ID_Usuario, &usuario.Nickname, &usuario.Senha, &usuario.Telefone, &usuario.Tecnologia)
+		err = row.Scan(&usuario.ID_Usuario, &usuario.Nickname, &usuario.Senha, &usuario.Telefone, &usuario.Tecnologia, &usuario.Seguidores)
 
 		if err != nil {
 			c.JSON(404, gin.H{"message": "Usuário inexistente"})
