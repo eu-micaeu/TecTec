@@ -193,11 +193,6 @@ footer p {
         margin: 5px;
     }
 
-    .navigation_header img {
-        width: 20px;
-        height: 20px;
-        margin: 3vw;
-    }
 
     .cartao,
     .cartaoComen,
@@ -214,8 +209,16 @@ footer p {
     }
 
     #mySidebar a {
-        font-size: 8px;
+        top: 50%;
+        font-size: 10px;
     }
+
+    #mySidebar .centraliza h3 {
+        color: #00891E;
+        padding-top: 50px;
+    }
+
+
 
     h3 {
         font-size: 10px;
