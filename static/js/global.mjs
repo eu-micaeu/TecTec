@@ -71,11 +71,13 @@ export function sidebarModule() {
         if (!sidebarOpen) {
             if (window.innerWidth < 768) {
                 document.getElementById("mySidebar").style.width = "24vw"; 
+                document.getElementById("mySidebar").style.margin= "auto"
             }
             else{
                 document.getElementById("mySidebar").style.width = "10vw";
-            }
-           
+                document.getElementById("mySidebar").style.marginTop = "0px"
+
+            }  
             document.getElementById("mySidebar").style.height = "100%";
             document.getElementById("mySidebar").style.borderLeft = "2px solid green";
             sidebarOpen = true;
