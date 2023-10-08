@@ -1,18 +1,21 @@
 @import url('./global.css');
 
 #searchInput{
-    border-radius: 0px 5px 0px 5px;
+    border-radius: 15px;
     border: 2px solid #00891E;
     background-color: transparent;
     width: 20rem;
     height: 2rem;
     font-family: monospace;
-    font-size: 16px;
+    font-size: 20px;
+    padding: 15px;
 }
 
 input:focus {
     background-color: rgba(0, 0, 0, 0.1); 
     outline: none; 
+    color: #00891E;
+    
 }
 
 button{

@@ -1,62 +1,87 @@
-document.getElementById('entrar').addEventListener('click', async function () {
-    const nickname = document.querySelector("#nickname").value;
-    const senha = document.querySelector("#senha").value;
-    const response = await fetch("/login", {
-        method: "POST",
-        body: JSON.stringify({ nickname, senha })
-    });
-
-    if (response.ok) {
-        const data = await response.json();
-        if (data && data.message === "Login efetuado com sucesso!" && data.usuario && data.usuario.id_usuario) {
-
-            const response2 = await fetch("/perfil-token", {
-                method: "POST",
-            });
-
-            if (response.ok) {
-                const data2 = await response2.json();
-                
-                const nickname = data2.usuario.nickname
-
-                const response3 = await fetch("/entrada/" + nickname, {
-                    method: "POST",
-                });
-
-                if (response3.ok) {
-                    window.location.href = "/home";
-                }
-            }
-
-        } else {
-            alert('Ops! Usuário inexistente');
-        }
-    } else {
-        alert('Ops! Usuário inexistente');
-    }
-});
-
+// Detectar o carregamento inicial da página e implementar a lógiva que possui
 document.addEventListener("DOMContentLoaded", function () {
 
-    const entrarButton = document.querySelector("#entrar");
+    const btEntrar = document.querySelector("#btEntrar");
 
-    const usuarioInput = document.querySelector("#nickname");
-
-    const senhaInput = document.querySelector("#senha");
-
-    function handleKeyPress(event) {
+    function cabecalhoParaEnviar(event) {
 
         if (event.key === "Enter") {
 
             event.preventDefault();
 
-            entrarButton.click();
+            btEntrar.click();
 
         }
     }
 
-    usuarioInput.addEventListener("keypress", handleKeyPress);
+    const inserirUsuario = document.querySelector("#nickname");
 
-    senhaInput.addEventListener("keypress", handleKeyPress);
+    inserirUsuario.addEventListener("keypress", cabecalhoParaEnviar);
+
+    const inserirSenha = document.querySelector("#senha");
+
+    inserirSenha.addEventListener("keypress", cabecalhoParaEnviar);
 
 });
+
+// Detectar o btEntrar para implementar a lógica de login
+document.getElementById('btEntrar').addEventListener('click', async function () { // Ao apertar o botão de Entrar
+
+    const nickname = document.querySelector("#nickname").value;
+
+    const senha = document.querySelector("#senha").value;
+
+    const respostaLogin = await fetch("/login", {
+
+        method: "POST",
+
+        body: JSON.stringify({ nickname, senha })
+
+    });
+
+    if (respostaLogin.ok) {
+
+        const informacoesLogin = await respostaLogin.json();
+
+        if (informacoesLogin.message === "Login efetuado com sucesso!") {
+
+            const respostaPerfilToken = await fetch("/perfil-token", {
+
+                method: "POST",
+
+            });
+
+            if (respostaPerfilToken.ok) {
+
+                const informacoesPerfilToken = await respostaPerfilToken.json();
+                
+                const nickname = informacoesPerfilToken.usuario.nickname
+
+                const respostaSessaoEntrada = await fetch("/entrada/" + nickname, {
+
+                    method: "POST",
+
+                });
+
+                if (respostaSessaoEntrada.ok) {
+
+                    window.location.href = "/home";
+
+                }
+
+            }
+
+        } else {
+
+            alert('Ops! Usuário inexistente');
+
+        }
+
+    } else {
+
+        alert('Ops! Usuário inexistente');
+
+    }
+
+});
+

@@ -8,96 +8,39 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>TecTec</title>
+    <title>TecTec</title> <!-- Título da Página -->
 
-    <link rel="icon" href="../static/images/logo.ico" type="image/x-icon">
+    <link rel="icon" href="../static/images/logo.ico" type="image/x-icon"> <!-- Ícone da Página -->
 
     <link rel="stylesheet" href="../static/css/login.css">
-
-    <meta name="google-adsense-account" content="ca-pub-8291700047790609">
 
 </head>
 
 <body>
 
-    <!-- Logo Principal -->
+    <form> <!-- Formulário do Login -->
 
-    <div class="centraliza">
+        <img src="../static/images/logo.ico" alt="" id="logo"> <!-- Logo Principal -->
 
-        <img src="../static/images/logo.ico" alt="" id="logo">
+        <img src="../static/images/tectec.png" alt="" id="logoNome"> <!-- Logo do Nome -->
 
-    </div>
+        <label for="nickname" class="rotUsuario">Nickname:</label> <!-- Label do Nickname -->
 
-    <!-- Formulário para o login do site -->
+        <input type="text" id="nickname" class="inserirTexto"> <!-- Inserir o Nickname -->
 
-    <form>
+        <label for="senha" class="rotSenha">Senha:</label> <!-- Label da Senha -->
 
-        <!-- Logo do Nome -->
-    
-        <div class="centraliza">
-    
-            <img src="../static/images/tectec.png" alt="" id="logoNome">
-    
-        </div>
+        <input type="password" id="senha" class="inserirTexto"> <!-- Inserir a Senha -->
 
-        <!-- Preenchimento do nickname para o login do site -->
+        <button type="button" id="btEntrar">Entrar</button> <!-- Botão para verificar o login -->
 
-        <label for="nickname" class="rotUsuario">Nickname:</label> 
-        
-        <br>
-
-        <div class="inputBox">
-
-            <input type="text" name="nickname" id="nickname" class="inputText">
-
-        </div>
-
-        <br>
-
-        <!-- Preenchimento da senha para o login do site -->
-
-        <label for="senha" class="rotSenha">Senha:</label> 
-        
-        <br>
-
-        <div class="inputBox">
-
-            <input type="password" name="senha" id="senha" class="inputText">
-
-        </div>
-
-        <!-- Botão de "Entrar" para o login do site -->
-
-        <div class="btnContainer">
-
-            <button type="button" id="entrar">Entrar</button>
-
-        </div>
-
-        <!-- Botão de "Registrar" para o cadastro do site -->
-
-        <div class="btnContainer">
-
-            <button type="button" onclick="window.location.href='/register'" id="cadastro">Cadastro</button>
-
-        </div>
+        <button type="button" onclick="window.location.href='/register'" id="btCadastrar">Cadastro</button> <!-- Botão para ir na página de registro -->
 
     </form>
 
-    
+    <script type="module" src="../static/js/footer.mjs"></script> <!-- Script do Footer -->
 
-    <footer>
-
-        <div class="centraliza">
-
-            <p>Copyright @2023</p>
-
-        </div>
-
-    </footer>
-    
-
-    <script type="module" src="../static/js/login.mjs"></script>
+    <script type="module" src="../static/js/login.mjs"></script> <!-- Script da página inteira -->
 
 </body>
 
