@@ -13,14 +13,14 @@
     padding: 10px 4px;
     font-size: 20px;
     margin: 10px;
-    width: 20vw;
     font-family: monospace;
+
 }
 
 form {
     padding: 25px;
     border: 3px solid rgb(255, 255, 255);
-    width: 20vw;
+    width: 15vw;
     margin: 0 auto 20px auto;
     border-radius: 15px;
     background-color: black;
@@ -35,20 +35,24 @@ form {
     justify-content: center;
 }
 
-#entrar, #cadastro {
+#entrar,
+#cadastro {
     background-color: #00891E;
     font-size: 15px;
     color: white;
-    padding: 18px;
+    padding: 13px;
     cursor: pointer;
     border-radius: 15px;
     margin-top: 15px;
     border: none;
     font-family: monospace;
     border: 2px solid white;
+    width: 6vw;
+    font-weight: bold;
 }
 
-#entrar:hover, #cadastro:hover {
+#entrar:hover,
+#cadastro:hover {
     background-color: aliceblue;
     color: #00891E;
     font-family: monospace;
@@ -58,19 +62,42 @@ form {
 .rotUsuario,
 .rotSenha {
     color: #ffffff;
-    margin: 10px 10px;
+    margin: 25px;
+    font-weight: bold;
+    font-size: 16px;
 }
 
-#logo{
-    width: 70px;
-    height: 70px;
+#logo {
+    width: 90px;
+    height: 90px;
     margin-bottom: 3vh;
     margin-top: 10vh;
+    border-radius: 15px;
+}
+
+#logoNome {
+    border-radius: 10px;
+    width: 80px;
+    height: 80px;
+}
+
+@keyframes queda-e-giro {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    100% {
+        transform: translateY(0px) rotate(360deg);
+    }
+}
+
+#logo {
+    animation: queda-e-giro 2.5s infinite;
 }
 
 @media screen and (max-device-width: 768px) {
 
-    #logo{
+    #logo {
         width: 80px;
         height: 80px;
     }
@@ -83,7 +110,7 @@ form {
         width: 75vw;
     }
 
-    .cartaoDev{
+    .cartaoDev {
         width: 80%;
     }
 }

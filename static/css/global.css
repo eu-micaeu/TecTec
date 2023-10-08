@@ -30,9 +30,6 @@ header img {
     height: 35px;
 }
 
-#logoNome{
-    border-radius: 10px;
-}
 
 .centraliza {
     display: flex;
@@ -168,6 +165,7 @@ footer {
 footer p {
     color: #00891E;
     font-size: 15px;
+    font-weight: bold;
 }
 
 /* Carregamento */
@@ -186,6 +184,8 @@ footer p {
     font-family: monospace;
     font-size: 15px;
 }
+
+
 
 @media screen and (max-device-width: 768px) {
 
