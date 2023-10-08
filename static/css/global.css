@@ -124,14 +124,6 @@ textarea {
     display: block;
 }
 
-#mySidebar img {
-    margin-top: 10px;
-}
-
-#mySidebar a:hover {
-    color: #fff;
-}
-
 img[src="/static/images/golang.jpg"] {
     border-radius: 10px;
 }
@@ -142,14 +134,18 @@ img[src="/static/images/golang.jpg"] {
     color: #00891E;
 }
 
-#mySidebar .centraliza h3 {
-    color: #00891E;
+#mySidebar .centraliza h3:hover,
+#mySidebar .centraliza a:hover {
+    color: #fff ;
 }
 
 #mySidebar .centraliza:hover {
-    color: #fff;
     cursor: pointer;
+    background-color: #00891E;
+    width: 100%;
+    color: #fff ;
 }
+
 
 /* Footer */
 
@@ -211,10 +207,10 @@ footer p {
     #mySidebar a {
         top: 50%;
         font-size: 10px;
+        color: #fff;
     }
 
     #mySidebar .centraliza h3 {
-        color: #00891E;
         padding-top: 50px;
     }
 
