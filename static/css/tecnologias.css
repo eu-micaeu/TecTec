@@ -1,0 +1,28 @@
+@import url('./global.css');
+
+.avatar{
+    width: 300px;
+    margin-top: 15vh;
+}
+
+.avatar2{
+    width: 230px;
+    margin-top: 15vh;
+}
+
+h4{
+    color: white;
+    margin-top: 5em;
+    margin-left: -15em;
+}
+
+.textoGo{
+    margin: 0 15vw;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.tecnologia img{
+    border-radius: 20px;
+    margin-bottom: 60px;
+}

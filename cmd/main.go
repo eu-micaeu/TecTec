@@ -64,19 +64,19 @@ func main() {
 	})
 
 	r.GET("/golang",func(c *gin.Context){
-		c.HTML(http.StatusOK,"golang.html",nil)
+		c.HTML(http.StatusOK,"tecnologia-golang.html",nil)
 	})
 
 	r.GET("/java",func(c *gin.Context){
-		c.HTML(http.StatusOK,"java.html",nil)
+		c.HTML(http.StatusOK,"tecnologia-java.html",nil)
 	})
 
 	r.GET("/c",func(c *gin.Context){
-		c.HTML(http.StatusOK,"c.html",nil)
+		c.HTML(http.StatusOK,"tecnologia-c.html",nil)
 	})
 
 	r.GET("/postgreSQL",func(c *gin.Context){
-		c.HTML(http.StatusOK,"postgreSQL.html",nil)
+		c.HTML(http.StatusOK,"tecnologia-postgresql.html",nil)
 	})
 
 
