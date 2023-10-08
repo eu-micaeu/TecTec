@@ -3,6 +3,7 @@ package handlers
 // Importando bibliotecas para a criação da classe e funções do usuário.
 import (
 	"database/sql"
+	"log"
 	"net/http"
 	"time"
 
@@ -27,10 +28,26 @@ type Usuario struct {
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
-// Função com finalidade de validação do token para as funções do usuário.
-func (u *Usuario) ValidarOToken(tokenString string) (int, error) {
-	claims := &Claims{}
+// Função para verificar se o token está na tabela de tokens inválidos
+func tokenEstaNaTabelaDeTokensInvalidos(db *sql.DB, tokenString string) bool {
+	query := "SELECT COUNT(*) FROM tokens_invalidos WHERE token_invalido = $1"
+	var count int
+	err := db.QueryRow(query, tokenString).Scan(&count)
+	if err != nil {
+		log.Println("Erro ao consultar a tabela de tokens inválidos:", err)
+		return true 
+	}
+	return count > 0
+}
 
+// Função com finalidade de validação do token para as funções do usuário.
+func (u *Usuario) ValidarOToken(db *sql.DB, tokenString string) (int, error) {
+	
+	if tokenEstaNaTabelaDeTokensInvalidos(db, tokenString) {
+		return 0, nil
+	}
+
+	claims := &Claims{}
 	tkn, err := jwt.ParseWithClaims(tokenString, claims, func(token *jwt.Token) (interface{}, error) {
 		return jwtKey, nil
 	})
@@ -41,6 +58,7 @@ func (u *Usuario) ValidarOToken(tokenString string) (int, error) {
 
 	return claims.ID_Usuario, nil
 }
+
 
 // Função com finalidade de geração do token para as funções do usuário.
 func GerarOToken(usuario Usuario) (string, error) {
@@ -131,7 +149,7 @@ func (u *Usuario) PegarInformacoesDoUsuarioAtravesDoNickname(db *sql.DB) gin.Han
 
 		tokenValue := token.Value
 
-		_, err = u.ValidarOToken(tokenValue)
+		_, err = u.ValidarOToken(db, tokenValue)
 		if err != nil {
 			c.JSON(401, gin.H{"message": "Token inválido"})
 			return
@@ -167,7 +185,7 @@ func (u *Usuario) PegarInformacoesDoUsuarioAtravesDoToken(db *sql.DB) gin.Handle
 		var usuario Usuario
 
 		// Valide o token usando a função ValidarOToken
-		idUsuario, err := u.ValidarOToken(tokenValue)
+		idUsuario, err := u.ValidarOToken(db, tokenValue)
 		if err != nil {
 			c.JSON(401, gin.H{"message": "Token inválido"})
 			return
@@ -210,5 +228,40 @@ func (u *Usuario) PegarInformacoesDeTodosOsUsuariosMenosAsMinhas(db *sql.DB) gin
 		}
 
 		c.JSON(200, gin.H{"usuarios": usuarios})
+	}
+}
+
+// Função com finalidade de login do usuário.
+func (u *Usuario) Sair(db *sql.DB) gin.HandlerFunc {
+	return func(c *gin.Context) {
+
+		token, err := c.Request.Cookie("token")
+		if err != nil {
+			c.JSON(401, gin.H{"message": "Token inválido"})
+			return
+		}
+
+		tokenValue := token.Value
+
+		cookie := &http.Cookie{
+			Name:     "token",
+			Value:    "",
+			Expires:  time.Unix(0, 0), 
+			HttpOnly: true,
+			Secure:   true,
+			SameSite: http.SameSiteStrictMode,
+			Path:     "/", 
+		}
+		
+		http.SetCookie(c.Writer, cookie)
+
+		_, err = db.Exec("INSERT INTO tokens_invalidos (token_invalido) VALUES ($1)", tokenValue)
+		if err != nil {
+			c.JSON(500, gin.H{"message": "Erro ao inserir token inválido"})
+			return
+		}
+
+		c.JSON(200, gin.H{"message":"Saiu com sucesso!"})
+
 	}
 }

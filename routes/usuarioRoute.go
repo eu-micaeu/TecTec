@@ -20,4 +20,6 @@ func UsuarioRoutes(r *gin.Engine, db *sql.DB) {
 
 	r.POST("/perfil-token", userHandler.PegarInformacoesDoUsuarioAtravesDoToken(db))
 
+	r.POST("/sair", userHandler.Sair(db))
+
 }

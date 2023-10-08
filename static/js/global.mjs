@@ -36,9 +36,15 @@ export function iconsHover() {
     });
 
     document.getElementById('sair').addEventListener('click', async function () {
-        localStorage.clear();
-    })
+        const response2 = await fetch("/sair", {
+            method: "POST",
+        });
 
+        if (response2.ok) {
+            window.location.href='/';
+        }
+    })
+    
     let buscaImage = document.querySelector("#busca");
 
     buscaImage.addEventListener('mouseover', function () {
@@ -85,5 +91,3 @@ export function sidebarModule() {
         toggleSidebar: toggleSidebar
     };
 }
-
-

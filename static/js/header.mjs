@@ -29,7 +29,7 @@ document.body.insertAdjacentHTML('afterbegin', `
 
     <br>
 
-    <img src="../static/images/out.png" alt="Sair" class="user" id="sair" onclick="window.location.href='/'" title="Sair" style="cursor: pointer;">
+    <img src="../static/images/out.png" alt="Sair" class="user" id="sair" title="Sair" style="cursor: pointer;">
 
 </div>
 
