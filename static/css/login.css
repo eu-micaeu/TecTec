@@ -14,6 +14,7 @@
     font-size: 20px;
     margin: 10px;
     font-family: monospace;
+    width: 12vw;
 
 }
 
@@ -21,7 +22,8 @@ form {
     padding: 25px;
     border: 3px solid rgb(255, 255, 255);
     width: 15vw;
-    margin: 0 auto 20px auto;
+    height: 25vw;
+    margin: 0 auto 30px auto;
     border-radius: 15px;
     background-color: black;
     position: absolute;
@@ -37,17 +39,18 @@ form {
 
 #entrar,
 #cadastro {
+    transition: transform 1s ease; /* Transição suave da transformação */
     background-color: #00891E;
     font-size: 15px;
     color: white;
     padding: 13px;
     cursor: pointer;
     border-radius: 15px;
-    margin-top: 15px;
+    margin-top: 35px;
     border: none;
     font-family: monospace;
     border: 2px solid white;
-    width: 6vw;
+    width: 5vw;
     font-weight: bold;
 }
 
@@ -71,7 +74,7 @@ form {
     width: 90px;
     height: 90px;
     margin-bottom: 3vh;
-    margin-top: 10vh;
+    margin-top: 5vh;
     border-radius: 15px;
 }
 
@@ -81,23 +84,32 @@ form {
     height: 80px;
 }
 
-@keyframes mover-lado-a-lado {
-    0% {
-        transform: translateX(-100px);
+@keyframes girar {
+    0%, 100% {
+        transform: rotate(0deg);
     }
 
     50% {
-        transform: translateX(110px); /* Ajuste a distância desejada */
+        transform: rotate(180deg); 
     }
 
     100% {
-        transform: translateX(-110px);
+        transform: rotate(360deg);
     }
+
 }
 
 #logo {
-    animation: mover-lado-a-lado 1s linear infinite;
+
+    animation: girar 1.5s infinite;
+
 }
+
+#entrar:hover, #cadastro:hover {
+    transform: rotate(360deg); /* Gira 360 graus quando o mouse passa por cima */
+    transform-origin: center; /* Define o ponto de rotação para o centro do elemento */
+}
+
 
 
 
