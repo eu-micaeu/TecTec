@@ -1,13 +1,16 @@
 /*Todos as pags*/
 
 body {
-    background-image: url('../images/peak_background.png');
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
     font-family: monospace;
     line-height: 1.6;
     margin: 0;
+    background: linear-gradient(90deg, transparent 45%, #000000 45%, #000000 55%, transparent 55%, transparent 20%, #000000 20%, #000000 30%,transparent 30%);
+        background-size: 3em 3em;
+        background-color: #005701;
+        opacity: 1
 }
 
 header {
@@ -55,7 +58,7 @@ main {
     color: #00891E;
     padding: 25px;
     flex-direction: column;
-    width: 65vh;
+    width: 75vh;
     background-color: #000;
     font-size: 15px;
     font-weight: bold;
@@ -142,14 +145,6 @@ img[src="/static/images/golang.jpg"] {
     cursor: pointer;
 }
 
-#seguidores {
-    color: #fff;
-    border: 2px solid green;
-    border-radius: 10px;
-    padding: 10px;
-    background-color: #000;
-}
-
 /* Footer */
 
 footer {
@@ -179,13 +174,6 @@ footer p {
     left: 50%;
     transform: translate(-50%, -50%);
 }
-
-#seguir{
-    font-family: monospace;
-    font-size: 15px;
-}
-
-
 
 @media screen and (max-device-width: 768px) {
 

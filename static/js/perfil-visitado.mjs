@@ -14,14 +14,23 @@ function getParameterByName(name, url = window.location.href) {
 
 nickname = getParameterByName('nickname');
 
-function updateAmizades(nickname){
+function updateAmizades(nickname) {
     let name = nickname;
     fetch('/perfil/' + name)
         .then(response => response.json())
-        .then(data =>{
+        .then(data => {
             let seguidores = data.usuario.seguidores;
             let nameElement = document.getElementById('seguidores');
             nameElement.textContent = "Seguidores: " + seguidores;
+            nameElement.style.color = "white";
+            nameElement.style.border = "2px solid white";
+            nameElement.style.borderRadius = "10px";
+            nameElement.style.padding = "10px";
+            nameElement.style.backgroundColor = "black";
+            nameElement.style.fontSize = "20px";
+            nameElement.style.width = "10vw";
+            nameElement.style.textAlign = "center";
+
         })
 }
 
@@ -177,7 +186,7 @@ varIdUsuario().then(() => {
             })
     }
 
-    function updateNome(nickname) {
+    function update(nickname) {
         let name = nickname;
         fetch('/perfil/' + name)
             .then(response => response.json())
@@ -185,30 +194,87 @@ varIdUsuario().then(() => {
                 let nickname = data.usuario.nickname;
                 let nameElement = document.getElementById('nome');
                 nameElement.textContent = "@" + nickname;
-            });
-    }
-
-    function updateTecnologia(nickname) {
-        let name = nickname;
-        fetch('/perfil/' + name)
-            .then(response => response.json())
-            .then(data => {
+                nameElement.style.color = "white";
+                nameElement.style.border = "2px solid white";
+                nameElement.style.borderRadius = "10px";
+                nameElement.style.padding = "10px";
+                nameElement.style.backgroundColor = "black";
+                nameElement.style.fontSize = "20px";
+                nameElement.style.width = "10vw";
+                nameElement.style.textAlign = "center";
                 let tecnologia = data.usuario.tecnologia;
-                let nameElement = document.getElementById('tecnologia');
+                nameElement = document.getElementById('tecnologia');
                 nameElement.textContent = "Tecnologia: " + tecnologia;
+                nameElement.style.color = "white";
+                nameElement.style.border = "2px solid white";
+                nameElement.style.borderRadius = "10px";
+                nameElement.style.padding = "10px";
+                nameElement.style.backgroundColor = "black";
+                nameElement.style.fontSize = "16px";
+                nameElement.style.width = "10vw";
+                nameElement.style.textAlign = "center";
+                let seguidores = data.usuario.seguidores;
+                nameElement = document.getElementById('seguidores');
+                nameElement.textContent = "Seguidores: " + seguidores;
+                nameElement.style.color = "white";
+                nameElement.style.border = "2px solid white";
+                nameElement.style.borderRadius = "10px";
+                nameElement.style.padding = "10px";
+                nameElement.style.backgroundColor = "black";
+                nameElement.style.fontSize = "20px";
+                nameElement.style.width = "10vw";
+                nameElement.style.textAlign = "center";
             });
     }
 
-    updateNome(nickname);
-    updateTecnologia(nickname);
-    updateAmizades(nickname);
+    displayFeedCarregar();
+    update(nickname);
     displayFeed();
 
 });
 
+function displayFeedCarregar() {
+
+    const loadingDiv = document.getElementById("loading");
+    const contentDiv = document.getElementById("carrosel");
+    const contentDiv2 = document.getElementById("perfil-usuario");
+    const nameElement = document.getElementById('seguir');
+
+
+    loadingDiv.style.display = "block";
+    contentDiv.style.display = "none";
+    contentDiv2.style.display = "none";
+    nameElement.style.display = "none";
+
+    setTimeout(function () {
+        loadingDiv.style.display = "none";
+        contentDiv.style.display = "block";
+        contentDiv2.style.display = "block";
+        nameElement.style.display = "block";
+    }, 1500);
+}
+
 varIdUsuario().then(async () => {
 
     const seguirBotao = document.getElementById("seguir");
+    seguirBotao.textContent = "Seguidores: " + seguidores;
+    seguirBotao.style.color = "#00891E";
+    seguirBotao.style.border = "2px solid #00891E";
+    seguirBotao.style.borderRadius = "10px";
+    seguirBotao.style.padding = "10px";
+    seguirBotao.style.backgroundColor = "black";
+    seguirBotao.style.fontSize = "20px";
+    seguirBotao.style.width = "10vw";
+    seguirBotao.style.textAlign = "center";
+    seguirBotao.style.cursor = "pointer";
+
+    seguirBotao.addEventListener('mouseover', function () {
+        seguirBotao.style.backgroundColor = "white";
+    });
+    seguirBotao.addEventListener('mouseout', function () {
+        seguirBotao.style.backgroundColor = "black";
+    });
+
     const response = await fetch("/verificar_amizade", {
         method: "POST",
         headers: {

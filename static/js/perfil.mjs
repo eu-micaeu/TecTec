@@ -198,7 +198,7 @@ varIdUsuarioPerfil().then(() => {
     }
 
 
-    function updateNome(nickname) {
+    function update(nickname) {
         let name = nickname;
         fetch('/perfil/' + name)
             .then(response => response.json())
@@ -206,37 +206,63 @@ varIdUsuarioPerfil().then(() => {
                 let nickname = data.usuario.nickname;
                 let nameElement = document.getElementById('nome');
                 nameElement.textContent = "@" + nickname;
-            });
-    }
-
-    function updateTecnologia(nickname) {
-        let name = nickname;
-        fetch('/perfil/' + name)
-            .then(response => response.json())
-            .then(data => {
+                nameElement.style.color = "white";
+                nameElement.style.border = "2px solid white";
+                nameElement.style.borderRadius = "10px";
+                nameElement.style.padding = "10px";
+                nameElement.style.backgroundColor = "black";
+                nameElement.style.fontSize = "20px";
+                nameElement.style.width = "10vw";
+                nameElement.style.textAlign = "center";
                 let tecnologia = data.usuario.tecnologia;
-                let nameElement = document.getElementById('tecnologia');
+                nameElement = document.getElementById('tecnologia');
                 nameElement.textContent = "Tecnologia: " + tecnologia;
+                nameElement.style.color = "white";
+                nameElement.style.border = "2px solid white";
+                nameElement.style.borderRadius = "10px";
+                nameElement.style.padding = "10px";
+                nameElement.style.backgroundColor = "black";
+                nameElement.style.fontSize = "16px";
+                nameElement.style.width = "10vw";
+                nameElement.style.textAlign = "center";
+                let seguidores = data.usuario.seguidores;
+                nameElement = document.getElementById('seguidores');
+                nameElement.textContent = "Seguidores: " + seguidores;
+                nameElement.style.color = "white";
+                nameElement.style.border = "2px solid white";
+                nameElement.style.borderRadius = "10px";
+                nameElement.style.padding = "10px";
+                nameElement.style.backgroundColor = "black";
+                nameElement.style.fontSize = "20px";
+                nameElement.style.width = "10vw";
+                nameElement.style.textAlign = "center";
             });
     }
 
-    function updateAmizades(nickname) {
-        let name = nickname;
-        fetch('/perfil/' + name)
-            .then(response => response.json())
-            .then(data => {
-                let seguidores = data.usuario.seguidores;
-                let nameElement = document.getElementById('seguidores');
-                nameElement.textContent = "Seguidores: " + seguidores;
-            })
-    }
-
-    updateNome(nickname);
-    updateTecnologia(nickname);
-    updateAmizades(nickname);
+    displayFeedCarregar();
+    update(nickname);
     displayFeed();
+    
 
 });
+
+function displayFeedCarregar() {
+
+    const loadingDiv = document.getElementById("loading");
+    const contentDiv = document.getElementById("carrosel");
+    const contentDiv2 = document.getElementById("perfil-usuario");
+
+
+    loadingDiv.style.display = "block";
+    contentDiv.style.display = "none";
+    contentDiv2.style.display = "none";
+
+    setTimeout(function () {
+        loadingDiv.style.display = "none";
+        contentDiv.style.display = "block";
+        contentDiv2.style.display = "block";
+    }, 1500);
+}
 
 iconsHover();
 
