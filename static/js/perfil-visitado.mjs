@@ -31,6 +31,10 @@ function updateAmizades(nickname) {
             nameElement.style.width = "10vw";
             nameElement.style.textAlign = "center";
 
+            if (window.innerWidth <= 768) {
+                nameElement.style.width = "30vw";
+            }
+
         })
 }
 
@@ -192,38 +196,46 @@ varIdUsuario().then(() => {
             .then(response => response.json())
             .then(data => {
                 let nickname = data.usuario.nickname;
-                let nameElement = document.getElementById('nome');
-                nameElement.textContent = "@" + nickname;
-                nameElement.style.color = "white";
-                nameElement.style.border = "2px solid white";
-                nameElement.style.borderRadius = "10px";
-                nameElement.style.padding = "10px";
-                nameElement.style.backgroundColor = "black";
-                nameElement.style.fontSize = "20px";
-                nameElement.style.width = "10vw";
-                nameElement.style.textAlign = "center";
+                let nomeElement = document.getElementById('nome');
+                nomeElement.textContent = "@" + nickname;
+                nomeElement.style.color = "white";
+                nomeElement.style.border = "2px solid white";
+                nomeElement.style.borderRadius = "10px";
+                nomeElement.style.padding = "10px";
+                nomeElement.style.backgroundColor = "black";
+                nomeElement.style.fontSize = "20px";
+                nomeElement.style.width = "10vw";
+                nomeElement.style.textAlign = "center";
+
                 let tecnologia = data.usuario.tecnologia;
-                nameElement = document.getElementById('tecnologia');
-                nameElement.textContent = "Tecnologia: " + tecnologia;
-                nameElement.style.color = "white";
-                nameElement.style.border = "2px solid white";
-                nameElement.style.borderRadius = "10px";
-                nameElement.style.padding = "10px";
-                nameElement.style.backgroundColor = "black";
-                nameElement.style.fontSize = "16px";
-                nameElement.style.width = "10vw";
-                nameElement.style.textAlign = "center";
+                let tecnologiaElement = document.getElementById('tecnologia');
+                tecnologiaElement.textContent = "Tecnologia: " + tecnologia;
+                tecnologiaElement.style.color = "white";
+                tecnologiaElement.style.border = "2px solid white";
+                tecnologiaElement.style.borderRadius = "10px";
+                tecnologiaElement.style.padding = "10px";
+                tecnologiaElement.style.backgroundColor = "black";
+                tecnologiaElement.style.fontSize = "16px";
+                tecnologiaElement.style.width = "10vw";
+                tecnologiaElement.style.textAlign = "center";
+
                 let seguidores = data.usuario.seguidores;
-                nameElement = document.getElementById('seguidores');
-                nameElement.textContent = "Seguidores: " + seguidores;
-                nameElement.style.color = "white";
-                nameElement.style.border = "2px solid white";
-                nameElement.style.borderRadius = "10px";
-                nameElement.style.padding = "10px";
-                nameElement.style.backgroundColor = "black";
-                nameElement.style.fontSize = "20px";
-                nameElement.style.width = "10vw";
-                nameElement.style.textAlign = "center";
+                let seguidoresElement = document.getElementById('seguidores');
+                seguidoresElement.textContent = "Seguidores: " + seguidores;
+                seguidoresElement.style.color = "white";
+                seguidoresElement.style.border = "2px solid white";
+                seguidoresElement.style.borderRadius = "10px";
+                seguidoresElement.style.padding = "10px";
+                seguidoresElement.style.backgroundColor = "black";
+                seguidoresElement.style.fontSize = "20px";
+                seguidoresElement.style.width = "10vw";
+                seguidoresElement.style.textAlign = "center";
+
+                if (window.innerWidth <= 768) {
+                    nomeElement.style.width = "30vw";
+                    tecnologiaElement.style.width = "30vw";
+                    seguidoresElement.style.width = "30vw";
+                }
             });
     }
 
@@ -267,6 +279,10 @@ varIdUsuario().then(async () => {
     seguirBotao.style.width = "10vw";
     seguirBotao.style.textAlign = "center";
     seguirBotao.style.cursor = "pointer";
+
+    if (window.innerWidth <= 768) {
+        seguirBotao.style.width = "30vw";
+    }
 
     seguirBotao.addEventListener('mouseover', function () {
         seguirBotao.style.backgroundColor = "white";
