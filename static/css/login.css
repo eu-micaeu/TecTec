@@ -65,7 +65,7 @@ form {
     width: 70px;
     height: 70px;
     margin-bottom: 3vh;
-    margin-top: 3vh;
+    margin-top: 10vh;
 }
 
 @media screen and (max-device-width: 768px) {
