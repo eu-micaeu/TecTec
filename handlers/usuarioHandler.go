@@ -26,7 +26,15 @@ type Usuario struct {
 	Seguidores int `json:"seguidores"`
 }
 
-///////////////////////////////////////////////////////////////////////////////////////////////
+
+//Token
+
+type Claims struct {
+    ID_Usuario int `json:"id_usuario"`
+    jwt.StandardClaims
+}
+
+var jwtKey = []byte("my_secret_key")
 
 // Função para verificar se o token está na tabela de tokens inválidos
 func tokenEstaNaTabelaDeTokensInvalidos(db *sql.DB, tokenString string) bool {

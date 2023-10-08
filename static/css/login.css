@@ -81,19 +81,25 @@ form {
     height: 80px;
 }
 
-@keyframes queda-e-giro {
+@keyframes mover-lado-a-lado {
     0% {
-        transform: translateY(0px) rotate(0deg);
+        transform: translateX(-100px);
+    }
+
+    50% {
+        transform: translateX(110px); /* Ajuste a distância desejada */
     }
 
     100% {
-        transform: translateY(0px) rotate(360deg);
+        transform: translateX(-110px);
     }
 }
 
 #logo {
-    animation: queda-e-giro 2.5s infinite;
+    animation: mover-lado-a-lado 1s linear infinite;
 }
+
+
 
 @media screen and (max-device-width: 768px) {
 
