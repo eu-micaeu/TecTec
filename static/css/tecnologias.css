@@ -2,12 +2,11 @@
 
 .avatar{
     width: 300px;
-    margin-top: 15vh;
+    margin-top: 10vh;
 }
 
 .avatar2{
-    width: 230px;
-    margin-top: 15vh;
+    margin-top: 10vh;
 }
 
 h4{
@@ -20,6 +19,7 @@ h4{
     margin: 0 15vw;
     font-size: 16px;
     font-weight: bold;
+    color: white;
 }
 
 .tecnologia img{

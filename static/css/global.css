@@ -1,31 +1,32 @@
 /*Todos as pags*/
 
 body {
+    background-color: #000;
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
     font-family: monospace;
     line-height: 1.6;
     margin: 0;
-    background: linear-gradient(90deg, transparent 45%, #000000 45%, #000000 55%, transparent 55%, transparent 20%, #000000 20%, #000000 30%,transparent 30%);
-        background-size: 3em 3em;
-        background-color: #005701;
-        opacity: 1
 }
 
 header {
     background-color: #000;
-    height: auto;
-    width: 100%;
-    border-radius: 0px;
+    width: 40%;
     border-bottom: 2px solid #00891E;
+    border-left: 2px solid #00891E;
+    border-right: 2px solid #00891E;
+    border-radius: 0 0 15px 15px;
+    justify-content: center;
+    display: flex;
     position: fixed;
+    top: 0;
 }
 
 header img {
-    width: 27px;
-    height: 27px;
-    margin: 15px 60px 15px 60px;
+    width: 23px;
+    height: 23px;
+    margin: 15px 30px;
 }
 
 #logo {
@@ -49,21 +50,21 @@ main {
 #carrosel {
     display: flex;
     flex-direction: column;
-    margin-top: 7vh;
+    margin-top: 8vh;
     margin-bottom: 1.5vh;
 }
 
 .cartao {
-    border: 5px solid green;
+    border: 2px solid green;
+    border-radius: 15px;
+    margin-bottom: 40px;
     color: #00891E;
     padding: 25px;
     flex-direction: column;
-    width: 75vh;
+    width: 60vh;
     background-color: #000;
-    font-size: 15px;
+    font-size: 18px;
     font-weight: bold;
-    border-radius: 15px 0 15px 0 ;
-    margin: 10px;
 }
 
 .centraliza,
@@ -112,6 +113,7 @@ textarea {
     background-color: #000000;
     overflow: hidden;
     transition: 0.5s;
+    overflow-y: hidden ;
 }
 
 #mySidebar a {
@@ -120,6 +122,10 @@ textarea {
     font-size: 15px;
     color: #00891E;
     display: block;
+}
+
+#mySidebar img {
+    margin-top: 10px;
 }
 
 #mySidebar a:hover {

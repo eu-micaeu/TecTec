@@ -105,14 +105,6 @@ form {
 
 }
 
-#entrar:hover, #cadastro:hover {
-    transform: rotate(360deg); /* Gira 360 graus quando o mouse passa por cima */
-    transform-origin: center; /* Define o ponto de rotação para o centro do elemento */
-}
-
-
-
-
 @media screen and (max-device-width: 768px) {
 
     #logo {

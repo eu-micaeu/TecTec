@@ -1,9 +1,9 @@
 // Insira o conteúdo HTML no corpo antes do primeiro filho usando insertAdjacentHTML
 document.body.insertAdjacentHTML('afterbegin', `
 
-<header>
-
 <div class="centraliza">
+
+<header>
 
     <img src="../static/images/casinha.png" alt="Home" class="user" id="casa" onclick="window.location.href='/home'" title="Home" style="cursor: pointer;">
 
@@ -17,7 +17,7 @@ document.body.insertAdjacentHTML('afterbegin', `
 
     <br>
 
-    <img src="../static/images/logo.png" alt="Logo" class="img_logo" id="logo">
+    <img src="../static/images/logo.ico" alt="Logo" class="img_logo" id="logo">
 
     <br>
 
@@ -31,9 +31,10 @@ document.body.insertAdjacentHTML('afterbegin', `
 
     <img src="../static/images/out.png" alt="Sair" class="user" id="sair" title="Sair" style="cursor: pointer;">
 
-</div>
 
-</header>
+</header></div>
+
+
 
 `);
 
