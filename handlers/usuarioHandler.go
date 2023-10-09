@@ -129,11 +129,9 @@ func (u *Usuario) Entrar(db *sql.DB) gin.HandlerFunc {
 // Função com finalidade de registrar um usuário no sistema.
 func (u *Usuario) Registrar(db *sql.DB) gin.HandlerFunc {
 	return func(c *gin.Context) {
+
 		var novoUsuario Usuario
-		if err := c.BindJSON(&novoUsuario); err != nil {
-			c.JSON(400, gin.H{"message": "Erro ao criar usuário"})
-			return
-		}
+
 		_, err := db.Exec("INSERT INTO usuarios (nickname, senha, telefone, tecnologia) VALUES ($1, $2, $3, $4)", novoUsuario.Nickname, novoUsuario.Senha, novoUsuario.Telefone, novoUsuario.Tecnologia)
 		if err != nil {
 			c.JSON(500, gin.H{"message": "Erro ao criar usuário"})
