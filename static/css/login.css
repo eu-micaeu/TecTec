@@ -1,34 +1,29 @@
 @import url('./global.css');
 
 main {
+    margin: 3%;
     display: flex;
     justify-content: center; 
-}
-
-#logo {
-    width: 35px;
-    height: 35px;
-    margin-bottom: 15px;
 }
 
 article {
     color: white;
     font-size: 16px;
     line-height: 1.1;
-    margin: 10vh;
+    margin: 5%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     border-radius: 15px;
-    width: 40vw;
+    width: 40%;
+    height:50%;
     text-align: center;
 }
 
 h3 {
     color: #00891E;
     margin: 0;
-    margin-top: 20px;
     font-size: 22px;
 }
 
@@ -41,22 +36,24 @@ h3 {
 }
 
 form {
+
     padding: 25px;
     border: 5px solid rgb(255, 255, 255);
     border-radius: 15px;
     background-color: transparent;
 
-    /* Centralizar o form em sí */
-    /*//////////////////////////////////////*/
-
     /* Centralizar o conteúdo do form */
+
     display: flex;
     align-items: center;
     flex-direction: column;
+
     /*//////////////////////////////////////*/
-    margin-top: 10vh;
-    width: 15vw;
-    height: 67vh;
+
+    margin-top: 5%;
+    width: auto;
+    height: auto;
+
 }
 
 /*Configurando os o inserir-texto */
@@ -74,16 +71,17 @@ form {
 
 /*///////////////////////////////*/
 
-
 /*Configurando os botoes */
 #btEntrar,
 #btCadastrar {
 
-    width: 8vw;
+    display: flex;
+    justify-content: center;
+    width: 6vw;
     background-color: #00891E;
-    font-size: 16px;
+    font-size: 14px;
     color: white;
-    padding: 13px;
+    padding: 10px;
     cursor: pointer;
     border-radius: 15px;
     margin-top: 15px;
@@ -110,8 +108,6 @@ form {
 }
 
 #logo {
-    width: 30%;
-    height: 30%;
     border-radius: 15px;
     animation: girar 3s infinite;
     padding-bottom: 5px;
@@ -119,16 +115,10 @@ form {
 
 #logoNome {
     border-radius: 10px;
-    width: 25%;
-    height: 25%;
     padding-bottom: 8px;
-
 }
 
-
-
 /*/////////////////////////////////////*/
-
 
 /* Configurando para tela menor de 768px */
 @media screen and (max-device-width: 768px) {
