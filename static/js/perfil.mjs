@@ -41,11 +41,11 @@ function update(nickname) {
             nomeElement.style.color = "white";
             nomeElement.style.border = "2px solid white";
             nomeElement.style.borderRadius = "10px";
-            nomeElement.style.padding = "10px";
+            nomeElement.style.padding = "5px";
             nomeElement.style.backgroundColor = "black";
-            nomeElement.style.fontSize = "20px";
-            nomeElement.style.width = "10vw";
-            nomeElement.style.height = "5vh";
+            nomeElement.style.fontSize = "14px";
+            nomeElement.style.width = "12vw";
+            nomeElement.style.height = "4vh";
             nomeElement.style.textAlign = "center";            
 
             let tecnologia = data.usuario.tecnologia;
@@ -55,11 +55,11 @@ function update(nickname) {
             tecnologiaElement.style.color = "white";
             tecnologiaElement.style.border = "2px solid white";
             tecnologiaElement.style.borderRadius = "10px";
-            tecnologiaElement.style.padding = "10px";
+            tecnologiaElement.style.padding = "5px";
             tecnologiaElement.style.backgroundColor = "black";
-            tecnologiaElement.style.fontSize = "16px";
-            tecnologiaElement.style.width = "10vw";
-            tecnologiaElement.style.height = "5vh";
+            tecnologiaElement.style.fontSize = "14px";
+            tecnologiaElement.style.width = "12vw";
+            tecnologiaElement.style.height = "4vh";
             tecnologiaElement.style.textAlign = "center";
 
             let seguidores = data.usuario.seguidores;
@@ -68,11 +68,11 @@ function update(nickname) {
             seguidoresElement.style.color = "white";
             seguidoresElement.style.border = "2px solid white";
             seguidoresElement.style.borderRadius = "10px";
-            seguidoresElement.style.padding = "10px";
+            seguidoresElement.style.padding = "5px";
             seguidoresElement.style.backgroundColor = "black";
-            seguidoresElement.style.fontSize = "20px";
-            seguidoresElement.style.width = "10vw";
-            seguidoresElement.style.height = "5vh";
+            seguidoresElement.style.fontSize = "14px";
+            seguidoresElement.style.width = "12vw";
+            seguidoresElement.style.height = "4vh";
             seguidoresElement.style.textAlign = "center";
 
             if (window.innerWidth <= 768) {
