@@ -24,7 +24,7 @@ form{
     flex-direction: column;
 }
 
-.btn_entrar {
+button {
     background-color: #00891E;
     font-size: 15px;
     padding: 12px;
@@ -37,11 +37,9 @@ form{
     font-weight: bold;
     border: 2px solid white;
     width: 6vw;
-    min-width: 15vw;
-    min-height: 3vh;
 }
 
-.btn_entrar:hover {
+button:hover {
     background-color: aliceblue;
     color: #00891E;
 }
@@ -60,22 +58,20 @@ form{
     width: 70px;
     height: 70px;
     margin-bottom: 3vh;
-    margin-top: 3vh;
 }
 
 @media screen and (max-device-width: 768px){
 
     form{
-        width: 60%;
-        margin-bottom: 10vh;
+        width: 80%;
     }
 
     .inputUser {
-        width: 50vw;
+        width: 70vw;
     }
 
-    .btn_entrar{
-        width: 50%;
+    button{
+        width: 60%;
     }
 
 }

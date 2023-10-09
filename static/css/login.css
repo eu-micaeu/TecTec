@@ -1,8 +1,8 @@
 @import url('./global.css');
 
-main{
+main {
     display: flex;
-    justify-content: center;
+    justify-content: center; 
 }
 
 #logo {
@@ -13,22 +13,22 @@ main{
 
 article {
     color: white;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1.1;
-    margin: 8vh 12vw;
+    margin: 4vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 50%;
-    width: 50%;
     border-radius: 15px;
+    width: 15vw;
 }
 
-h3{
+h3 {
     color: #00891E;
     margin: 0;
     margin-top: 20px;
+    font-size: 22px;
 }
 
 .primeiro {
@@ -46,10 +46,6 @@ form {
     background-color: transparent;
 
     /* Centralizar o form em sí */
-    position: fixed;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     /*//////////////////////////////////////*/
 
     /* Centralizar o conteúdo do form */
@@ -57,12 +53,9 @@ form {
     align-items: center;
     flex-direction: column;
     /*//////////////////////////////////////*/
-
-    min-width: 15vw;
-    min-height: 25vh;
-
-    min-width: 15vw;
-    min-height: 25vh;
+    margin-top: 10vh;
+    width: 15vw;
+    height: 55vh;
 }
 
 /*Configurando os o inserir-texto */
@@ -99,14 +92,14 @@ form {
 
 }
 
-/*////////////////////////////*/
-
 #btEntrar:hover,
 #btCadastrar:hover {
     background-color: aliceblue;
     color: #00891E;
     font-family: monospace;
 }
+
+/*////////////////////////////*/
 
 .rotUsuario,
 .rotSenha {
@@ -152,73 +145,33 @@ form {
 /* Configurando para tela menor de 768px */
 @media screen and (max-device-width: 768px) {
 
-    #logo {
-        width: 80px;
-        height: 80px;
-    }
-
-    form {
-        margin-top: 30px;
+    #btEntrar,
+    #btCadastrar {
         width: 60%;
-        height: 55%;
     }
 
-    .rotUsuario,
-    .rotSenha {
-        margin: 5px;
-    }
-
-    #entrar,
-    #cadastro {
-        width: 50%;
-    }
-
-    .inputText {
-        width: 75vw;
-    }
-
-    .cartaoDev {
-        width: 80%;
+    .inserirTexto {
+        width: 50vw;
     }
 
     main {
+        display: flex;
         flex-direction: column;
         align-items: center;
     }
 
     form {
-        position: relative;
-        margin-top: 10px; 
-        margin-left: 0;
-        height: 50%;
-        width: 50%;
-        margin-right: auto;
-        margin-top: 50vh;
+        position:relative;
+        height: 100%;
+        width: 80%;
+        margin-top: 6vh;
     }
 
-    .article1 {
-        margin: 10px 0; 
+    article {
         order: 2;
         text-align: center;
-        height: 50%;
-        width: 50%;
-
-  
-    }
-
-    .article2 {
-        margin-top: 10px; /* Adicione uma margem superior para separar o article 2 do article 1 */
-        order: 3;
-        text-align: center;
-        height: 50%;
-        width: 50%;
-    }
-    article h3 {
-        font-size: 24px; 
-    }
-
-    article p {
-        font-size: 16px; 
+        margin: 2vh 6vw 8vh;
+        font-size: 20px;
     }
 
 }
