@@ -8,9 +8,9 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>TecTec</title>   <!-- Título da página -->
+    <title>TecTec</title> <!-- Título da página -->
 
-    <link rel="icon" href="..\static\images\logo.ico" type="image/x-icon">  <!-- Ícone da página -->
+    <link rel="icon" href="..\static\images\logo.ico" type="image/x-icon"> <!-- Ícone da página -->
 
     <link rel="stylesheet" href="../static/css/pesquisar.css"> <!-- Arquivo CSS correspondente -->
 
@@ -20,22 +20,16 @@
 
     <script type="module" src="../static/js/header.mjs" async></script> <!-- Inserção do header na página -->
 
+    <main>
+        
+        <input type="text" id="searchInput" placeholder="Digite o nickname" oninput="searchNicknames()"> <!-- Espaço de escrita do nick -->
 
-    <div class="centraliza">
+        <div id="results"></div> <!-- Resultados da pesquisa -->
 
-        <input type="text" id="searchInput" placeholder="Digite o nickname" oninput="searchNicknames()">    <!-- Espaço de escrita do nick -->
-
-    </div>
-
-
-    <div class="centraliza">
-
-        <div id="results"></div>    <!-- Resultados da pesquisa -->
-
-    </div>
-
+    </main>
+    
     <script type="module" src="../static/js/bar.mjs" async></script>
 
-    <script type="module" src="../static/js/pesquisar.mjs" defer></script>  <!-- Script da página de pesquisa -->
+    <script type="module" src="../static/js/pesquisar.mjs" defer></script> <!-- Script da página de pesquisa -->
 
 </body>

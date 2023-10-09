@@ -29,37 +29,37 @@ document.body.insertAdjacentHTML('afterbegin', `
 
             <div class="centraliza postgresql">
 
-                <a href="postgreSQL">PostgreSQL</a>
+                <a href="/postgreSQL">PostgreSQL</a>
 
             </div>
 
             <div class="centraliza docker">
 
-                <a href="postgreSQL">Docker</a>
+                <a href="/docker">Docker</a>
 
             </div>
 
             <div class="centraliza typescript">
 
-                <a href="postgreSQL">TypeScript</a>
+                <a href="/typescript">TypeScript</a>
 
             </div>
 
             <div class="centraliza hadoop">
 
-                <a href="hadoop">Hadoop</a>
+                <a href="/hadoop">Hadoop</a>
 
             </div>
 
             <div class="centraliza html5">
 
-                <a href="html">HTML5</a>
+                <a href="/html">HTML5</a>
 
             </div>
 
             <div class="centraliza css3">
 
-                <a href="css">CSS3</a>
+                <a href="/css">CSS3</a>
 
             </div>
 

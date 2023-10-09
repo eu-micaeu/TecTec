@@ -1,5 +1,11 @@
 @import url('./global.css');
 
+main{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
 #searchInput{
     border-radius: 15px;
     border: 2px solid #00891E;
@@ -9,34 +15,29 @@
     font-family: monospace;
     font-size: 20px;
     padding: 15px;
-}
-
-input:focus {
-    background-color: rgba(0, 0, 0, 0.1); 
-    outline: none; 
-    color: #00891E;
-    
+    margin-top: 10vh;
+    color: white;
 }
 
 button{
-    border-radius: 0px 5px 0px 5px;
+    border-radius: 15px;
     color: white;
     padding: 20px;
     border: 2px solid #00891E;
     background-color: black;
     margin: 10px;
     font-family: monospace;
-}
-
-#results{
-    height: 20vh;
-    margin: 20px;
+    font-size: 15px;
 }
 
 button:hover{
-    border-radius: 0px 5px 0px 5px;
     color: rgb(0, 0, 0);
     padding: 20px;
     border: 2px solid #00891E;
     background-color: rgb(255, 255, 255);
+}
+
+#results{
+    height: 20vh;
+    margin: 40px;
 }

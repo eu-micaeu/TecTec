@@ -23,7 +23,7 @@ func main() {
 	routes.ComentarioRoutes(r, db)
 	routes.SessaoRoutes(r, db)
 	routes.CurtidaRoutes(r, db)
-	routes.AmizadeRoutes(r, db)
+	routes.SeguirRoutes(r, db)
 
 	r.LoadHTMLGlob("./views/*.html")
 

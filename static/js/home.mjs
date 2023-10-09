@@ -18,20 +18,6 @@ async function varIdUsuarioHome() {
     return idUsuario;
 }
 
-function displayFeedCarregar() {
-
-    const loadingDiv = document.getElementById("loading");
-    const contentDiv = document.getElementById("carrosel");
-
-    loadingDiv.style.display = "block";
-    contentDiv.style.display = "none";
-
-    setTimeout(function () {
-        loadingDiv.style.display = "none";
-        contentDiv.style.display = "block";
-    }, 1500);
-}
-
 varIdUsuarioHome().then(idUsuario => {
 
     function displayFeed() {
@@ -226,7 +212,19 @@ varIdUsuarioHome().then(idUsuario => {
 
 })
 
+function displayFeedCarregar() {
 
+    const loadingDiv = document.getElementById("loading");
+    const contentDiv = document.getElementById("carrosel");
+
+    loadingDiv.style.display = "block";
+    contentDiv.style.display = "none";
+
+    setTimeout(function () {
+        loadingDiv.style.display = "none";
+        contentDiv.style.display = "block";
+    }, 1500);
+}
 
 /* Importação de funções do global.mjs */
 

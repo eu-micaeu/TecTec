@@ -1,26 +1,14 @@
 @import url('./global.css');
 
 body {
-    justify-content: center;
-    display: flex;
-    align-items: center;
-    height: 95vh;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  height: 95vh;
 }
 
-#logo{
-    height: 100px;
-    width: 100px;
+#logo {
+  animation: queda-e-giro 0.8s linear;
+  height: 100px;
+  width: 100px;
 }
-
-@keyframes queda-e-giro {
-    0%{
-      transform: translateY(-50px) rotate(0deg);
-    }
-    100% {
-      transform: translateY(0px) rotate(360deg);
-    }
-  }
-  
-  #logo {
-    animation: queda-e-giro 0.8s linear;
-  }

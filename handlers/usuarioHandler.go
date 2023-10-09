@@ -14,15 +14,10 @@ import (
 // Estrutura do usuário.
 type Usuario struct {
 	ID_Usuario int `json:"id_usuario"`
-
 	Nickname string `json:"nickname"`
-
 	Senha string `json:"senha"`
-
 	Telefone string `json:"telefone"`
-
 	Tecnologia string `json:"tecnologia"`
-
 	Seguidores int `json:"seguidores"`
 }
 
@@ -128,6 +123,11 @@ func (u *Usuario) Registrar(db *sql.DB) gin.HandlerFunc {
 	return func(c *gin.Context) {
 
 		var novoUsuario Usuario
+
+		if err := c.BindJSON(&novoUsuario); err != nil {
+			c.JSON(400, gin.H{"message": "Erro ao criar usuario"})
+			return
+		}
 
 		_, err := db.Exec("INSERT INTO usuarios (nickname, senha, telefone, tecnologia) VALUES ($1, $2, $3, $4)", novoUsuario.Nickname, novoUsuario.Senha, novoUsuario.Telefone, novoUsuario.Tecnologia)
 		if err != nil {

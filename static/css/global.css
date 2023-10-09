@@ -90,7 +90,7 @@ textarea {
     right: -250px;
     background-color: #000000;
     overflow: hidden;
-    transition: right 0.5s; 
+    transition: right 0.5s;
 }
 
 #mySidebar a {
@@ -185,19 +185,53 @@ footer p {
     font-size: 15px;
     font-weight: bold;
 }
+
 /*////////////////////////*/
 
 
-/* Carregamento*/
+/* Carregamento */
 #loading {
-    display: none; 
+    display: none;
     text-align: center;
-    margin-top: 50px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    animation: girar 0.8s infinite;
 }
+
+/*////////////////////////*/
+
+/* Animações */
+
+@keyframes queda-e-giro {
+    0% {
+        transform: translateY(-50px) rotate(0deg);
+    }
+
+    100% {
+        transform: translateY(0px) rotate(360deg);
+    }
+}
+
+/* Para a logo girar na página*/
+@keyframes girar {
+
+    0%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(180deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+
+}
+
 /*////////////////////////*/
 
 /*Configurando para tela menor de 768px */
@@ -250,4 +284,5 @@ footer p {
 
 
 }
+
 /*////////////////////////////////////*/
