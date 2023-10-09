@@ -1,7 +1,9 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
+	"time"
 
 	"github.com/eu-micaeu/TecTec/database"
 	"github.com/eu-micaeu/TecTec/middlewares"
@@ -10,6 +12,9 @@ import (
 )
 
 func main() {
+
+	
+
 	r := gin.Default()
 	r.Use(middlewares.CorsMiddleware())
 
@@ -101,5 +106,22 @@ func main() {
 
 	r.Static("./static", "./static")
 
-	r.Run()
+	go r.Run()
+
+	url := "https://tectec.dev"
+
+	for {
+		resp, err := http.Get(url)
+		if err != nil {
+			fmt.Printf("A solicitação não foi bem-sucedida: %v\n", err)
+		} else {
+			if resp.StatusCode == http.StatusOK {
+				fmt.Println("Solicitação bem-sucedida!")
+			} else {
+				fmt.Printf("A solicitação não foi bem-sucedida. Código de status: %d\n", resp.StatusCode)
+			}
+		}
+
+		time.Sleep(5 * time.Second)
+	}
 }
