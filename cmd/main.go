@@ -99,7 +99,6 @@ func main() {
 		c.HTML(http.StatusOK,"tecnologia-css.html",nil)
 	})
 
-
 	r.Static("./static", "./static")
 
 	r.Run()
