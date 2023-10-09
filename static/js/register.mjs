@@ -1,5 +1,5 @@
-// Função que serve para registrar um usuário no banco de dados do site
-document.querySelector("#cadastrar").addEventListener("click", async () => {
+document.querySelector("#cadastrar").addEventListener("click", async () => { // Função que serve para registrar um usuário no banco de dados do site
+
     const nickname = document.querySelector("#nickname").value;
     const senha = document.querySelector("#senha").value;
     const telefone = document.querySelector("#telefone").value;

@@ -12,31 +12,94 @@
 
     <link rel="icon" href="../static/images/logo.ico" type="image/x-icon"> <!-- Ícone da Página -->
 
-    <link rel="stylesheet" href="../static/css/login.css">
+    <link rel="stylesheet" href="../static/css/login.css"> <!-- Arquivo CSS correspondente -->
 
 </head>
 
 <body>
 
-    <form> <!-- Formulário do Login -->
+    <main>
 
-        <img src="../static/images/logo.ico" alt="" id="logo"> <!-- Logo Principal -->
+        <article>
 
-        <img src="../static/images/tectec.png" alt="" id="logoNome"> <!-- Logo do Nome -->
+            <h3>•Objetivo•</h3>
 
-        <label for="nickname" class="rotUsuario">Nickname:</label> <!-- Label do Nickname -->
+            <p>
+                <span class="primeiro">Tec</span><span class="segundo">Tec</span> é uma rede social, que tem o objetivo
+                de
+                juntar programadores de todos
+                os cantos e os mais criativos, compartilhando o seu conhecimento com aqueles
+                que tenham curiosidades ou aqueles que estão desejando aprender um pouco
+                mais sobre o desenvolvimento de software.
+                <br>
+                <br>
+                Temos páginas que falam sobre tecnologias específicas como: GoLang, Java, C e muito mais, cadastre e se
+                divirta!
+            </p>
 
-        <input type="text" id="nickname" class="inserirTexto"> <!-- Inserir o Nickname -->
+            <h3>•Sobre•</h3>
 
-        <label for="senha" class="rotSenha">Senha:</label> <!-- Label da Senha -->
+            <p>
+                Com o objetivo de realizar a disciplina de Programação Orientada a Objetos 2, o nosso grupo optou por
+                desenvolver uma rede social, onde seria capaz de realizar e alcançar as metas do projeto.
+                <br>
+                <br>
+                Ao decorrer da implementação, conseguimos adquirir mais conhecimento em relação ao desenvolvimento web,
+                banco de dados, servidores webs, API, entre outros.
+            </p>
 
-        <input type="password" id="senha" class="inserirTexto"> <!-- Inserir a Senha -->
 
-        <button type="button" id="btEntrar">Entrar</button> <!-- Botão para verificar o login -->
+        </article>
 
-        <button type="button" onclick="window.location.href='/register'" id="btCadastrar">Cadastro</button> <!-- Botão para ir na página de registro -->
+        <form> <!-- Formulário do Login -->
 
-    </form>
+            <img src="../static/images/logo.ico" alt="" id="logo"> <!-- Logo Principal -->
+
+            <img src="../static/images/tectec.png" alt="" id="logoNome"> <!-- Logo do Nome -->
+
+            <label for="nickname" class="rotUsuario">Nickname:</label> <!-- Label do Nickname -->
+
+            <input type="text" id="nickname" class="inserirTexto"> <!-- Inserir o Nickname -->
+
+            <label for="senha" class="rotSenha">Senha:</label> <!-- Label da Senha -->
+
+            <input type="password" id="senha" class="inserirTexto"> <!-- Inserir a Senha -->
+
+            <button type="button" id="btEntrar">Entrar</button> <!-- Botão para verificar o login -->
+
+            <button type="button" onclick="window.location.href='/register'" id="btCadastrar">Cadastro</button>
+            <!-- Botão para ir na página de registro -->
+
+        </form>
+
+        <article>
+
+            <h3>•Tecnologias utilizadas•</h3>
+
+            <p>
+                O nosso grupo optou por tecnologias que não as mais comuns de serem usadas nessa situação, mas decidimos
+                utilizar elas por conta do desafio e por vantagens que auxiliaram a gente nesse processo de
+                implementação, como:
+            </p>
+
+            <br>
+
+            <img src="../static/images/golang-bg.png" width="140" height="70" alt="GoLang">
+
+            <br>
+            
+            <img src="../static/images/postgre.png" width="70" height="70" alt="PostgreSQL">
+
+            <br>
+
+            
+            <img src="../static/images/trio.png" width="180" height="70" alt="Front-End">
+
+        </article>
+
+    </main>
+
+
 
     <script type="module" src="../static/js/footer.mjs"></script> <!-- Script do Footer -->
 

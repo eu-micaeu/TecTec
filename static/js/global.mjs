@@ -68,26 +68,33 @@ export function sidebarModule() {
     var sidebarOpen = false;
 
     function toggleSidebar() {
+        var mySidebar = document.getElementById("mySidebar");
+    
         if (!sidebarOpen) {
             if (window.innerWidth < 768) {
-                document.getElementById("mySidebar").style.width = "24vw"; 
-                document.getElementById("mySidebar").style.margin= "auto"
+                mySidebar.style.right = "0"; // Mostrar a barra lateral na tela
+            } else {
+                mySidebar.style.right = "0"; // Mostrar a barra lateral na tela
+                mySidebar.style.marginTop = "10vh";
+                mySidebar.style.height = "100%";
+                mySidebar.style.width = "10%";
             }
-            else{
-                document.getElementById("mySidebar").style.width = "10vw";
-                document.getElementById("mySidebar").style.marginTop = "0px"
-
-            }  
-            document.getElementById("mySidebar").style.height = "100%";
-            document.getElementById("mySidebar").style.borderLeft = "2px solid green";
+    
+            mySidebar.style.borderTop = "2px solid green";
+            mySidebar.style.borderLeft = "2px solid green";
+            mySidebar.style.borderBottom = "2px solid green";
+            mySidebar.style.borderRadius = "15px 0 0 15px";
             sidebarOpen = true;
         } else {
-            document.getElementById("mySidebar").style.width = "0";
-            document.getElementById("mySidebar").style.height = "0";
-            document.getElementById("mySidebar").style.border = "none";
+            
+            mySidebar.style.right = "-100%"; // Esconder a barra lateral na lateral direita
+            mySidebar.style.height = "0";
+            mySidebar.style.border = "none";
+            
             sidebarOpen = false;
         }
     }
+    
 
     return {
         toggleSidebar: toggleSidebar

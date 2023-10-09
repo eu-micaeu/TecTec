@@ -20,9 +20,99 @@ async function varIdUsuarioPerfil() {
 }
 
 varIdUsuarioPerfil().then(() => {
-    function displayFeed() {
+    
+    displayFeedCarregar();
+    update(nickname);
+    displayFeed();
+    
+});
 
-        fetch(`/contar_postagens/${idUsuario}`)
+
+
+function update(nickname) {
+    
+    fetch('/perfil/' + nickname)
+        .then(response => response.json())
+        .then(data => {
+
+            let nickname = data.usuario.nickname;
+            let nomeElement = document.getElementById('nome');
+            nomeElement.textContent = "@" + nickname;
+            nomeElement.style.color = "white";
+            nomeElement.style.border = "2px solid white";
+            nomeElement.style.borderRadius = "10px";
+            nomeElement.style.padding = "10px";
+            nomeElement.style.backgroundColor = "black";
+            nomeElement.style.fontSize = "20px";
+            nomeElement.style.width = "10vw";
+            nomeElement.style.height = "5vh";
+            nomeElement.style.textAlign = "center";            
+
+            let tecnologia = data.usuario.tecnologia;
+            
+            let tecnologiaElement = document.getElementById('tecnologia');
+            tecnologiaElement.textContent = "Tecnologia: " + tecnologia;
+            tecnologiaElement.style.color = "white";
+            tecnologiaElement.style.border = "2px solid white";
+            tecnologiaElement.style.borderRadius = "10px";
+            tecnologiaElement.style.padding = "10px";
+            tecnologiaElement.style.backgroundColor = "black";
+            tecnologiaElement.style.fontSize = "16px";
+            tecnologiaElement.style.width = "10vw";
+            tecnologiaElement.style.height = "5vh";
+            tecnologiaElement.style.textAlign = "center";
+
+            let seguidores = data.usuario.seguidores;
+            let seguidoresElement = document.getElementById('seguidores');
+            seguidoresElement.textContent = "Seguidores: " + seguidores;
+            seguidoresElement.style.color = "white";
+            seguidoresElement.style.border = "2px solid white";
+            seguidoresElement.style.borderRadius = "10px";
+            seguidoresElement.style.padding = "10px";
+            seguidoresElement.style.backgroundColor = "black";
+            seguidoresElement.style.fontSize = "20px";
+            seguidoresElement.style.width = "10vw";
+            seguidoresElement.style.height = "5vh";
+            seguidoresElement.style.textAlign = "center";
+
+            if (window.innerWidth <= 768) {
+                nomeElement.style.width = "30vw";
+                tecnologiaElement.style.width = "30vw";
+                seguidoresElement.style.width = "30vw";
+            }
+
+        });
+}
+
+function displayFeedCarregar() {
+
+    const loadingDiv = document.getElementById("loading");
+    
+    const contentDiv2 = document.getElementById("perfil-usuario");
+
+    const contentDiv = document.getElementById("carrosel");
+
+    loadingDiv.style.display = "block";
+
+    contentDiv2.style.display = "none";
+
+    contentDiv.style.display = "none";
+    
+    setTimeout(function () {
+
+        loadingDiv.style.display = "none";
+
+        contentDiv2.style.display = "block";
+
+        contentDiv.style.display = "block";
+
+
+    }, 1500);
+}
+
+function displayFeed() {
+
+    fetch(`/contar_postagens/${idUsuario}`)
         .then(response => response.json())
         .then(data => {
 
@@ -191,86 +281,10 @@ varIdUsuarioPerfil().then(() => {
 
 
                                 }
-                        });
+                            });
                     });
             }
         });
-    }
-
-
-    function update(nickname) {
-        let name = nickname;
-        fetch('/perfil/' + name)
-            .then(response => response.json())
-            .then(data => {
-                let nickname = data.usuario.nickname;
-                let nomeElement = document.getElementById('nome');
-                nomeElement.textContent = "@" + nickname;
-                nomeElement.style.color = "white";
-                nomeElement.style.border = "2px solid white";
-                nomeElement.style.borderRadius = "10px";
-                nomeElement.style.padding = "10px";
-                nomeElement.style.backgroundColor = "black";
-                nomeElement.style.fontSize = "20px";
-                nomeElement.style.width = "10vw";
-                nomeElement.style.textAlign = "center";
-
-                let tecnologia = data.usuario.tecnologia;
-                let tecnologiaElement = document.getElementById('tecnologia');
-                tecnologiaElement.textContent = "Tecnologia: " + tecnologia;
-                tecnologiaElement.style.color = "white";
-                tecnologiaElement.style.border = "2px solid white";
-                tecnologiaElement.style.borderRadius = "10px";
-                tecnologiaElement.style.padding = "10px";
-                tecnologiaElement.style.backgroundColor = "black";
-                tecnologiaElement.style.fontSize = "16px";
-                tecnologiaElement.style.width = "10vw";
-                tecnologiaElement.style.textAlign = "center";
-
-                let seguidores = data.usuario.seguidores;
-                let seguidoresElement = document.getElementById('seguidores');
-                seguidoresElement.textContent = "Seguidores: " + seguidores;
-                seguidoresElement.style.color = "white";
-                seguidoresElement.style.border = "2px solid white";
-                seguidoresElement.style.borderRadius = "10px";
-                seguidoresElement.style.padding = "10px";
-                seguidoresElement.style.backgroundColor = "black";
-                seguidoresElement.style.fontSize = "20px";
-                seguidoresElement.style.width = "10vw";
-                seguidoresElement.style.textAlign = "center";
-
-                if (window.innerWidth <= 768) {
-                    nomeElement.style.width = "30vw";
-                    tecnologiaElement.style.width = "30vw";
-                    seguidoresElement.style.width = "30vw";
-                }
-                
-            });
-    }
-
-    displayFeedCarregar();
-    update(nickname);
-    displayFeed();
-    
-
-});
-
-function displayFeedCarregar() {
-
-    const loadingDiv = document.getElementById("loading");
-    const contentDiv = document.getElementById("carrosel");
-    const contentDiv2 = document.getElementById("perfil-usuario");
-
-
-    loadingDiv.style.display = "block";
-    contentDiv.style.display = "none";
-    contentDiv2.style.display = "none";
-
-    setTimeout(function () {
-        loadingDiv.style.display = "none";
-        contentDiv.style.display = "block";
-        contentDiv2.style.display = "block";
-    }, 1500);
 }
 
 iconsHover();

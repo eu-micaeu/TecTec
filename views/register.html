@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="pt-br">
 
 <head>
@@ -6,134 +7,71 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>TecTec</title>   <!-- Título da página -->
+    <title>TecTec</title> <!-- Título da página -->
 
-    <link rel="icon" href="..\static\images\logo.ico" type="image/x-icon">  <!-- Ícone da página -->
+    <link rel="icon" href="..\static\images\logo.ico" type="image/x-icon"> <!-- Ícone da página -->
 
-    <link rel="stylesheet" href="../static/css/register.css">
+    <link rel="stylesheet" href="../static/css/register.css"> <!-- Arquivo CSS correspondente -->
 
-    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Lato:wght@100&family=Nunito:wght@200&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
-
-    <meta name="google-adsense-account" content="ca-pub-8291700047790609">
-
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8291700047790609"
-     crossorigin="anonymous"></script>
-    
 </head>
 
 <body>
 
-    <header>
-
-        <div class="centraliza">
-
-            
-
-        </div>
-
-    </header>
-
     <form>
 
-        <img src="../static/images/logo.ico" alt="" id="logo">  <!-- Logo principal -->
+        <img src="../static/images/logo.ico" alt="" id="logo"> <!-- Logo principal -->
 
-        <label for="usuario" class="rotUsuario">Nickname:</label>   <!-- Label do nickname -->
+        <label for="usuario" class="rotUsuario">Nickname:</label> <!-- Label do nickname -->
 
-        <br>
+        <input type="text" name="nickname" id="nickname" class="inputUser"> <!-- Inserir o nickname -->
 
-        <div class="inputBox">
+        <label for="senha" class="rotSenha">Senha:</label> <!-- Label da senha -->
 
-            <input type="text" name="nickname" id="nickname" class="inputUser"> <!-- Inserir o nickname -->
+        <input type="password" name="senha" id="senha" class="inputUser"> <!-- Inserir a senha -->
 
-        </div>
+        <label for="confSenha" class="rotConfSenha">Confirmação da senha:</label> <!-- Label de confirmar a senha -->
 
-        <br>
-
-        <label for="senha" class="rotSenha">Senha:</label>  <!-- Label da senha -->
-
-        <br>
-
-        <div class="inputBox">
-
-            <input type="password" name="senha" id="senha" class="inputUser">   <!-- Inserir a senha -->
-
-        </div>
-
-        <br>
-
-        <label for="confSenha" class="rotConfSenha">Confirmação da senha:</label>   <!-- Label de confirmar a senha -->
-
-        <br>
-
-        <div class="inputBox">
-
-            <input type="password" name="confSenha" id="confSenha" class="inputUser">   <!-- Inserir a senha novamente -->
-
-        </div>
-
-        <br>
+        <input type="password" name="confSenha" id="confSenha" class="inputUser"> <!-- Inserir a senha novamente -->
 
         <label for="telefone" class="rotTelefone">Telefone:</label> <!-- Label do telefone -->
 
-        <br>
+        <input type="phone" name="telefone" id="telefone" class="inputUser"> <!-- Inserção do telefone -->
 
-        <div class="inputBox">
+        <label for="tecnologia" class="rotTelefone">Tecnologia que mais admira:</label> <!-- Label da tecnologia -->
 
-            <input type="phone" name="telefone" id="telefone" class="inputUser">    <!-- Inserção do telefone -->
+        <select id="tecnologia" name="tecnologia" class="inputUser"> <!-- Seleção da tecnologia a partir de uma lista-->
 
-        </div>
+            <option value="  " selected> </option>
 
-        <br>
+            <option value="HTML">HTML</option>
 
-        <label for="tecnologia" class="rotTelefone">Tecnologia que mais admira:</label> <!-- Label da tecnologia preferida -->
+            <option value="CSS">CSS</option>
 
-        <br>
+            <option value="Javascript">C</option>
 
-        <div class="inputBox">
+            <option value="Golang">Golang</option>
 
-            <select id="tecnologia" name="tecnologia" class="inputUser">    <!-- Seleção da tecnologia a partir de uma lista-->
+            <option value="Python">PostgreSQL</option>
 
-                <option value="  " selected>  </option>
+            <option value="Hadoop">Hadoop</option>
 
-                <option value="HTML">HTML</option>
+            <option value="Java">Java</option>
 
-                <option value="CSS">CSS</option>
+            <option value="Typescript">Typescript</option>
 
-                <option value="Javascript">C</option>
+            <option value="Typescript">Docker</option>
 
-                <option value="Golang">Golang</option>
+        </select>
 
-                <option value="Python">PostgreSQL</option>
+        <button type="button" class="btn_entrar" id="cadastrar">Cadastrar</button> <!-- Botão de cadastro -->
 
-                <option value="Hadoop">Hadoop</option>
-
-                <option value="Java">Java</option>
-
-                <option value="Typescript">Typescript</option>
-
-                <option value="Typescript">Docker</option>
-
-            </select>
-
-        </div>
-
-        <div class="btnContainer">
-
-            <button type="button" class="btn_entrar" id="cadastrar">Cadastrar</button>  <!-- Botão de cadastro -->
-
-        </div>
-
-        <div class="btnContainer">
-
-            <button type="button" class="btn_entrar" onclick="window.location.href='/login'">Voltar</button>    <!-- Botão para voltar à tela de login -->
-
-        </div>
+        <button type="button" class="btn_entrar" onclick="window.location.href='/login'">Voltar</button> <!-- Botão para voltar de página -->
 
     </form>
 
-    <script type="module" src="../static/js/footer.mjs"></script>   <!-- Script do footer -->
+    <script type="module" src="../static/js/footer.mjs"></script> <!-- Script do footer -->
 
-    <script defer src="..\static\js\register.mjs"></script> <!-- Script da página de cadastro -->
+    <script  type="module" src="../static/js/register.mjs"></script> <!-- Script da página de cadastro -->
 
 </body>
 

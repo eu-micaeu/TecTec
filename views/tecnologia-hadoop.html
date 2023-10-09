@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TecTec</title> <!-- Título da página -->
+
+    <link rel="icon" href="../static/images/logo.ico" type="image/x-icon"> <!-- Ícone da página -->
+
+    <link rel="stylesheet" href="../static/css/tecnologias.css"> <!-- Arquivo CSS correspondente -->
+
+</head>
+
+<body>
+
+    <script type="module" src="../static/js/header.mjs"></script> <!-- Inserção do header na página -->
+
+    <script type="module" src="../static/js/bar.mjs"></script> <!-- Script da aba de tecnologias -->
+
+    <main>
+
+        <img src="../static/images/hadoop.png" alt="C" class="imgTec" width="100" height="100"> <!-- Imagem da tecnologia -->
+
+        <p>
+            O Apache Hadoop é um framework open source para o armazenamento e processamento de dados em larga escala. Ele oferece como ferramentas principais uma implementação do modelo MapReduce, responsável pelo processamento distribuído, e o Hadoop Distributed File System (HDFS), para armazenamento de grandes conjuntos de dados, também de forma distribuída.
+
+        <h2>- Primeiros Passos</h2>
+
+        <h3>Instalação</h3>
+
+        <p>
+            O Hadoop possui três formas de instalação e execução da plataforma:
+            <br><br>
+            Modo Local ou Independente: Por padrão, o Hadoop foi configurado para executar em modo independente não distribuído. Esse modo é útil para desenvolver e testar um aplicativo;
+            <br><br>
+            Modo Pseudo distribuído: Pode executar em um único nó em modo pseudo distribuído. Nesse caso, cada instância de processo Hadoop executa como um processo Java diferente;
+            <br><br>
+            Modo Totalmente distribuído: O Hadoop é configurado em cluster com máquinas físicas (ou virtualizadas), cada qual com um endereço IP válido.
+            <br>
+        
+        </p>
+
+        <h3>Arquitetura Hadoop</h3>
+
+        <p>
+            Os componentes chave do Hadoop são o modelo de programação MapReduce e o sistema de arquivos distribuído HDFS. Entretanto, em meio a sua evolução, novos subprojetos, que são incorporados como componentes à arquitetura Hadoop, completam a infraestrutura do framework para resolver problemas específicos
+            <br><br>
+            Na camada de armazenamento de dados há o sistema de arquivos distribuído Hadoop Distributed File System (HDFS), um dos principais componentes do framework. Já na camada de processamento de dados temos o MapReduce, que também figura como um dos principais subprojetos do Hadoop. Na camada de acesso aos dados são disponibilizadas ferramentas como Pig, Hive, Avro, Mahout, entre outras.
+            <br><br>
+            Estas ferramentas tendem a facilitar a análise e consulta dos dados, fornecendo uma linguagem de consulta similar às utilizadas em bancos de dados relacionais (como a SQL, por exemplo). Assim, todo um ecossistema em volta do Hadoop é criado com ferramentas que suprem necessidades específicas; por exemplo, ZooKeeper, Flume e Chukwa, que melhoram a camada de gerenciamento. Essas ferramentas fornecem uma interface com o usuário que busca diminuir as dificuldades encontradas no manuseio das aplicações que rodam nessa plataforma.
+
+
+        </p>
+
+        <h3>Principais componentes</h3>
+
+        <img src="/static/images/docker-configuracao.png" alt="">
+
+        <p>
+            Hadoop Common: contém um conjunto de utilitários e a estrutura base que dá suporte aos demais subprojetos do Hadoop. Utilizado em toda a aplicação, possui diversas bibliotecas como, por exemplo, as utilizadas para serialização de dados e manipulação de arquivos. É neste subprojeto também que são disponibilizadas as interfaces para outros sistemas de arquivos, tais como Amazon S3 e CloudSource;
+            <br><br>
+            Hadoop MapReduce: implementa um modelo de programação na forma de uma biblioteca de classes especializadas no processamento de conjuntos de dados distribuídos em um aglomerado computacional. Abstrai toda a computação paralela em apenas duas funções: Map e Reduce;
+            <br><br>
+            Hadoop Distributed File System (HDFS): um sistema de arquivos distribuído nativo do Hadoop. Permite o armazenamento e transmissão de grandes conjuntos de dados em máquinas de baixo custo. Possui mecanismos que o caracteriza como um sistema altamente tolerante a falhas.
+        </p>
+
+    </main>
+
+    <script type="module" src="../static/js/tecnologias.mjs"></script> <!-- Script da página de tecnologias -->
+
+</body>
+
+</html>

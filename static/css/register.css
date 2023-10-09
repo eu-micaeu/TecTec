@@ -1,20 +1,5 @@
 @import url('./global.css');
 
-header{
-    background-color: transparent;
-    width: auto;
-    height: 100%; 
-    position: relative;
-    left: auto; 
-    top: auto;
-    border: none;
-}
-
-.inputBox {
-    display: flex;
-    justify-content: center;
-}
-
 .inputUser {
     background-color: black;
     color: white;
@@ -33,11 +18,10 @@ form{
     margin: 0 auto 70px auto;
     border-radius: 15px;
     background-color: black;
-}
-
-.btnContainer{
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .btn_entrar {

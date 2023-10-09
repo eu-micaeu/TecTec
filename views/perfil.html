@@ -1,67 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TecTec</title>   <!-- Título da página -->
-    <link rel="icon" href="..\static\images\logo.ico" type="image/x-icon">  <!-- Ícone da página -->
-    <link rel="stylesheet" href="../static/css/perfil.css">
 
-    <meta name="google-adsense-account" content="ca-pub-8291700047790609">
+    <title>TecTec</title> <!-- Título da página -->
 
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8291700047790609"
-     crossorigin="anonymous"></script>
+    <link rel="icon" href="..\static\images\logo.ico" type="image/x-icon"> <!-- Ícone da página -->
+
+    <link rel="stylesheet" href="../static/css/perfil.css"> <!-- Arquivo CSS correspondente -->
+
 </head>
 
 <body>
 
-
-    <div class="centraliza">
-        <script type="module" src="../static/js/header.mjs" async></script> <!-- Inserção do header na página -->
-    </div>
+    <script type="module" src="../static/js/header.mjs"></script> <!-- Inserção do header na página -->
 
     <main>
 
-        <div class="centraliza">
+        <div id="perfil-usuario"> <!-- Principais informações do perfil -->
 
-            <div id="perfil-usuario">   <!-- Principais informações do perfil -->
-    
-                <br><br><br>
-    
-                <div class="centraliza">
-    
-                    <p id="nome"></p>   <!-- Nick da pessoa -->
-    
-                </div>
-    
-                <div class="centraliza">
-    
-                    <p id="tecnologia"></p> <!-- Tecnologia preferida da pessoa -->
-    
-                </div>
-    
-                <div class="centraliza">
-    
-                    <p id="seguidores"></p> <!-- Quantidade de seguidores que a pessoa tem -->
-    
-                </div>
-    
-            </div>
-    
+            <p id="nome"></p> <!-- Nick da pessoa -->
+
+            <p id="tecnologia"></p> <!-- Tecnologia preferida da pessoa -->
+
+            <p id="seguidores"></p> <!-- Quantidade de seguidores que a pessoa tem -->
+
         </div>
 
-        <div id="carrosel"></div>   <!-- Postagens do usuário -->
+        <script type="module" src="../static/js/loading.mjs"></script> <!-- Script do gif de loading -->
 
-        <div id="loading">
-            <img src="/static/images/loading.gif" alt="Carregando..." width="50px" height="50px">   <!-- Símbolo de carregamento da página -->
-        </div>
+        <script type="module" src="../static/js/feed.mjs"></script> <!-- Script do feed -->
 
     </main>
 
-    <script type="module" src="../static/js/bar.mjs" async></script>
+    <script type="module" src="../static/js/bar.mjs"></script> <!-- Script da aba de tecnologias -->
 
-    <script type="module" src="../static/js/perfil.mjs"></script>   <!-- Script da página inteira -->
+    <script type="module" src="../static/js/perfil.mjs"></script> <!-- Script da página inteira -->
+
+    <script type="module" src="../static/js/footer.mjs"></script> <!-- Script do footer -->
 
 </body>
 

@@ -79,6 +79,26 @@ func main() {
 		c.HTML(http.StatusOK,"tecnologia-postgresql.html",nil)
 	})
 
+	r.GET("/docker",func(c *gin.Context){
+		c.HTML(http.StatusOK,"tecnologia-docker.html",nil)
+	})
+
+	r.GET("/typescript",func(c *gin.Context){
+		c.HTML(http.StatusOK,"tecnologia-typescript.html",nil)
+	})
+
+	r.GET("/hadoop",func(c *gin.Context){
+		c.HTML(http.StatusOK,"tecnologia-hadoop.html",nil)
+	})
+
+	r.GET("/html",func(c *gin.Context){
+		c.HTML(http.StatusOK,"tecnologia-html.html",nil)
+	})
+
+	r.GET("/css",func(c *gin.Context){
+		c.HTML(http.StatusOK,"tecnologia-css.html",nil)
+	})
+
 
 	r.Static("./static", "./static")
 

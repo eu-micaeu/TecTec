@@ -8,52 +8,37 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>TecTec</title>   <!-- Título da Página -->
+    <title>TecTec</title> <!-- Título da Página -->
 
-    <link rel="icon" href="..\static\images\logo.ico" type="image/x-icon">  <!-- Ícone da Página -->
-    
-    <link rel="stylesheet" href="../static/css/home.css">
+    <link rel="icon" href="..\static\images\logo.ico" type="image/x-icon"> <!-- Ícone da Página -->
 
-    <link rel="stylesheet" href="../static/css/comentario.css">
-
-    <meta name="google-adsense-account" content="ca-pub-8291700047790609">
-
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8291700047790609"
-     crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../static/css/comentario.css"> <!-- Arquivo CSS correspondente -->
 
 </head>
 
 <body>
 
-    <div class="centraliza">
-        
-        <script type="module" src="../static/js/header.mjs" async></script> <!-- Insere o header no topo da pagina -->
+    <script type="module" src="../static/js/header.mjs"></script> <!-- Insere o header no topo da pagina -->
 
-    </div>
+    <main>
 
-    <div class="centraliza">
+        <div id="postagem-principal"></div> <!-- Espaço da postagem principal -->
 
-        <div id="postagem-principal">   <!-- Espaço da postagem principal -->
+        <div id="comentar"> <!-- div responsável pelo campo total do comentário -->
+
+            <textarea id="inputComentario" placeholder="Adicione um comentario para o post!"></textarea> <!-- Inserção do comentário -->
+
+            <button class="botao" id="botaoComentario">COMENTAR</button> <!-- Botão para enviar o comentário -->
 
         </div>
 
-    </div>
+    </main>
 
-    <div class="centraliza">    <!-- Caixa de comentário -->
+    <script type="module" src="../static/js/bar.mjs"></script>
 
-        <textarea id="inputComentario" placeholder="Adicione um comentario para o post!"></textarea>    <!-- Inserção do comentário -->
-        
-    </div>
+    <script type="module" src="../static/js/footer.mjs"></script>
 
-    <div class="centraliza">
-
-        <button class="botao" id="botaoComentario">COMENTAR</button>    <!-- Botão para enviar o comentário -->
-
-    </div>
-
-    <script type="module" src="../static/js/bar.mjs" async></script>
-    
-    <script type="module" defer src="../static/js/comentario.mjs"></script>
+    <script type="module" src="../static/js/comentario.mjs"></script>
 
 </body>
 

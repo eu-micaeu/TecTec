@@ -6,59 +6,43 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>TecTec</title>   <!-- Título da página -->
+    <title>TecTec</title> <!-- Título da página -->
 
-    <link rel="icon" href="..\static\images\logo.ico" type="image/x-icon">  <!-- Ícone da página -->
-    
-    <link rel="stylesheet" href="../static/css/perfil-visitado.css">
+    <link rel="icon" href="../static/images/logo.ico" type="image/x-icon"> <!-- Ícone da página -->
+
+    <link rel="stylesheet" href="../static/css/perfil-visitado.css"> <!-- Arquivo CSS correspondente -->
 
 </head>
 
 <body>
 
+    <script type="module" src="../static/js/header.mjs"></script> <!-- Inserção do header na página -->
 
-    <div class="centraliza">
-        <script type="module" src="../static/js/header.mjs" async></script> <!-- Inserção do header na página -->
-    </div>
+    <main>
 
-    <div class="centraliza">
-        <div id="perfil-usuario">   <!-- Principais informações do perfil -->
-            <br><br><br>
+        <div id="perfil-usuario"> <!-- Principais informações do perfil -->
 
-            <div class="centraliza">
-                <p id="nome"></p>   <!-- Nick da pessoa -->
-            </div>
+            <p id="nome"></p> <!-- Nick da pessoa -->
 
-            <div class="centraliza">
-                <p id="tecnologia"></p> <!-- Tecnologia preferida da pessoa -->
-            </div>
+            <p id="tecnologia"></p> <!-- Tecnologia preferida da pessoa -->
 
-            <div class="centraliza">
-                <p id="seguidores"></p> <!-- Quantidade de seguidores que a pessoa tem -->
-            </div>
-
-            <div class="centraliza">
-
-                <button id="seguir" style="display: none;">Seguir</button>  <!-- Botão para seguir o usuário -->
-
-            </div>
+            <p id="seguidores"></p> <!-- Quantidade de seguidores que a pessoa tem -->
 
         </div>
-    </div>
 
-    <script type="module" src="../static/js/bar.mjs" async></script>    
+        <p id="seguir">Seguir</p> <!-- Botão para seguir o usuário -->
 
-    <div class="centraliza">
+        <script type="module" src="../static/js/loading.mjs"></script> <!-- Script do gif de loading -->
 
-        <div id="carrosel"></div>   <!-- Postagens do usuário -->
-        
-    </div>
+        <script type="module" src="../static/js/feed.mjs"></script> <!-- Script do feed -->
 
-    <div id="loading">
-        <img src="/static/images/loading.gif" alt="Carregando..." width="50px" height="50px">   <!-- Símbolo de carregamento da página -->
-    </div>
+    </main>
 
-    <script type="module" defer src="../static/js/perfil-visitado.mjs"></script>    <!-- Script da página inteira -->
+    <script type="module" src="../static/js/bar.mjs"></script> <!-- Script da aba de tecnologias -->
+
+    <script type="module" src="../static/js/footer.mjs"></script> <!-- Script do footer -->
+
+    <script type="module" src="../static/js/perfil-visitado.mjs"></script> <!-- Script da página inteira -->
 
 </body>
 

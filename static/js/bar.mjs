@@ -9,57 +9,57 @@ document.body.insertAdjacentHTML('afterbegin', `
 
             </div>
 
-            <div class="centraliza">
+            <div class="centraliza golang">
 
                 <a href="/golang">GoLang</a>
 
             </div>            
 
-            <div class="centraliza">
+            <div class="centraliza java">
 
                 <a href="/java">Java</a>
 
             </div>
 
-            <div class="centraliza">
+            <div class="centraliza c">
 
-                <a href="/c">C</a>
+                <a href="/c" >C</a>
 
             </div>
 
-            <div class="centraliza">
+            <div class="centraliza postgresql">
 
                 <a href="postgreSQL">PostgreSQL</a>
 
             </div>
 
-            <div class="centraliza">
+            <div class="centraliza docker">
 
                 <a href="postgreSQL">Docker</a>
 
             </div>
 
-            <div class="centraliza">
+            <div class="centraliza typescript">
 
                 <a href="postgreSQL">TypeScript</a>
 
             </div>
 
-            <div class="centraliza">
+            <div class="centraliza hadoop">
 
-                <a href="postgreSQL">Hadoop</a>
-
-            </div>
-
-            <div class="centraliza">
-
-                <a href="postgreSQL">HTML5</a>
+                <a href="hadoop">Hadoop</a>
 
             </div>
 
-            <div class="centraliza">
+            <div class="centraliza html5">
 
-                <a href="postgreSQL">CSS3</a>
+                <a href="html">HTML5</a>
+
+            </div>
+
+            <div class="centraliza css3">
+
+                <a href="css">CSS3</a>
 
             </div>
 

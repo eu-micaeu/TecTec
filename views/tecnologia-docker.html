@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TecTec</title> <!-- Título da página -->
+
+    <link rel="icon" href="../static/images/logo.ico" type="image/x-icon"> <!-- Ícone da página -->
+
+    <link rel="stylesheet" href="../static/css/tecnologias.css"> <!-- Arquivo CSS correspondente -->
+
+</head>
+
+<body>
+
+    <script type="module" src="../static/js/header.mjs"></script> <!-- Inserção do header na página -->
+
+    <script type="module" src="../static/js/bar.mjs"></script> <!-- Script da aba de tecnologias -->
+
+    <main>
+
+        <img src="../static/images/docker.png" alt="C" class="imgTec" width="100" height="100"> <!-- Imagem da tecnologia -->
+
+        <p>
+            O Docker é uma plataforma open source que facilita a criação e administração de ambientes isolados. 
+            Ele possibilita o empacotamento de uma aplicação ou ambiente dentro de um container, se tornando portátil para qualquer outro host que contenha o Docker instalado. Então, você consegue criar, implantar, copiar e migrar de um ambiente para outro com maior flexibilidade. 
+            A ideia do Docker é subir apenas uma máquina, ao invés de várias. E, nessa única máquina, você pode rodar várias aplicações sem que haja conflitos entre elas.
+        </p>
+
+        <h2>- Primeiros Passos</h2>
+
+        <h3>Instalação</h3>
+
+        <p>
+            Para criar uma imagem Docker a partir de um arquivo ISO, você pode seguir estas etapas básicas:
+            <br>
+        
+        </p>
+
+        <h3>Por que utilizar o Docker ?</h3>
+
+        <p>
+            <li>Para Experimentar o Novo Software</li>
+
+            Com o Docker, você pode experimentar um novo software sem instalá-lo manualmente. O Docker também é útil se você precisar ter um software pronto rapidamente. Por exemplo, configurar um servidor MySQL é um processo longo e tedioso. Com o Docker, é necessário apenas um comando via ILC (Interface de Linha de Comando) para fazer isso.
+
+            <br><br>
+
+            <li>Para Saber Mais Sobre ILC</li>
+
+            Embora o Docker possa ser executado em todos os tipos de máquinas, ele foi projetado principalmente para Linux. Portanto, recomendamos configurá-lo em um sistema baseado em Linux. Ele fornecerá a você uma excelente oportunidade de aprender mais sobre administração do sistema, interface de linha de comando e scripts.
+
+            <br><br>
+
+            <li>Para Reduzir o Risco de Incidentes</li>
+
+            Em caso de falha de hardware, os usuários podem reverter rapidamente quaisquer alterações se tiverem uma imagem do Docker pronta.
+            <br> 
+        </p>
+
+        <h3>Como funciona o docker</h3>
+
+        <img src="/static/images/docker-configuracao.png" alt="">
+
+        <p>
+            Cliente Docker– o principal componente para criar, gerenciar e executar aplicativos em container. O cliente Docker é o principal método de controle do servidor Docker por meio de uma ILC, como Prompt de Comando (Windows) ou Terminal (macOS, Linux).
+            <br>
+            Servidor Docker– também conhecido como o daemon do Docker. Ele aguarda as solicitações da API REST feitas pelo cliente Docker e gerencia imagens e containers.
+            <br>
+            Imagens do Docker– instrua o servidor Docker com os requisitos sobre como criar um container Docker. As imagens podem ser baixadas de sites como Docker Hub. A criação de uma imagem personalizada também é possível — para isso, os usuários precisam criar um Dockerfile e passá-lo para o servidor. Vale a pena notar que o Docker não limpa nenhuma imagem não utilizada, então os usuários precisam excluir dados de imagem eles mesmos, antes que acabe com muitas delas.
+            <br>
+            Registro do Docker– um aplicativo do lado do servidor de código aberto usado para hospedar e distribuir imagens do Docker. O registro é extremamente útil para armazenar imagens localmente e manter controle total sobre elas. Como alternativa, os usuários podem acessar o Docker Hub mencionado acima – o maior repositório mundial de imagens do Docker.
+        </p>
+
+    </main>
+
+    <script type="module" src="../static/js/tecnologias.mjs"></script> <!-- Script da página de tecnologias -->
+
+</body>
+
+</html>

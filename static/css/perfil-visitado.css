@@ -1,36 +1,24 @@
 @import url('./global.css');
 
-.centraliza #nome{
-    margin-top: 5vh;
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-#nome, #tecnologia {
-    color: white;
-    text-align: left;
-    font-size: 20px;
+#perfil-usuario{
+    margin-top: 10vh;
 }
 
-#seguir{
-    font-family: monospace;
-}
-
-
+/* Ajustando conteudo para tela menor que 768px*/
 
 @media screen and (max-device-width: 768px) {
-
-    #nome {
-        color: white;
-        font-size: 10px;
-        margin: 0;
-    }   
 
     #carrosel {
         display: flex;
         flex-direction: column;
     }
-
-    #biografia{
-        font-size: 12px;
-    }
     
 }
+
+/*////////////////////////////////////*/

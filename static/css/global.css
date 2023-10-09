@@ -1,4 +1,4 @@
-/*Todos as pags*/
+/*Corpo das páginas*/
 
 body {
     background-color: #000;
@@ -10,9 +10,13 @@ body {
     margin: 0;
 }
 
+/*////////////////////////*/
+
+/* Cabeçalho */
+
 header {
     background-color: #000;
-    width: 40%;
+    width: 100%;
     border-bottom: 2px solid #00891E;
     border-left: 2px solid #00891E;
     border-right: 2px solid #00891E;
@@ -34,24 +38,24 @@ header img {
     height: 35px;
 }
 
+/*////////////////////////*/
+
+/* Div que centraliza um conteúdo */
 
 .centraliza {
     display: flex;
     justify-content: center;
 }
 
-main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+/*////////////////////////*/
+
+/* Feed das páginas */
 
 #carrosel {
     display: flex;
     flex-direction: column;
     margin-top: 10vh;
-    margin-bottom: 1.5vh;
+    margin-bottom: 3vh;
 }
 
 .cartao {
@@ -67,35 +71,10 @@ main {
     font-weight: bold;
 }
 
-.centraliza,
-.meio {
-    display: flex;
-    justify-content: center;
-}
+/*////////////////////////*/
 
 textarea {
     resize: none;
-}
-
-.botao-adicionar-postagem {
-    font-family: monospace;
-    background-color: #00891E;
-    color: white;
-    border: none;
-    padding: 5px;
-    cursor: pointer;
-    border-radius: 10px;
-    position: fixed;
-    bottom: 70px;
-    width: 50px;
-    height: 50px;
-    font-size: 30px;
-}
-
-.botao-adicionar-postagem:hover {
-    font-family: monospace;
-    background-color: #fff;
-    color: #00891E;
 }
 
 .texto {
@@ -103,24 +82,22 @@ textarea {
 }
 
 /* Barra de Tecnologias  */
-
 #mySidebar {
     font-family: monospace;
     width: 0;
     position: fixed;
     top: 0;
-    right: 0;
+    right: -250px;
     background-color: #000000;
     overflow: hidden;
-    transition: 0.5s;
-    overflow-y: hidden ;
+    transition: right 0.5s; 
 }
 
 #mySidebar a {
     margin: 8px 10px 10px 10px;
     text-decoration: none;
     font-size: 15px;
-    color: #fff;
+    color: #ffffff;
     display: block;
 }
 
@@ -128,27 +105,71 @@ img[src="/static/images/golang.jpg"] {
     border-radius: 10px;
 }
 
-#mySidebar .centraliza {
+
+#mySidebar .centraliza,
+#mySidebar .golang,
+#mySidebar .java,
+#mySidebar .c,
+#mySidebar .postgresql,
+#mySidebar .docker,
+#mySidebar .typescript,
+#mySidebar .hadoop,
+#mySidebar .html5,
+#mySidebar .css3 {
+    width: 100%;
     align-items: center;
+}
+
+#mySidebar .centraliza {
     flex-direction: column;
     color: #00891E;
 }
 
-#mySidebar .centraliza h3:hover,
-#mySidebar .centraliza a:hover {
-    color: #fff ;
+#mySidebar .golang:hover {
+    background-color: #007acc;
+    color: #fff;
 }
 
-#mySidebar .centraliza:hover {
-    cursor: pointer;
-    background-color: #00891E;
-    width: 100%;
-    color: #fff ;
+#mySidebar .java:hover {
+    background-color: red;
+}
+
+#mySidebar .c:hover {
+    background-color: blue;
+}
+
+#mySidebar .postgresql:hover {
+    background-color: #1E90FF;
+}
+
+#mySidebar .docker:hover,
+#mySidebar .typescript:hover {
+    background-color: #4169E1;
+}
+
+#mySidebar .hadoop:hover {
+    background-color: yellow;
+}
+
+#mySidebar .hadoop a:hover,
+#mySidebar .html5 a:hover {
+    color: black;
 }
 
 
-/* Footer */
+#mySidebar .html5:hover {
+    background-color: orange;
+}
 
+#mySidebar .css3:hover {
+    background-color: blue;
+    color: black;
+}
+
+
+/*////////////////////////////////*/
+
+/*  Footer */
 footer {
     font-family: monospace;
     position: fixed;
@@ -164,9 +185,10 @@ footer p {
     font-size: 15px;
     font-weight: bold;
 }
+/*////////////////////////*/
 
-/* Carregamento */
 
+/* Carregamento*/
 #loading {
     display: none; 
     text-align: center;
@@ -176,7 +198,9 @@ footer p {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+/*////////////////////////*/
 
+/*Configurando para tela menor de 768px */
 @media screen and (max-device-width: 768px) {
 
     header {
@@ -226,3 +250,4 @@ footer p {
 
 
 }
+/*////////////////////////////////////*/

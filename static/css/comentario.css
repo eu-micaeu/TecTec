@@ -1,19 +1,37 @@
 @import url('./global.css');
 
+main{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
 #postagem-principal{
     margin-top: 10vh;
+    margin-bottom: 5vh;
+}
+
+#comentar{
+    background-color: #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10vh;
 }
 
 textarea{
     width: 30vw;
-    border-radius: 10px;
-    border: 3px solid #00891E;
+    height: auto;
+    border: none;
     height: 9vh;
     background-color: #000;
     color: white;
-    position: fixed;
-    bottom: 10vh;
     font-size: 16px;
+    border: 2px solid white;
+    border-radius: 15px;
+    padding: 10px;
 }
 
 .botao{
@@ -23,12 +41,11 @@ textarea{
     border-radius: 10px;
     border: none;
     color: white;
-    margin-bottom: 3vh;
+    margin: 10px 0 10px 0;
     font-family: monospace;
-    bottom: 0;
-    position: fixed;
     border: 2px solid white;
     font-weight: bold;
+
 }
 
 .botao:hover{
@@ -37,14 +54,14 @@ textarea{
 }
 
 .cartaoComen {
-    border: 5px solid rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
     color: #ffffff;
     padding: 25px;
     flex-direction: column;
     background-color: #000;
     font-size: 15px;
     font-weight: bold;
-    border-radius: 15px 0 15px 0 ;
+    border-radius: 15px;
     margin: 10px;
 }
 

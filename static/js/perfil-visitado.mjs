@@ -269,7 +269,6 @@ function displayFeedCarregar() {
 varIdUsuario().then(async () => {
 
     const seguirBotao = document.getElementById("seguir");
-    seguirBotao.textContent = "Seguidores: " + seguidores;
     seguirBotao.style.color = "#00891E";
     seguirBotao.style.border = "2px solid #00891E";
     seguirBotao.style.borderRadius = "10px";
@@ -279,6 +278,7 @@ varIdUsuario().then(async () => {
     seguirBotao.style.width = "10vw";
     seguirBotao.style.textAlign = "center";
     seguirBotao.style.cursor = "pointer";
+    seguirBotao.style.fontFamily = "monospace";
 
     if (window.innerWidth <= 768) {
         seguirBotao.style.width = "30vw";
