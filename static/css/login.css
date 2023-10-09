@@ -15,13 +15,14 @@ article {
     color: white;
     font-size: 16px;
     line-height: 1.1;
-    margin: 4vh;
+    margin: 10vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     border-radius: 15px;
-    width: 15vw;
+    width: 20vw;
+    text-align: center;
 }
 
 h3 {
