@@ -182,29 +182,42 @@ form {
     }
 
     main {
-        flex-direction: column; 
-        align-items: center; 
-    }
-    form {
-        flex-direction: column; 
+        flex-direction: column;
         align-items: center;
+    }
+
+    form {
         position: relative;
+        margin-top: 10px; 
+        margin-left: 0;
+        height: 50%;
+        width: 50%;
+        margin-right: auto;
+        margin-top: 50vh;
     }
 
-    article {
-        order: 2; 
+    .article1 {
+        margin: 10px 0; 
+        order: 2;
+        text-align: center;
+        height: 50%;
+        width: 50%;
+
+  
     }
 
-    article {
-        padding: 10px; 
-        text-align: center; 
+    .article2 {
+        margin-top: 10px; /* Adicione uma margem superior para separar o article 2 do article 1 */
+        order: 3;
+        text-align: center;
+        height: 50%;
+        width: 50%;
     }
-
-    h3 {
+    article h3 {
         font-size: 24px; 
     }
 
-    p {
+    article p {
         font-size: 16px; 
     }
 
