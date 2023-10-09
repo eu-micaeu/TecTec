@@ -26,9 +26,7 @@ type Usuario struct {
 	Seguidores int `json:"seguidores"`
 }
 
-
 //Token
-
 type Claims struct {
     ID_Usuario int `json:"id_usuario"`
     jwt.StandardClaims
@@ -89,7 +87,6 @@ func GerarOToken(usuario Usuario) (string, error) {
 
 	return tokenString, nil
 }
-
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
 // Função com finalidade de login do usuário.
@@ -145,9 +142,11 @@ func (u *Usuario) Registrar(db *sql.DB) gin.HandlerFunc {
 // Função com a finalidade de retornar as informações de qualquer usuário utilizando o nickname do mesmo.
 func (u *Usuario) PegarInformacoesDoUsuarioAtravesDoNickname(db *sql.DB) gin.HandlerFunc {
 	return func(c *gin.Context) {
+
 		nickname := c.Param("nickname")
 
 		token, err := c.Request.Cookie("token")
+
 		if err != nil {
 			c.JSON(401, gin.H{"message": "Token inválido"})
 			return
@@ -156,6 +155,7 @@ func (u *Usuario) PegarInformacoesDoUsuarioAtravesDoNickname(db *sql.DB) gin.Han
 		tokenValue := token.Value
 
 		_, err = u.ValidarOToken(db, tokenValue)
+
 		if err != nil {
 			c.JSON(401, gin.H{"message": "Token inválido"})
 			return
@@ -181,6 +181,7 @@ func (u *Usuario) PegarInformacoesDoUsuarioAtravesDoToken(db *sql.DB) gin.Handle
 	return func(c *gin.Context) {
 
 		token, err := c.Request.Cookie("token")
+
 		if err != nil {
 			c.JSON(401, gin.H{"message": "Token inválido"})
 			return
@@ -190,8 +191,8 @@ func (u *Usuario) PegarInformacoesDoUsuarioAtravesDoToken(db *sql.DB) gin.Handle
 
 		var usuario Usuario
 
-		// Valide o token usando a função ValidarOToken
 		idUsuario, err := u.ValidarOToken(db, tokenValue)
+
 		if err != nil {
 			c.JSON(401, gin.H{"message": "Token inválido"})
 			return
@@ -217,19 +218,25 @@ func (u *Usuario) PegarInformacoesDeTodosOsUsuariosMenosAsMinhas(db *sql.DB) gin
 		id_usuario := c.Param("id_usuario")
 
 		rows, err := db.Query("SELECT id_usuario, nickname, telefone, tecnologia, seguidores FROM usuarios WHERE id_usuario != $1", id_usuario)
+
 		if err != nil {
 			c.JSON(500, gin.H{"message": "Erro ao buscar usuários"})
 			return
 		}
 
 		var usuarios []Usuario
+
 		for rows.Next() {
+
 			var usuario Usuario
+
 			err = rows.Scan(&usuario.ID_Usuario, &usuario.Nickname, &usuario.Telefone, &usuario.Tecnologia, &usuario.Seguidores)
+
 			if err != nil {
 				c.JSON(500, gin.H{"message": "Erro ao processar usuários"})
 				return
 			}
+
 			usuarios = append(usuarios, usuario)
 		}
 
@@ -242,6 +249,7 @@ func (u *Usuario) Sair(db *sql.DB) gin.HandlerFunc {
 	return func(c *gin.Context) {
 
 		token, err := c.Request.Cookie("token")
+
 		if err != nil {
 			c.JSON(401, gin.H{"message": "Token inválido"})
 			return
@@ -262,6 +270,7 @@ func (u *Usuario) Sair(db *sql.DB) gin.HandlerFunc {
 		http.SetCookie(c.Writer, cookie)
 
 		_, err = db.Exec("INSERT INTO tokens_invalidos (token_invalido) VALUES ($1)", tokenValue)
+		
 		if err != nil {
 			c.JSON(500, gin.H{"message": "Erro ao inserir token inválido"})
 			return
