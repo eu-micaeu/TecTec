@@ -56,7 +56,7 @@ form {
     /*//////////////////////////////////////*/
     margin-top: 10vh;
     width: 15vw;
-    height: 55vh;
+    height: 67vh;
 }
 
 /*Configurando os o inserir-texto */
@@ -110,16 +110,19 @@ form {
 }
 
 #logo {
-    width: 90px;
-    height: 90px;
+    width: 30%;
+    height: 30%;
     border-radius: 15px;
     animation: girar 3s infinite;
+    padding-bottom: 5px;
 }
 
 #logoNome {
     border-radius: 10px;
-    width: 80px;
-    height: 80px;
+    width: 25%;
+    height: 25%;
+    padding-bottom: 8px;
+
 }
 
 
@@ -132,7 +135,8 @@ form {
 
     #btEntrar,
     #btCadastrar {
-        width: 60%;
+        width: 100%; /* 100% da largura do formulário */
+        max-width: 200px;
     }
 
     .inserirTexto {
