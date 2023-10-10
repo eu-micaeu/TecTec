@@ -5,31 +5,31 @@ document.body.insertAdjacentHTML('afterbegin', `
 
 <header>
 
-    <img src="../static/images/casinha.png" alt="Home" class="user" id="casa" onclick="window.location.href='/home'" title="Home" style="cursor: pointer;">
+    <img src="../static/images/casinha.png" alt="Home" id="casa" onclick="window.location.href='/home'" title="Home" width="30" height="30">
 
     <br>
 
-    <img src="../static/images/la_user.png" alt="Perfil" class="user" id="perfil" onclick="window.location.href='/perfil'" title="Perfil" style="cursor: pointer;">
+    <img src="../static/images/la_user.png" alt="Perfil" id="perfil" onclick="window.location.href='/perfil'" title="Perfil" width="30" height="30">
 
     <br>
 
-    <img src="../static/images/explorar.png" alt="Pesquisar usuário" class="user" id="pesquisar" onclick="window.location.href='/pesquisar'" title="Pesquisar usuário" style="cursor: pointer;">
+    <img src="../static/images/explorar.png" alt="Pesquisar usuário" id="pesquisar" onclick="window.location.href='/pesquisar'" title="Pesquisar usuário" width="30" height="30">
 
     <br>
 
-    <img src="../static/images/logo.ico" alt="Logo" class="img_logo" id="logo">
+    <img src="../static/images/logo.ico" alt="Logo" id="logo" width="50" height="50">
 
     <br>
 
-    <img src="../static/images/pesquisa.png" alt="Tecnologias" class="user" id="busca" title="Tecnologias" style="cursor: pointer;">
+    <img src="../static/images/pesquisa.png" alt="Tecnologias" id="busca" title="Tecnologias" width="30" height="30">
 
     <br>
 
-    <img src="../static/images/addpost.png" alt="Postar" class="user" id="addpost" onclick="window.location.href='/post'" title="Postar" style="cursor: pointer;">
+    <img src="../static/images/addpost.png" alt="Postar" id="addpost" onclick="window.location.href='/post'" title="Postar" width="30" height="30">
 
     <br>
 
-    <img src="../static/images/out.png" alt="Sair" class="user" id="sair" title="Sair" style="cursor: pointer;">
+    <img src="../static/images/out.png" alt="Sair" id="sair" title="Sair" width="30" height="30">
 
 
 </header></div>

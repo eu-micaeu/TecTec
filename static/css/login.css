@@ -23,7 +23,7 @@ h3 {
 form {
 
     padding: 25px;
-    border: 6px solid rgb(255, 255, 255);
+    border: 6px solid #00891E;
     border-radius: 15px;
     background-color: transparent;
     width: 300px;
@@ -34,12 +34,6 @@ form {
     display: flex;
     align-items: center;
     flex-direction: column;
-
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
 
 }
 
@@ -52,9 +46,10 @@ form {
     border: 3px solid rgb(255, 255, 255);
     border-radius: 15px;
     padding: 10px;
-    font-size: 16px;
+    font-size: 18px;
     font-family: monospace;
     text-align: center;
+    font-weight: bold;
 }
 
 /*///////////////////////////////*/

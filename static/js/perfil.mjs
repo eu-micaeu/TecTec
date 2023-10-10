@@ -38,13 +38,13 @@ function update(nickname) {
             let nickname = data.usuario.nickname;
             let nomeElement = document.getElementById('nome');
             nomeElement.textContent = "@" + nickname;
-            nomeElement.style.color = "white";
+            nomeElement.style.color = "#00891E";
             nomeElement.style.border = "2px solid white";
             nomeElement.style.borderRadius = "10px";
-            nomeElement.style.padding = "5px";
+            nomeElement.style.padding = "10px";
             nomeElement.style.backgroundColor = "black";
-            nomeElement.style.fontSize = "14px";
-            nomeElement.style.width = "12vw";
+            nomeElement.style.fontSize = "20px";
+            nomeElement.style.width = "15vw";
             nomeElement.style.height = "4vh";
             nomeElement.style.textAlign = "center";            
 
@@ -52,26 +52,26 @@ function update(nickname) {
             
             let tecnologiaElement = document.getElementById('tecnologia');
             tecnologiaElement.textContent = "Tecnologia: " + tecnologia;
-            tecnologiaElement.style.color = "white";
+            tecnologiaElement.style.color = "#00891E";
             tecnologiaElement.style.border = "2px solid white";
             tecnologiaElement.style.borderRadius = "10px";
-            tecnologiaElement.style.padding = "5px";
+            tecnologiaElement.style.padding = "10px";
             tecnologiaElement.style.backgroundColor = "black";
-            tecnologiaElement.style.fontSize = "14px";
-            tecnologiaElement.style.width = "12vw";
+            tecnologiaElement.style.fontSize = "20px";
+            tecnologiaElement.style.width = "15vw";
             tecnologiaElement.style.height = "4vh";
             tecnologiaElement.style.textAlign = "center";
 
             let seguidores = data.usuario.seguidores;
             let seguidoresElement = document.getElementById('seguidores');
             seguidoresElement.textContent = "Seguidores: " + seguidores;
-            seguidoresElement.style.color = "white";
+            seguidoresElement.style.color = "#00891E";
             seguidoresElement.style.border = "2px solid white";
             seguidoresElement.style.borderRadius = "10px";
-            seguidoresElement.style.padding = "5px";
+            seguidoresElement.style.padding = "10px";
             seguidoresElement.style.backgroundColor = "black";
-            seguidoresElement.style.fontSize = "14px";
-            seguidoresElement.style.width = "12vw";
+            seguidoresElement.style.fontSize = "20px";
+            seguidoresElement.style.width = "15vw";
             seguidoresElement.style.height = "4vh";
             seguidoresElement.style.textAlign = "center";
 

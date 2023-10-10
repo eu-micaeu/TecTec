@@ -15,7 +15,7 @@ main{
     font-family: monospace;
     font-size: 20px;
     padding: 15px;
-    margin-top: 10vh;
+    margin-top: 150px;
     color: white;
 }
 
@@ -28,6 +28,7 @@ button{
     margin: 10px;
     font-family: monospace;
     font-size: 15px;
+    width: 300px;
 }
 
 button:hover{
@@ -38,6 +39,11 @@ button:hover{
 }
 
 #results{
-    height: 20vh;
+    overflow-y: auto;
+    height: 600px;
+    width: 400px;
     margin: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

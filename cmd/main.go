@@ -11,8 +11,6 @@ import (
 
 func main() {
 
-	
-
 	r := gin.Default()
 	r.Use(middlewares.CorsMiddleware())
 

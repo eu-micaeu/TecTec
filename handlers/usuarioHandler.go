@@ -217,7 +217,7 @@ func (u *Usuario) PegarInformacoesDeTodosOsUsuariosMenosAsMinhas(db *sql.DB) gin
 
 		id_usuario := c.Param("id_usuario")
 
-		rows, err := db.Query("SELECT id_usuario, nickname, telefone, tecnologia, seguidores FROM usuarios WHERE id_usuario != $1", id_usuario)
+		rows, err := db.Query("SELECT nickname FROM usuarios WHERE id_usuario != $1", id_usuario)
 
 		if err != nil {
 			c.JSON(500, gin.H{"message": "Erro ao buscar usuários"})
@@ -230,7 +230,7 @@ func (u *Usuario) PegarInformacoesDeTodosOsUsuariosMenosAsMinhas(db *sql.DB) gin
 
 			var usuario Usuario
 
-			err = rows.Scan(&usuario.ID_Usuario, &usuario.Nickname, &usuario.Telefone, &usuario.Tecnologia, &usuario.Seguidores)
+			err = rows.Scan(&usuario.Nickname)
 
 			if err != nil {
 				c.JSON(500, gin.H{"message": "Erro ao processar usuários"})

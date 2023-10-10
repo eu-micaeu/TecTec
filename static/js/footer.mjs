@@ -5,7 +5,19 @@ document.body.insertAdjacentHTML('afterbegin', `
 
         <div class="centraliza">
 
-            <p>Copyright @2023</p>
+            <p>TecTec@2023</p>
+
+        </div>
+
+        <div class="centraliza">
+
+            <p>Objetivo</p>
+
+            <p>Desenvolvedores</p>
+
+            <p>Sobre</p>
+
+            <p>GitHub</p>
 
         </div>
 
