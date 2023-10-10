@@ -6,19 +6,10 @@ main {
     justify-content: center;
 }
 
-article {
-    color: white;
-    font-size: 16px;
-    line-height: 1.1;
-    text-align: center;
-    width: 400px;
-    height: 600px;
-    margin: 130px 80px;
-}
-
 h3 {
     color: #00891E;
-    font-size: 22px;
+    font-size: 18px;
+    margin-top: 45px;
 }
 
 .primeiro {
@@ -36,7 +27,7 @@ form {
     border-radius: 15px;
     background-color: transparent;
     width: 300px;
-    height: 600px;
+    height: 400px;
 
     /* Centralizar o conteúdo do form */
 
@@ -44,11 +35,17 @@ form {
     align-items: center;
     flex-direction: column;
 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+
 }
 
 /*Configurando os o inserir-texto */
 .inserirTexto {
-    width: 200px;
+    width: 130px;
     height: 20px;
     background-color: transparent;
     color: white;
@@ -57,6 +54,7 @@ form {
     padding: 10px;
     font-size: 16px;
     font-family: monospace;
+    text-align: center;
 }
 
 /*///////////////////////////////*/
@@ -67,17 +65,18 @@ form {
 
     display: flex;
     justify-content: center;
+    align-items: center;
     background-color: #00891E;
     font-size: 20px;
     color: white;
-    padding: 20px;
     cursor: pointer;
     border-radius: 15px;
     font-family: monospace;
     border: 2px solid white;
     font-weight: bold;
-    margin: 40px 0 0 0;
+    margin: 20px 0 0 0;
     width: 150px;
+    height: 70px;
 
 }
 
@@ -94,8 +93,8 @@ form {
 .rotSenha {
     color: #ffffff;
     font-weight: bold;
-    font-size: 20px;
-    margin: 20px;
+    font-size: 18px;
+    margin: 10px;
 }
 
 #logo {
@@ -105,24 +104,20 @@ form {
     margin: 5px;
 }
 
-#logoNome {
-    border-radius: 10px;
-    padding-bottom: 8px;
-}
-
 /*/////////////////////////////////////*/
 
 /* Configurando para tela menor de 768px */
 @media screen and (max-device-width: 768px) {
 
-    #logo{
+    #logo {
         width: 90px;
         height: 90px;
     }
 
     #btEntrar,
     #btCadastrar {
-        width: 60%; /* 100% da largura do formulário */
+        width: 60%;
+        /* 100% da largura do formulário */
         margin: 20px 0;
     }
 
