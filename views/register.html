@@ -17,57 +17,61 @@
 
 <body>
 
-    <form>
+    <main>
 
-        <img src="../static/images/logo.ico" alt="" id="logo"> <!-- Logo principal -->
+        <form>
 
-        <label for="usuario" class="rotUsuario">Nickname:</label> <!-- Label do nickname -->
+            <img src="../static/images/logo.png" alt="" id="logo"> <!-- Logo principal -->
+    
+            <label for="usuario" class="rotUsuario">Nickname:</label> <!-- Label do nickname -->
+    
+            <input type="text" name="nickname" id="nickname" class="inputUser"> <!-- Inserir o nickname -->
+    
+            <label for="senha" class="rotSenha">Senha:</label> <!-- Label da senha -->
+    
+            <input type="password" name="senha" id="senha" class="inputUser"> <!-- Inserir a senha -->
+    
+            <label for="confSenha" class="rotConfSenha">Confirmação da senha:</label> <!-- Label de confirmar a senha -->
+    
+            <input type="password" name="confSenha" id="confSenha" class="inputUser"> <!-- Inserir a senha novamente -->
+    
+            <label for="telefone" class="rotTelefone">Telefone:</label> <!-- Label do telefone -->
+    
+            <input type="phone" name="telefone" id="telefone" class="inputUser"> <!-- Inserção do telefone -->
+    
+            <label for="tecnologia" class="rotTelefone">Tecnologia que mais admira:</label> <!-- Label da tecnologia -->
+    
+            <select id="tecnologia" name="tecnologia" class="inputUser"> <!-- Seleção da tecnologia a partir de uma lista-->
+    
+                <option value="  " selected> </option>
+    
+                <option value="HTML">HTML</option>
+    
+                <option value="CSS">CSS</option>
+    
+                <option value="Javascript">C</option>
+    
+                <option value="Golang">Golang</option>
+    
+                <option value="Python">PostgreSQL</option>
+    
+                <option value="Hadoop">Hadoop</option>
+    
+                <option value="Java">Java</option>
+    
+                <option value="Typescript">Typescript</option>
+    
+                <option value="Typescript">Docker</option>
+    
+            </select>
+    
+            <button type="button" id="cadastrar">Cadastrar</button> <!-- Botão de cadastro -->
+    
+            <button type="button" onclick="window.location.href='/login'">Voltar</button> <!-- Botão para voltar de página -->
+    
+        </form>
 
-        <input type="text" name="nickname" id="nickname" class="inputUser"> <!-- Inserir o nickname -->
-
-        <label for="senha" class="rotSenha">Senha:</label> <!-- Label da senha -->
-
-        <input type="password" name="senha" id="senha" class="inputUser"> <!-- Inserir a senha -->
-
-        <label for="confSenha" class="rotConfSenha">Confirmação da senha:</label> <!-- Label de confirmar a senha -->
-
-        <input type="password" name="confSenha" id="confSenha" class="inputUser"> <!-- Inserir a senha novamente -->
-
-        <label for="telefone" class="rotTelefone">Telefone:</label> <!-- Label do telefone -->
-
-        <input type="phone" name="telefone" id="telefone" class="inputUser"> <!-- Inserção do telefone -->
-
-        <label for="tecnologia" class="rotTelefone">Tecnologia que mais admira:</label> <!-- Label da tecnologia -->
-
-        <select id="tecnologia" name="tecnologia" class="inputUser"> <!-- Seleção da tecnologia a partir de uma lista-->
-
-            <option value="  " selected> </option>
-
-            <option value="HTML">HTML</option>
-
-            <option value="CSS">CSS</option>
-
-            <option value="Javascript">C</option>
-
-            <option value="Golang">Golang</option>
-
-            <option value="Python">PostgreSQL</option>
-
-            <option value="Hadoop">Hadoop</option>
-
-            <option value="Java">Java</option>
-
-            <option value="Typescript">Typescript</option>
-
-            <option value="Typescript">Docker</option>
-
-        </select>
-
-        <button type="button" id="cadastrar">Cadastrar</button> <!-- Botão de cadastro -->
-
-        <button type="button" onclick="window.location.href='/'">Voltar</button> <!-- Botão para voltar de página -->
-
-    </form>
+    </main>
 
     <script type="module" src="../static/js/footer.mjs"></script> <!-- Script do footer -->
 

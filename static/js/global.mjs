@@ -76,7 +76,7 @@ export function sidebarModule() {
             } else {
                 mySidebar.style.right = "0"; // Mostrar a barra lateral na tela
                 mySidebar.style.marginTop = "10vh";
-                mySidebar.style.height = "100%";
+                mySidebar.style.height = "80%";
                 mySidebar.style.width = "10%";
             }
     

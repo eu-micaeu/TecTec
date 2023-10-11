@@ -2,6 +2,7 @@
 
 body {
     background-color: #000;
+    background-image: url(../images/step_background.png);
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
@@ -16,8 +17,8 @@ body {
 
 header {
     background-color: #000;
-    width: 600px;
-    padding: 5px 25px;
+    width: 350px;
+    padding: 0px 25px;
     border-bottom: 2px solid #ffffff;
     border-left: 2px solid #ffffff;
     border-right: 2px solid #ffffff;
@@ -30,11 +31,18 @@ header {
 
 header img {
     cursor: pointer;
-    margin: 10px 20px;
+    margin: 20px 10px 0px 10px;
 }
 
-header #logo {
-    margin: 10px 20px;
+header #logo{
+    border-radius: 15px;
+    animation: girar 3s infinite;
+    padding-bottom: 5px;
+    margin: 10px 10px;
+}
+
+header #busca, header #pesquisar{
+    margin-top: 25px;
 }
 
 /*////////////////////////*/
@@ -53,18 +61,18 @@ header #logo {
 #carrosel {
     display: flex;
     flex-direction: column;
-    margin-top: 150px;
-    margin-bottom: 20px;
+    margin-top: 12vh;
+    margin-bottom: 1vh;
 }
 
 .cartao {
     border: 2px solid green;
     border-radius: 15px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     color: #00891E;
     padding: 25px;
     flex-direction: column;
-    width: 600px;
+    width: 60vw;
     background-color: #000;
     font-size: 18px;
     font-weight: bold;
@@ -80,16 +88,15 @@ textarea {
     word-break: break-all;
 }
 
-/* Barra de Tecnologias  */
 #mySidebar {
     font-family: monospace;
-    width: 0;
     position: fixed;
     top: 0;
-    right: -250px;
+    right: -20vw;
     background-color: #000000;
     overflow: hidden;
     transition: right 0.5s;
+    width: 20vw;
 }
 
 #mySidebar a {
@@ -100,21 +107,7 @@ textarea {
     display: block;
 }
 
-img[src="/static/images/golang.jpg"] {
-    border-radius: 10px;
-}
-
-
-#mySidebar .centraliza,
-#mySidebar .golang,
-#mySidebar .java,
-#mySidebar .c,
-#mySidebar .postgresql,
-#mySidebar .docker,
-#mySidebar .typescript,
-#mySidebar .hadoop,
-#mySidebar .html5,
-#mySidebar .css3 {
+#mySidebar .centraliza{
     width: 100%;
     align-items: center;
 }

@@ -1,27 +1,41 @@
 @import url('./global.css');
 
+#logo {
+    border-radius: 15px;
+    animation: girar 3s infinite;
+    padding-bottom: 5px;
+    margin: 5px;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .inputUser {
-    background-color: black;
-    color: white;
+    background-color: transparent;
+    color: #00891E;
     border: 3px solid rgb(255, 255, 255);
-    border-radius: 10px;
+    border-radius: 15px;
     padding: 10px 4px;
     font-size: 20px;
     margin: 10px;
-    width: 20vw;
+    width: 15vw;
+    text-align: center;
+    font-family: monospace;
 }
 
 form{
     padding: 25px;
-    border: 3px solid rgb(255, 255, 255);
+    border: 6px solid rgb(255, 255, 255);
     width: 20vw;
-    margin: 0 auto 70px auto;
     border-radius: 15px;
-    background-color: black;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin-top: 30px;
 }
 
 button {
@@ -46,18 +60,13 @@ button:hover {
 
 .rotUsuario, .rotSenha, .rotConfSenha, .rotTelefone{
     color: #ffffff;
-    margin: 10px 10px;
+    font-weight: bold;
+    font-size: 18px;
 }
 
 .centraliza{
     display: flex;
     justify-content: center;
-}
-
-#logo{
-    width: 70px;
-    height: 70px;
-    margin-bottom: 3vh;
 }
 
 @media screen and (max-device-width: 768px){

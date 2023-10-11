@@ -23,7 +23,7 @@ h3 {
 form {
 
     padding: 25px;
-    border: 6px solid #00891E;
+    border: 6px solid #ffffff;
     border-radius: 15px;
     background-color: transparent;
     width: 250px;
@@ -39,12 +39,11 @@ form {
 
 }
 
-/*Configurando os o inserir-texto */
 .inserirTexto {
     width: 130px;
     height: 20px;
     background-color: transparent;
-    color: white;
+    color: #00891E;
     border: 3px solid rgb(255, 255, 255);
     border-radius: 15px;
     padding: 10px;
@@ -53,8 +52,6 @@ form {
     text-align: center;
     font-weight: bold;
 }
-
-/*///////////////////////////////*/
 
 /*Configurando os botoes */
 #btEntrar,
@@ -93,13 +90,6 @@ form {
     font-weight: bold;
     font-size: 18px;
     margin: 10px;
-}
-
-#logo {
-    border-radius: 15px;
-    animation: girar 3s infinite;
-    padding-bottom: 5px;
-    margin: 5px;
 }
 
 /*/////////////////////////////////////*/

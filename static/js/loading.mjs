@@ -3,7 +3,7 @@ document.body.insertAdjacentHTML('afterbegin', `
 
 <div id="loading">
 
-    <img src="/static/images/logo.ico" alt="Carregando..." width="50px" height="50px">   <!-- Simbolo de carregamento da página -->
+    <img src="/static/images/logo.png" alt="Carregando..." width="50px" height="50px">   <!-- Simbolo de carregamento da página -->
 
 </div>
 

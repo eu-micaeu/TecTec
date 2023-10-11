@@ -27,8 +27,6 @@ varIdUsuarioPerfil().then(() => {
     
 });
 
-
-
 function update(nickname) {
     
     fetch('/perfil/' + nickname)
@@ -41,11 +39,9 @@ function update(nickname) {
             nomeElement.style.color = "#00891E";
             nomeElement.style.border = "2px solid white";
             nomeElement.style.borderRadius = "10px";
-            nomeElement.style.padding = "10px";
+            nomeElement.style.padding = "20px";
             nomeElement.style.backgroundColor = "black";
             nomeElement.style.fontSize = "20px";
-            nomeElement.style.width = "15vw";
-            nomeElement.style.height = "4vh";
             nomeElement.style.textAlign = "center";            
 
             let tecnologia = data.usuario.tecnologia;
@@ -55,44 +51,35 @@ function update(nickname) {
             tecnologiaElement.style.color = "#00891E";
             tecnologiaElement.style.border = "2px solid white";
             tecnologiaElement.style.borderRadius = "10px";
-            tecnologiaElement.style.padding = "10px";
+            tecnologiaElement.style.padding = "20px";
             tecnologiaElement.style.backgroundColor = "black";
             tecnologiaElement.style.fontSize = "20px";
-            tecnologiaElement.style.width = "15vw";
-            tecnologiaElement.style.height = "4vh";
             tecnologiaElement.style.textAlign = "center";
 
             let seguidores = data.usuario.seguidores;
+
             let seguidoresElement = document.getElementById('seguidores');
             seguidoresElement.textContent = "Seguidores: " + seguidores;
             seguidoresElement.style.color = "#00891E";
             seguidoresElement.style.border = "2px solid white";
             seguidoresElement.style.borderRadius = "10px";
-            seguidoresElement.style.padding = "10px";
+            seguidoresElement.style.padding = "20px";
             seguidoresElement.style.backgroundColor = "black";
             seguidoresElement.style.fontSize = "20px";
-            seguidoresElement.style.width = "15vw";
-            seguidoresElement.style.height = "4vh";
             seguidoresElement.style.textAlign = "center";
             
             let seguindo = data.usuario.seguindo;
+
             let seguindoElement = document.getElementById('seguindo');
             seguindoElement.textContent = "Seguindo: " + seguindo;
             seguindoElement.style.color = "#00891E";
             seguindoElement.style.border = "2px solid white";
             seguindoElement.style.borderRadius = "10px";
-            seguindoElement.style.padding = "10px";
+            seguindoElement.style.padding = "20px";
             seguindoElement.style.backgroundColor = "black";
             seguindoElement.style.fontSize = "20px";
-            seguindoElement.style.width = "";
             seguindoElement.style.textAlign = "center";
 
-            if (window.innerWidth <= 768) {
-                nomeElement.style.width = "30vw";
-                tecnologiaElement.style.width = "30vw";
-                seguidoresElement.style.width = "30vw";
-                seguindoElement.style.width = "30vw";
-            }
         });
 }
 

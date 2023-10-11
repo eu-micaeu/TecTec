@@ -13,15 +13,15 @@ document.body.insertAdjacentHTML('afterbegin', `
 
     <br>
 
-    <img src="../static/images/explorar.png" alt="Pesquisar usuário" id="pesquisar" onclick="window.location.href='/pesquisar'" title="Pesquisar usuário" width="30" height="30">
+    <img src="../static/images/explorar.png" alt="Pesquisar usuário" id="pesquisar" onclick="window.location.href='/pesquisar'" title="Pesquisar usuário" width="20" height="20">
 
     <br>
 
-    <img src="../static/images/logo.ico" alt="Logo" id="logo" width="50" height="50">
+    <img src="../static/images/logo.png" alt="Logo" id="logo" width="50" height="50">
 
     <br>
 
-    <img src="../static/images/pesquisa.png" alt="Tecnologias" id="busca" title="Tecnologias" width="30" height="30">
+    <img src="../static/images/pesquisa.png" alt="Tecnologias" id="busca" title="Tecnologias" width="20" height="20">
 
     <br>
 
