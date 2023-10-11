@@ -231,10 +231,23 @@ varIdUsuario().then(() => {
                 seguidoresElement.style.width = "";
                 seguidoresElement.style.textAlign = "center";
 
+                let seguindo = data.usuario.seguindo;
+                let seguindoElement = document.getElementById('seguindo');
+                seguindoElement.textContent = "Seguindo: " + seguindo;
+                seguindoElement.style.color = "#00891E";
+                seguindoElement.style.border = "2px solid white";
+                seguindoElement.style.borderRadius = "10px";
+                seguindoElement.style.padding = "10px";
+                seguindoElement.style.backgroundColor = "black";
+                seguindoElement.style.fontSize = "20px";
+                seguindoElement.style.width = "";
+                seguindoElement.style.textAlign = "center";
+
                 if (window.innerWidth <= 768) {
                     nomeElement.style.width = "30vw";
                     tecnologiaElement.style.width = "30vw";
                     seguidoresElement.style.width = "30vw";
+                    seguindoElement.style.width = "30vw";
                 }
             });
     }

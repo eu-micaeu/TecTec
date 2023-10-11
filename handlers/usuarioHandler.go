@@ -19,6 +19,8 @@ type Usuario struct {
 	Telefone   string `json:"telefone"`
 	Tecnologia string `json:"tecnologia"`
 	Seguidores int    `json:"seguidores"`
+	Seguindo int      `json:"seguindo"`
+
 }
 
 // Token
@@ -163,9 +165,9 @@ func (u *Usuario) PegarInformacoesDoUsuarioAtravesDoNickname(db *sql.DB) gin.Han
 
 		var usuario Usuario
 
-		row := db.QueryRow("SELECT id_usuario, nickname, senha, telefone, tecnologia, seguidores FROM usuarios WHERE nickname = $1", nickname)
+		row := db.QueryRow("SELECT id_usuario, nickname, senha, telefone, tecnologia, seguidores,seguindo FROM usuarios WHERE nickname = $1", nickname)
 
-		err = row.Scan(&usuario.ID_Usuario, &usuario.Nickname, &usuario.Senha, &usuario.Telefone, &usuario.Tecnologia, &usuario.Seguidores)
+		err = row.Scan(&usuario.ID_Usuario, &usuario.Nickname, &usuario.Senha, &usuario.Telefone, &usuario.Tecnologia, &usuario.Seguidores, &usuario.Seguindo)
 
 		if err != nil {
 			c.JSON(404, gin.H{"message": "Usuário inexistente"})
@@ -198,9 +200,10 @@ func (u *Usuario) PegarInformacoesDoUsuarioAtravesDoToken(db *sql.DB) gin.Handle
 			return
 		}
 
-		row := db.QueryRow("SELECT id_usuario, nickname, senha, telefone, tecnologia, seguidores FROM usuarios WHERE id_usuario = $1", idUsuario)
+		row := db.QueryRow("SELECT id_usuario, nickname, senha, telefone, tecnologia, seguidores,seguindo FROM usuarios WHERE id_usuario = $1", idUsuario)
 
-		err = row.Scan(&usuario.ID_Usuario, &usuario.Nickname, &usuario.Senha, &usuario.Telefone, &usuario.Tecnologia, &usuario.Seguidores)
+		err = row.Scan(&usuario.ID_Usuario, &usuario.Nickname, &usuario.Senha, &usuario.Telefone, &usuario.Tecnologia, &usuario.Seguidores,
+		&usuario.Seguindo)
 
 		if err != nil {
 			c.JSON(404, gin.H{"message": "Usuário inexistente"})
