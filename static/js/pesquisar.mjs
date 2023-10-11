@@ -14,7 +14,6 @@ async function varIdUsuario() {
 
         idUsuario = data.usuario.id_usuario;
 
-        console.log(idUsuario)
         searchNicknames();
     } catch (error) {
         console.error(error);

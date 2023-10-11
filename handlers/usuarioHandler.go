@@ -13,18 +13,18 @@ import (
 
 // Estrutura do usuário.
 type Usuario struct {
-	ID_Usuario int `json:"id_usuario"`
-	Nickname string `json:"nickname"`
-	Senha string `json:"senha"`
-	Telefone string `json:"telefone"`
+	ID_Usuario int    `json:"id_usuario"`
+	Nickname   string `json:"nickname"`
+	Senha      string `json:"senha"`
+	Telefone   string `json:"telefone"`
 	Tecnologia string `json:"tecnologia"`
-	Seguidores int `json:"seguidores"`
+	Seguidores int    `json:"seguidores"`
 }
 
-//Token
+// Token
 type Claims struct {
-    ID_Usuario int `json:"id_usuario"`
-    jwt.StandardClaims
+	ID_Usuario int `json:"id_usuario"`
+	jwt.StandardClaims
 }
 
 var jwtKey = []byte("my_secret_key")
@@ -36,14 +36,14 @@ func tokenEstaNaTabelaDeTokensInvalidos(db *sql.DB, tokenString string) bool {
 	err := db.QueryRow(query, tokenString).Scan(&count)
 	if err != nil {
 		log.Println("Erro ao consultar a tabela de tokens inválidos:", err)
-		return true 
+		return true
 	}
 	return count > 0
 }
 
 // Função com finalidade de validação do token para as funções do usuário.
 func (u *Usuario) ValidarOToken(db *sql.DB, tokenString string) (int, error) {
-	
+
 	if tokenEstaNaTabelaDeTokensInvalidos(db, tokenString) {
 		return 0, nil
 	}
@@ -60,7 +60,6 @@ func (u *Usuario) ValidarOToken(db *sql.DB, tokenString string) (int, error) {
 	return claims.ID_Usuario, nil
 }
 
-
 // Função com finalidade de geração do token para as funções do usuário.
 func GerarOToken(usuario Usuario) (string, error) {
 
@@ -75,13 +74,14 @@ func GerarOToken(usuario Usuario) (string, error) {
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
 
 	tokenString, err := token.SignedString(jwtKey)
-	
+
 	if err != nil {
 		return "Erro ao gerar token", err
 	}
 
 	return tokenString, nil
 }
+
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
 // Função com finalidade de login do usuário.
@@ -113,7 +113,7 @@ func (u *Usuario) Entrar(db *sql.DB) gin.HandlerFunc {
 			Secure:   true,
 			SameSite: http.SameSiteStrictMode,
 		})
-		
+
 		c.JSON(200, gin.H{"message": "Login efetuado com sucesso!", "token": token, "usuario": usuario})
 	}
 }
@@ -213,6 +213,7 @@ func (u *Usuario) PegarInformacoesDoUsuarioAtravesDoToken(db *sql.DB) gin.Handle
 
 // Função com a finalidade de retornar os nicknames de todos os usuários.
 func (u *Usuario) PegarInformacoesDeTodosOsUsuariosMenosAsMinhas(db *sql.DB) gin.HandlerFunc {
+
 	return func(c *gin.Context) {
 
 		id_usuario := c.Param("id_usuario")
@@ -224,23 +225,27 @@ func (u *Usuario) PegarInformacoesDeTodosOsUsuariosMenosAsMinhas(db *sql.DB) gin
 			return
 		}
 
-		var usuarios []Usuario
+		type Nickname struct {
+			Nickname   string `json:"nickname"`
+		}
+
+		var nicknames []Nickname
 
 		for rows.Next() {
 
-			var usuario Usuario
+			var nickname Nickname
 
-			err = rows.Scan(&usuario.Nickname)
+			err = rows.Scan(&nickname.Nickname)
 
 			if err != nil {
 				c.JSON(500, gin.H{"message": "Erro ao processar usuários"})
 				return
 			}
 
-			usuarios = append(usuarios, usuario)
+			nicknames = append(nicknames, nickname)
 		}
 
-		c.JSON(200, gin.H{"usuarios": usuarios})
+		c.JSON(200, gin.H{"usuarios": nicknames})
 	}
 }
 
@@ -260,23 +265,23 @@ func (u *Usuario) Sair(db *sql.DB) gin.HandlerFunc {
 		cookie := &http.Cookie{
 			Name:     "token",
 			Value:    "",
-			Expires:  time.Unix(0, 0), 
+			Expires:  time.Unix(0, 0),
 			HttpOnly: true,
 			Secure:   true,
 			SameSite: http.SameSiteStrictMode,
-			Path:     "/", 
+			Path:     "/",
 		}
-		
+
 		http.SetCookie(c.Writer, cookie)
 
 		_, err = db.Exec("INSERT INTO tokens_invalidos (token_invalido) VALUES ($1)", tokenValue)
-		
+
 		if err != nil {
 			c.JSON(500, gin.H{"message": "Erro ao inserir token inválido"})
 			return
 		}
 
-		c.JSON(200, gin.H{"message":"Saiu com sucesso!"})
+		c.JSON(200, gin.H{"message": "Saiu com sucesso!"})
 
 	}
 }
