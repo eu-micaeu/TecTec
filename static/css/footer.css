@@ -27,3 +27,13 @@ footer p {
     margin: 10px;
 
 }
+
+@media screen and (max-device-width: 768px) {
+
+    footer {
+    
+        position: absolute;
+
+    }
+    
+}

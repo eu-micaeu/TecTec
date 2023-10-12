@@ -77,3 +77,15 @@ main{
     color: #00891E;
 
 }
+
+@media screen and (max-device-width: 768px) {
+
+    #inserirPostagem{
+        margin-top: 20vh;
+
+        height: 30vh;
+
+        width: 80vw;
+    }
+    
+}

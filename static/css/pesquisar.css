@@ -34,7 +34,7 @@ main{
 
     padding: 15px; /*Definindo espaço de preenchimento ao redor do conteúdo*/
 
-    margin-top: 150px; /*Definindo margem superior*/
+    margin-top: 100px; /*Definindo margem superior*/
 
     color: white; /*Definindo cor*/
 
@@ -81,11 +81,11 @@ button:hover{
 
     overflow-y: auto;
 
-    height: 600px; /*Definindo altura*/
+    height: 500px; /*Definindo altura*/
 
     width: 400px; /*Definindo comprimento*/
 
-    margin: 40px; /*Definindo margens*/
+    margin: 20px; /*Definindo margens*/
 
     display: flex; /*Dando flexibilidade para o conteúdo*/
 
