@@ -1,14 +1,19 @@
 @import url('./global.css');
 
 body {
-  justify-content: center;
-  display: flex;
-  align-items: center;
-  height: 95vh;
+
+  justify-content: center; /*Centralizar items horizontalmente no contêiner*/
+
+  display: flex; /*Dando flexibilidade para o conteúdo*/
+  
+  align-items: center; /*Centralizar items verticalmente no contêiner*/
+  
+  height: 100vh; /*Definindo altura*/
+  
 }
 
 #logo {
-  animation: queda-e-giro 0.8s linear;
-  height: 100px;
-  width: 100px;
+  
+  animation: queda-e-giro 0.8s linear; /*Especificações da animação, ação, tempo , repetição*/
+  
 }

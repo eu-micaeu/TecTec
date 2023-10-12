@@ -1,49 +1,96 @@
+/*Importando css global, header, footer e bar*/
 @import url('./global.css');
+@import url('./header.css');
+@import url('./footer.css');
+@import url('./bar.css');
 
+/*Definindo configurações para o conteúdo principal da página*/
 main{
+    
     display: flex;
+    
     align-items: center;
+
     flex-direction: column;
+
 }
 
+/*Definindo configurações para botão a barra de pesquisa*/
 #searchInput{
+
     border-radius: 15px;
+
     border: 2px solid #00891E;
+
     background-color: transparent;
+
     width: 20rem;
+
     height: 2rem;
+
     font-family: monospace;
+
     font-size: 20px;
+
     padding: 15px;
+
     margin-top: 150px;
+
     color: white;
+
 }
 
+/*Definindo configurações para botão*/
 button{
+
     border-radius: 15px;
+
     color: white;
+
     padding: 20px;
+
     border: 2px solid #00891E;
+
     background-color: black;
+
     margin: 10px;
-    font-family: monospace;
-    font-size: 15px;
-    width: 300px;
+
+    font-family: monospace; /*Definindo fonte do texto*/
+
+    font-size: 15px; /*Definindo tamnho da fonte*/
+
+    width: 300px; /*Definindo comprimento*/
+
 }
 
+/*Definindo configurações para botão ao passar o mouse*/
 button:hover{
+
     color: rgb(0, 0, 0);
+
     padding: 20px;
+
     border: 2px solid #00891E;
+
     background-color: rgb(255, 255, 255);
+
 }
 
+/*Definindo configurações para a div dos resultados da pesquisa*/
 #results{
+
     overflow-y: auto;
+
     height: 600px;
+
     width: 400px;
+
     margin: 40px;
+
     display: flex;
+
     flex-direction: column;
+
     align-items: center;
+
 }

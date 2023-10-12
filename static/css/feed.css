@@ -1,0 +1,31 @@
+/* Criando um id para poder gerar de forma vertical, as postagens de determinada página. */
+#feed {
+
+    display: flex; /* Dando flexibilidade para div. */
+
+    flex-direction: column; /* Deixando o feed como forma de coluna */
+
+    margin: 15vh 0vw; /* Deixando o feed com margin para uma melhor visualização. */
+    
+}
+
+/* Criando uma classe para poder gerar a postagem. */
+.postagem {
+
+    border: 4px solid green; /* Definindo a espressura, tipo e cor da borda */
+
+    border-radius: 40px; /* Definindo o grau de borda que será aplicada na postagem */
+
+    margin-bottom: 20px; /* Deixando a postagem com margin inferior para uma melhor visualização. */
+
+    color: #00891E; /* Definindo a cor da letra da postagem */
+
+    padding: 25px; /* Definindo o padding da postagem */
+
+    width: 60vw; /* Definindo o comprimento da postagem */
+
+    background-color: #000; /* Definindo a cor do background da postagem */
+
+     word-break: break-all;
+    
+}

@@ -21,7 +21,6 @@ async function varIdUsuarioPerfil() {
 
 varIdUsuarioPerfil().then(() => {
     
-    displayFeedCarregar();
     update(nickname);
     displayFeed();
     
@@ -83,32 +82,6 @@ function update(nickname) {
         });
 }
 
-function displayFeedCarregar() {
-
-    const loadingDiv = document.getElementById("loading");
-    
-    const contentDiv2 = document.getElementById("perfil-usuario");
-
-    const contentDiv = document.getElementById("carrosel");
-
-    loadingDiv.style.display = "block";
-
-    contentDiv2.style.display = "none";
-
-    contentDiv.style.display = "none";
-    
-    setTimeout(function () {
-
-        loadingDiv.style.display = "none";
-
-        contentDiv2.style.display = "block";
-
-        contentDiv.style.display = "block";
-
-
-    }, 1500);
-}
-
 function displayFeed() {
 
     fetch(`/contar_postagens/${idUsuario}`)
@@ -118,7 +91,7 @@ function displayFeed() {
             const numberOfFriends = data.quantidade_postagens;
 
             if (numberOfFriends === 0) {
-                const carrossel = document.querySelector("#carrosel");
+                const carrossel = document.querySelector("#feed");
 
                 const aviso = document.createElement("p");
                 carrossel.appendChild(aviso);
@@ -141,12 +114,12 @@ function displayFeed() {
                             .then(response => response.json())
                             .then(data => {
                                 let postagens = data.postagens;
-                                let feedContainer = document.querySelector("#carrosel");
+                                let feedContainer = document.querySelector("#feed");
                                 feedContainer.innerHTML = "";
                                 for (let i = 0; i < postagens.length; i++) {
                                     let postagem = postagens[i];
                                     let postElement = document.createElement("div");
-                                    postElement.classList.add("cartao");
+                                    postElement.classList.add("postagem");
 
                                     let nicknameElement = document.createElement("span");
                                     nicknameElement.style.color = "white";
@@ -154,7 +127,6 @@ function displayFeed() {
                                     postElement.appendChild(nicknameElement);
 
                                     let textElement = document.createElement("p");
-                                    textElement.classList.add("texto");
                                     textElement.textContent = postagem.texto;
                                     postElement.appendChild(textElement);
 

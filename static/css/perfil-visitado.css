@@ -1,24 +1,22 @@
+/*Importando global, header, feed e bar css*/
 @import url('./global.css');
+@import url('./header.css');
+@import url('./feed.css');
+@import url('./bar.css');
+
 
 main{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+
+    display: flex; /*Dando flexibilidade para os elementos*/
+
+    flex-direction: column; /*Elementos flexíveis são dispostos verticalmente*/
+
+    align-items: center; /*Centralizar items verticalmente no contêiner*/
+
 }
 
 #perfil-usuario{
-    margin-top: 150px;
+
+    margin-top: 150px; /*Definindo margem superior*/
+
 }
-
-/* Ajustando conteudo para tela menor que 768px*/
-
-@media screen and (max-device-width: 768px) {
-
-    #carrosel {
-        display: flex;
-        flex-direction: column;
-    }
-    
-}
-
-/*////////////////////////////////////*/

@@ -3,7 +3,7 @@ document.body.insertAdjacentHTML('beforeend', `
 
 <div class="centraliza"> 
 
-    <div id="carrosel"></div>
+    <div id="feed"></div>
     
 </div>
 

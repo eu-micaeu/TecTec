@@ -1,281 +1,77 @@
-/*Corpo das páginas*/
-
+/* Corpo de todas as págs.*/
 body {
-    background-color: #000;
-    background-image: url(../images/step_background.png);
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
-    font-family: monospace;
-    line-height: 1.6;
-    margin: 0;
+
+    background-image: url(../images/step_background.png); /* Definindo a imagem do background de todas as páginas. */
+
+    background-attachment: fixed; /* Definindo a imagem do background como fixado. */
+
+    background-repeat: no-repeat; /* Não repetindo a imagem do background */
+
+    background-size: cover; /* Fazendo a imagem preencher todo o body. */
+
+    font-family: monospace, sans-serif; /* Definindo a fonte que será usada no site todo. */
+
+    line-height: 1.6; /* Definindo o espaçamento entre as linhas de um paragráfo. */
+
+    margin: 0; /* Zerando a margin padrão do body. */
+
 }
 
-/*////////////////////////*/
-
-/* Cabeçalho */
-
-header {
-    background-color: #000;
-    width: 350px;
-    padding: 0px 25px;
-    border-bottom: 2px solid #ffffff;
-    border-left: 2px solid #ffffff;
-    border-right: 2px solid #ffffff;
-    border-radius: 0 0 15px 15px;
-    justify-content: center;
-    display: flex;
-    position: fixed;
-    top: 0;
-}
-
-header img {
-    cursor: pointer;
-    margin: 20px 10px 0px 10px;
-}
-
-header #logo{
-    border-radius: 15px;
-    animation: girar 3s infinite;
-    padding-bottom: 5px;
-    margin: 10px 10px;
-}
-
-header #busca, header #pesquisar{
-    margin-top: 25px;
-}
-
-/*////////////////////////*/
-
-/* Div que centraliza um conteúdo */
-
+/* Criando uma classe para poder centralizar de forma horizontal, os itens que estiver dentro dela. */
 .centraliza {
-    display: flex;
-    justify-content: center;
+
+    display: flex; /* Dando flexibilidade para div. */
+
+    justify-content: center; /* Deixando a centralização de forma horizontal. */
+
 }
 
-/*////////////////////////*/
-
-/* Feed das páginas */
-
-#carrosel {
-    display: flex;
-    flex-direction: column;
-    margin-top: 12vh;
-    margin-bottom: 1vh;
-}
-
-.cartao {
-    border: 2px solid green;
-    border-radius: 15px;
-    margin-bottom: 20px;
-    color: #00891E;
-    padding: 25px;
-    flex-direction: column;
-    width: 60vw;
-    background-color: #000;
-    font-size: 18px;
-    font-weight: bold;
-}
-
-/*////////////////////////*/
-
+/* Selecionando todos os <textarea> do site */
 textarea {
-    resize: none;
+
+    resize: none; /* Retirando a modificação do tamanho da <textarea> */
+
 }
 
-.texto {
-    word-break: break-all;
-}
-
-#mySidebar {
-    font-family: monospace;
-    position: fixed;
-    top: 0;
-    right: -20vw;
-    background-color: #000000;
-    overflow: hidden;
-    transition: right 0.5s;
-    width: 20vw;
-}
-
-#mySidebar a {
-    margin: 8px 10px 10px 10px;
-    text-decoration: none;
-    font-size: 15px;
-    color: #ffffff;
-    display: block;
-}
-
-#mySidebar .centraliza{
-    width: 100%;
-    align-items: center;
-}
-
-#mySidebar .centraliza {
-    flex-direction: column;
-    color: #00891E;
-}
-
-#mySidebar .golang:hover {
-    background-color: #007acc;
-    color: #fff;
-}
-
-#mySidebar .java:hover {
-    background-color: red;
-}
-
-#mySidebar .c:hover {
-    background-color: blue;
-}
-
-#mySidebar .postgresql:hover {
-    background-color: #1E90FF;
-}
-
-#mySidebar .docker:hover,
-#mySidebar .typescript:hover {
-    background-color: #4169E1;
-}
-
-#mySidebar .hadoop:hover {
-    background-color: yellow;
-}
-
-#mySidebar .hadoop a:hover,
-#mySidebar .html5 a:hover {
-    color: black;
-}
-
-
-#mySidebar .html5:hover {
-    background-color: orange;
-}
-
-#mySidebar .css3:hover {
-    background-color: blue;
-    color: black;
-}
-
-
-/*////////////////////////////////*/
-
-/*  Footer */
-footer {
-    font-family: monospace;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background-color: black;
-    border-top: 2px solid #00891E;
-    margin-top: 5vh;
-}
-
-footer p {
-    color: #00891E;
-    font-size: 15px;
-    font-weight: bold;
-    margin: 10px;
-}
-
-/*////////////////////////*/
-
-
-/* Carregamento */
-#loading {
-    display: none;
-    text-align: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    animation: girar 0.8s infinite;
-}
-
-/*////////////////////////*/
-
-/* Animações */
-
+/* Criar animações personalizadas*/
 @keyframes queda-e-giro {
+
+    /* Quadro de início da animação*/
     0% {
-        transform: translateY(-50px) rotate(0deg);
+
+        transform: translateY(-50px) rotate(0deg);    /* Translação vertical de -50px e rotação de 0 graus*/
+
     }
 
+    /* Quadro de fim da animação*/
     100% {
-        transform: translateY(0px) rotate(360deg);
+
+        transform: translateY(0px) rotate(360deg); /* Translação vertical de -0px e rotação de 360 graus*/
+
     }
+
 }
 
-/* Para a logo girar na página*/
+/* Criar animações personalizadas*/
 @keyframes girar {
 
-    0%,
-    100% {
-        transform: rotate(0deg);
-    }
+    /* Quadro de início da animação*/
+    0% {
 
+        transform: rotate(0deg); /* Rotação de 0 graus*/
+
+    }
+    /* Quadro do meio da animação*/
     50% {
-        transform: rotate(180deg);
-    }
 
+        transform: rotate(180deg); /* Rotação de 180 graus*/
+
+    }
+    /* Quadro de fim da animação*/
     100% {
-        transform: rotate(360deg);
+
+        transform: rotate(360deg); /* Rotação de 360 graus*/
+        
     }
 
 }
-
-/*////////////////////////*/
-
-/*Configurando para tela menor de 768px */
-@media screen and (max-device-width: 768px) {
-
-    header {
-        width: 100%;
-    }
-
-    #logo {
-        width: 40px;
-        height: 40px;
-        margin: 5px;
-    }
-
-
-    .cartao,
-    .cartaoComen,
-    #inputComentario {
-        width: 80vw;
-        font-size: 12px;
-    }
-
-    #carrosel {
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 15vh;
-
-    }
-
-    #mySidebar a {
-        top: 50%;
-        font-size: 10px;
-        color: #fff;
-    }
-
-    #mySidebar .centraliza h3 {
-        padding-top: 50px;
-    }
-
-    h3 {
-        font-size: 10px;
-    }
-
-    header img {
-        width: 20px;
-        height: 20px;
-        margin: 15px;
-    }
-
-
-}
-
-/*////////////////////////////////////*/

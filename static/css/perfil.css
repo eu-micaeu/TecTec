@@ -1,4 +1,8 @@
 @import url('./global.css');
+@import url('./header.css');
+@import url('./feed.css');
+@import url('./bar.css');
+
 
 main{
     display: flex;
@@ -8,10 +12,6 @@ main{
 
 #perfil-usuario{
     margin-top: 150px;
-}
-
-#carrosel{
-    margin-top: 5vh;
 }
 
 /*Ajustando conteudo para tela menor que 768px*/
@@ -30,5 +30,3 @@ main{
     }
 
 }
-
-/*//////////////////////////////////*/

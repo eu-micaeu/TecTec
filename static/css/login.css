@@ -1,139 +1,177 @@
+/*Importando o css global e footer*/
 @import url('./global.css');
+@import url('./footer.css');
 
+/*Definindo configurações do conteudo principal da página*/
 main {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
+    display: flex; /* Dando flexibilidade para div. */
+
+    align-items: center; /*Centralizar items verticalmente no contêiner*/
+
+    justify-content: center; /*Centralizar items horizontalmente no contêiner*/
+
 }
 
-h3 {
-    color: #00891E;
-    font-size: 18px;
-    margin-top: 45px;
-}
-
-.primeiro {
-    color: white;
-}
-
-.segundo {
-    color: #00891E;
-}
-
+/*Definindo a estrutura do formulário de login*/
 form {
 
-    padding: 25px;
-    border: 6px solid #ffffff;
-    border-radius: 15px;
-    background-color: transparent;
-    width: 250px;
-    height: 400px;
+    padding: 25px; /*Definindo espaço de preenchimento ao redor do contéudo*/
 
-    /* Centralizar o conteúdo do form */
+    border: 6px solid #ffffff; /*Definindo tamanho, espessura e cor da borda*/
 
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+    border-radius: 15px;/*Definindo */
 
-    margin-top: 50px;
+    width: 250px; /*Definindo comprimento*/
+
+    height: 400px; /*Definindo altura*/
+
+    display: flex; /*Dando flexibilidade para o contéudo*/
+
+    align-items: center; /*Centralizar items verticalmente no contêiner*/
+
+    flex-direction: column; /*Elementos flexíveis são dispostos verticalmente*/
+
+    margin: 20vh 0;
 
 }
 
+form #logo {
+
+    border-radius: 15px; /*Definindo arrendondamento da borda*/
+
+    animation: girar 3s infinite; /*Animação da logo, ação, duração*/
+
+    padding-bottom: 5px; /*Definindo espaço de preenchimento inferior*/
+
+    margin: 5px; /*Definindo espaço entre elementos*/
+    
+}
+
+/*Defindo as configurações do inserir*/
 .inserirTexto {
-    width: 130px;
-    height: 20px;
-    background-color: transparent;
-    color: #00891E;
-    border: 3px solid rgb(255, 255, 255);
-    border-radius: 15px;
-    padding: 10px;
-    font-size: 18px;
-    font-family: monospace;
-    text-align: center;
-    font-weight: bold;
-}
 
-/*Configurando os botoes */
-#btEntrar,
-#btCadastrar {
+    width: 130px; /*Definindo comprimento*/
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #00891E;
-    font-size: 15px;
-    color: white;
-    cursor: pointer;
-    border-radius: 15px;
-    font-family: monospace;
-    border: 2px solid white;
-    font-weight: bold;
-    margin: 20px 0 0 0;
-    width: 100px;
-    height: 5vh;
-    padding: 20px;
+    height: 20px; /*Definindo altura*/
+    
+    background-color: transparent; /*Definindo cor de fundo*/
+
+    color: #00891E; /*Definindo cor*/
+
+    border: 3px solid rgb(255, 255, 255); /*Definindo tamanho, espessura e cor da borda*/
+    
+    border-radius: 15px; /*Definindo arrendondamento */
+
+    padding: 10px; /*Definindo espaço entre o conteúdo*/
+
+    font-size: 18px; /*Definindo tamanho da fonte*/
+
+    font-family: monospace; /*Definindo fonte*/
+
+    text-align: center; /*Alinhar o texto no centro*/
+
+    font-weight: bold; /*Definindo espessura*/
 
 }
 
-#btEntrar:hover,
-#btCadastrar:hover {
-    background-color: aliceblue;
-    color: #00891E;
-    font-family: monospace;
+/*Definindo configurações dos botões*/
+#btEntrar, #btCadastrar {
+
+    display: flex; /*Dando flexibilidade para os botões*/
+
+    justify-content: center;/*Centralizar items horizontalmente no contêiner*/
+
+    align-items: center; /*Centralizar items verticalmente no contêiner*/
+
+    background-color: #00891E; /*Definindo cor de fundo*/
+
+    font-size: 15px; /*Definindo tamanho da fonte*/
+
+    color: white; /*Definindo cor*/
+
+    cursor: pointer; /*Definindo mudar o tipo do curso do mouse para pointer*/
+
+    border-radius: 15px; /*Definindo arrendondamento*/
+
+    font-family: monospace; /*Definindo fonte*/
+
+    border: 2px solid white; /*Definindo tamanho, espessura, cor da borda*/
+
+    font-weight: bold; /*Definindo espessura*/
+
+    margin: 20px 0 0 0; /*Definindo margens*/
+
+    width: 100px; /*Definindo comprimento*/
+
+    height: 20px; /*Definindo altura*/
+
+    padding: 20px; /*Definindo espaço de preenchimento ao redor do conteúdo*/
+
 }
 
-/*////////////////////////////*/
+/*Definindo configurações do botões ao passar o mouse*/
+#btEntrar:hover, #btCadastrar:hover {
 
-.rotUsuario,
-.rotSenha {
-    color: #ffffff;
-    font-weight: bold;
-    font-size: 18px;
-    margin: 10px;
+    background-color: aliceblue; /*Definindo cor de fundo*/
+
+    color: #00891E; /*Definindo cor*/
+
+    font-family: monospace; /*Definindo fonte*/
+
 }
 
-/*/////////////////////////////////////*/
+/*Definindo configurações dos rótulos*/
+.rotUsuario, .rotSenha {
 
-/* Configurando para tela menor de 768px */
+    color: #ffffff; /*Definindo cor*/
+
+    font-weight: bold; /*Definindo espessura */
+
+    font-size: 18px; /*Definindo tamanho d afonte*/
+
+    margin: 10px; /*Definindo margens ao*/
+
+}
+/*Defindo configurações para tela menor que 768px*/
 @media screen and (max-device-width: 768px) {
 
-    #logo {
-        width: 90px;
-        height: 90px;
-    }
+    #btEntrar, #btCadastrar {
 
-    #btEntrar,
-    #btCadastrar {
-        width: 60%;
-        /* 100% da largura do formulário */
-        margin: 20px 0;
+        width: 30vw; /*Definindo comprimento*/
+
     }
 
     .inserirTexto {
-        width: 50vw;
+
+        width: 30vw; /*Definindo comprimento*/
+
     }
 
     main {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+
+        display: flex; /*Dando flexibilidade para o conteúdo*/
+
+        flex-direction: column; /*Elementos flexíveis são dispostos verticalmente*/
+
+        align-items: center; /*Centralizar items verticalmente no contêiner*/
+
     }
 
     form {
-        height: 100%;
-        width: 60%;
-        padding-bottom: 100px;
-        margin-top: 20px;
-        margin-bottom: 200px;
-    }
 
-    article {
-        order: 2;
-        text-align: center;
-        margin: 2vh 6vw 8vh;
-        font-size: 20px;
-    }
+        height: 100%; /*Definindo altura*/
 
+        width: 60%; /*Definindo comprimento*/
+
+        padding-bottom: 100px; /*Definindo espaço de preenchimento inferior*/
+
+        margin-top: 20px;  /*Definindo espaço superior entre os elementos  */
+
+        margin-bottom: 200px; /*Definindo espaço inferior entre os elementos */
+
+    }
+    
 }
 
 /*/////////////////////////////////////*/

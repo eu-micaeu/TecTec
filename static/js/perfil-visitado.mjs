@@ -80,12 +80,12 @@ varIdUsuario().then(() => {
                     .then(response => response.json())
                     .then(data => {
                         let postagens = data.postagens;
-                        let feedContainer = document.querySelector("#carrosel");
+                        let feedContainer = document.querySelector("#feed");
                         feedContainer.innerHTML = "";
                         for (let i = 0; i < postagens.length; i++) {
                             let postagem = postagens[i];
                             let postElement = document.createElement("div");
-                            postElement.classList.add("cartao");
+                            postElement.classList.add("postagem");
 
                             let nicknameElement = document.createElement("span");
                             nicknameElement.style.color = "white";
@@ -93,7 +93,6 @@ varIdUsuario().then(() => {
                             postElement.appendChild(nicknameElement);
 
                             let textElement = document.createElement("p");
-                            textElement.classList.add("texto");
                             textElement.textContent = postagem.texto;
                             postElement.appendChild(textElement);
 
@@ -252,32 +251,10 @@ varIdUsuario().then(() => {
             });
     }
 
-    displayFeedCarregar();
     update(nickname);
     displayFeed();
 
 });
-
-function displayFeedCarregar() {
-
-    const loadingDiv = document.getElementById("loading");
-    const contentDiv = document.getElementById("carrosel");
-    const contentDiv2 = document.getElementById("perfil-usuario");
-    const nameElement = document.getElementById('seguir');
-
-
-    loadingDiv.style.display = "block";
-    contentDiv.style.display = "none";
-    contentDiv2.style.display = "none";
-    nameElement.style.display = "none";
-
-    setTimeout(function () {
-        loadingDiv.style.display = "none";
-        contentDiv.style.display = "block";
-        contentDiv2.style.display = "block";
-        nameElement.style.display = "block";
-    }, 1500);
-}
 
 varIdUsuario().then(async () => {
 

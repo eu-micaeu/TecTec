@@ -1,86 +1,129 @@
 @import url('./global.css');
-
-#logo {
-    border-radius: 15px;
-    animation: girar 3s infinite;
-    padding-bottom: 5px;
-    margin: 5px;
-}
+@import url('./footer.css');
 
 main{
+
     display: flex;
+
     justify-content: center;
+
     align-items: center;
+
 }
 
 .inputUser {
+
     background-color: transparent;
+
     color: #00891E;
+
     border: 3px solid rgb(255, 255, 255);
+
     border-radius: 15px;
+
     padding: 10px 4px;
+
     font-size: 20px;
+
     margin: 10px;
+
     width: 15vw;
+
     text-align: center;
+
     font-family: monospace;
+
 }
 
 form{
+
     padding: 25px;
+
     border: 6px solid rgb(255, 255, 255);
+
     width: 20vw;
+
     border-radius: 15px;
+
     display: flex;
+
     justify-content: center;
+
     align-items: center;
+
     flex-direction: column;
-    margin-top: 30px;
+
+    margin: 5vh 0 16vh 0;
+
 }
 
-button {
-    background-color: #00891E;
-    font-size: 15px;
-    padding: 12px;
-    cursor: pointer;
+form #logo {
+
     border-radius: 15px;
-    margin-top: 15px;
-    border: none;
-    font-family: monospace;
-    color: #ffffff;
-    font-weight: bold;
-    border: 2px solid white;
-    width: 6vw;
+
+    animation: girar 3s infinite;
+
+    padding-bottom: 5px;
+
+    margin: 5px;
+
 }
 
-button:hover {
+#btVoltar, #cadastrar {
+
+    display: flex; /*Dando flexibilidade para os botões*/
+
+    justify-content: center;/*Centralizar items horizontalmente no contêiner*/
+
+    align-items: center; /*Centralizar items verticalmente no contêiner*/
+
+    background-color: #00891E; /*Definindo cor de fundo*/
+
+    font-size: 15px; /*Definindo tamanho da fonte*/
+
+    color: white; /*Definindo cor*/
+
+    cursor: pointer; /*Definindo mudar o tipo do curso do mouse para pointer*/
+
+    border-radius: 15px; /*Definindo arrendondamento*/
+
+    font-family: monospace; /*Definindo fonte*/
+
+    border: 2px solid white; /*Definindo tamanho, espessura, cor da borda*/
+
+    font-weight: bold; /*Definindo espessura*/
+
+    margin: 20px 0 0 0; /*Definindo margens*/
+
+    width: 100px; /*Definindo comprimento*/
+
+    height: 20px; /*Definindo altura*/
+
+    padding: 20px; /*Definindo espaço de preenchimento ao redor do conteúdo*/
+
+}
+
+#btVoltar:hover, #cadastrar:hover {
+
     background-color: aliceblue;
+
     color: #00891E;
+
 }
 
 .rotUsuario, .rotSenha, .rotConfSenha, .rotTelefone{
+
     color: #ffffff;
+
     font-weight: bold;
-    font-size: 18px;
+
 }
 
 .centraliza{
+
     display: flex;
+
     justify-content: center;
-}
-
-@media screen and (max-device-width: 768px){
-
-    form{
-        width: 80%;
-    }
-
-    .inputUser {
-        width: 70vw;
-    }
-
-    button{
-        width: 60%;
-    }
 
 }
+

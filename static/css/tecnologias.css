@@ -1,4 +1,6 @@
 @import url('./global.css');
+@import url('./header.css');
+@import url('./bar.css');
 
 main{
     display: flex;
@@ -15,7 +17,7 @@ main{
     margin-top: 10vh;
 }
 
-.tecnologia img{
+img{
     border-radius: 20px;
     margin-bottom: 60px;
 }

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> <!-- Tipo de arquivo -->
 
 <html lang="pt-br">
 
@@ -21,7 +21,7 @@
 
         <form>
 
-            <img src="../static/images/logo.png" alt="" id="logo"> <!-- Logo principal -->
+            <img src="../static/images/logo.png" alt="Logo" id="logo" width="40" height="40"> <!-- Logo principal -->
     
             <label for="usuario" class="rotUsuario">Nickname:</label> <!-- Label do nickname -->
     
@@ -43,7 +43,7 @@
     
             <select id="tecnologia" name="tecnologia" class="inputUser"> <!-- Seleção da tecnologia a partir de uma lista-->
     
-                <option value="  " selected> </option>
+                <option value="Nenhuma">Nenhuma</option>
     
                 <option value="HTML">HTML</option>
     
@@ -67,7 +67,7 @@
     
             <button type="button" id="cadastrar">Cadastrar</button> <!-- Botão de cadastro -->
     
-            <button type="button" onclick="window.location.href='/login'">Voltar</button> <!-- Botão para voltar de página -->
+            <button type="button" id="btVoltar" onclick="window.location.href='/login'">Voltar</button> <!-- Botão para voltar de página -->
     
         </form>
 

@@ -1,0 +1,108 @@
+#mySidebar {
+
+    font-family: monospace;
+
+    position: fixed;
+
+    top: 0;
+
+    right: -20vw;
+
+    background-color: #000000;
+
+    overflow: hidden;
+
+    transition: right 0.5s;
+
+    width: 20vw;
+
+}
+
+#mySidebar a {
+
+    margin: 8px 10px 10px 10px;
+
+    text-decoration: none;
+
+    font-size: 15px;
+
+    color: #ffffff;
+
+    display: block;
+
+}
+
+#mySidebar .centraliza{
+
+    width: 100%;
+
+    align-items: center;
+
+}
+
+#mySidebar .centraliza {
+
+    flex-direction: column;
+    
+    color: #00891E;
+
+}
+
+#mySidebar .golang:hover {
+
+    background-color: #007acc;
+
+    color: #fff;
+
+}
+
+.java:hover {
+
+    background-color: red;
+
+}
+
+.c:hover {
+
+    background-color: blue;
+
+}
+
+.postgresql:hover {
+
+    background-color: #1E90FF;
+
+}
+
+.docker:hover, .typescript:hover {
+
+    background-color: #4169E1;
+
+}
+
+.hadoop:hover {
+
+    background-color: yellow;
+
+}
+
+.hadoop a:hover, .html5 a:hover {
+
+    color: black;
+
+}
+
+
+.html5:hover {
+
+    background-color: orange;
+
+}
+
+.css3:hover {
+
+    background-color: blue;
+
+    color: black;
+
+}

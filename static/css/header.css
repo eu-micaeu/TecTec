@@ -1,0 +1,49 @@
+header {
+
+    background-color: #000; /* Definindo a cor do header */
+
+    width: 350px; /* Definindo o comprimento do header */
+
+    padding: 0px 25px; /* Definindo o padding do header */
+
+    border-bottom: 3px solid #ffffff; /* Definindo a cor, espressura e tipo da borda de baixo do header */
+
+    border-left: 3px solid #ffffff; /* Definindo a cor, espressura e tipo da borda esquerda do header */
+
+    border-right: 3px solid #ffffff; /* Definindo a cor, espressura e tipo da borda direita do header */
+
+    border-radius: 0 0 15px 15px; /* Definindo o grau de borda que será aplicada no header */
+
+    display: flex; /* Dando flexibilidade ao header */
+
+    position: fixed; 
+
+    top: 0;
+
+}
+
+header img {
+
+    cursor: pointer;
+
+    margin: 10px 10px 0px 10px;
+
+}
+
+header #logo{
+
+    border-radius: 15px;
+
+    animation: girar 2s infinite;
+
+    padding-bottom: 5px;
+
+    margin: 10px 10px;
+
+}
+
+header #busca, header #pesquisar{
+
+    margin-top: 15px;
+
+}

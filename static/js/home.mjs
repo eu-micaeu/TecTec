@@ -29,7 +29,7 @@ varIdUsuarioHome().then(idUsuario => {
                 const numberOfFriends = data.quantidade_amizades;
 
                 if (numberOfFriends === 0) {
-                    const carrossel = document.querySelector("#carrosel");
+                    const carrossel = document.querySelector("#feed");
 
                     const aviso = document.createElement("p");
                     carrossel.appendChild(aviso);
@@ -51,12 +51,12 @@ varIdUsuarioHome().then(idUsuario => {
                                 .then(response => response.json())
                                 .then(data => {
                                     let postagens = data.postagens;
-                                    let feedContainer = document.querySelector("#carrosel");
+                                    let feedContainer = document.querySelector("#feed");
                                     feedContainer.innerHTML = "";
                                     for (let i = 0; i < postagens.length; i++) {
                                         let postagem = postagens[i];
                                         let postElement = document.createElement("div");
-                                        postElement.classList.add("cartao");
+                                        postElement.classList.add("postagem");
 
                                         let nicknameElement = document.createElement("span");
                                         nicknameElement.style.color = "white";                                        
@@ -70,7 +70,6 @@ varIdUsuarioHome().then(idUsuario => {
 
 
                                         let textElement = document.createElement("p");
-                                        textElement.classList.add("texto");
                                         textElement.textContent = postagem.texto;
                                         postElement.appendChild(textElement);
 
@@ -208,23 +207,8 @@ varIdUsuarioHome().then(idUsuario => {
 
     displayFeed()
 
-    displayFeedCarregar()
 
 })
-
-function displayFeedCarregar() {
-
-    const loadingDiv = document.getElementById("loading");
-    const contentDiv = document.getElementById("carrosel");
-
-    loadingDiv.style.display = "block";
-    contentDiv.style.display = "none";
-
-    setTimeout(function () {
-        loadingDiv.style.display = "none";
-        contentDiv.style.display = "block";
-    }, 1500);
-}
 
 /* Importação de funções do global.mjs */
 

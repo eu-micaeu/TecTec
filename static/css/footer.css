@@ -1,0 +1,29 @@
+footer {
+
+    font-family: monospace;
+
+    position: fixed;
+
+    bottom: 0;
+
+    width: 100%;
+
+    background-color: black;
+
+    border-top: 2px solid #ffffff;
+
+    margin-top: 5vh;
+
+}
+
+footer p {
+
+    color: #00891E;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    margin: 10px;
+
+}

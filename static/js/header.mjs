@@ -17,7 +17,7 @@ document.body.insertAdjacentHTML('afterbegin', `
 
     <br>
 
-    <img src="../static/images/logo.png" alt="Logo" id="logo" width="50" height="50">
+    <img src="../static/images/logo.png" alt="Logo" id="logo" width="40" height="40">
 
     <br>
 
