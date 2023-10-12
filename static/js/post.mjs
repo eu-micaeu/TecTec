@@ -1,6 +1,5 @@
 let id_usuario;
 
-// Função para retornar informações do usuário através do token que o mesmo criou.
 async function varIdUsuario() {
     try {
         const response = await fetch('/perfil-token/', {
@@ -27,17 +26,20 @@ varIdUsuario().then(() => {
             },
             body: JSON.stringify({ texto: texto })
         })
-        .then(response => {
-            if (response.ok) {
-                alert("Postagem feita!");
-                setTimeout(() => {
-                    window.location.href = "/home";
-                }, 2000);
-                
-            } else {
-                alert('Erro na solicitação POST. Código de status: ' + response.status);
-            }
-        })
+            .then(response => {
+                if (response.ok) {
+                    var toastCerto = document.getElementById("toastCerto");
+                    toastCerto.style.display = "block";
+
+                    setTimeout(function () {
+                        toastCerto.style.display = "none";
+                        window.location.href = "/home";
+                    }, 3000);
+
+                } else {
+                    alert('Erro na solicitação POST. Código de status: ' + response.status);
+                }
+            })
     });
 });
 

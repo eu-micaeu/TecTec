@@ -78,6 +78,20 @@ main{
 
 }
 
+/* Estilize o toast com CSS */
+#toastCerto {
+    display: none;
+    background-color: #333;
+    color: #fff;
+    padding: 5px;
+    position: fixed;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    border-radius: 5px;
+    border: 2px solid #00891E;
+}
+
 @media screen and (max-device-width: 768px) {
 
     #inserirPostagem{

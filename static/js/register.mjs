@@ -18,15 +18,28 @@ document.querySelector("#cadastrar").addEventListener("click", async () => {
 
     const response = await fetch("/register", {
         method: "POST",
-        body: JSON.stringify({nickname, senha, telefone, tecnologia})
+        body: JSON.stringify({ nickname, senha, telefone, tecnologia })
     });
 
     const data = await response.json();
 
     if (data.message === "Usuário criado com sucesso!") {
-            alert("Usuário criado com sucesso!");
+
+        var toastCerto = document.getElementById("toastCerto");
+        toastCerto.style.display = "block";
+
+        document.querySelector("#nickname").value = "";
+        document.querySelector("#senha").value = "";
+        document.querySelector("#telefone").value = "";
+        document.querySelector("#tecnologia").value = "";
+        document.querySelector("#confSenha").value = "";
+
+        setTimeout(function () {
+            toastCerto.style.display = "none";
             window.location.href = "/login";
+        }, 3000);
     } else {
         alert("Erro ao criar o usuário!");
     }
+
 });

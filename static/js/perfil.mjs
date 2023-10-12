@@ -234,14 +234,9 @@ function displayFeed() {
 
                                         fetch('/excluir-postagem/' + postId, {
                                             method: 'DELETE',
-                                            headers: {
-                                                'Authorization': token
-                                            }
                                         })
-                                            .then(response => response.json())
-                                            .then(data => {
-                                                displayFeed();
-                                            });
+                                        
+                                        displayFeed();
                                     });
 
                                     divEmbaixo.appendChild(imageElement);

@@ -1,18 +1,25 @@
 let idUsuario;
 
-async function varIdUsuarioHome() {
+async function varIdUsuarioHome() { // Função para verificar se existe um usuário logado.
 
     try {
-        const response = await fetch('/perfil-token/', {
+
+        const response = await fetch('/perfil-token', {
+            
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
+
+            headers: { 'Content-Type': 'application/json' },
+
         });
+
         const data = await response.json();
+
         idUsuario = data.usuario.id_usuario;
+
     } catch (error) {
+
         console.error(error);
+
     }
 
     return idUsuario;
@@ -82,6 +89,7 @@ varIdUsuarioHome().then(idUsuario => {
                                         comentarioImagem.width = 18;
                                         comentarioImagem.height = 18;
                                         comentarioImagem.title = "Comentar";
+                                        comentarioImagem.style.cursor = "pointer";
 
                                         comentarioImagem.addEventListener('mouseover', function () {
                                             comentarioImagem.src = '/static/images/comentariobranco.png';
@@ -164,6 +172,7 @@ varIdUsuarioHome().then(idUsuario => {
                                         seguidorImagem.width = 18;
                                         seguidorImagem.height = 18;
                                         seguidorImagem.title = 'Deixar de seguir';
+                                        seguidorImagem.style.cursor = "pointer";
 
                                         seguidorImagem.addEventListener('mouseover', function () {
                                             seguidorImagem.src = '/static/images/seguidorbranco.png';
