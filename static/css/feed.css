@@ -24,10 +24,20 @@
 
     width: 60vw; /* Definindo o comprimento da postagem */
 
-    height: 150px; /* Definindo o comprimento da postagem */
+    height: 15vh; /* Definindo o comprimento da postagem */
 
     background-color: #000; /* Definindo a cor do background da postagem */
 
     word-break: break-all;
+    
+}
+
+@media screen and (max-device-width: 768px) {
+
+    .postagem {
+    
+        height: 30vh; /* Definindo o comprimento da postagem */
+        
+    }
     
 }
