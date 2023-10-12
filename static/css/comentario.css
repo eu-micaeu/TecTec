@@ -4,6 +4,7 @@
 @import url('./feed.css');
 @import url('./bar.css');
 
+/*Configurando o escopo principal*/
 main{
     
     display: flex;/*Dando flexibilidade para o conteúdo*/
@@ -15,6 +16,7 @@ main{
     align-items: center; /*Centralizar items verticalmente no contêiner*/
 }
 
+/*Configurando o post da página*/
 #postagem-principal{
     border: 4px solid green; /* Definindo a espressura, tipo e cor da borda */
 
@@ -35,6 +37,7 @@ main{
     word-break: break-all;
 }
 
+/*Configurando o div de comentar no post*/
 #comentar{
    
     display: flex;/*Dando flexibilidade para o conteúdo*/
@@ -48,6 +51,7 @@ main{
     margin-bottom: 10vh;
 }
 
+/*Configurando o o texto da div de comentar no post*/
 textarea{
    
     width: 30vw;/*Definindo comprimento*/
@@ -72,6 +76,7 @@ textarea{
 
 }
 
+/*Configurando o botao de post*/
 .botao{
     
     background-color: #00891E;/*Definindo cor de fundo*/
@@ -82,54 +87,57 @@ textarea{
     
     border-radius: 10px;/*Definindo arrendondamento da borda*/
     
-    border: none;
+    border: none; 
     
-    color: white;
+    color: white;/*Definindo cor*/
     
-    margin: 10px 0 10px 0;
+    margin: 10px 0 10px 0;/*Definindo margens*/
     
-    font-family: monospace;
+    font-family: monospace;/*Definindo fonte do texto*/
     
-    border: 2px solid white;
+    border: 2px solid white;/*Definindo tamanho, espessura e cor da borda*/
     
     font-weight: bold;
 
 }
 
+/*Configurando o botao do post ao passar o mouse*/
 .botao:hover{
     
-    background-color: white;
+    background-color: white;/*Definindo cor de fundo*/
     
-    color: #00891E;
+    color: #00891E;/*Definindo cor*/
 
 }
 
+/*Configurando o div do comentario do post*/
 .cartaoComen {
 
     border: 2px solid rgb(255, 255, 255);
 
-    color: #ffffff;
+    color: #ffffff;/*Definindo cor*/
 
     padding: 25px;
 
     flex-direction: column; /*Elementos flexíveis são dispostos verticalmente*/
 
-    background-color: #000;
+    background-color: #000;/*Definindo arrendondamento da borda*/
 
-    font-size: 15px;
+    font-size: 15px;/*Definindo tamanho da fonte*/
 
-    font-weight: bold;
+    font-weight: bold;/*Definindo espessura da fonte*/
 
-    border-radius: 15px;
+    border-radius: 15px;/*Definindo arrendondamento da borda*/
 
-    margin: 10px;
+    margin: 10px;/*Definindo margens*/
 
 }
 
+/*Configurando o input comentario*/
 #inputComentario{
 
-    font-size: 15px;
+    font-size: 15px;/*Definindo tamanho da fonte*/
 
-    font-weight: bold;
+    font-weight: bold;/*Definindo espessura da fonte*/
 
 }
