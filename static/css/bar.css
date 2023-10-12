@@ -22,98 +22,98 @@
 /*Definindo configurações para tag <a> barra-lateral*/
 #mySidebar a {
 
-    margin: 8px 10px 10px 10px;
+    margin: 8px 10px 10px 10px; /*Definindo margens*/
 
-    text-decoration: none;
+    text-decoration: none; /*Retirando decoração da tag a */
 
-    font-size: 15px;
+    font-size: 15px; /*Definindo tamanho da fonte*/
 
-    color: #ffffff;
+    color: #ffffff; /*Definindo cor*/
 
-    display: block;
+    display: block; /* O elemento ocupa toda a largura do conteiner*/
 
 }
 
 /*Definindo configurações para elementos na barra-lateral*/
 #mySidebar .centraliza{
 
-    width: 100%;
+    width: 100%;  /*Definindo comprimento*/
 
-    align-items: center;
+    align-items: center; /*Centralizar items verticalmente no contêiner*/
 
 }
 
 /*Definindo configurações para elementos na barra-lateral*/
 #mySidebar .centraliza {
 
-    flex-direction: column;
+    flex-direction: column;/*Elementos flexíveis são dispostos verticalmente*/
     
-    color: #00891E;
+    color: #00891E;  /*Definindo cor*/
 
 }
 
 /*Definindo configurações para classe golang da barra-lateral*/
 #mySidebar .golang:hover {
 
-    background-color: #007acc;
+    background-color: #007acc;/*Definindo cor de fundo*/
 
-    color: #fff;
+    color: #fff;  /*Definindo cor*/
 
 }
 
 /*Definindo configurações para classe java barra-lateral*/
 .java:hover {
 
-    background-color: red;
+    background-color: red;/*Definindo cor de fundo*/
 
 }
 
 /*Definindo configurações para classe c barra-lateral*/
 .c:hover {
 
-    background-color: blue;
+    background-color: blue;/*Definindo cor de fundo*/
 
 }
 
 /*Definindo configurações para classe postgresql barra-lateral*/
 .postgresql:hover {
 
-    background-color: #1E90FF;
+    background-color: #1E90FF;/*Definindo cor de fundo*/
 
 }
 
 /*Definindo configurações para classe typescript e docker barra-lateral*/
 .docker:hover, .typescript:hover {
 
-    background-color: #4169E1;
+    background-color: #4169E1;/*Definindo cor de fundo*/
 
 }
 
 /*Definindo configurações para classe hadoop barra-lateral*/
 .hadoop:hover {
 
-    background-color: yellow;
+    background-color: yellow; /*Definindo cor de fundo*/
 
 }
 /*Definindo configurações para classe hadoop e html5 barra-lateral*/
 .hadoop a:hover, .html5 a:hover {
 
-    color: black;
+    color: black;  /*Definindo cor*/
 
 }
 
 /*Definindo configurações para classe html barra-lateral*/
 .html5:hover {
 
-    background-color: orange;
+    background-color: orange; /*Definindo cor de fundo*/
 
 }
 
 /*Definindo configurações para classe css3 barra-lateral*/
 .css3:hover {
 
-    background-color: blue;
+    background-color: blue;  /*Definindo cor de fundo*/
 
-    color: black;
+    color: black; /*Definindo cor*/
 
 }

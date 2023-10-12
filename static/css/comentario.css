@@ -1,13 +1,18 @@
+/*Importando css para a página*/
 @import url('./global.css');
 @import url('./header.css');
 @import url('./feed.css');
 @import url('./bar.css');
 
 main{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
+    
+    display: flex;/*Dando flexibilidade para o conteúdo*/
+    
+    justify-content: center;/*Centralizar items horizontalmente no contêiner*/
+    
+    flex-direction: column;/*Elementos flexíveis são dispostos verticalmente*/
+    
+    align-items: center; /*Centralizar items verticalmente no contêiner*/
 }
 
 #postagem-principal{
@@ -31,58 +36,100 @@ main{
 }
 
 #comentar{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px;
+   
+    display: flex;/*Dando flexibilidade para o conteúdo*/
+   
+    flex-direction: column;/*Elementos flexíveis são dispostos verticalmente*/
+   
+    align-items: center;/*Centralizar items verticalmente no contêiner*/
+   
+    padding: 10px;/*Definindo espaçamento ao redor do conteúdo*/
+   
     margin-bottom: 10vh;
 }
 
 textarea{
-    width: 30vw;
+   
+    width: 30vw;/*Definindo comprimento*/
+   
     height: auto;
-    border: none;
-    height: 9vh;
-    background-color: #000;
-    color: white;
-    font-size: 16px;
-    border: 2px solid white;
-    border-radius: 15px;
-    padding: 10px;
+   
+    border: none;/*Retirando borda*/
+   
+    height: 9vh;/*Definindo altura*/
+   
+    background-color: #000;/*Definindo cor de fundo*/
+   
+    color: white;/*Definindo cor*/
+   
+    font-size: 16px;/*Definindo tamanho da fonte*/
+   
+    border: 2px solid white;/*Definindo tamanh*/
+   
+    border-radius: 15px;/*Definindo arrendondamento da borda*/
+   
+    padding: 10px;/*Definindo espaçamento ao redor do conteúdo*/
+
 }
 
 .botao{
-    background-color: #00891E;
+    
+    background-color: #00891E;/*Definindo cor de fundo*/
+    
     cursor: pointer;
-    padding: 10px 20px;
-    border-radius: 10px;
+    
+    padding: 10px 20px;/*Definindo espaçamento ao redo */
+    
+    border-radius: 10px;/*Definindo arrendondamento da borda*/
+    
     border: none;
+    
     color: white;
+    
     margin: 10px 0 10px 0;
+    
     font-family: monospace;
+    
     border: 2px solid white;
+    
     font-weight: bold;
 
 }
 
 .botao:hover{
+    
     background-color: white;
+    
     color: #00891E;
+
 }
 
 .cartaoComen {
+
     border: 2px solid rgb(255, 255, 255);
+
     color: #ffffff;
+
     padding: 25px;
-    flex-direction: column;
+
+    flex-direction: column; /*Elementos flexíveis são dispostos verticalmente*/
+
     background-color: #000;
+
     font-size: 15px;
+
     font-weight: bold;
+
     border-radius: 15px;
+
     margin: 10px;
+
 }
 
 #inputComentario{
+
     font-size: 15px;
+
     font-weight: bold;
+
 }
