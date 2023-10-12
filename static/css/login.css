@@ -35,7 +35,7 @@ form {
     margin: 20vh 0;
 
 }
-
+/*Defindo as configurações da logo no forms*/
 form #logo {
 
     border-radius: 15px; /*Definindo arrendondamento da borda*/
