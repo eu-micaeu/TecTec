@@ -16,34 +16,38 @@ header {
 
     display: flex; /* Dando flexibilidade ao header */
 
-    position: fixed; 
+    position: fixed; /*Definindo posição fixa para o header*/
 
-    top: 0;
+    top: 0;/*Definindo a posição superior do header*/
 
 }
 
+/*Definindo configurações da imagem do header*/
 header img {
 
-    cursor: pointer;
+    cursor: pointer;/*Definindo tipo de cursor*/
 
-    margin: 10px 10px 0px 10px;
+    margin: 10px 10px 0px 10px;/*Definindo margens*/
 
 }
 
+/*Definindo configurações da logo*/
 header #logo{
 
-    border-radius: 15px;
+    border-radius: 15px;/*Definindo arrendodamento da borda*/
 
-    animation: girar 2s infinite;
+    animation: girar 2s infinite;/*Definindo configurações da animação*/
 
-    padding-bottom: 5px;
+    padding-bottom: 5px;/*Definindo espaçamento inferior ao redor dos componentes*/
 
-    margin: 10px 10px;
+    margin: 10px 10px;/*Definindo margens*/
+
 
 }
 
+/*Definindo configurações das imagens do header */
 header #busca, header #pesquisar{
 
-    margin-top: 15px;
+    margin-top: 15px;/*Definindo margem superior*/
 
 }

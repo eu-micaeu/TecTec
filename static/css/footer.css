@@ -1,3 +1,4 @@
+/*Configurando o footer*/
 footer {
 
     font-family: monospace;
@@ -16,23 +17,25 @@ footer {
 
 }
 
+/*Configurando texto do footer*/
 footer p {
 
-    color: #00891E;
+    color: #00891E;/*Definindo cor*/
 
-    font-size: 15px;
+    font-size: 15px;/*Definindo cor*/
 
-    font-weight: bold;
+    font-weight: bold;/*Definindo a espessura*/
 
-    margin: 10px;
+    margin: 10px;/*Definindo margens*/
 
 }
 
+/*Configurando para telas menores*/
 @media screen and (max-device-width: 768px) {
 
     footer {
     
-        position: absolute;
+        position: absolute;/*Definindo a posição do footer*/
 
     }
     

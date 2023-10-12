@@ -4,6 +4,7 @@
 @import url('./footer.css');
 @import url('./bar.css');
 
+/*Definindo o escopo principal*/
 main{
     
     display: flex;
@@ -14,7 +15,7 @@ main{
 
 }
 
-
+/*Definindo  configurações de inserir postagem*/
 #inserirPostagem {
 
     width: 40vw;
@@ -43,55 +44,69 @@ main{
     
 }
 
+/*Definindo  configurações do botão publicar*/
 #publicar {
    
-    background-color: #00891E;
+    background-color: #00891E;/*Definindo  configurações do botão publicar*/
    
-    color: white;
+    color: white;/*Definindo cor*/
    
-    cursor: pointer;
+    cursor: pointer; /*Definindo tipo de cursor*/
    
-    border-radius: 10px;
+    border-radius: 10px;/*Definindo arrendondamento*/
    
-    padding: 10px 20px;
+    padding: 10px 20px;/*Definindo tipo de cursor*/
    
-    border: none;
+    border: none;/*Retirando borda*/
    
-    font-size: 15px;
+    font-size: 15px;/*Definindo tamanho da fonte*/
    
-    font-family: monospace;
+    font-family: monospace;/*Definindo tipo da fonte*/
     
-    font-weight: bold;
+    font-weight: bold;/*Definindo espessura da fonte*/
 
-    border: 2px solid white;
+    border: 2px solid white;/*Definindo tamanho, espessura, cor */
 
-    margin-top: 40px;
+    margin-top: 40px;/*Definindo margem superior*/
 
-    margin-bottom: 100px;
+    margin-bottom: 100px;/*Definindo margem inferior*/
 }
 
+/*Definindo  configurações do botão publicar ao passar o mouse*/
 #publicar:hover {
 
-    background-color: white;
+    background-color: white;/*Definindo cor de fundo*/
 
-    color: #00891E;
+    color: #00891E;/*Definindo cor*/
 
 }
 
 /* Estilize o toast com CSS */
 #toastCerto {
-    display: none;
-    background-color: #333;
-    color: #fff;
-    padding: 5px;
-    position: fixed;
-    left: 50%;
-    top: 0;
-    transform: translateX(-50%);
-    border-radius: 5px;
-    border: 2px solid #00891E;
+    
+    display: none;/*Definindo margem inferior*/
+    
+    background-color: #333;/*Definindo margem inferior*/
+    
+    color: #fff;/*Definindo cor*/
+    
+    padding: 5px;/*Definindo espaço ao redor dos elementos*/
+    
+    position: fixed;/*Definindo posição fixa*/
+    
+    left: 50%;/*Definindo posição direita*/
+    
+    top: 0;/*Definindo margem inferior*/
+    
+    transform: translateX(-50%);/*Definindo transição em -50%*/
+    
+    border-radius: 5px;/*Definindo arrendondamento */
+    
+    border: 2px solid #00891E;/*Definindo tamanho, espessura e cor*/
+
 }
 
+/*Definindo configurações para telas menores*/
 @media screen and (max-device-width: 768px) {
 
     #inserirPostagem{

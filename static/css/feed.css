@@ -32,6 +32,7 @@
     
 }
 
+/*configurando para telas menores*/
 @media screen and (max-device-width: 768px) {
 
     .postagem {
