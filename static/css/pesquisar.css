@@ -7,53 +7,53 @@
 /*Definindo configurações para o conteúdo principal da página*/
 main{
     
-    display: flex;
+    display: flex; /* Dando flexibilidade para div. */
     
-    align-items: center;
+    align-items: center; /*Centralizar items verticalmente no contêiner*/
 
-    flex-direction: column;
+    flex-direction: column; /*Elementos flexíveis são dispostos verticalmente*/
 
 }
 
 /*Definindo configurações para botão a barra de pesquisa*/
 #searchInput{
 
-    border-radius: 15px;
+    border-radius: 15px; /*Definindo arrendondamento */
 
-    border: 2px solid #00891E;
+    border: 2px solid #00891E; /*Definindo tamanho, espessura e cor da barra de pesquisa*/
 
-    background-color: transparent;
+    background-color: transparent; /*Definindo cor de fundo*/
 
-    width: 20rem;
+    width: 20rem; /*Definindo comprimento*/
 
-    height: 2rem;
+    height: 2rem; /*Definindo altura*/
 
-    font-family: monospace;
+    font-family: monospace; /*Definindo fonte*/
 
-    font-size: 20px;
+    font-size: 20px; /*Definindo tamanho da fonte*/
 
-    padding: 15px;
+    padding: 15px; /*Definindo espaço de preenchimento ao redor do conteúdo*/
 
-    margin-top: 150px;
+    margin-top: 150px; /*Definindo margem superior*/
 
-    color: white;
+    color: white; /*Definindo cor*/
 
 }
 
 /*Definindo configurações para botão*/
 button{
 
-    border-radius: 15px;
+    border-radius: 15px; /*Definindo arrendondamento do botao*/
 
-    color: white;
+    color: white; /*Definindo cor*/
 
-    padding: 20px;
+    padding: 20px; /*Definindo espaço de preenchimento ao redor do conteúdo*/
 
-    border: 2px solid #00891E;
+    border: 2px solid #00891E; /*Definindo tamanho, espessura, e cor do botao*/
 
-    background-color: black;
+    background-color: black; /*Definindo cor de fundo*/
 
-    margin: 10px;
+    margin: 10px; /*Definindo margens*/
 
     font-family: monospace; /*Definindo fonte do texto*/
 
@@ -66,13 +66,13 @@ button{
 /*Definindo configurações para botão ao passar o mouse*/
 button:hover{
 
-    color: rgb(0, 0, 0);
+    color: rgb(0, 0, 0); /*Definindo cor*/
 
-    padding: 20px;
+    padding: 20px; /*Definindo espaço de preenchimento ao redor do conteudo*/
 
-    border: 2px solid #00891E;
+    border: 2px solid #00891E; /*Definindo tamanho, espessura, cor da borda*/
 
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(255, 255, 255); /*Definindo cor de fundo*/
 
 }
 
@@ -81,16 +81,16 @@ button:hover{
 
     overflow-y: auto;
 
-    height: 600px;
+    height: 600px; /*Definindo altura*/
 
-    width: 400px;
+    width: 400px; /*Definindo comprimento*/
 
-    margin: 40px;
+    margin: 40px; /*Definindo margens*/
 
-    display: flex;
+    display: flex; /*Dando flexibilidade para o conteúdo*/
 
-    flex-direction: column;
+    flex-direction: column; /* Deixando o feed como forma de coluna */
 
-    align-items: center;
+    align-items: center; /*Centralizar items verticalmente no contêiner*/
 
 }
