@@ -1,86 +1,102 @@
+/*IMporatndo global e footer*/
 @import url('./global.css');
 @import url('./footer.css');
 
+/*Definindo configurações do conteúdo principal*/
 main{
 
-    display: flex;
+    display: flex;/* Dando flexibilidade para div. */
 
-    justify-content: center;
+    justify-content: center;/* Defininido arrendondamento */
 
-    align-items: center;
+    align-items: center;/*Centralizar items verticalmente no contêiner*/
 
 }
 
+/*Definindo configurações para o input das informações*/
 .inputUser {
 
-    background-color: transparent;
+    background-color: transparent;/* Defininido cor de fundo*/
 
-    color: #00891E;
+    color: #00891E;/* Defininido cor */
 
-    border: 3px solid rgb(255, 255, 255);
+    border: 3px solid rgb(255, 255, 255);/* Defininido tamanho,espessura,cor */
 
-    border-radius: 15px;
+    border-radius: 15px;/* Defininido arrendondamento */
 
-    padding: 10px 4px;
+    padding: 10px 4px;/* Defininido espaço ao redor do conteudo */
 
-    font-size: 20px;
+    font-size: 20px;/* Defininido tamanho da fonte */
 
-    margin: 10px;
+    margin: 10px;/* Defininido margens */
 
-    width: 15vw;
+    width: 15vw;/* Defininido comprimento */
 
-    text-align: center;
+    text-align: center;/*Alinhar o texto ao centro*/
 
-    font-family: monospace;
+    font-family: monospace;/* Defininido fonte do texto */
 
 }
 
+/*Definindo configurações para o formulário*/
 form{
 
-    padding: 25px;
+    padding: 25px;/* Defininido cor */
 
-    border: 6px solid rgb(255, 255, 255);
+    border: 6px solid rgb(255, 255, 255);/* Defininido tamanho,espessura,cor */
 
-    width: 20vw;
+    width: 20vw;/* Defininido comprimento */
 
-    border-radius: 15px;
+    border-radius: 15px;/* Defininido arrendodamento */
 
-    display: flex;
+    display: flex;/* Dando flexibilidade para div. */
 
-    justify-content: center;
+    justify-content: center;/* Defininido cor */
 
-    align-items: center;
+    align-items: center;/*Centralizar items verticalmente no contêiner*/
 
-    flex-direction: column;
+    flex-direction: column;/*Elementos flexíveis são dispostos verticalmente*/
 
-    margin: 5vh 0 16vh 0;
+    margin: 5vh 0 16vh 0;/* Definindo margens*/
 
 }
 
+/*Definindo configurações para a logo do formulário*/
 form #logo {
 
-    border-radius: 15px;
+    border-radius: 15px;/* Defininido arrendodamento */
 
-    animation: girar 3s infinite;
+    animation: girar 3s infinite;/* Defininido configuração de animação */
 
-    padding-bottom: 5px;
+    padding-bottom: 5px;/* Defininido espaço inferior */
 
-    margin: 5px;
+    margin: 5px;/* Defininido margens */
 
 }
 
 /* Estilize o toast com CSS */
 #toastCerto {
+    
     display: none;
-    background-color: #333;
-    color: #fff;
-    padding: 5px;
-    position: fixed;
-    left: 50%;
-    top: 0;
-    transform: translateX(-50%);
-    border-radius: 5px;
-    border: 2px solid #00891E;
+    
+    background-color: #333;/* Defininido cor de fundo */
+    
+    color: #fff;/* Defininido cor */
+    
+    padding: 5px;/* Defininido espaço ao redor */
+    
+    position: fixed;/* Defininido posição fixa */
+    
+    left: 50%;/* Defininido posição a direita */
+    
+    top: 0;/* Defininido posição em relação ao topo */
+    
+    transform: translateX(-50%);/* Defininido transição em -50% */
+    
+    border-radius: 5px;/* Defininido arrendodamento */
+    
+    border: 2px solid #00891E;/* Defininido arrendodamento */
+
 }
 
 #btVoltar, #cadastrar {

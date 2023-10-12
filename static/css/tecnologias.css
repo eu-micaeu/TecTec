@@ -1,30 +1,51 @@
+/*Importando css global, header, bar*/
 @import url('./global.css');
 @import url('./header.css');
 @import url('./bar.css');
 
+/*Definindo configurações do conteúdo principal*/
 main{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    margin: 0 15vw;
-    font-size: 16px;
-    font-weight: bold;
-    color: white;
-    text-align: center;
+    
+    display: flex;/* Dando flexibilidade para div. */
+    
+    align-items: center;/*Centralizar items verticalmente no contêiner*/
+    
+    flex-direction: column;/*Elementos flexíveis são dispostos verticalmente*/
+    
+    margin: 0 15vw;/* Defininido arrendondamento */
+    
+    font-size: 16px;/* Defininido tamanho */
+    
+    font-weight: bold;/* Defininido espessura */
+    
+    color: white;/* Defininido cor */
+    
+    text-align: center;/* Alinhar texto ao centro */
+
 }
 
+/*Definindo configurações da logo da tecnologia*/
 main img{
-    border-radius: 20px;
-    margin-bottom: 30px;
+
+    border-radius: 20px;/* Defininido arrendondamento */
+
+    margin-bottom: 30px;/* Defininido margem inferior */
+
 }
 
+/*Definindo configurações da tag <li>*/
 li{
-    list-style: none;
+
+    list-style: none;/* Retirando configurações de estilo */
+
 }
 
-
+/*Definindo configurações da imgTec - logo da tecnologia*/
 .imgTec{
-    margin-top: 10vh;
+
+    margin-top: 10vh;/* Definindo margem superior */
+
 }
+
 
 

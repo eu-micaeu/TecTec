@@ -1,15 +1,22 @@
+/*Importando css global,header,feed e bar*/
 @import url('./global.css');
 @import url('./header.css');
 @import url('./feed.css');
 @import url('./bar.css');
 
-
+/*Definindo configurações do conteúdo principal*/
 main{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    
+    display: flex;/*Dando flexibilidade para o conteudo*/    
+    
+    flex-direction: column;/*Elementos flexíveis são dispostos verticalmente*/
+
+    align-items: center;/*Centralizar items verticalmente no contêiner*/
 }
 
+/*Definindo configurações para as informações do perfil*/
 #perfil-usuario{
-    margin-top: 100px;
+    
+    margin-top: 100px;/*Definindo margem superior*/
+
 }
