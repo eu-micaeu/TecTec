@@ -13,12 +13,18 @@ main{
     text-align: center;
 }
 
+main img{
+    border-radius: 20px;
+    margin-bottom: 30px;
+}
+
+li{
+    list-style: none;
+}
+
+
 .imgTec{
     margin-top: 10vh;
 }
 
-img{
-    border-radius: 20px;
-    margin-bottom: 60px;
-}
 

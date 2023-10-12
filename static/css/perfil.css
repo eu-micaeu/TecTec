@@ -11,22 +11,5 @@ main{
 }
 
 #perfil-usuario{
-    margin-top: 150px;
-}
-
-/*Ajustando conteudo para tela menor que 768px*/
-@media screen and (max-device-width: 768px) {
-
-    #nome {
-        color: white;
-        font-family: 'monospace';
-        font-size: 10px;
-        margin: 0;
-    }   
-
-    #carrosel {
-        display: flex;
-        flex-direction: column;
-    }
-
+    margin-top: 100px;
 }

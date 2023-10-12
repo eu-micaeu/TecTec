@@ -6,11 +6,11 @@ header {
 
     padding: 0px 25px; /* Definindo o padding do header */
 
-    border-bottom: 3px solid #ffffff; /* Definindo a cor, espressura e tipo da borda de baixo do header */
+    border-bottom: 3px solid #00891E; /* Definindo a cor, espressura e tipo da borda de baixo do header */
 
-    border-left: 3px solid #ffffff; /* Definindo a cor, espressura e tipo da borda esquerda do header */
+    border-left: 3px solid #00891E; /* Definindo a cor, espressura e tipo da borda esquerda do header */
 
-    border-right: 3px solid #ffffff; /* Definindo a cor, espressura e tipo da borda direita do header */
+    border-right: 3px solid #00891E; /* Definindo a cor, espressura e tipo da borda direita do header */
 
     border-radius: 0 0 15px 15px; /* Definindo o grau de borda que será aplicada no header */
 

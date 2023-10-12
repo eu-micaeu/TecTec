@@ -11,12 +11,26 @@ main{
 }
 
 #postagem-principal{
-    margin-top: 10vh;
-    margin-bottom: 5vh;
+    border: 4px solid green; /* Definindo a espressura, tipo e cor da borda */
+
+    border-radius: 40px; /* Definindo o grau de borda que será aplicada na postagem */
+
+    margin-top: 100px;
+
+    margin-bottom: 20px; /* Deixando a postagem com margin inferior para uma melhor visualização. */
+
+    color: #00891E; /* Definindo a cor da letra da postagem */
+
+    padding: 25px; /* Definindo o padding da postagem */
+
+    width: 60vw; /* Definindo o comprimento da postagem */
+
+    background-color: #000; /* Definindo a cor do background da postagem */
+
+    word-break: break-all;
 }
 
 #comentar{
-    background-color: #000;
     display: flex;
     flex-direction: column;
     align-items: center;

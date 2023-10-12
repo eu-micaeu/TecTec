@@ -24,8 +24,10 @@
 
     width: 60vw; /* Definindo o comprimento da postagem */
 
+    height: 150px; /* Definindo o comprimento da postagem */
+
     background-color: #000; /* Definindo a cor do background da postagem */
 
-     word-break: break-all;
+    word-break: break-all;
     
 }
