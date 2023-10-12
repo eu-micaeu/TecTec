@@ -1,23 +1,25 @@
+/*Definindo configurações para a barra-lateral*/
 #mySidebar {
 
-    font-family: monospace;
+    font-family: monospace; /*Definindo fonte do texto*/
 
-    position: fixed;
+    position: fixed; /*Definindo que a barra-lateral deve ser fixada*/
 
-    top: 0;
+    top: 0; /*Definindo posição da barra em relação ao topo*/
 
-    right: -20vw;
+    right: -20vw; /*Definindo posição da barra em relação a lateral esquerda*/
 
-    background-color: #000000;
+    background-color: #000000; /*Definindo cor de fundo*/
 
-    overflow: hidden;
+    overflow: hidden; /*Ocultando conteúdo*/
 
-    transition: right 0.5s;
+    transition: right 0.5s; /*Definindo tem de transição*/
 
-    width: 20vw;
+    width: 20vw; /*Definindo comprimento*/
 
 }
 
+/*Definindo configurações para tag <a> barra-lateral*/
 #mySidebar a {
 
     margin: 8px 10px 10px 10px;
@@ -32,6 +34,7 @@
 
 }
 
+/*Definindo configurações para elementos na barra-lateral*/
 #mySidebar .centraliza{
 
     width: 100%;
@@ -40,6 +43,7 @@
 
 }
 
+/*Definindo configurações para elementos na barra-lateral*/
 #mySidebar .centraliza {
 
     flex-direction: column;
@@ -48,6 +52,7 @@
 
 }
 
+/*Definindo configurações para classe golang da barra-lateral*/
 #mySidebar .golang:hover {
 
     background-color: #007acc;
@@ -56,49 +61,55 @@
 
 }
 
+/*Definindo configurações para classe java barra-lateral*/
 .java:hover {
 
     background-color: red;
 
 }
 
+/*Definindo configurações para classe c barra-lateral*/
 .c:hover {
 
     background-color: blue;
 
 }
 
+/*Definindo configurações para classe postgresql barra-lateral*/
 .postgresql:hover {
 
     background-color: #1E90FF;
 
 }
 
+/*Definindo configurações para classe typescript e docker barra-lateral*/
 .docker:hover, .typescript:hover {
 
     background-color: #4169E1;
 
 }
 
+/*Definindo configurações para classe hadoop barra-lateral*/
 .hadoop:hover {
 
     background-color: yellow;
 
 }
-
+/*Definindo configurações para classe hadoop e html5 barra-lateral*/
 .hadoop a:hover, .html5 a:hover {
 
     color: black;
 
 }
 
-
+/*Definindo configurações para classe html barra-lateral*/
 .html5:hover {
 
     background-color: orange;
 
 }
 
+/*Definindo configurações para classe css3 barra-lateral*/
 .css3:hover {
 
     background-color: blue;
