@@ -3,6 +3,7 @@ let nickname;
 let idUsuario;
 let idUsuarioSeguindo;
 
+/*Função que extrai valor de um parâmetro de consulta da url */
 function getParameterByName(name, url = window.location.href) {
     name = name.replace(/[\[\]]/g, '\\$&');
     var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
@@ -14,8 +15,11 @@ function getParameterByName(name, url = window.location.href) {
 
 nickname = getParameterByName('nickname');
 
+/*Função que irá atualizar os seguidres do perfil-visitado */
 function updateAmizades(nickname) {
+   
     let name = nickname;
+   
     fetch('/perfil/' + name)
         .then(response => response.json())
         .then(data => {
@@ -32,11 +36,14 @@ function updateAmizades(nickname) {
             nameElement.style.textAlign = "center";
 
             if (window.innerWidth <= 768) {
+              
                 nameElement.style.width = "30vw";
+            
             }
 
         })
 }
+
 
 async function varIdUsuario() {
     try {
@@ -67,6 +74,7 @@ async function varIdUsuario() {
     }
 }
 
+/*Se varIdUsuario for solcitado de forma correta, então a outra função será executada */
 varIdUsuario().then(() => {
 
     function displayFeed() {
