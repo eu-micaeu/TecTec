@@ -219,9 +219,9 @@ func (u *Usuario) PegarInformacoesDeTodosOsUsuariosMenosAsMinhas(db *sql.DB) gin
 
 	return func(c *gin.Context) {
 
-		id_usuario := c.Param("id_usuario")
+		nickname := c.Param("nickname")
 
-		rows, err := db.Query("SELECT nickname FROM usuarios WHERE id_usuario != $1", id_usuario)
+		rows, err := db.Query("SELECT nickname FROM usuarios WHERE nickname != $1", nickname)
 
 		if err != nil {
 			c.JSON(500, gin.H{"message": "Erro ao buscar usuários"})

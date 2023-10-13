@@ -10,6 +10,7 @@ import (
 )
 
 func SessaoRoutes(r *gin.Engine, db *sql.DB) {
+	
 	sectionHandler := handlers.Sessao{}
 
 	r.POST("/entrada/:nickname", sectionHandler.Entrada(db))

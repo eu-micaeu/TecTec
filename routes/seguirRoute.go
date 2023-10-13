@@ -8,6 +8,7 @@ import (
 )
 
 func SeguirRoutes(r *gin.Engine, db *sql.DB) {
+	
 	friedHandler := handlers.Seguir{}
 
 	r.POST("/criar_amizade", friedHandler.CriarAmizade(db))

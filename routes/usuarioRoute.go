@@ -16,7 +16,7 @@ func UsuarioRoutes(r *gin.Engine, db *sql.DB) {
 
 	r.GET("/perfil/:nickname", userHandler.PegarInformacoesDoUsuarioAtravesDoNickname(db))
 
-	r.GET("/usuarios/:id_usuario", userHandler.PegarInformacoesDeTodosOsUsuariosMenosAsMinhas(db))
+	r.GET("/usuarios/:nickname", userHandler.PegarInformacoesDeTodosOsUsuariosMenosAsMinhas(db))
 
 	r.POST("/perfil-token", userHandler.PegarInformacoesDoUsuarioAtravesDoToken(db))
 

@@ -1,6 +1,5 @@
 let usuariosData = [];
-let idUsuario;
-
+let nickname;
 async function varIdUsuario() {
     try {
         const response = await fetch('/perfil-token/', {
@@ -12,7 +11,7 @@ async function varIdUsuario() {
 
         const data = await response.json();
 
-        idUsuario = data.usuario.id_usuario;
+        nickname = data.usuario.nickname;
 
         searchNicknames();
     } catch (error) {
@@ -44,7 +43,7 @@ function searchNicknames() {
         }
     } else {
 
-        fetch('/usuarios/' + idUsuario)
+        fetch('/usuarios/' + nickname)
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Erro na solicitação: ' + response.status);
