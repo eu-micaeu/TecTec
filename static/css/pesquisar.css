@@ -17,10 +17,16 @@ main{
 
 /*Definindo configurações para botão a barra de pesquisa*/
 #searchInput{
+ 
+    text-align: center;
 
-    border-radius: 15px; /*Definindo arrendondamento */
+    border-left: 2px solid #00891E; /*Definindo tamanho, espessura e cor da barra de pesquisa*/
 
-    border: 2px solid #00891E; /*Definindo tamanho, espessura e cor da barra de pesquisa*/
+    border-right: 2px solid #00891E; /*Definindo tamanho, espessura e cor da barra de pesquisa*/
+
+    border-bottom: 2px solid #00891E; /*Definindo tamanho, espessura e cor da barra de pesquisa*/
+
+    border-top: none;
 
     background-color: transparent; /*Definindo cor de fundo*/
 
@@ -32,9 +38,7 @@ main{
 
     font-size: 20px; /*Definindo tamanho da fonte*/
 
-    padding: 15px; /*Definindo espaço de preenchimento ao redor do conteúdo*/
-
-    margin-top: 100px; /*Definindo margem superior*/
+    padding: 20px; /*Definindo espaço de preenchimento ao redor do conteúdo*/
 
     color: white; /*Definindo cor*/
 
@@ -59,7 +63,7 @@ button{
 
     font-size: 15px; /*Definindo tamnho da fonte*/
 
-    width: 300px; /*Definindo comprimento*/
+    width: 400px; /*Definindo comprimento*/
 
 }
 
@@ -81,16 +85,16 @@ button:hover{
 
     overflow-y: auto;
 
-    height: 500px; /*Definindo altura*/
+    height: 80vh; /*Definindo altura*/
 
-    width: 400px; /*Definindo comprimento*/
-
-    margin: 20px; /*Definindo margens*/
+    width: 500px; /*Definindo comprimento*/
 
     display: flex; /*Dando flexibilidade para o conteúdo*/
 
     flex-direction: column; /* Deixando o feed como forma de coluna */
 
     align-items: center; /*Centralizar items verticalmente no contêiner*/
+
+    margin-top: 2vh;
 
 }

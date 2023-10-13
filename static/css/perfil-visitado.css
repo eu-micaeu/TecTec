@@ -14,9 +14,3 @@ main{
     align-items: center; /*Centralizar items verticalmente no contêiner*/
 
 }
-/*Defindo as configurações para perfil usuário*/
-#perfil-usuario{
-
-    margin-top: 150px; /*Definindo margem superior*/
-
-}

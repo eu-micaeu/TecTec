@@ -4,8 +4,6 @@
     display: flex; /* Dando flexibilidade para div. */
 
     flex-direction: column; /* Deixando o feed como forma de coluna */
-
-    margin: 15vh 0vw; /* Deixando o feed com margin para uma melhor visualização. */
     
 }
 
@@ -22,7 +20,7 @@
 
     padding: 25px; /* Definindo o padding da postagem */
 
-    width: 60vw; /* Definindo o comprimento da postagem */
+    width: 40vw; /* Definindo o comprimento da postagem */
 
     height: auto; /* Definindo o comprimento da postagem */
 

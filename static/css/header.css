@@ -2,52 +2,95 @@ header {
 
     background-color: #000; /* Definindo a cor do header */
 
-    width: 350px; /* Definindo o comprimento do header */
+    height: 100%;
 
     padding: 0px 25px; /* Definindo o padding do header */
 
     border-bottom: 3px solid #00891E; /* Definindo a cor, espressura e tipo da borda de baixo do header */
 
-    border-left: 3px solid #00891E; /* Definindo a cor, espressura e tipo da borda esquerda do header */
-
     border-right: 3px solid #00891E; /* Definindo a cor, espressura e tipo da borda direita do header */
-
-    border-radius: 0 0 15px 15px; /* Definindo o grau de borda que será aplicada no header */
-
-    display: flex; /* Dando flexibilidade ao header */
 
     position: fixed; /*Definindo posição fixa para o header*/
 
-    top: 0;/*Definindo a posição superior do header*/
+    display: flex;
+
+    flex-direction: column;
+
+    color: #00891E;
+
+    font-weight: bold;
 
 }
 
-/*Definindo configurações da imagem do header*/
-header img {
+header .opcao {
 
-    cursor: pointer;/*Definindo tipo de cursor*/
+    cursor: pointer; /*Definindo tipo de cursor*/
 
-    margin: 10px 10px 0px 10px;/*Definindo margens*/
+    margin: 2vh 0.5vw;
+
+    padding: 10px;
 
 }
 
-/*Definindo configurações da logo*/
+header .opcao:hover {
+
+    background-color: #333;
+
+    border-radius: 10px;
+
+    padding: 10px;
+ 
+}
+
+header .imgTitulo{
+    
+    display: flex;
+
+    align-items: center;
+
+}
+
+header .imgTitulo p{
+    
+    font-size: 20px;
+
+    margin-right: 10px;
+
+}
+
 header #logo{
 
-    border-radius: 15px;/*Definindo arrendodamento da borda*/
+    animation: girar 2s infinite; /*Definindo configurações da animação*/
 
-    animation: girar 2s infinite;/*Definindo configurações da animação*/
-
-    padding-bottom: 5px;/*Definindo espaçamento inferior ao redor dos componentes*/
-
-    margin: 10px 10px;/*Definindo margens*/
-
+    padding: 10px;
 
 }
 
-/*Definindo configurações das imagens do header */
-header #busca, header #pesquisar{
+/*Definindo configurações para telas menores*/
+@media screen and (max-device-width: 768px) {
 
-    margin-top: 15px;/*Definindo margem superior*/
+    header{
 
+        width: 40px;
+
+    }
+
+    header #logo{
+        width: 35px;
+
+        height: 35px;
+    }
+
+    header .opcao {
+
+        cursor: pointer; /*Definindo tipo de cursor*/
+    
+        margin: 2vh 0.5vw;
+        
+    }
+
+    header .imgTitulo p{
+        display: none;
+    }
+    
 }

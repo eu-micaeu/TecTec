@@ -1,40 +1,70 @@
 // Insira o conteúdo HTML no corpo antes do primeiro filho usando insertAdjacentHTML
 document.body.insertAdjacentHTML('afterbegin', `
 
-<div class="centraliza">
-
 <header>
 
-    <img src="../static/images/casinha.png" alt="Home" id="casa" onclick="window.location.href='/home'" title="Home" width="30" height="30">
+<div class="imgTitulo"> 
+    
+    <img src="../static/images/logo.png" alt="Logo" id="logo" width="50" height="50">
 
-    <br>
+    <p>
+        <span style="color: #00891E;">T</span>
+        <span style="color: #00891E;">e</span>
+        <span style="color: #00891E;">c</span>
+        <span style="color: white;">T</span>
+        <span style="color: white;">e</span>
+        <span style="color: white; margin:0">c</span>
+    </p>
+  
+    </div>
+    
+    <div class="imgTitulo"> 
+    
+        <img src="../static/images/casinha.png" alt="Home" id="casa" class="opcao" onclick="window.location.href='/home'" title="Home" width="30" height="30">
 
-    <img src="../static/images/la_user.png" alt="Perfil" id="perfil" onclick="window.location.href='/perfil'" title="Perfil" width="30" height="30">
+        <p>Home</p>
+    
+    </div>
 
-    <br>
+    <div class="imgTitulo"> 
+    
+        <img src="../static/images/la_user.png" alt="Perfil" id="perfil" class="opcao" onclick="window.location.href='/perfil'" title="Perfil" width="30" height="30">
 
-    <img src="../static/images/explorar.png" alt="Pesquisar usuário" id="pesquisar" onclick="window.location.href='/pesquisar'" title="Pesquisar usuário" width="20" height="20">
+        <p>Perfil</p>
+    
+    </div>
 
-    <br>
+    <div class="imgTitulo"> 
+    
+        <img src="../static/images/explorar.png" alt="Pesquisar usuário" id="pesquisar" class="opcao" onclick="window.location.href='/pesquisar'" title="Pesquisar usuário" width="30" height="30">
 
-    <img src="../static/images/logo.png" alt="Logo" id="logo" width="40" height="40">
+        <p>Pesquisar</p>
+    
+    </div>
 
-    <br>
+    <div class="imgTitulo"> 
+    
+        <img src="../static/images/pesquisa.png" alt="Tecnologias" id="busca" class="opcao" title="Tecnologias" width="30" height="30">
 
-    <img src="../static/images/pesquisa.png" alt="Tecnologias" id="busca" title="Tecnologias" width="20" height="20">
+        <p>Tecnologias</p>
+    
+    </div>
+    
+    <div class="imgTitulo"> 
+    
+        <img src="../static/images/addpost.png" alt="Postar" id="addpost" class="opcao" onclick="window.location.href='/post'" title="Postar" width="30" height="30">
 
-    <br>
+        <p>Postar</p>
+    
+    </div>
+    
+    <div class="imgTitulo"> 
+    
+        <img src="../static/images/out.png" alt="Sair" id="sair" class="opcao" title="Sair" width="30" height="30">
 
-    <img src="../static/images/addpost.png" alt="Postar" id="addpost" onclick="window.location.href='/post'" title="Postar" width="30" height="30">
-
-    <br>
-
-    <img src="../static/images/out.png" alt="Sair" id="sair" title="Sair" width="30" height="30">
-
-
-</header></div>
-
-
+        <p>Sair</p>
+    
+    </div>
 
 `);
 

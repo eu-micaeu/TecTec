@@ -1,31 +1,50 @@
+//Declaração de variáveis
 let nickname;
-
 let idUsuario;
 let idUsuarioSeguindo;
 
-/*Função que extrai valor de um parâmetro de consulta da url */
+/* Função que extrai valor de um parâmetro de consulta da URL */
 function getParameterByName(name, url = window.location.href) {
+    // Substituir os colchetes para criar uma expressão regular
     name = name.replace(/[\[\]]/g, '\\$&');
-    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
-        results = regex.exec(url);
+
+    // Cria uma expressão regular para procurar o parâmetro na URL.
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
+
+    // A expressão regular é executada na URL e armazena o resultado
+    var results = regex.exec(url);
+
+    // Retorna nulo caso não tenha resultado
     if (!results) return null;
+
+    // Retorna string vazia
     if (!results[2]) return '';
+
     return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
 
+
 nickname = getParameterByName('nickname');
 
-/*Função que irá atualizar os seguidres do perfil-visitado */
+//Função que irá atualizar os seguidores do perfil visitado */
 function updateAmizades(nickname) {
-   
+    // Variável para armazenar o nickname
     let name = nickname;
-   
+
+    // Solicitação GET para a URL '/perfil/' + name 
     fetch('/perfil/' + name)
-        .then(response => response.json())
+        .then(response => response.json()) // Converte a resposta em JSON.
         .then(data => {
+            // Obter número de seguidores
             let seguidores = data.usuario.seguidores;
+
+            // Obter HTML pelo id 'seguidores'
             let nameElement = document.getElementById('seguidores');
+
+            // Atualiza o conteúdo do elemento para exibir o número de seguidores.
             nameElement.textContent = "Seguidores: " + seguidores;
+
+            // Defindo estilo para o elemento nameElement
             nameElement.style.color = "#00891E";
             nameElement.style.border = "2px solid white";
             nameElement.style.borderRadius = "10px";
@@ -35,44 +54,61 @@ function updateAmizades(nickname) {
             nameElement.style.width = "15vw";
             nameElement.style.textAlign = "center";
 
+            // Ajustar largura para tela menor que 768px
             if (window.innerWidth <= 768) {
-              
                 nameElement.style.width = "30vw";
-            
             }
-
-        })
+        });
 }
 
-
+// Fazer solicitações ao servidor e recuperar dados relacionado ao perfil 
 async function varIdUsuario() {
+    //Obter informações - GET
     try {
+        // Para solicitação GET para a URL '/perfil/' 
         const response = await fetch('/perfil/' + nickname, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
             },
         });
+      
+        // Armazena a resposta json na variável data
         const data = await response.json();
+      
+        // A variável irá armazenar o valor 'nickname' 
         nickname = data.usuario.nickname;
+      
+        // A variável irá armazenar o valor 'id_usuario' 
         idUsuarioSeguindo = data.usuario.id_usuario;
+    
     } catch (error) {
+        // Exiber erro no console
         console.error(error);
     }
 
+    //Atualizar variáveis com os valores obtidos - POST
     try {
+        // Para POST para a URL '/perfil-token/'.
         const response = await fetch('/perfil-token/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
         });
+      
+        // Armazena a resposta json na variável data 
         const data = await response.json();
+      
+        // A variável irá armazenar o valor 'id_usuario' 
         idUsuario = data.usuario.id_usuario;
+    
     } catch (error) {
+        // Em caso de erro, exibe o erro no console.
         console.error(error);
     }
 }
+
 
 /*Se varIdUsuario for solcitado de forma correta, então a outra função será executada */
 varIdUsuario().then(() => {
@@ -350,14 +386,21 @@ varIdUsuario().then(async () => {
     }
 
     seguirBotao.addEventListener("click", () => {
+    
         seguir(idUsuario, idUsuarioSeguindo);
+    
     });
 
 })
 
+// Importar 'iconsHover' e 'sidebarModule' do arquivo 'global.mjs'.
 import { iconsHover, sidebarModule } from './global.mjs';
 
+// Chamada da função 'iconsHover'
 iconsHover();
 
+// Chamada da função 'sidebarModule'. Armazena o retorno na variável sidebar
 var sidebar = sidebarModule();
+
+
 document.getElementById("busca").addEventListener("click", sidebar.toggleSidebar);

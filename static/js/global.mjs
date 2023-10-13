@@ -63,8 +63,10 @@ export function iconsHover() {
         addImage.src = '/static/images/addpost.png';
     });
 }
-
+// Função para mostrar e esconder a barra lateral 
 export function sidebarModule() {
+    
+    // variável de verificação da visibilidade da barra-lateral
     var sidebarOpen = false;
 
     function toggleSidebar() {
