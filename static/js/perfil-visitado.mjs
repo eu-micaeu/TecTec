@@ -343,7 +343,9 @@ varIdUsuario().then(async () => {
         }
     }
 
+        // Função assíncrona para seguir ou deixar de seguir um usuário.
     async function seguir(idUsuario, idUsuarioSeguindo) {
+        // Faz uma solicitação POST para verificar a existência de uma amizade.
         const response = await fetch("/verificar_amizade", {
             method: "POST",
             headers: {
@@ -352,9 +354,12 @@ varIdUsuario().then(async () => {
             body: JSON.stringify({ id_usuario: idUsuario, id_usuario_seguindo: idUsuarioSeguindo })
         });
 
+        // Verifica se a solicitação foi bem-sucedida.
         if (response.ok) {
+            // Analisa a resposta como JSON.
             const data = await response.json();
 
+            // Desfazer amizade, caso exista
             if (data.amizade_existe) {
                 const response = await fetch("/desfazer_amizade", {
                     method: "DELETE",
@@ -364,11 +369,13 @@ varIdUsuario().then(async () => {
                     body: JSON.stringify({ id_usuario: idUsuario, id_usuario_seguindo: idUsuarioSeguindo })
                 });
 
+                // Atualizar botão, ao desfazer a amizade
                 if (response.ok) {
                     seguirBotao.textContent = "Seguir";
                     updateAmizades(nickname);
                 }
             } else {
+                // Criar amizade, caso não exista
                 const response = await fetch("/criar_amizade", {
                     method: "POST",
                     headers: {
@@ -377,6 +384,7 @@ varIdUsuario().then(async () => {
                     body: JSON.stringify({ id_usuario: idUsuario, id_usuario_seguindo: idUsuarioSeguindo })
                 });
 
+                // Atualizar o botão de seguir, ao seguir
                 if (response.ok) {
                     seguirBotao.textContent = "Seguindo";
                     updateAmizades(nickname);
@@ -385,11 +393,12 @@ varIdUsuario().then(async () => {
         }
     }
 
+    // Ouvinte de evento para o botão 
     seguirBotao.addEventListener("click", () => {
-    
+        // Chamar função seguir
         seguir(idUsuario, idUsuarioSeguindo);
-    
     });
+
 
 })
 
@@ -402,5 +411,5 @@ iconsHover();
 // Chamada da função 'sidebarModule'. Armazena o retorno na variável sidebar
 var sidebar = sidebarModule();
 
-
+//Adicionar ouvinte para o evento ao elemento HTML com id "busca" - o elemento busca ao ser clicado chama a função toggleSidebar
 document.getElementById("busca").addEventListener("click", sidebar.toggleSidebar);
