@@ -272,7 +272,7 @@ varIdUsuario().then(() => {
                 seguidoresElement.style.padding = "20px";
                 seguidoresElement.style.backgroundColor = "black";
                 seguidoresElement.style.fontSize = "20px";
-                seguidoresElement.style.width = "";
+                seguidoresElement.style.width = "15vw";
                 seguidoresElement.style.textAlign = "center";
 
                 let seguindo = data.usuario.seguindo;
@@ -284,7 +284,7 @@ varIdUsuario().then(() => {
                 seguindoElement.style.padding = "20px";
                 seguindoElement.style.backgroundColor = "black";
                 seguindoElement.style.fontSize = "20px";
-                seguindoElement.style.width = "";
+                seguindoElement.style.width = "15vh";
                 seguindoElement.style.textAlign = "center";
 
                 if (window.innerWidth <= 768) {
