@@ -117,3 +117,27 @@
     color: black; /*Definindo cor*/
 
 }
+
+@media screen and (max-device-width: 768px) {
+    
+    #mySidebar {
+
+        font-family: monospace; /*Definindo fonte do texto*/
+    
+        position: fixed; /*Definindo que a barra-lateral deve ser fixada*/
+    
+        top: 0; /*Definindo posição da barra em relação ao topo*/
+    
+        right: -30vw; /*Definindo posição da barra em relação a lateral esquerda*/
+    
+        background-color: #000000; /*Definindo cor de fundo*/
+    
+        overflow: hidden; /*Ocultando conteúdo*/
+    
+        transition: right 0.5s; /*Definindo tem de transição*/
+    
+        width: 30vw; /*Definindo comprimento*/
+    
+    }
+    
+}
