@@ -5,7 +5,7 @@ import (
 	"database/sql"
 	"fmt"
 	"log"
-	//"os"
+	"os"
 
 	_ "github.com/lib/pq"
 )
@@ -13,11 +13,11 @@ import (
 // Função para criar e conectar a um banco de dados
 func NewDB() (*sql.DB, error) {
 
-	dbUser := "root"
-	dbPassword := "tectec123"
-	dbHost := "dpg-cjd7jk7db61s73cdigjg-a.oregon-postgres.render.com"
-	dbPort := "5432"
-	dbName := "tectec"
+	dbUser := os.Getenv("DB_USER")
+dbPassword := os.Getenv("DB_PASSWORD")
+dbHost := os.Getenv("DB_HOST")
+dbPort := os.Getenv("DB_PORT")
+dbName := os.Getenv("DB_NAME")
 
 	dsn := fmt.Sprintf("postgres://%s:%s@%s:%s/%s?sslmode=require", dbUser, dbPassword, dbHost, dbPort, dbName) // String utilizada para criar a URL da conexão
 
