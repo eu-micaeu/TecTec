@@ -66,6 +66,31 @@ header #logo{
 
 }
 
+
+#toggleHeaderButton{
+
+    display: none;
+    
+    position: fixed;
+    
+    border-radius: 20px;
+
+    background-color: #000;
+
+    cursor: pointer;
+
+    top: 0;
+
+    left: 50%;
+    
+    transform: translateX(-50%);
+
+    border: 2px solid #00891E;/* Defininido arrendodamento */
+
+}
+
+
+
 /*Definindo configurações para telas menores*/
 @media screen and (max-device-width: 768px) {
 
@@ -90,7 +115,23 @@ header #logo{
     }
 
     header .imgTitulo p{
+
         display: none;
+
     }
+
+    header{
+
+        display: none;
+    
+    }
+    
+
+    #toggleHeaderButton{
+
+        display: block;
+
+    }
+
     
 }

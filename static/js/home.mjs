@@ -84,6 +84,8 @@ function displayFeed(idUsuario) {
 
                                 feedContainer.innerHTML = "";
 
+                                feedContainer.style.marginTop = "80px";
+
                                 for (let i = 0; i < postagens.length; i++) {
 
                                     let postagem = postagens[i];

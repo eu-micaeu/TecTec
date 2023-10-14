@@ -102,3 +102,21 @@ export function sidebarModule() {
         toggleSidebar: toggleSidebar
     };
 }
+
+const toggleHeaderButton = document.getElementById('toggleHeaderButton');
+
+const header = document.querySelector('header');
+
+// Adiciona um ouvinte de evento para o botão
+toggleHeaderButton.addEventListener('click', function() {
+    
+    // Alterna a classe CSS que controla a visibilidade do header
+    if (header.style.display === 'block' || header.style.display === '') {
+        // Se estiver visível, oculta
+        header.style.display = 'none';
+    } else {
+        // Se estiver oculto, exibe
+        header.style.display = 'block';
+    }
+
+});
