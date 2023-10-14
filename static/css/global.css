@@ -1,7 +1,7 @@
 /* Corpo de todas as págs.*/
 body {
 
-    background-image: url(../images/step_background.png); /* Definindo a imagem do background de todas as páginas. */
+    background-color: black;
 
     background-attachment: fixed; /* Definindo a imagem do background como fixado. */
 

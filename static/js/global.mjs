@@ -63,10 +63,9 @@ export function iconsHover() {
         addImage.src = '/static/images/addpost.png';
     });
 }
-// Função para mostrar e esconder a barra lateral 
+
 export function sidebarModule() {
     
-    // variável de verificação da visibilidade da barra-lateral
     var sidebarOpen = false;
 
     function toggleSidebar() {
@@ -74,9 +73,9 @@ export function sidebarModule() {
     
         if (!sidebarOpen) {
             if (window.innerWidth < 768) {
-                mySidebar.style.right = "0"; // Mostrar a barra lateral na tela
+                mySidebar.style.right = "0"; 
             } else {
-                mySidebar.style.right = "0"; // Mostrar a barra lateral na tela
+                mySidebar.style.right = "0"; 
                 mySidebar.style.marginTop = "10vh";
                 mySidebar.style.height = "80%";
                 mySidebar.style.width = "10%";
@@ -89,7 +88,7 @@ export function sidebarModule() {
             sidebarOpen = true;
         } else {
             
-            mySidebar.style.right = "-100%"; // Esconder a barra lateral na lateral direita
+            mySidebar.style.right = "-100%"; 
             mySidebar.style.height = "0";
             mySidebar.style.border = "none";
             
@@ -103,20 +102,24 @@ export function sidebarModule() {
     };
 }
 
-const toggleHeaderButton = document.getElementById('toggleHeaderButton');
-
 const header = document.querySelector('header');
 
-// Adiciona um ouvinte de evento para o botão
+if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    header.style.display = 'none';
+}
+
+const toggleHeaderButton = document.getElementById('toggleHeaderButton');
+
 toggleHeaderButton.addEventListener('click', function() {
     
-    // Alterna a classe CSS que controla a visibilidade do header
     if (header.style.display === 'block' || header.style.display === '') {
-        // Se estiver visível, oculta
+
         header.style.display = 'none';
+
     } else {
-        // Se estiver oculto, exibe
+        
         header.style.display = 'block';
+
     }
 
 });

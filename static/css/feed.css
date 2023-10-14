@@ -33,6 +33,12 @@
 /*configurando para telas menores*/
 @media screen and (max-device-width: 768px) {
 
+    #feed{
+
+        margin-top: 100px;
+
+    }
+
     .postagem {
     
         width: 70vw; /* Definindo o comprimento da postagem */

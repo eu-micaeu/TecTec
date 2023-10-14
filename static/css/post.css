@@ -115,6 +115,8 @@ main{
         height: 30vh;
 
         width: 80vw;
+
+        border-top: 5px solid #00891E;
     }
     
 }

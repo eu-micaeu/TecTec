@@ -34,7 +34,6 @@ function update(nickname) {
 
             let nickname = data.usuario.nickname;
             let nomeElement = document.getElementById('nome');
-            nomeElement.style.marginTop = "80px";
             nomeElement.textContent = "@" + nickname;
             nomeElement.style.color = "#00891E";
             nomeElement.style.border = "2px solid white";
@@ -115,8 +114,11 @@ function displayFeed() {
                             .then(response => response.json())
                             .then(data => {
                                 let postagens = data.postagens;
+
                                 let feedContainer = document.querySelector("#feed");
+
                                 feedContainer.innerHTML = "";
+
                                 for (let i = 0; i < postagens.length; i++) {
                                     let postagem = postagens[i];
                                     let postElement = document.createElement("div");

@@ -4,6 +4,8 @@ header {
 
     height: 100%;
 
+    width: 12vw;
+
     padding: 0px 25px; /* Definindo o padding do header */
 
     border-bottom: 3px solid #00891E; /* Definindo a cor, espressura e tipo da borda de baixo do header */
@@ -19,6 +21,8 @@ header {
     color: #00891E;
 
     font-weight: bold;
+
+    overflow-y: scroll;
 
 }
 
@@ -50,14 +54,6 @@ header .imgTitulo{
 
 }
 
-header .imgTitulo p{
-    
-    font-size: 20px;
-
-    margin-right: 10px;
-
-}
-
 header #logo{
 
     animation: girar 2s infinite; /*Definindo configurações da animação*/
@@ -73,10 +69,6 @@ header #logo{
     
     position: fixed;
     
-    border-radius: 20px;
-
-    background-color: #000;
-
     cursor: pointer;
 
     top: 0;
@@ -85,7 +77,11 @@ header #logo{
     
     transform: translateX(-50%);
 
-    border: 2px solid #00891E;/* Defininido arrendodamento */
+    border: 2px solid #00891E;
+
+    border-radius: 5px;
+
+    background-color: #000;
 
 }
 
@@ -120,16 +116,11 @@ header #logo{
 
     }
 
-    header{
-
-        display: none;
-    
-    }
-    
-
     #toggleHeaderButton{
 
         display: block;
+
+        margin-top: 10px;
 
     }
 

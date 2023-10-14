@@ -240,7 +240,6 @@ varIdUsuario().then(() => {
             .then(data => {
                 let nickname = data.usuario.nickname;
                 let nomeElement = document.getElementById('nome');
-                nomeElement.style.marginTop = "80px";
                 nomeElement.textContent = "@" + nickname;
                 nomeElement.style.color = "#00891E";
                 nomeElement.style.border = "2px solid white";
@@ -284,15 +283,9 @@ varIdUsuario().then(() => {
                 seguindoElement.style.padding = "20px";
                 seguindoElement.style.backgroundColor = "black";
                 seguindoElement.style.fontSize = "20px";
-                seguindoElement.style.width = "15vh";
+                seguindoElement.style.width = "15vw";
                 seguindoElement.style.textAlign = "center";
 
-                if (window.innerWidth <= 768) {
-                    nomeElement.style.width = "30vw";
-                    tecnologiaElement.style.width = "30vw";
-                    seguidoresElement.style.width = "30vw";
-                    seguindoElement.style.width = "30vw";
-                }
             });
     }
 
