@@ -1,6 +1,7 @@
+
 let idUsuario;
 
-async function varIdUsuarioHome() { // Função para verificar se existe um usuário logado.
+async function varIdUsuarioHome() {
 
     try {
 
@@ -219,29 +220,48 @@ function mostrarFeed(idUsuario) {
                                     seguidorImagem.style.cursor = "pointer";
 
                                     seguidorImagem.addEventListener('mouseover', function () {
+
                                         seguidorImagem.src = '/static/images/seguidorbranco.png';
+
                                     });
                                     seguidorImagem.addEventListener('mouseout', function () {
+
                                         seguidorImagem.src = '/static/images/seguidor.png';
+
                                     });
 
                                     seguidorImagem.addEventListener('click', async function () {
+
                                         const resposta = await fetch(`/desfazer_amizade`, {
+
                                             method: 'DELETE',
+
                                             headers: {
+
                                                 'Content-Type': 'application/json'
+
                                             },
+
                                             body: JSON.stringify({
+
                                                 id_usuario: idUsuario,
+
                                                 id_usuario_seguindo: postagem.id_usuario
+
                                             })
+
                                         });
 
                                         if (resposta.ok) {
+
                                             mostrarFeed()
+
                                         } else {
+
                                             console.error('Erro ao desfazer amizade');
+
                                         }
+
                                     });
 
                                     divEmbaixo.appendChild(seguidorImagem);
@@ -258,11 +278,29 @@ function mostrarFeed(idUsuario) {
         })
 }
 
+document.getElementById("busca").addEventListener("click", function() {
+
+    var dialog = document.getElementById("myDialog");
+
+    var overlay = document.getElementById("overlay");
+
+    dialog.style.display = "flex";
+
+    overlay.style.display = "block";
+
+});
+
+document.getElementById("closeDialog").addEventListener("click", function() {
+    var dialog = document.getElementById("myDialog");
+    var overlay = document.getElementById("overlay");
+
+    dialog.style.display = "none";
+    overlay.style.display = "none";
+});
+
+
 /* Importação de funções do global.mjs */
 
-import { iconeSelecionado, moduloBarraLateral } from './global.mjs';
+import { iconeSelecionado } from './global.mjs';
 
 iconeSelecionado();
-
-var barraLateral = moduloBarraLateral();
-document.getElementById("busca").addEventListener("click", barraLateral.alternarBarraLateral);

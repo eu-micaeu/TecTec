@@ -1,4 +1,4 @@
-import { iconeSelecionado, moduloBarraLateral } from './global.mjs';
+import { iconeSelecionado } from './global.mjs';
 
 let idUsuario;
 let nickname;
@@ -257,6 +257,3 @@ function mostrarFeed() {
 }
 
 iconeSelecionado();
-
-var barraLateral = moduloBarraLateral();
-document.getElementById("busca").addEventListener("click", barraLateral.alternarBarraLateral);

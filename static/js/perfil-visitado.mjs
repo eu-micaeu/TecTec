@@ -247,7 +247,6 @@ varIdUsuario().then(() => {
                 elementoNome.style.padding = "20px";
                 elementoNome.style.backgroundColor = "black";
                 elementoNome.style.fontSize = "20px";
-                elementoNome.style.width = "15vw";
                 elementoNome.style.textAlign = "center";
 
                 let tecnologia = data.usuario.tecnologia;
@@ -259,7 +258,6 @@ varIdUsuario().then(() => {
                 elementoTecnologia.style.padding = "20px";
                 elementoTecnologia.style.backgroundColor = "black";
                 elementoTecnologia.style.fontSize = "20px";
-                elementoTecnologia.style.width = "15vw";
                 elementoTecnologia.style.textAlign = "center";
 
                 let seguidores = data.usuario.seguidores;
@@ -271,7 +269,6 @@ varIdUsuario().then(() => {
                 elementoSeguidores.style.padding = "20px";
                 elementoSeguidores.style.backgroundColor = "black";
                 elementoSeguidores.style.fontSize = "20px";
-                elementoSeguidores.style.width = "15vw";
                 elementoSeguidores.style.textAlign = "center";
 
                 let seguindo = data.usuario.seguindo;
@@ -283,7 +280,6 @@ varIdUsuario().then(() => {
                 elementoSeguindo.style.padding = "20px";
                 elementoSeguindo.style.backgroundColor = "black";
                 elementoSeguindo.style.fontSize = "20px";
-                elementoSeguindo.style.width = "15vw";
                 elementoSeguindo.style.textAlign = "center";
 
             });
@@ -397,13 +393,7 @@ varIdUsuario().then(async () => {
 })
 
 // Importar 'iconeSelecionado' e 'moduloBarraLateral' do arquivo 'global.mjs'.
-import { iconeSelecionado, moduloBarraLateral } from './global.mjs';
+import { iconeSelecionado } from './global.mjs';
 
 // Chamada da função 'iconeSelecionado'
 iconeSelecionado();
-
-// Chamada da função 'moduloBarraLateral'. Armazena o retorno na variável barraLateral
-var barraLateral = moduloBarraLateral();
-
-//Adicionar ouvinte para o evento ao elemento HTML com id "busca" - o elemento busca ao ser clicado chama a função alternarBarraLateral
-document.getElementById("busca").addEventListener("click", barraLateral.alternarBarraLateral);

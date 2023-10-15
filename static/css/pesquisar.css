@@ -98,3 +98,41 @@ button:hover{
     margin-top: 2vh;
 
 }
+
+
+@media screen and (max-device-width: 768px) {
+
+    #barraPesquisa{
+        margin-top: 130px;
+        border-color: #00891E;
+        position: fixed;
+        width: 15rem;
+
+    }
+
+    #resultados{
+
+        overflow-y: auto;
+
+        height: 80vh; 
+
+        width: 250px; 
+
+        margin-top: 210px;
+
+        border-color: #00891E;
+
+    }
+
+    button{
+
+        border-radius: 15px;
+
+        padding: 20px; 
+
+        margin: 10px; 
+
+        width: 250px; 
+
+    }
+}

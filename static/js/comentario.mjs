@@ -311,10 +311,6 @@ varIdUsuario().then(() => {
 
 });
 
-import { iconeSelecionado, moduloBarraLateral } from './global.mjs';
+import { iconeSelecionado } from './global.mjs';
 
 iconeSelecionado();
-
-var barraLateral = moduloBarraLateral();
-
-document.getElementById("busca").addEventListener("click", barraLateral.alternarBarraLateral);

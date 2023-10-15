@@ -4,8 +4,6 @@ header {
 
     height: 100%;
 
-    width: 12vw;
-
     padding: 0px 25px; /* Definindo o padding do header */
 
     border-bottom: 3px solid #00891E; /* Definindo a cor, espressura e tipo da borda de baixo do header */
@@ -21,8 +19,6 @@ header {
     color: #00891E;
 
     font-weight: bold;
-
-    overflow-y: scroll;
 
 }
 

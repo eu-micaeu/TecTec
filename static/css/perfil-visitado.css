@@ -14,3 +14,11 @@ main{
     align-items: center; /*Centralizar items verticalmente no contêiner*/
 
 }
+
+@media screen and (max-device-width: 768px) {
+
+    #perfil-usuario{
+
+        margin-top: 80px;
+    }
+}
