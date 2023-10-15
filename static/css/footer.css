@@ -30,13 +30,15 @@ footer p {
 
 }
 
-/*Configurando para telas menores*/
+/* Configurando para telas menores */
 @media screen and (max-device-width: 768px) {
 
     footer {
     
-        position: absolute;/*Definindo a posição do footer*/
+        position: fixed; /* Alterando para posição relativa */
 
-    }
+        bottom: 0;
     
+    }
+
 }
