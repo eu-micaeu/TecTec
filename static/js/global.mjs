@@ -1,104 +1,104 @@
-export function iconsHover() {
-    let homeImage = document.querySelector("#casa");
+export function iconeSelecionado() {
+    let imagemHome = document.querySelector("#casa");
 
-    homeImage.addEventListener('mouseover', function () {
-        homeImage.src = '/static/images/homebranco.png';
+    imagemHome.addEventListener('mouseover', function () {
+        imagemHome.src = '/static/images/homebranco.png';
     });
-    homeImage.addEventListener('mouseout', function () {
-        homeImage.src = '/static/images/home.png';
-    });
-
-    let userImage = document.querySelector("#perfil");
-
-    userImage.addEventListener('mouseover', function () {
-        userImage.src = '/static/images/la_userbranco.png';
-    });
-    userImage.addEventListener('mouseout', function () {
-        userImage.src = '/static/images/la_user.png';
+    imagemHome.addEventListener('mouseout', function () {
+        imagemHome.src = '/static/images/home.png';
     });
 
-    let pesquisaImage = document.querySelector("#pesquisar");
+    let imagemUser = document.querySelector("#perfil");
 
-    pesquisaImage.addEventListener('mouseover', function () {
-        pesquisaImage.src = '/static/images/explorarbranco.png';
+    imagemUser.addEventListener('mouseover', function () {
+        imagemUser.src = '/static/images/la_userbranco.png';
     });
-    pesquisaImage.addEventListener('mouseout', function () {
-        pesquisaImage.src = '/static/images/explorar.png';
+    imagemUser.addEventListener('mouseout', function () {
+        imagemUser.src = '/static/images/la_user.png';
     });
 
-    let outImage = document.querySelector("#sair");
+    let imagemPesquisa = document.querySelector("#pesquisar");
 
-    outImage.addEventListener('mouseover', function () {
-        outImage.src = '/static/images/outbranco.png';
+    imagemPesquisa.addEventListener('mouseover', function () {
+        imagemPesquisa.src = '/static/images/explorarbranco.png';
     });
-    outImage.addEventListener('mouseout', function () {
-        outImage.src = '/static/images/out.png';
+    imagemPesquisa.addEventListener('mouseout', function () {
+        imagemPesquisa.src = '/static/images/explorar.png';
+    });
+
+    let imagemSair = document.querySelector("#sair");
+
+    imagemSair.addEventListener('mouseover', function () {
+        imagemSair.src = '/static/images/outbranco.png';
+    });
+    imagemSair.addEventListener('mouseout', function () {
+        imagemSair.src = '/static/images/out.png';
     });
 
     document.getElementById('sair').addEventListener('click', async function () {
-        const response2 = await fetch("/sair", {
+        const resposta2 = await fetch("/sair", {
             method: "POST",
         });
 
-        if (response2.ok) {
+        if (resposta2.ok) {
             window.location.href='/';
         }
     })
     
-    let buscaImage = document.querySelector("#busca");
+    let imagemBusca = document.querySelector("#busca");
 
-    buscaImage.addEventListener('mouseover', function () {
-        buscaImage.src = '/static/images/pesquisabranco.png';
+    imagemBusca.addEventListener('mouseover', function () {
+        imagemBusca.src = '/static/images/pesquisabranco.png';
     });
-    buscaImage.addEventListener('mouseout', function () {
-        buscaImage.src = '/static/images/pesquisa.png';
+    imagemBusca.addEventListener('mouseout', function () {
+        imagemBusca.src = '/static/images/pesquisa.png';
     });
 
-    let addImage = document.querySelector("#addpost");
+    let imagemPostar = document.querySelector("#addpost");
 
-    addImage.addEventListener('mouseover', function () {
-        addImage.src = '/static/images/addpostbranco.png';
+    imagemPostar.addEventListener('mouseover', function () {
+        imagemPostar.src = '/static/images/addpostbranco.png';
     });
-    addImage.addEventListener('mouseout', function () {
-        addImage.src = '/static/images/addpost.png';
+    imagemPostar.addEventListener('mouseout', function () {
+        imagemPostar.src = '/static/images/addpost.png';
     });
 }
 
-export function sidebarModule() {
+export function moduloBarraLateral() {
     
-    var sidebarOpen = false;
+    var barraLateralAberta = false;
 
-    function toggleSidebar() {
-        var mySidebar = document.getElementById("mySidebar");
+    function alternarBarraLateral() {
+        var barraLateral = document.getElementById("barraLateral");
     
-        if (!sidebarOpen) {
+        if (!barraLateralAberta) {
             if (window.innerWidth < 768) {
-                mySidebar.style.right = "0"; 
+                barraLateral.style.right = "0"; 
             } else {
-                mySidebar.style.right = "0"; 
-                mySidebar.style.marginTop = "10vh";
-                mySidebar.style.height = "80%";
-                mySidebar.style.width = "10%";
+                barraLateral.style.right = "0"; 
+                barraLateral.style.marginTop = "10vh";
+                barraLateral.style.height = "80%";
+                barraLateral.style.width = "10%";
             }
     
-            mySidebar.style.borderTop = "2px solid green";
-            mySidebar.style.borderLeft = "2px solid green";
-            mySidebar.style.borderBottom = "2px solid green";
-            mySidebar.style.borderRadius = "15px 0 0 15px";
-            sidebarOpen = true;
+            barraLateral.style.borderTop = "2px solid green";
+            barraLateral.style.borderLeft = "2px solid green";
+            barraLateral.style.borderBottom = "2px solid green";
+            barraLateral.style.borderRadius = "15px 0 0 15px";
+            barraLateralAberta = true;
         } else {
             
-            mySidebar.style.right = "-100%"; 
-            mySidebar.style.height = "0";
-            mySidebar.style.border = "none";
+            barraLateral.style.right = "-100%"; 
+            barraLateral.style.height = "0";
+            barraLateral.style.border = "none";
             
-            sidebarOpen = false;
+            barraLateralAberta = false;
         }
     }
     
 
     return {
-        toggleSidebar: toggleSidebar
+        alternarBarraLateral: alternarBarraLateral
     };
 }
 
@@ -108,9 +108,9 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
     header.style.display = 'none';
 }
 
-const toggleHeaderButton = document.getElementById('toggleHeaderButton');
+const alternarBotaoHeader = document.getElementById('alternarBotaoHeader');
 
-toggleHeaderButton.addEventListener('click', function() {
+alternarBotaoHeader.addEventListener('click', function() {
     
     if (header.style.display === 'block' || header.style.display === '') {
 

@@ -4,7 +4,7 @@ async function varIdUsuarioHome() { // Função para verificar se existe um usu�
 
     try {
 
-        const response = await fetch('/perfil-token', {
+        const resposta = await fetch('/perfil-token', {
             
             method: 'POST',
 
@@ -12,7 +12,7 @@ async function varIdUsuarioHome() { // Função para verificar se existe um usu�
 
         });
 
-        const data = await response.json();
+        const data = await resposta.json();
 
         idUsuario = data.usuario.id_usuario;
 
@@ -28,21 +28,21 @@ async function varIdUsuarioHome() { // Função para verificar se existe um usu�
 
 varIdUsuarioHome().then(idUsuario => {
 
-    displayFeed(idUsuario)
+    mostrarFeed(idUsuario)
 
 })
 
-function displayFeed(idUsuario) {
+function mostrarFeed(idUsuario) {
 
     fetch(`/contar_amizades/${idUsuario}`)
 
-        .then(response => response.json())
+        .then(resposta => resposta.json())
 
         .then(data => {
 
-            const numberOfFriends = data.quantidade_amizades;
+            const numeroDeAmigos = data.quantidade_amizades;
 
-            if (numberOfFriends === 0) {
+            if (numeroDeAmigos === 0) {
 
                 const carrossel = document.querySelector("#feed");
 
@@ -66,7 +66,7 @@ function displayFeed(idUsuario) {
 
                 fetch(`/postagens-curtidas/${idUsuario}`)
 
-                    .then(response => response.json())
+                    .then(resposta => resposta.json())
 
                     .then(data => {
 
@@ -74,45 +74,45 @@ function displayFeed(idUsuario) {
 
                         fetch('/feed/' + idUsuario)
 
-                            .then(response => response.json())
+                            .then(resposta => resposta.json())
 
                             .then(data => {
 
                                 let postagens = data.postagens;
 
-                                let feedContainer = document.querySelector("#feed");
+                                let conteinerFeed = document.querySelector("#feed");
 
-                                feedContainer.innerHTML = "";
+                                conteinerFeed.innerHTML = "";
 
                                 for (let i = 0; i < postagens.length; i++) {
 
                                     let postagem = postagens[i];
 
-                                    let postElement = document.createElement("div");
+                                    let elementoPostagem = document.createElement("div");
 
-                                    postElement.classList.add("postagem");
+                                    elementoPostagem.classList.add("postagem");
 
-                                    let nicknameElement = document.createElement("span");
+                                    let elementoNickname = document.createElement("span");
 
-                                    nicknameElement.style.color = "white"; 
+                                    elementoNickname.style.color = "white"; 
 
-                                    nicknameElement.textContent = '@' + postagem.nickname;
+                                    elementoNickname.textContent = '@' + postagem.nickname;
 
-                                    postElement.appendChild(nicknameElement);
+                                    elementoPostagem.appendChild(elementoNickname);
 
-                                    nicknameElement.style.cursor = "pointer";
+                                    elementoNickname.style.cursor = "pointer";
 
-                                    nicknameElement.addEventListener("click", function () {
+                                    elementoNickname.addEventListener("click", function () {
 
                                         window.location.href = '/perfil-visitado?nickname=' + postagem.nickname;
 
                                     });
 
-                                    let textElement = document.createElement("p");
+                                    let elementoTexto = document.createElement("p");
 
-                                    textElement.textContent = postagem.texto;
+                                    elementoTexto.textContent = postagem.texto;
 
-                                    postElement.appendChild(textElement);
+                                    elementoPostagem.appendChild(elementoTexto);
 
                                     let divEmbaixo = document.createElement("div");
 
@@ -154,35 +154,35 @@ function displayFeed(idUsuario) {
 
                                     divEmbaixo.appendChild(comentarioQuantidade);
 
-                                    let likeButton = document.createElement('img');
-                                    likeButton.width = 18;
-                                    likeButton.height = 18;
-                                    likeButton.style.cursor = 'pointer';
-                                    likeButton.dataset.postId = postagem.id_postagem;
-                                    likeButton.title = "Curtir";
+                                    let btCurtida = document.createElement('img');
+                                    btCurtida.width = 18;
+                                    btCurtida.height = 18;
+                                    btCurtida.style.cursor = 'pointer';
+                                    btCurtida.dataset.postId = postagem.id_postagem;
+                                    btCurtida.title = "Curtir";
 
                                     if (curtidasUsuario.some(curtida => curtida.id_postagem === postagem.id_postagem)) {
-                                        likeButton.src = '/static/images/coracaofechado.png';
+                                        btCurtida.src = '/static/images/coracaofechado.png';
                                     } else {
-                                        likeButton.src = '/static/images/coracao.png';
+                                        btCurtida.src = '/static/images/coracao.png';
                                     }
 
-                                    divEmbaixo.appendChild(likeButton);
+                                    divEmbaixo.appendChild(btCurtida);
                                     let curtidaQuantidade = document.createElement('p');
                                     curtidaQuantidade.textContent = postagem.curtidas;
                                     divEmbaixo.appendChild(curtidaQuantidade);
 
-                                    likeButton.addEventListener('click', function () {
-                                        const postId = likeButton.dataset.postId;
-                                        const liked = likeButton.src.endsWith('coracaofechado.png');
+                                    btCurtida.addEventListener('click', function () {
+                                        const postId = btCurtida.dataset.postId;
+                                        const curtido = btCurtida.src.endsWith('coracaofechado.png');
 
-                                        if (!liked) {
+                                        if (!curtido) {
                                             fetch(`/curtir/` + idUsuario + '/' + postId, {
                                                 method: 'POST',
                                             })
-                                                .then(response => {
-                                                    if (response.status === 200) {
-                                                        likeButton.src = '/static/images/coracaofechado.png';
+                                                .then(resposta => {
+                                                    if (resposta.status === 200) {
+                                                        btCurtida.src = '/static/images/coracaofechado.png';
 
 
                                                         postagem.curtidas++;
@@ -196,9 +196,9 @@ function displayFeed(idUsuario) {
                                             fetch(`/descurtir/` + idUsuario + '/' + postId, {
                                                 method: 'DELETE',
                                             })
-                                                .then(response => {
-                                                    if (response.status === 200) {
-                                                        likeButton.src = '/static/images/coracao.png';
+                                                .then(resposta => {
+                                                    if (resposta.status === 200) {
+                                                        btCurtida.src = '/static/images/coracao.png';
 
                                                         postagem.curtidas--;
                                                         curtidaQuantidade.textContent = postagem.curtidas;
@@ -226,7 +226,7 @@ function displayFeed(idUsuario) {
                                     });
 
                                     seguidorImagem.addEventListener('click', async function () {
-                                        const response = await fetch(`/desfazer_amizade`, {
+                                        const resposta = await fetch(`/desfazer_amizade`, {
                                             method: 'DELETE',
                                             headers: {
                                                 'Content-Type': 'application/json'
@@ -237,8 +237,8 @@ function displayFeed(idUsuario) {
                                             })
                                         });
 
-                                        if (response.ok) {
-                                            displayFeed()
+                                        if (resposta.ok) {
+                                            mostrarFeed()
                                         } else {
                                             console.error('Erro ao desfazer amizade');
                                         }
@@ -247,9 +247,9 @@ function displayFeed(idUsuario) {
                                     divEmbaixo.appendChild(seguidorImagem);
 
 
-                                    postElement.appendChild(divEmbaixo);
+                                    elementoPostagem.appendChild(divEmbaixo);
 
-                                    feedContainer.appendChild(postElement);
+                                    conteinerFeed.appendChild(elementoPostagem);
                                 }
                             });
                     })
@@ -260,9 +260,9 @@ function displayFeed(idUsuario) {
 
 /* Importação de funções do global.mjs */
 
-import { iconsHover, sidebarModule } from './global.mjs';
+import { iconeSelecionado, moduloBarraLateral } from './global.mjs';
 
-iconsHover();
+iconeSelecionado();
 
-var sidebar = sidebarModule();
-document.getElementById("busca").addEventListener("click", sidebar.toggleSidebar);
+var barraLateral = moduloBarraLateral();
+document.getElementById("busca").addEventListener("click", barraLateral.alternarBarraLateral);

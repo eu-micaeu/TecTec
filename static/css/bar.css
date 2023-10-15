@@ -1,9 +1,9 @@
-/*Definindo configurações para a barra-lateral*/
-#mySidebar {
+/*Definindo configurações para a barraLateral*/
+#barraLateral {
 
     font-family: monospace; /*Definindo fonte do texto*/
 
-    position: fixed; /*Definindo que a barra-lateral deve ser fixada*/
+    position: fixed; /*Definindo que a barraLateral deve ser fixada*/
 
     top: 0; /*Definindo posição da barra em relação ao topo*/
 
@@ -19,8 +19,8 @@
 
 }
 
-/*Definindo configurações para tag <a> barra-lateral*/
-#mySidebar a {
+/*Definindo configurações para tag <a> barraLateral*/
+#barraLateral a {
 
     margin: 8px 10px 10px 10px; /*Definindo margens*/
 
@@ -34,8 +34,8 @@
 
 }
 
-/*Definindo configurações para elementos na barra-lateral*/
-#mySidebar .centraliza{
+/*Definindo configurações para elementos na barraLateral*/
+#barraLateral .centraliza{
 
     width: 100%;  /*Definindo comprimento*/
 
@@ -43,8 +43,8 @@
 
 }
 
-/*Definindo configurações para elementos na barra-lateral*/
-#mySidebar .centraliza {
+/*Definindo configurações para elementos na barraLateral*/
+#barraLateral .centraliza {
 
     flex-direction: column;/*Elementos flexíveis são dispostos verticalmente*/
     
@@ -52,8 +52,8 @@
 
 }
 
-/*Definindo configurações para classe golang da barra-lateral*/
-#mySidebar .golang:hover {
+/*Definindo configurações para classe golang da barraLateral*/
+#barraLateral .golang:hover {
 
     background-color: #007acc;/*Definindo cor de fundo*/
 
@@ -61,55 +61,55 @@
 
 }
 
-/*Definindo configurações para classe java barra-lateral*/
+/*Definindo configurações para classe java barraLateral*/
 .java:hover {
 
     background-color: red;/*Definindo cor de fundo*/
 
 }
 
-/*Definindo configurações para classe c barra-lateral*/
+/*Definindo configurações para classe c barraLateral*/
 .c:hover {
 
     background-color: blue;/*Definindo cor de fundo*/
 
 }
 
-/*Definindo configurações para classe postgresql barra-lateral*/
+/*Definindo configurações para classe postgresql barraLateral*/
 .postgresql:hover {
 
     background-color: #1E90FF;/*Definindo cor de fundo*/
 
 }
 
-/*Definindo configurações para classe typescript e docker barra-lateral*/
+/*Definindo configurações para classe typescript e docker barraLateral*/
 .docker:hover, .typescript:hover {
 
     background-color: #4169E1;/*Definindo cor de fundo*/
 
 }
 
-/*Definindo configurações para classe hadoop barra-lateral*/
+/*Definindo configurações para classe hadoop barraLateral*/
 .hadoop:hover {
 
     background-color: yellow; /*Definindo cor de fundo*/
 
 }
-/*Definindo configurações para classe hadoop e html5 barra-lateral*/
+/*Definindo configurações para classe hadoop e html5 barraLateral*/
 .hadoop a:hover, .html5 a:hover {
 
     color: black;  /*Definindo cor*/
 
 }
 
-/*Definindo configurações para classe html barra-lateral*/
+/*Definindo configurações para classe html barraLateral*/
 .html5:hover {
 
     background-color: orange; /*Definindo cor de fundo*/
 
 }
 
-/*Definindo configurações para classe css3 barra-lateral*/
+/*Definindo configurações para classe css3 barraLateral*/
 .css3:hover {
 
     background-color: blue;  /*Definindo cor de fundo*/
@@ -120,11 +120,11 @@
 
 @media screen and (max-device-width: 768px) {
     
-    #mySidebar {
+    #barraLateral {
 
         font-family: monospace; /*Definindo fonte do texto*/
     
-        position: fixed; /*Definindo que a barra-lateral deve ser fixada*/
+        position: fixed; /*Definindo que a barraLateral deve ser fixada*/
     
         top: 0; /*Definindo posição da barra em relação ao topo*/
     

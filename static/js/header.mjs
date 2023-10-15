@@ -1,7 +1,7 @@
 // Insira o conteúdo HTML no corpo antes do primeiro filho usando insertAdjacentHTML
 document.body.insertAdjacentHTML('afterbegin', `
 
-<button id="toggleHeaderButton">
+<button id="alternarBotaoHeader">
 
     <img src="../static/images/logo.png" alt="Logo" id="logo" width="50" height="50">
 

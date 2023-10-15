@@ -16,7 +16,7 @@ main{
 }
 
 /*Definindo configurações para botão a barra de pesquisa*/
-#searchInput{
+#barraPesquisa{
  
     text-align: center;
 
@@ -81,7 +81,7 @@ button:hover{
 }
 
 /*Definindo configurações para a div dos resultados da pesquisa*/
-#results{
+#resultados{
 
     overflow-y: auto;
 

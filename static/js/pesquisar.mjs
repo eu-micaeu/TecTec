@@ -6,7 +6,7 @@ async function varIdUsuario() {
 
     try {
 
-        const response = await fetch('/perfil-token/', {
+        const resposta = await fetch('/perfil-token/', {
 
             method: 'POST',
 
@@ -18,11 +18,11 @@ async function varIdUsuario() {
 
         });
 
-        const data = await response.json();
+        const data = await resposta.json();
 
         nickname = data.usuario.nickname;
 
-        searchNicknames();
+        pesquisarNicknames();
 
     } catch (error) {
 
@@ -31,19 +31,19 @@ async function varIdUsuario() {
     }
 }
 
-function searchNicknames() {
+function pesquisarNicknames() {
 
-    var searchTerm = document.getElementById("searchInput").value;
+    var pesquisarTerm = document.getElementById("barraPesquisa").value;
 
-    var resultsUl = document.getElementById("results");
+    var resultadosUl = document.getElementById("resultados");
 
-    resultsUl.innerHTML = "";
+    resultadosUl.innerHTML = "";
 
     if (usuariosData.length > 0) {
 
         for (var i = 0; i < usuariosData.length; i++) {
 
-            if (usuariosData[i].nickname.includes(searchTerm)) { 
+            if (usuariosData[i].nickname.includes(pesquisarTerm)) { 
 
                 var lista = document.createElement("button");
 
@@ -58,7 +58,7 @@ function searchNicknames() {
                     window.location.href = '/perfil-visitado?nickname=' + nickname;
                 });
 
-                resultsUl.appendChild(lista);
+                resultadosUl.appendChild(lista);
             }
         }
 
@@ -66,22 +66,22 @@ function searchNicknames() {
 
         fetch('/usuarios/' + nickname)
 
-            .then(response => {
+            .then(resposta => {
 
-                if (!response.ok) {
+                if (!resposta.ok) {
 
-                    throw new Error('Erro na solicitação: ' + response.status);
+                    throw new Error('Erro na solicitação: ' + resposta.status);
 
                 }
 
-                return response.json();
+                return resposta.json();
             })
 
             .then(data => {
 
                 usuariosData = data.usuarios;
 
-                searchNicknames();
+                pesquisarNicknames();
 
             })
 
@@ -94,20 +94,20 @@ function searchNicknames() {
     }
 }
 
-var searchInput = document.getElementById("searchInput");
+var barraPesquisa = document.getElementById("barraPesquisa");
 
-searchInput.addEventListener("input", function () {
+barraPesquisa.addEventListener("input", function () {
 
-    searchNicknames();
+    pesquisarNicknames();
 
 });
 
 varIdUsuario();
 
 
-import { iconsHover, sidebarModule } from './global.mjs';
+import { iconeSelecionado, moduloBarraLateral } from './global.mjs';
 
-iconsHover();
+iconeSelecionado();
 
-var sidebar = sidebarModule();
-document.getElementById("busca").addEventListener("click", sidebar.toggleSidebar);
+var barraLateral = moduloBarraLateral();
+document.getElementById("busca").addEventListener("click", barraLateral.alternarBarraLateral);

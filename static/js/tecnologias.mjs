@@ -1,6 +1,6 @@
-import { iconsHover, sidebarModule } from './global.mjs';
+import { iconeSelecionado, moduloBarraLateral } from './global.mjs';
 
-iconsHover();
+iconeSelecionado();
 
-var sidebar = sidebarModule();
-document.getElementById("busca").addEventListener("click", sidebar.toggleSidebar);
+var barraLateral = moduloBarraLateral();
+document.getElementById("busca").addEventListener("click", barraLateral.alternarBarraLateral);

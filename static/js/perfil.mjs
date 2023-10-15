@@ -1,17 +1,17 @@
-import { iconsHover, sidebarModule } from './global.mjs';
+import { iconeSelecionado, moduloBarraLateral } from './global.mjs';
 
 let idUsuario;
 let nickname;
 
 async function varIdUsuarioPerfil() {
     try {
-        const response = await fetch('/perfil-token/', {
+        const resposta = await fetch('/perfil-token/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
         });
-        const data = await response.json();
+        const data = await resposta.json();
         idUsuario = data.usuario.id_usuario;
         nickname = data.usuario.nickname;;
     } catch (error) {
@@ -22,75 +22,75 @@ async function varIdUsuarioPerfil() {
 varIdUsuarioPerfil().then(() => {
     
     update(nickname);
-    displayFeed();
+    mostrarFeed();
     
 });
 
 function update(nickname) {
     
     fetch('/perfil/' + nickname)
-        .then(response => response.json())
+        .then(resposta => resposta.json())
         .then(data => {
 
             let nickname = data.usuario.nickname;
-            let nomeElement = document.getElementById('nome');
-            nomeElement.textContent = "@" + nickname;
-            nomeElement.style.color = "#00891E";
-            nomeElement.style.border = "2px solid white";
-            nomeElement.style.borderRadius = "10px";
-            nomeElement.style.padding = "20px";
-            nomeElement.style.backgroundColor = "black";
-            nomeElement.style.fontSize = "20px";
-            nomeElement.style.textAlign = "center";            
+            let elementoNome = document.getElementById('nome');
+            elementoNome.textContent = "@" + nickname;
+            elementoNome.style.color = "#00891E";
+            elementoNome.style.border = "2px solid white";
+            elementoNome.style.borderRadius = "10px";
+            elementoNome.style.padding = "20px";
+            elementoNome.style.backgroundColor = "black";
+            elementoNome.style.fontSize = "20px";
+            elementoNome.style.textAlign = "center";            
 
             let tecnologia = data.usuario.tecnologia;
             
-            let tecnologiaElement = document.getElementById('tecnologia');
-            tecnologiaElement.textContent = "Tecnologia: " + tecnologia;
-            tecnologiaElement.style.color = "#00891E";
-            tecnologiaElement.style.border = "2px solid white";
-            tecnologiaElement.style.borderRadius = "10px";
-            tecnologiaElement.style.padding = "20px";
-            tecnologiaElement.style.backgroundColor = "black";
-            tecnologiaElement.style.fontSize = "20px";
-            tecnologiaElement.style.textAlign = "center";
+            let elementoTecnologia = document.getElementById('tecnologia');
+            elementoTecnologia.textContent = "Tecnologia: " + tecnologia;
+            elementoTecnologia.style.color = "#00891E";
+            elementoTecnologia.style.border = "2px solid white";
+            elementoTecnologia.style.borderRadius = "10px";
+            elementoTecnologia.style.padding = "20px";
+            elementoTecnologia.style.backgroundColor = "black";
+            elementoTecnologia.style.fontSize = "20px";
+            elementoTecnologia.style.textAlign = "center";
 
             let seguidores = data.usuario.seguidores;
 
-            let seguidoresElement = document.getElementById('seguidores');
-            seguidoresElement.textContent = "Seguidores: " + seguidores;
-            seguidoresElement.style.color = "#00891E";
-            seguidoresElement.style.border = "2px solid white";
-            seguidoresElement.style.borderRadius = "10px";
-            seguidoresElement.style.padding = "20px";
-            seguidoresElement.style.backgroundColor = "black";
-            seguidoresElement.style.fontSize = "20px";
-            seguidoresElement.style.textAlign = "center";
+            let elementoSeguidores = document.getElementById('seguidores');
+            elementoSeguidores.textContent = "Seguidores: " + seguidores;
+            elementoSeguidores.style.color = "#00891E";
+            elementoSeguidores.style.border = "2px solid white";
+            elementoSeguidores.style.borderRadius = "10px";
+            elementoSeguidores.style.padding = "20px";
+            elementoSeguidores.style.backgroundColor = "black";
+            elementoSeguidores.style.fontSize = "20px";
+            elementoSeguidores.style.textAlign = "center";
             
             let seguindo = data.usuario.seguindo;
 
-            let seguindoElement = document.getElementById('seguindo');
-            seguindoElement.textContent = "Seguindo: " + seguindo;
-            seguindoElement.style.color = "#00891E";
-            seguindoElement.style.border = "2px solid white";
-            seguindoElement.style.borderRadius = "10px";
-            seguindoElement.style.padding = "20px";
-            seguindoElement.style.backgroundColor = "black";
-            seguindoElement.style.fontSize = "20px";
-            seguindoElement.style.textAlign = "center";
+            let elementoSeguindo = document.getElementById('seguindo');
+            elementoSeguindo.textContent = "Seguindo: " + seguindo;
+            elementoSeguindo.style.color = "#00891E";
+            elementoSeguindo.style.border = "2px solid white";
+            elementoSeguindo.style.borderRadius = "10px";
+            elementoSeguindo.style.padding = "20px";
+            elementoSeguindo.style.backgroundColor = "black";
+            elementoSeguindo.style.fontSize = "20px";
+            elementoSeguindo.style.textAlign = "center";
 
         });
 }
 
-function displayFeed() {
+function mostrarFeed() {
 
     fetch(`/contar_postagens/${idUsuario}`)
-        .then(response => response.json())
+        .then(resposta => resposta.json())
         .then(data => {
 
-            const numberOfFriends = data.quantidade_postagens;
+            const numeroDeAmigos = data.quantidade_postagens;
 
-            if (numberOfFriends === 0) {
+            if (numeroDeAmigos === 0) {
                 const carrossel = document.querySelector("#feed");
 
                 const aviso = document.createElement("p");
@@ -105,33 +105,33 @@ function displayFeed() {
 
             } else {
                 fetch(`/postagens-curtidas/${idUsuario}`)
-                    .then(response => response.json())
+                    .then(resposta => resposta.json())
                     .then(data => {
 
                         const curtidasUsuario = data.postagens;
 
                         fetch('/postagens/' + nickname)
-                            .then(response => response.json())
+                            .then(resposta => resposta.json())
                             .then(data => {
                                 let postagens = data.postagens;
 
-                                let feedContainer = document.querySelector("#feed");
+                                let conteinerFeed = document.querySelector("#feed");
 
-                                feedContainer.innerHTML = "";
+                                conteinerFeed.innerHTML = "";
 
                                 for (let i = 0; i < postagens.length; i++) {
                                     let postagem = postagens[i];
-                                    let postElement = document.createElement("div");
-                                    postElement.classList.add("postagem");
+                                    let elementoPostagem = document.createElement("div");
+                                    elementoPostagem.classList.add("postagem");
 
-                                    let nicknameElement = document.createElement("span");
-                                    nicknameElement.style.color = "white";
-                                    nicknameElement.textContent = '@' + postagem.nickname;
-                                    postElement.appendChild(nicknameElement);
+                                    let elementoNickname = document.createElement("span");
+                                    elementoNickname.style.color = "white";
+                                    elementoNickname.textContent = '@' + postagem.nickname;
+                                    elementoPostagem.appendChild(elementoNickname);
 
-                                    let textElement = document.createElement("p");
-                                    textElement.textContent = postagem.texto;
-                                    postElement.appendChild(textElement);
+                                    let elementoTexto = document.createElement("p");
+                                    elementoTexto.textContent = postagem.texto;
+                                    elementoPostagem.appendChild(elementoTexto);
 
                                     let divEmbaixo = document.createElement("div");
                                     divEmbaixo.classList.add("centraliza");
@@ -162,34 +162,34 @@ function displayFeed() {
 
                                     divEmbaixo.appendChild(comentarioQuantidade);
 
-                                    let likeButton = document.createElement('img');
-                                    likeButton.width = 20;
-                                    likeButton.height = 20;
-                                    likeButton.style.cursor = 'pointer';
-                                    likeButton.dataset.postId = postagem.id_postagem;
+                                    let btCurtida = document.createElement('img');
+                                    btCurtida.width = 20;
+                                    btCurtida.height = 20;
+                                    btCurtida.style.cursor = 'pointer';
+                                    btCurtida.dataset.postId = postagem.id_postagem;
 
                                     if (curtidasUsuario.some(curtida => curtida.id_postagem === postagem.id_postagem)) {
-                                        likeButton.src = '/static/images/coracaofechado.png';
+                                        btCurtida.src = '/static/images/coracaofechado.png';
                                     } else {
-                                        likeButton.src = '/static/images/coracao.png';
+                                        btCurtida.src = '/static/images/coracao.png';
                                     }
 
-                                    divEmbaixo.appendChild(likeButton);
+                                    divEmbaixo.appendChild(btCurtida);
                                     let curtidaQuantidade = document.createElement('p');
                                     curtidaQuantidade.textContent = postagem.curtidas;
                                     divEmbaixo.appendChild(curtidaQuantidade);
 
-                                    likeButton.addEventListener('click', function () {
-                                        const postId = likeButton.dataset.postId;
-                                        const liked = likeButton.src.endsWith('coracaofechado.png');
+                                    btCurtida.addEventListener('click', function () {
+                                        const postId = btCurtida.dataset.postId;
+                                        const curtido = btCurtida.src.endsWith('coracaofechado.png');
 
-                                        if (!liked) {
+                                        if (!curtido) {
                                             fetch(`/curtir/` + idUsuario + '/' + postId, {
                                                 method: 'POST',
                                             })
-                                                .then(response => {
-                                                    if (response.status === 200) {
-                                                        likeButton.src = '/static/images/coracaofechado.png';
+                                                .then(resposta => {
+                                                    if (resposta.status === 200) {
+                                                        btCurtida.src = '/static/images/coracaofechado.png';
 
 
                                                         postagem.curtidas++;
@@ -203,9 +203,9 @@ function displayFeed() {
                                             fetch(`/descurtir/` + idUsuario + '/' + postId, {
                                                 method: 'DELETE',
                                             })
-                                                .then(response => {
-                                                    if (response.status === 200) {
-                                                        likeButton.src = '/static/images/coracao.png';
+                                                .then(resposta => {
+                                                    if (resposta.status === 200) {
+                                                        btCurtida.src = '/static/images/coracao.png';
 
                                                         postagem.curtidas--;
                                                         curtidaQuantidade.textContent = postagem.curtidas;
@@ -217,21 +217,21 @@ function displayFeed() {
                                         }
                                     });
 
-                                    let imageElement = document.createElement("img");
-                                    imageElement.src = "/static/images/lixo.png";
-                                    imageElement.style.width = "25px";
-                                    imageElement.style.height = "25px";
-                                    imageElement.style.cursor = "pointer";
-                                    imageElement.id = "lixo";
+                                    let elementoImagem = document.createElement("img");
+                                    elementoImagem.src = "/static/images/lixo.png";
+                                    elementoImagem.style.width = "25px";
+                                    elementoImagem.style.height = "25px";
+                                    elementoImagem.style.cursor = "pointer";
+                                    elementoImagem.id = "lixo";
 
-                                    imageElement.addEventListener('mouseover', function () {
-                                        imageElement.src = '/static/images/lixobranco.png';
+                                    elementoImagem.addEventListener('mouseover', function () {
+                                        elementoImagem.src = '/static/images/lixobranco.png';
                                     });
-                                    imageElement.addEventListener('mouseout', function () {
-                                        imageElement.src = '/static/images/lixo.png';
+                                    elementoImagem.addEventListener('mouseout', function () {
+                                        elementoImagem.src = '/static/images/lixo.png';
                                     });
 
-                                    imageElement.addEventListener("click", function () {
+                                    elementoImagem.addEventListener("click", function () {
 
                                         let postId = postagem.id_postagem;
 
@@ -239,14 +239,14 @@ function displayFeed() {
                                             method: 'DELETE',
                                         })
                                         
-                                        displayFeed();
+                                        mostrarFeed();
                                     });
 
-                                    divEmbaixo.appendChild(imageElement);
+                                    divEmbaixo.appendChild(elementoImagem);
 
-                                    postElement.appendChild(divEmbaixo);
+                                    elementoPostagem.appendChild(divEmbaixo);
 
-                                    feedContainer.appendChild(postElement);
+                                    conteinerFeed.appendChild(elementoPostagem);
 
 
                                 }
@@ -256,7 +256,7 @@ function displayFeed() {
         });
 }
 
-iconsHover();
+iconeSelecionado();
 
-var sidebar = sidebarModule();
-document.getElementById("busca").addEventListener("click", sidebar.toggleSidebar);
+var barraLateral = moduloBarraLateral();
+document.getElementById("busca").addEventListener("click", barraLateral.alternarBarraLateral);

@@ -2,13 +2,13 @@ let id_usuario;
 
 async function varIdUsuario() {
     try {
-        const response = await fetch('/perfil-token/', {
+        const resposta = await fetch('/perfil-token/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
         });
-        const data = await response.json();
+        const data = await resposta.json();
         id_usuario = data.usuario.id_usuario;
     } catch (error) {
         console.error(error);
@@ -26,8 +26,8 @@ varIdUsuario().then(() => {
             },
             body: JSON.stringify({ texto: texto })
         })
-            .then(response => {
-                if (response.ok) {
+            .then(resposta => {
+                if (resposta.ok) {
                     var toastCerto = document.getElementById("toastCerto");
                     toastCerto.style.display = "block";
 
@@ -37,15 +37,15 @@ varIdUsuario().then(() => {
                     }, 3000);
 
                 } else {
-                    alert('Erro na solicitação POST. Código de status: ' + response.status);
+                    alert('Erro na solicitação POST. Código de status: ' + resposta.status);
                 }
             })
     });
 });
 
-import { iconsHover, sidebarModule } from './global.mjs';
+import { iconeSelecionado, moduloBarraLateral } from './global.mjs';
 
-iconsHover();
+iconeSelecionado();
 
-var sidebar = sidebarModule();
-document.getElementById("busca").addEventListener("click", sidebar.toggleSidebar);
+var barraLateral = moduloBarraLateral();
+document.getElementById("busca").addEventListener("click", barraLateral.alternarBarraLateral);

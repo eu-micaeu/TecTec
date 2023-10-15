@@ -63,7 +63,7 @@ header #logo{
 }
 
 
-#toggleHeaderButton{
+#alternarBotaoHeader{
 
     display: none;
     
@@ -116,7 +116,7 @@ header #logo{
 
     }
 
-    #toggleHeaderButton{
+    #alternarBotaoHeader{
 
         display: block;
 

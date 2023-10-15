@@ -16,12 +16,12 @@ document.querySelector("#cadastrar").addEventListener("click", async () => {
         return;
     }
 
-    const response = await fetch("/register", {
+    const resposta = await fetch("/register", {
         method: "POST",
         body: JSON.stringify({ nickname, senha, telefone, tecnologia })
     });
 
-    const data = await response.json();
+    const data = await resposta.json();
 
     if (data.message === "Usuário criado com sucesso!") {
 

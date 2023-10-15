@@ -1,7 +1,7 @@
 // Insira o conteúdo HTML no corpo antes do primeiro filho usando insertAdjacentHTML
 document.body.insertAdjacentHTML('afterbegin', `
 
-<div id="mySidebar">
+<div id="barra-lateral">
 
             <div class="centraliza">
 

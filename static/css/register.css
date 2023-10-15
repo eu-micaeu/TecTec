@@ -14,7 +14,7 @@ main{
 }
 
 /*Definindo configurações para o input das informações*/
-.inputUser {
+.inserirUsuario {
 
     background-color: transparent;/* Defininido cor de fundo*/
 
@@ -165,7 +165,7 @@ form #logo {
 
     }
 
-    .inputUser {
+    .inserirUsuario {
     
         width: 50vw;
 

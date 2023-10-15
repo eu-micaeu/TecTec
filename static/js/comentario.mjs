@@ -1,5 +1,5 @@
 // Função que serve para resgatar o posId da URL
-function getParameterByName(name, url = window.location.href) {
+function pegarParametroPeloNome(name, url = window.location.href) {
 
     name = name.replace(/[\[\]]/g, '\\$&');
     
@@ -15,7 +15,7 @@ function getParameterByName(name, url = window.location.href) {
 
 }
 
-let postId = getParameterByName('postId');
+let postId = pegarParametroPeloNome('postId');
 
 let id_usuario;
 
@@ -25,7 +25,7 @@ async function varIdUsuario() {
 
     try {
 
-        const response = await fetch('/perfil-token/', { // Constante para armazenar o resultado da requisição
+        const resposta = await fetch('/perfil-token/', { // Constante para armazenar o resultado da requisição
 
             method: 'POST', // Método http da requisição
 
@@ -36,7 +36,7 @@ async function varIdUsuario() {
             },
         });
 
-        const data = await response.json(); // Resposta JSON
+        const data = await resposta.json(); // Resposta JSON
         
         nickname = data.usuario.nickname; //Variável nickname
         
@@ -46,7 +46,7 @@ async function varIdUsuario() {
 
             const texto = document.querySelector("#inputComentario").value;
 
-            const response = await fetch("/comentar/" + postId, {
+            const resposta = await fetch("/comentar/" + postId, {
         
                 method: "POST",
         
@@ -54,7 +54,7 @@ async function varIdUsuario() {
         
             });
 
-            const data = await response.json();
+            const data = await resposta.json();
 
             if (data.message === "Comentário criada com sucesso!") {
             
@@ -76,44 +76,44 @@ async function varIdUsuario() {
 }
 
 /* Função para mostrar postagem*/
-async function showPost(postId) {
+async function mostrarPostagem(postId) {
 
     try {
 
-        const response = await fetch('/postagem/' + postId);/* Constante para armazenar o resultado da requisição*/
+        const resposta = await fetch('/postagem/' + postId);/* Constante para armazenar o resultado da requisição*/
 
-        const data = await response.json(); /* Função para mostrar postagem*/
+        const data = await resposta.json(); /* Função para mostrar postagem*/
         
         console.log(data);
 
         let postagem = data.postagem;
 
-        let postagemContainer = document.querySelector("#postagem-principal");
+        let conteinerPostagem = document.querySelector("#postagem-principal");
         
-        postagemContainer.innerHTML = "";
+        conteinerPostagem.innerHTML = "";
 
-        let postElement = document.createElement("div");
+        let elementoPostagem = document.createElement("div");
 
-        postElement.classList.add("cartao");
+        elementoPostagem.classList.add("cartao");
 
-        let nicknameElement = document.createElement("span");
+        let elementoNickname = document.createElement("span");
 
-        nicknameElement.style.color = "white";
+        elementoNickname.style.color = "white";
 
-        nicknameElement.textContent = '@' + postagem.nickname;
+        elementoNickname.textContent = '@' + postagem.nickname;
 
-        postElement.appendChild(nicknameElement);
+        elementoPostagem.appendChild(elementoNickname);
 
-        let textElement = document.createElement("p");
+        let elementoTexto = document.createElement("p");
        
-        textElement.classList.add("texto");
+        elementoTexto.classList.add("texto");
        
-        textElement.textContent = postagem.texto;
+        elementoTexto.textContent = postagem.texto;
        
-        postElement.appendChild(textElement);
+        elementoPostagem.appendChild(elementoTexto);
 
         fetch(`/postagens-curtidas/${id_usuario}`)
-            .then(response => response.json())
+            .then(resposta => resposta.json())
             .then(data => {
          
                 const curtidasUsuario = data.postagens;
@@ -161,29 +161,29 @@ async function showPost(postId) {
 
                 divEmbaixo.appendChild(comentarioQuantidade);
 
-                let likeButton = document.createElement('img');
+                let btCurtida = document.createElement('img');
                 
-                likeButton.width = 18;
+                btCurtida.width = 18;
                 
-                likeButton.height = 18;
+                btCurtida.height = 18;
                 
-                likeButton.style.cursor = 'pointer';
+                btCurtida.style.cursor = 'pointer';
                 
-                likeButton.dataset.postId = postagem.id_postagem;
+                btCurtida.dataset.postId = postagem.id_postagem;
                 
-                likeButton.title = "Curtir";
+                btCurtida.title = "Curtir";
 
                 if (curtidasUsuario.some(curtida => curtida.id_postagem === postagem.id_postagem)) {
                 
-                    likeButton.src = '/static/images/coracaofechado.png';
+                    btCurtida.src = '/static/images/coracaofechado.png';
                 
                 } else {
                 
-                    likeButton.src = '/static/images/coracao.png';
+                    btCurtida.src = '/static/images/coracao.png';
                 
                 }
 
-                divEmbaixo.appendChild(likeButton);
+                divEmbaixo.appendChild(btCurtida);
                 
                 let curtidaQuantidade = document.createElement('p');
                 
@@ -191,24 +191,24 @@ async function showPost(postId) {
                 
                 divEmbaixo.appendChild(curtidaQuantidade);
 
-                likeButton.addEventListener('click', function () {
+                btCurtida.addEventListener('click', function () {
                 
-                    const postId = likeButton.dataset.postId;
+                    const postId = btCurtida.dataset.postId;
                 
-                    const liked = likeButton.src.endsWith('coracaofechado.png');
+                    const curtido = btCurtida.src.endsWith('coracaofechado.png');
 
-                    if (!liked) {
+                    if (!curtido) {
                 
                         fetch(`/curtir/` + id_usuario + '/' + postId, {
                 
                             method: 'POST',
                 
                         })
-                            .then(response => {
+                            .then(resposta => {
                 
-                                if (response.status === 200) {
+                                if (resposta.status === 200) {
                 
-                                    likeButton.src = '/static/images/coracaofechado.png';
+                                    btCurtida.src = '/static/images/coracaofechado.png';
 
                                     postagem.curtidas++;
 
@@ -228,11 +228,11 @@ async function showPost(postId) {
                             method: 'DELETE',
 
                         })
-                            .then(response => {
+                            .then(resposta => {
 
-                                if (response.status === 200) {
+                                if (resposta.status === 200) {
                                 
-                                    likeButton.src = '/static/images/coracao.png';
+                                    btCurtida.src = '/static/images/coracao.png';
 
                                     postagem.curtidas--;
                                 
@@ -249,14 +249,14 @@ async function showPost(postId) {
                     }
                 });
 
-                postElement.appendChild(divEmbaixo);
+                elementoPostagem.appendChild(divEmbaixo);
             
             })
 
-        postagemContainer.appendChild(postElement);
+        conteinerPostagem.appendChild(elementoPostagem);
 
         
-        showComments(postId);
+        mostrarComentarios(postId);
     } catch (error) {
         
         console.error(error);
@@ -265,37 +265,37 @@ async function showPost(postId) {
 
 }
 
-async function showComments(postId) {
+async function mostrarComentarios(postId) {
     try {
-        const response = await fetch('/comentarios/' + postId);
+        const resposta = await fetch('/comentarios/' + postId);
       
-        const data = await response.json();
+        const data = await resposta.json();
 
         let comentarios = data.comentarios;
 
-        let comentariosContainer = document.querySelector("#postagem-principal");
+        let conteinerComentarios = document.querySelector("#postagem-principal");
 
         comentarios.forEach(comentario => {
       
-            let comentarioElement = document.createElement("div");
+            let elementoComentario = document.createElement("div");
       
-            comentarioElement.classList.add("cartaoComen");
+            elementoComentario.classList.add("cartaoComen");
 
-            let nicknameElement = document.createElement("span");
+            let elementoNickname = document.createElement("span");
       
-            nicknameElement.style.color = "green";
+            elementoNickname.style.color = "green";
       
-            nicknameElement.textContent = '@' + comentario.nickname;
+            elementoNickname.textContent = '@' + comentario.nickname;
       
-            comentarioElement.appendChild(nicknameElement);
+            elementoComentario.appendChild(elementoNickname);
 
-            let textElement = document.createElement("p");
+            let elementoTexto = document.createElement("p");
       
-            textElement.textContent = comentario.texto;
+            elementoTexto.textContent = comentario.texto;
       
-            comentarioElement.appendChild(textElement);
+            elementoComentario.appendChild(elementoTexto);
 
-            comentariosContainer.appendChild(comentarioElement);
+            conteinerComentarios.appendChild(elementoComentario);
 
         });
     } catch (error) {
@@ -307,14 +307,14 @@ async function showComments(postId) {
 
 varIdUsuario().then(() => {
    
-    showPost(postId);
+    mostrarPostagem(postId);
 
 });
 
-import { iconsHover, sidebarModule } from './global.mjs';
+import { iconeSelecionado, moduloBarraLateral } from './global.mjs';
 
-iconsHover();
+iconeSelecionado();
 
-var sidebar = sidebarModule();
+var barraLateral = moduloBarraLateral();
 
-document.getElementById("busca").addEventListener("click", sidebar.toggleSidebar);
+document.getElementById("busca").addEventListener("click", barraLateral.alternarBarraLateral);
