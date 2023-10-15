@@ -52,7 +52,7 @@ async function varIdUsuario() {
         
         document.querySelector("#botaoComentario").addEventListener("click", async () => {
 
-            const texto = document.querySelector("#inputComentario").value;
+            const texto = document.querySelector("#inserirComentario").value;
 
             const resposta = await fetch("/comentar/" + postId, {
         
