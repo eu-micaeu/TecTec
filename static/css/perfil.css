@@ -13,6 +13,12 @@ main{
     align-items: center;/*Centralizar items verticalmente no contêiner*/
 }
 
+#perfil-usuario{
+
+    margin-top: 10vh;
+
+}
+
 @media screen and (max-device-width: 768px) {
 
     #perfil-usuario{

@@ -21,13 +21,7 @@ main{
 
     height: 20vh;
 
-    border-left: 5px solid #00891E;
-
-    border-bottom: 5px solid #00891E;
-
-    border-right: 5px solid #00891E;
-
-    border-top: none;
+    border: 5px solid #00891E;
 
     height: 40vh;
 
@@ -40,6 +34,10 @@ main{
     font-weight: bold;
 
     padding: 30px;
+
+    margin-top: 10vh;
+
+    text-align: center;
     
 }
 

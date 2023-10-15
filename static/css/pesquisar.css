@@ -19,13 +19,7 @@ main{
  
     text-align: center;
 
-    border-left: 2px solid #00891E; /*Definindo tamanho, espessura e cor da barra de pesquisa*/
-
-    border-right: 2px solid #00891E; /*Definindo tamanho, espessura e cor da barra de pesquisa*/
-
-    border-bottom: 2px solid #00891E; /*Definindo tamanho, espessura e cor da barra de pesquisa*/
-
-    border-top: none;
+    border: 2px solid #00891E; /*Definindo tamanho, espessura e cor da barra de pesquisa*/
 
     background-color: transparent; /*Definindo cor de fundo*/
 
@@ -40,6 +34,9 @@ main{
     padding: 20px; /*Definindo espaço de preenchimento ao redor do conteúdo*/
 
     color: white; /*Definindo cor*/
+
+    margin-top: 10vh;
+
 
 }
 

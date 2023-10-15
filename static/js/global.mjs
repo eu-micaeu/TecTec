@@ -103,40 +103,44 @@ export function iconeSelecionado() {
 }
 
 export function configureDialog(openButtonId, dialogId, overlayId, closeButtonId) {
+
     var dialog = document.getElementById(dialogId);
+
     var overlay = document.getElementById(overlayId);
+
     var openButton = document.getElementById(openButtonId);
+
     var closeButton = document.getElementById(closeButtonId);
 
     openButton.addEventListener("click", function() {
+
         dialog.style.display = "flex";
+
         overlay.style.display = "block";
+
     });
 
     closeButton.addEventListener("click", function() {
+
         dialog.style.display = "none";
+
         overlay.style.display = "none";
+
     });
 }
 
 const header = document.querySelector('header');
 
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+
     header.style.display = 'none';
+
 }
 
 const alternarBotaoHeader = document.getElementById('alternarBotaoHeader');
 
 alternarBotaoHeader.addEventListener('click', function() {
     
-    if (header.style.display === 'block' || header.style.display === '') {
-
-        header.style.display = 'none';
-
-    } else {
-        
-        header.style.display = 'block';
-
-    }
+    header.classList.toggle('desativada');
 
 });

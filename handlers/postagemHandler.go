@@ -107,7 +107,7 @@ func (u *Postagem) PostagensUsuario(db *sql.DB) gin.HandlerFunc {
 
 		nickname := c.Param("nickname")
 
-		rows, err := db.Query("SELECT p.*, u.nickname, u.tecnologia FROM postagens p JOIN usuarios u ON p.id_usuario = u.id_usuario WHERE u.nickname = $1 ORDER BY p.data_postagem DESC", nickname)
+		rows, err := db.Query("SELECT p.*, u.nickname FROM postagens p JOIN usuarios u ON p.id_usuario = u.id_usuario WHERE u.nickname = $1 ORDER BY p.data_postagem DESC", nickname)
 		
 		if err != nil {
 

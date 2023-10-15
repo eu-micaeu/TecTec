@@ -29,8 +29,8 @@ function pegarParametroPeloNome(name, url = window.location.href) {
     if (!resultados[2]) return '';
 
     return decodeURIComponent(resultados[2].replace(/\+/g, ' '));
-}
 
+}
 
 nickname = pegarParametroPeloNome('nickname');
 
@@ -41,7 +41,9 @@ function updateAmizades(nickname) {
 
     // Solicitação GET para a URL '/perfil/' + name 
     fetch('/perfil/' + name)
+
         .then(resposta => resposta.json()) // Converte a resposta em JSON.
+
         .then(data => {
             // Obter número de seguidores
             let seguidores = data.usuario.seguidores;
@@ -52,19 +54,11 @@ function updateAmizades(nickname) {
             // Atualiza o conteúdo do elemento para exibir o número de seguidores.
             elementoNome.textContent = "Seguidores: " + seguidores;
 
-            // Defindo estilo para o elemento elementoNome
-            elementoNome.style.color = "#00891E";
-            elementoNome.style.border = "2px solid white";
-            elementoNome.style.borderRadius = "10px";
-            elementoNome.style.padding = "10px";
-            elementoNome.style.backgroundColor = "black";
-            elementoNome.style.fontSize = "20px";
-            elementoNome.style.width = "15vw";
-            elementoNome.style.textAlign = "center";
-
             // Ajustar largura para tela menor que 768px
             if (window.innerWidth <= 768) {
+
                 elementoNome.style.width = "30vw";
+                
             }
         });
 }
@@ -307,7 +301,6 @@ varIdUsuario().then(async () => {
     btSeguir.style.padding = "10px";
     btSeguir.style.backgroundColor = "black";
     btSeguir.style.fontSize = "20px";
-    btSeguir.style.width = "10vw";
     btSeguir.style.textAlign = "center";
     btSeguir.style.cursor = "pointer";
     btSeguir.style.fontFamily = "monospace";
@@ -391,7 +384,6 @@ varIdUsuario().then(async () => {
         }
     }
 
-    // Ouvinte de evento para o botão 
     btSeguir.addEventListener("click", () => {
         // Chamar função seguir
         seguir(idUsuario, idUsuarioSeguindo);

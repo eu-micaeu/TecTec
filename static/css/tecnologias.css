@@ -2,6 +2,7 @@
 @import url('./global.css');
 @import url('./header.css');
 @import url('./tecs.css');
+
 /*Definindo configurações do conteúdo principal*/
 main{
     
@@ -43,6 +44,12 @@ li{
 .imgTec{
 
     margin-top: 10vh;/* Definindo margem superior */
+
+}
+
+main p{
+
+    width: 200px;
 
 }
 

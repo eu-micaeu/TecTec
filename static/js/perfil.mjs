@@ -10,24 +10,39 @@ let idUsuario;
 let nickname;
 
 async function varIdUsuarioPerfil() {
+
     try {
+
         const resposta = await fetch('/perfil-token/', {
+
             method: 'POST',
+
             headers: {
+
                 'Content-Type': 'application/json'
+
             },
+
         });
+
         const data = await resposta.json();
+
         idUsuario = data.usuario.id_usuario;
+
         nickname = data.usuario.nickname;;
+
     } catch (error) {
+
         console.error(error);
+
     }
+
 }
 
 varIdUsuarioPerfil().then(() => {
     
     update(nickname);
+
     mostrarFeed();
     
 });
@@ -39,86 +54,134 @@ function update(nickname) {
         .then(data => {
 
             let nickname = data.usuario.nickname;
+
             let elementoNome = document.getElementById('nome');
+
             elementoNome.textContent = "@" + nickname;
+
             elementoNome.style.color = "#00891E";
+
             elementoNome.style.border = "2px solid white";
+
             elementoNome.style.borderRadius = "10px";
+
             elementoNome.style.padding = "20px";
+
             elementoNome.style.backgroundColor = "black";
+
             elementoNome.style.fontSize = "20px";
+
             elementoNome.style.textAlign = "center";            
 
             let tecnologia = data.usuario.tecnologia;
             
             let elementoTecnologia = document.getElementById('tecnologia');
+
             elementoTecnologia.textContent = "Tecnologia: " + tecnologia;
+
             elementoTecnologia.style.color = "#00891E";
+
             elementoTecnologia.style.border = "2px solid white";
+
             elementoTecnologia.style.borderRadius = "10px";
+
             elementoTecnologia.style.padding = "20px";
+            
             elementoTecnologia.style.backgroundColor = "black";
+
             elementoTecnologia.style.fontSize = "20px";
+
             elementoTecnologia.style.textAlign = "center";
 
             let seguidores = data.usuario.seguidores;
 
             let elementoSeguidores = document.getElementById('seguidores');
+
             elementoSeguidores.textContent = "Seguidores: " + seguidores;
+
             elementoSeguidores.style.color = "#00891E";
+
             elementoSeguidores.style.border = "2px solid white";
+
             elementoSeguidores.style.borderRadius = "10px";
+
             elementoSeguidores.style.padding = "20px";
+
             elementoSeguidores.style.backgroundColor = "black";
+
             elementoSeguidores.style.fontSize = "20px";
+
             elementoSeguidores.style.textAlign = "center";
             
             let seguindo = data.usuario.seguindo;
 
             let elementoSeguindo = document.getElementById('seguindo');
+
             elementoSeguindo.textContent = "Seguindo: " + seguindo;
+
             elementoSeguindo.style.color = "#00891E";
+
             elementoSeguindo.style.border = "2px solid white";
+
             elementoSeguindo.style.borderRadius = "10px";
+
             elementoSeguindo.style.padding = "20px";
+
             elementoSeguindo.style.backgroundColor = "black";
+
             elementoSeguindo.style.fontSize = "20px";
+
             elementoSeguindo.style.textAlign = "center";
 
         });
+
 }
 
 function mostrarFeed() {
 
     fetch(`/contar_postagens/${idUsuario}`)
+
         .then(resposta => resposta.json())
+
         .then(data => {
 
             const numeroDeAmigos = data.quantidade_postagens;
 
             if (numeroDeAmigos === 0) {
+
                 const carrossel = document.querySelector("#feed");
 
                 const aviso = document.createElement("p");
+
                 carrossel.appendChild(aviso);
+
                 aviso.textContent = "Você não possui postagens :(";
+
                 aviso.classList.add("centraliza");
 
                 const p = document.createElement("p");
+
                 carrossel.appendChild(p);
+
                 p.textContent = "Aperte no botão para fazer postagem.";
+
                 p.classList.add("centraliza");
 
             } else {
+
                 fetch(`/postagens-curtidas/${idUsuario}`)
+
                     .then(resposta => resposta.json())
                     .then(data => {
 
                         const curtidasUsuario = data.postagens;
 
                         fetch('/postagens/' + nickname)
+
                             .then(resposta => resposta.json())
+
                             .then(data => {
+                                
                                 let postagens = data.postagens;
 
                                 let conteinerFeed = document.querySelector("#feed");
@@ -126,17 +189,25 @@ function mostrarFeed() {
                                 conteinerFeed.innerHTML = "";
 
                                 for (let i = 0; i < postagens.length; i++) {
+
                                     let postagem = postagens[i];
+
                                     let elementoPostagem = document.createElement("div");
+
                                     elementoPostagem.classList.add("postagem");
 
                                     let elementoNickname = document.createElement("span");
+
                                     elementoNickname.style.color = "white";
+
                                     elementoNickname.textContent = '@' + postagem.nickname;
+
                                     elementoPostagem.appendChild(elementoNickname);
 
                                     let elementoTexto = document.createElement("p");
+
                                     elementoTexto.textContent = postagem.texto;
+
                                     elementoPostagem.appendChild(elementoTexto);
 
                                     let divEmbaixo = document.createElement("div");
