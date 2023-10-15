@@ -1,8 +1,7 @@
 /*Importando css global, header, bar*/
 @import url('./global.css');
 @import url('./header.css');
-@import url('./bar.css');
-
+@import url('./tecs.css');
 /*Definindo configurações do conteúdo principal*/
 main{
     

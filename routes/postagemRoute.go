@@ -18,7 +18,7 @@ func PostagemRoutes(r *gin.Engine, db *sql.DB) {
 
 	r.GET("/postagens/:nickname", postHandler.PostagensUsuario(db))
 
-	r.GET("/postagem/:id_postagem", postHandler.GetPostagemById(db))
+	r.GET("/postagem/:id_postagem", postHandler.PegarPostagemPorIdDaPostagem(db))
 
 	r.DELETE("/excluir-postagem/:id_postagem", postHandler.ApagarPostagem(db))
 	

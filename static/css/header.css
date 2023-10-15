@@ -60,8 +60,6 @@ header #logo{
 
 
 #alternarBotaoHeader{
-
-    display: none;
     
     position: fixed;
     
@@ -81,14 +79,16 @@ header #logo{
 
 }
 
-
-
 /*Definindo configurações para telas menores*/
 @media screen and (max-device-width: 768px) {
 
     header{
 
-        width: 40px;
+        width: 95px;
+
+        background-color: #000;
+
+        z-index: 1;
 
     }
 

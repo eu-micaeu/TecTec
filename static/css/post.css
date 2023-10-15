@@ -2,8 +2,7 @@
 @import url('./global.css');
 @import url('./header.css');
 @import url('./footer.css');
-@import url('./bar.css');
-
+@import url('./tecs.css');
 /*Definindo o escopo principal*/
 main{
     

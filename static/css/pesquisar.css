@@ -2,8 +2,7 @@
 @import url('./global.css');
 @import url('./header.css');
 @import url('./footer.css');
-@import url('./bar.css');
-
+@import url('./tecs.css');
 /*Definindo configurações para o conteúdo principal da página*/
 main{
     
@@ -45,7 +44,7 @@ main{
 }
 
 /*Definindo configurações para botão*/
-button{
+.nicknameBotao{
 
     border-radius: 15px; /*Definindo arrendondamento do botao*/
 
@@ -68,7 +67,7 @@ button{
 }
 
 /*Definindo configurações para botão ao passar o mouse*/
-button:hover{
+.nicknameBotao:hover{
 
     color: rgb(0, 0, 0); /*Definindo cor*/
 
@@ -103,9 +102,15 @@ button:hover{
 @media screen and (max-device-width: 768px) {
 
     #barraPesquisa{
-        margin-top: 130px;
-        border-color: #00891E;
+
+        margin-top: 100px;
+
+        margin-bottom: 50px;
+
+        border: 2px solid #00891E;
+
         position: fixed;
+
         width: 15rem;
 
     }
@@ -124,7 +129,7 @@ button:hover{
 
     }
 
-    button{
+    .nicknameBotao{
 
         border-radius: 15px;
 

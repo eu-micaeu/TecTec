@@ -1,6 +1,8 @@
 /* Criando um id para poder gerar de forma vertical, as postagens de determinada página. */
 #feed {
 
+    margin-top: 10vh;
+
     display: flex; /* Dando flexibilidade para div. */
 
     flex-direction: column; /* Deixando o feed como forma de coluna */

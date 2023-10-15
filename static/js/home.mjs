@@ -278,29 +278,12 @@ function mostrarFeed(idUsuario) {
         })
 }
 
-document.getElementById("busca").addEventListener("click", function() {
-
-    var dialog = document.getElementById("myDialog");
-
-    var overlay = document.getElementById("overlay");
-
-    dialog.style.display = "flex";
-
-    overlay.style.display = "block";
-
-});
-
-document.getElementById("closeDialog").addEventListener("click", function() {
-    var dialog = document.getElementById("myDialog");
-    var overlay = document.getElementById("overlay");
-
-    dialog.style.display = "none";
-    overlay.style.display = "none";
-});
-
 
 /* Importação de funções do global.mjs */
 
-import { iconeSelecionado } from './global.mjs';
+import { iconeSelecionado, configureDialog} from './global.mjs';
 
 iconeSelecionado();
+
+configureDialog("busca", "myDialog", "overlay", "closeDialog");
+

@@ -1,4 +1,10 @@
-import { iconeSelecionado } from './global.mjs';
+// Importação de funções do global.mjs 
+
+import { iconeSelecionado, configureDialog} from './global.mjs';
+
+iconeSelecionado();
+
+configureDialog("busca", "myDialog", "overlay", "closeDialog");
 
 let idUsuario;
 let nickname;
@@ -255,5 +261,3 @@ function mostrarFeed() {
             }
         });
 }
-
-iconeSelecionado();

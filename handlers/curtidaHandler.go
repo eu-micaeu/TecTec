@@ -53,7 +53,9 @@ func (p *Curtida) Descurtir(db *sql.DB) gin.HandlerFunc {
 
 // Função com a finalidade de retornar as postagens que determinado usuário curtiu usando o id do mesmo.
 func (p *Curtida) PostagensCurtidas(db *sql.DB) gin.HandlerFunc {
+	
 	return func(c *gin.Context) {
+
 		idUsuario := c.Param("id_usuario")
 
 		rows, err := db.Query("SELECT p.* FROM postagens p INNER JOIN curtidas c ON p.id_postagem = c.id_postagem WHERE c.id_usuario = $1", idUsuario)
@@ -67,7 +69,9 @@ func (p *Curtida) PostagensCurtidas(db *sql.DB) gin.HandlerFunc {
 		postagens := []Postagem{}
 
 		for rows.Next() {
+
 			var postagem Postagem
+
 			err := rows.Scan(&postagem.ID_Postagem, &postagem.Texto, &postagem.Data_Postagem, &postagem.Curtidas, &postagem.ID_Usuario, &postagem.Comentarios)
 			if err != nil {
 				c.JSON(500, gin.H{"message": "Erro ao resgatar as postagens"})

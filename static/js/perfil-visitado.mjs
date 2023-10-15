@@ -1,3 +1,11 @@
+// Importação de funções do global.mjs 
+
+import { iconeSelecionado, configureDialog} from './global.mjs';
+
+iconeSelecionado();
+
+configureDialog("busca", "myDialog", "overlay", "closeDialog");
+
 //Declaração de variáveis
 let nickname;
 let idUsuario;
@@ -391,9 +399,3 @@ varIdUsuario().then(async () => {
 
 
 })
-
-// Importar 'iconeSelecionado' e 'moduloBarraLateral' do arquivo 'global.mjs'.
-import { iconeSelecionado } from './global.mjs';
-
-// Chamada da função 'iconeSelecionado'
-iconeSelecionado();

@@ -1,3 +1,11 @@
+// Importação de funções do global.mjs 
+
+import { iconeSelecionado, configureDialog} from './global.mjs';
+
+iconeSelecionado();
+
+configureDialog("busca", "myDialog", "overlay", "closeDialog");
+
 // Função que serve para resgatar o posId da URL
 function pegarParametroPeloNome(name, url = window.location.href) {
 
@@ -310,7 +318,3 @@ varIdUsuario().then(() => {
     mostrarPostagem(postId);
 
 });
-
-import { iconeSelecionado } from './global.mjs';
-
-iconeSelecionado();

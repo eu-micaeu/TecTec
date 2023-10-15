@@ -6,7 +6,7 @@ async function varIdUsuario() {
 
     try {
 
-        const resposta = await fetch('/perfil-token/', {
+        const resposta = await fetch('/perfil-token', {
 
             method: 'POST',
 
@@ -46,6 +46,8 @@ function pesquisarNicknames() {
             if (usuariosData[i].nickname.includes(pesquisarTerm)) { 
 
                 var lista = document.createElement("button");
+
+                lista.classList.add("nicknameBotao");
 
                 lista.textContent = usuariosData[i].nickname;
 
@@ -104,7 +106,10 @@ barraPesquisa.addEventListener("input", function () {
 
 varIdUsuario();
 
+// Importação de funções do global.mjs 
 
-import { iconeSelecionado} from './global.mjs';
+import { iconeSelecionado, configureDialog} from './global.mjs';
 
 iconeSelecionado();
+
+configureDialog("busca", "myDialog", "overlay", "closeDialog");
