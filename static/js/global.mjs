@@ -46,13 +46,13 @@ export function iconeSelecionado() {
 
     imagemBusca.addEventListener('mouseover', function () {
 
-        imagemBusca.src = '/static/images/pesquisabranco.png';
+        imagemBusca.src = '/static/images/techbranco.png';
 
     });
 
     imagemBusca.addEventListener('mouseout', function () {
 
-        imagemBusca.src = '/static/images/pesquisa.png';
+        imagemBusca.src = '/static/images/tech.png';
 
     });
 
