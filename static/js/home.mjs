@@ -117,7 +117,7 @@ function mostrarFeed(idUsuario) {
 
                                     let divEmbaixo = document.createElement("div");
 
-                                    divEmbaixo.classList.add("centraliza");
+                                    divEmbaixo.classList.add("centralizaOpcoesPostagem");
 
                                     let comentarioImagem = document.createElement('img');
 
@@ -140,41 +140,61 @@ function mostrarFeed(idUsuario) {
                                     comentarioImagem.addEventListener('mouseout', function (
 
                                     ) {
+
                                         comentarioImagem.src = '/static/images/comentario.png';
+
                                     });
 
                                     comentarioImagem.addEventListener('click', function () {
+
                                         let postId = postagem.id_postagem;
+
                                         window.location.href = 'comentario?postId=' + postId;
+
                                     });
 
                                     divEmbaixo.appendChild(comentarioImagem);
 
                                     let comentarioQuantidade = document.createElement('p');
+
                                     comentarioQuantidade.textContent = postagem.comentarios;
 
                                     divEmbaixo.appendChild(comentarioQuantidade);
 
                                     let btCurtida = document.createElement('img');
+
                                     btCurtida.width = 18;
+
                                     btCurtida.height = 18;
+
                                     btCurtida.style.cursor = 'pointer';
+
                                     btCurtida.dataset.postId = postagem.id_postagem;
+
                                     btCurtida.title = "Curtir";
 
                                     if (curtidasUsuario.some(curtida => curtida.id_postagem === postagem.id_postagem)) {
+
                                         btCurtida.src = '/static/images/coracaofechado.png';
+
                                     } else {
+
                                         btCurtida.src = '/static/images/coracao.png';
+
                                     }
 
                                     divEmbaixo.appendChild(btCurtida);
+
                                     let curtidaQuantidade = document.createElement('p');
+
                                     curtidaQuantidade.textContent = postagem.curtidas;
+
                                     divEmbaixo.appendChild(curtidaQuantidade);
 
                                     btCurtida.addEventListener('click', function () {
+
                                         const postId = btCurtida.dataset.postId;
+
                                         const curtido = btCurtida.src.endsWith('coracaofechado.png');
 
                                         if (!curtido) {
@@ -214,9 +234,13 @@ function mostrarFeed(idUsuario) {
                                     let seguidorImagem = document.createElement('img');
 
                                     seguidorImagem.src = '../static/images/seguidor.png'
+
                                     seguidorImagem.width = 18;
+
                                     seguidorImagem.height = 18;
+
                                     seguidorImagem.title = 'Deixar de seguir';
+
                                     seguidorImagem.style.cursor = "pointer";
 
                                     seguidorImagem.addEventListener('mouseover', function () {

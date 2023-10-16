@@ -3,7 +3,7 @@ footer {
 
     font-family: monospace;
 
-    position: fixed;
+    position: absolute;
 
     bottom: 0;
 
@@ -12,8 +12,6 @@ footer {
     background-color: black;
 
     border-top: 2px solid #ffffff;
-
-    margin-top: 5vh;
 
 }
 

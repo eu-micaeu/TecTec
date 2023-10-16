@@ -3,12 +3,6 @@ body {
 
     background-color: black;
 
-    background-attachment: fixed; /* Definindo a imagem do background como fixado. */
-
-    background-repeat: no-repeat; /* Não repetindo a imagem do background */
-
-    background-size: cover; /* Fazendo a imagem preencher todo o body. */
-
     font-family: monospace, sans-serif; /* Definindo a fonte que será usada no site todo. */
 
     line-height: 1.6; /* Definindo o espaçamento entre as linhas de um paragráfo. */

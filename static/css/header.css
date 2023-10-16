@@ -1,4 +1,5 @@
 header {
+
     width: 150px;
 
     height: 100%;
@@ -17,8 +18,8 @@ header {
 
     transition: width 0.1s ease-in-out;
 
-
     border-right: 2px solid #00891E;
+
 }
 
 header.desativada {
@@ -57,12 +58,11 @@ header .imgTitulo{
 
 }
 
-header #logo{
+#logo{
 
-    animation: girar 2s infinite; /*Definindo configurações da animação*/
+    animation: girar 3s infinite; /*Definindo configurações da animação*/
 
-    padding: 10px;
-
+    padding: 5px;
 }
 
 
@@ -78,13 +78,19 @@ header #logo{
     
     transform: translateX(-50%);
 
-    border: 2px solid #00891E;
-
     border-radius: 20%;
 
-    background-color: #000;
+    background-color: transparent;
 
     margin-top: 1vh;
+
+    border: none;
+
+}
+
+#alternarBotaoHeader:hover{
+
+    background-color: #333;
 
 }
 

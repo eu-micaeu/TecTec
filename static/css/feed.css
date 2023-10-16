@@ -12,17 +12,17 @@
 /* Criando uma classe para poder gerar a postagem. */
 .postagem {
 
-    border: 4px solid green; /* Definindo a espressura, tipo e cor da borda */
+    border: 3px solid #333; /* Definindo a espressura, tipo e cor da borda */
 
-    border-radius: 40px; /* Definindo o grau de borda que será aplicada na postagem */
+    border-radius: 10px; /* Definindo o grau de borda que será aplicada na postagem */
 
-    margin-bottom: 20px; /* Deixando a postagem com margin inferior para uma melhor visualização. */
+    margin-bottom: 10px; /* Deixando a postagem com margin inferior para uma melhor visualização. */
 
     color: #00891E; /* Definindo a cor da letra da postagem */
 
     padding: 25px; /* Definindo o padding da postagem */
 
-    width: 40vw; /* Definindo o comprimento da postagem */
+    width: 35vw; /* Definindo o comprimento da postagem */
 
     height: auto; /* Definindo o comprimento da postagem */
 
@@ -30,6 +30,12 @@
 
     word-break: break-all;
     
+}
+
+.centralizaOpcoesPostagem {
+
+    display: flex;
+
 }
 
 /*configurando para telas menores*/
