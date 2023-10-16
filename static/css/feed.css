@@ -1,7 +1,7 @@
 /* Criando um id para poder gerar de forma vertical, as postagens de determinada página. */
 #feed {
 
-    margin-top: 10vh;
+    margin-top: 100px;
 
     display: flex; /* Dando flexibilidade para div. */
 
