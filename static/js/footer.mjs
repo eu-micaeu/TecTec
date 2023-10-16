@@ -15,9 +15,9 @@ document.body.insertAdjacentHTML('afterbegin', `
 
             <p>Desenvolvedores</p>
 
-            <p>Sobre</p>
+            <p> <a href = "/sobre" > Sobre </a> </p>
 
-            <p>GitHub</p>
+            <p> <a href="https://github.com/eu-micaeu/TecTec.git">GitHub</a></p>
 
         </div>
 

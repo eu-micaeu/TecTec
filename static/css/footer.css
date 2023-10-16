@@ -30,6 +30,19 @@ footer p {
 
 }
 
+a{
+
+   text-decoration: none;
+
+   color: #00891E;
+}
+
+a:hover{
+
+    color: #ffffff;
+    
+}
+
 /* Configurando para telas menores */
 @media screen and (max-device-width: 768px) {
 

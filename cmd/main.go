@@ -100,6 +100,10 @@ func main() {
 		c.HTML(http.StatusOK,"tecnologia-css.html",nil)
 	})
 
+	r.GET("/sobre", func(c *gin.Context){
+		c.HTML(http.StatusOK,"sobre.html",nil)
+	})
+
 	r.Static("./static", "./static")
 
 	r.Run()
