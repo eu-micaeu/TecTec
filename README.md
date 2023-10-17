@@ -1,6 +1,6 @@
 <h3 align="center">
         <samp>&gt; Olá!, Estamos construindo o site 
-                <b><a target="_blank" href="https://tectec.dev/login">Tectec/a></b>
+                <b><a target="_blank" href="https://tectec.dev/login">Tectec</a></b>
         </samp>
 </h3>
 
