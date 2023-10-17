@@ -1,4 +1,4 @@
-🤛 ## Integrantes:
+#🤛Integrantes:
 
 - Brena dos Santos Freitas / RA: 2465710
 - João Pedro Boter Monegatto / RA: 2454386
