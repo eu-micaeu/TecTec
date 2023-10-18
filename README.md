@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <h3 align="center">
         <samp>&gt; Olá!, Estamos construindo o site 
                 <b><a target="_blank" href="https://tectec.dev/login">Tectec</a></b>
@@ -13,10 +14,16 @@
 - Micael Ribeiro Rocha / RA: 2454424
 
 ## 💻Tema e Tipo de Sistema:
+=======
+# TecTec
 
-- Tema: Rede Social voltada para desenvolvedores
-- Tipo de sistema: Web
+Um projeto de rede social voltada para desenvolvedores.
 
+![Logo](https://tectec.dev/static/images/logo.png)
+>>>>>>> Stashed changes
+
+
+<<<<<<< Updated upstream
 ## ☘️ Objetivo Geral e Específicos:
 
 - Objetivo Geral: O sistema tem por objetivo realizar o compartilhamento de conhecimento, atividades realizadas no dia-a-dia, história sobre determinada tecnologia.
@@ -31,4 +38,10 @@
 
 
 </p>
+=======
+## Autores
+
+- [@brenaSF](https://www.github.com/brenaSF)
+- [@Monegatto](https://www.github.com/Monegatto)
+>>>>>>> Stashed changes
 
