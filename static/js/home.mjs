@@ -85,6 +85,8 @@ function mostrarFeed(idUsuario) {
 
                                 conteinerFeed.innerHTML = "";
 
+                                conteinerFeed.style.display = "flex";
+
                                 for (let i = 0; i < postagens.length; i++) {
 
                                     let postagem = postagens[i];

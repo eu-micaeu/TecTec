@@ -2,9 +2,11 @@ package handlers
 
 // Importando bibliotecas para a criação da classe e funções do usuário.
 import (
+	
 	"database/sql"
 
 	"github.com/gin-gonic/gin"
+
 )
 
 // Estrutura da amizade.

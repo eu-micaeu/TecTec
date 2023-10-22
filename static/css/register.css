@@ -11,58 +11,55 @@ main{
 
     align-items: center;/*Centralizar items verticalmente no contêiner*/
 
+    flex-direction: column;
+
 }
 
 /*Definindo configurações para o input das informações*/
 .inserirUsuario {
 
-    background-color: transparent;/* Defininido cor de fundo*/
+    width: 130px; /*Definindo comprimento*/
 
-    color: #00891E;/* Defininido cor */
+    height: 20px; /*Definindo altura*/
+    
+    background-color: transparent; /*Definindo cor de fundo*/
 
-    border: 3px solid rgb(255, 255, 255);/* Defininido tamanho,espessura,cor */
+    color: #00891E; /*Definindo cor*/
 
-    border-radius: 15px;/* Defininido arrendondamento */
+    border: 2px solid rgb(255, 255, 255); /*Definindo tamanho, espessura e cor da borda*/
+    
+    border-radius: 5px; /*Definindo arrendondamento */
 
-    padding: 10px 4px;/* Defininido espaço ao redor do conteudo */
+    padding: 5px; /*Definindo espaço entre o conteúdo*/
 
-    font-size: 20px;/* Defininido tamanho da fonte */
+    font-size: 15px; /*Definindo tamanho da fonte*/
 
-    margin: 10px;/* Defininido margens */
+    font-family: monospace; /*Definindo fonte*/
 
-    width: 15vw;/* Defininido comprimento */
+    text-align: center; /*Alinhar o texto no centro*/
 
-    text-align: center;/*Alinhar o texto ao centro*/
-
-    font-family: monospace;/* Defininido fonte do texto */
+    font-weight: bold; /*Definindo espessura*/
 
 }
 
 /*Definindo configurações para o formulário*/
 form{
 
-    padding: 25px;/* Defininido cor */
+    padding: 50px; /* Definindo espaço de preenchimento ao redor do conteúdo */
 
-    border: 6px solid rgb(255, 255, 255);/* Defininido tamanho,espessura,cor */
+    border: 2px solid #333; /* Definindo tamanho, espessura e cor da borda */
 
-    width: 20vw;/* Defininido comprimento */
+    border-radius: 10px; /* Arredondar os cantos da borda */
 
-    border-radius: 15px;/* Defininido arrendodamento */
+    display: flex; /* Dando flexibilidade para o conteúdo */
 
-    display: flex;/* Dando flexibilidade para div. */
+    align-items: center; /* Centralizar itens verticalmente no contêiner */
 
-    justify-content: center;/* Defininido cor */
-
-    align-items: center;/*Centralizar items verticalmente no contêiner*/
-
-    flex-direction: column;/*Elementos flexíveis são dispostos verticalmente*/
-
-    margin: 5vh 0 16vh 0;/* Definindo margens*/
-
+    flex-direction: column; /* Elementos flexíveis são dispostos verticalmente */
 }
 
 /*Definindo configurações para a logo do formulário*/
-form #logo {
+main #logo {
 
     border-radius: 15px;/* Defininido arrendodamento */
 
@@ -143,9 +140,11 @@ form #logo {
 
 .rotUsuario, .rotSenha, .rotConfSenha, .rotTelefone{
 
-    color: #ffffff;
+    color: #ffffff; /*Definindo cor*/
 
-    font-weight: bold;
+    font-size: 15px; /*Definindo tamanho d afonte*/
+
+    margin: 10px; /*Definindo margens ao*/
 
 }
 

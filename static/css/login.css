@@ -29,6 +29,7 @@ form {
     align-items: center; /* Centralizar itens verticalmente no contêiner */
 
     flex-direction: column; /* Elementos flexíveis são dispostos verticalmente */
+    
 }
 
 /*Defindo as configurações da logo no forms*/

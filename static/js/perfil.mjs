@@ -13,7 +13,7 @@ async function varIdUsuarioPerfil() {
 
     try {
 
-        const resposta = await fetch('/perfil-token/', {
+        const resposta = await fetch('/perfil-token', {
 
             method: 'POST',
 
@@ -61,37 +61,13 @@ function update(nickname) {
 
             elementoNome.style.color = "#00891E";
 
-            elementoNome.style.border = "2px solid white";
-
-            elementoNome.style.borderRadius = "10px";
-
             elementoNome.style.padding = "20px";
 
             elementoNome.style.backgroundColor = "black";
 
-            elementoNome.style.fontSize = "20px";
+            elementoNome.style.fontSize = "25px";
 
             elementoNome.style.textAlign = "center";            
-
-            let tecnologia = data.usuario.tecnologia;
-            
-            let elementoTecnologia = document.getElementById('tecnologia');
-
-            elementoTecnologia.textContent = "Tecnologia: " + tecnologia;
-
-            elementoTecnologia.style.color = "#00891E";
-
-            elementoTecnologia.style.border = "2px solid white";
-
-            elementoTecnologia.style.borderRadius = "10px";
-
-            elementoTecnologia.style.padding = "20px";
-            
-            elementoTecnologia.style.backgroundColor = "black";
-
-            elementoTecnologia.style.fontSize = "20px";
-
-            elementoTecnologia.style.textAlign = "center";
 
             let seguidores = data.usuario.seguidores;
 
@@ -100,10 +76,6 @@ function update(nickname) {
             elementoSeguidores.textContent = "Seguidores: " + seguidores;
 
             elementoSeguidores.style.color = "#00891E";
-
-            elementoSeguidores.style.border = "2px solid white";
-
-            elementoSeguidores.style.borderRadius = "10px";
 
             elementoSeguidores.style.padding = "20px";
 
@@ -121,10 +93,6 @@ function update(nickname) {
 
             elementoSeguindo.style.color = "#00891E";
 
-            elementoSeguindo.style.border = "2px solid white";
-
-            elementoSeguindo.style.borderRadius = "10px";
-
             elementoSeguindo.style.padding = "20px";
 
             elementoSeguindo.style.backgroundColor = "black";
@@ -132,6 +100,10 @@ function update(nickname) {
             elementoSeguindo.style.fontSize = "20px";
 
             elementoSeguindo.style.textAlign = "center";
+
+            let blocoPerfil = document.getElementById('perfil-usuario');
+
+            blocoPerfil.style.display = "block";
 
         });
 
@@ -172,6 +144,7 @@ function mostrarFeed() {
                 fetch(`/postagens-curtidas/${idUsuario}`)
 
                     .then(resposta => resposta.json())
+
                     .then(data => {
 
                         const curtidasUsuario = data.postagens;
@@ -280,17 +253,18 @@ function mostrarFeed() {
                                             fetch(`/descurtir/` + idUsuario + '/' + postId, {
                                                 method: 'DELETE',
                                             })
-                                                .then(resposta => {
-                                                    if (resposta.status === 200) {
-                                                        btCurtida.src = '/static/images/coracao.png';
 
-                                                        postagem.curtidas--;
-                                                        curtidaQuantidade.textContent = postagem.curtidas;
-                                                    }
-                                                })
-                                                .catch(error => {
-                                                    console.error('Error disliking post:', error);
-                                                });
+                                            .then(resposta => {
+                                                if (resposta.status === 200) {
+                                                    btCurtida.src = '/static/images/coracao.png';
+                                                    postagem.curtidas--;
+                                                    curtidaQuantidade.textContent = postagem.curtidas;
+                                                }
+                                            })
+
+                                            .catch(error => {
+                                                console.error('Error disliking post:', error);
+                                            });
                                         }
                                     });
 
@@ -315,8 +289,15 @@ function mostrarFeed() {
                                         fetch('/excluir-postagem/' + postId, {
                                             method: 'DELETE',
                                         })
+
+                                        .then(resposta => {
+                                            if (resposta.status === 200) {
+                                                mostrarFeed();
+                                            }
+                                        })
                                         
-                                        mostrarFeed();
+                                        
+
                                     });
 
                                     divEmbaixo.appendChild(elementoImagem);

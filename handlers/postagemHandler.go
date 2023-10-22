@@ -2,22 +2,32 @@ package handlers
 
 // Importando bibliotecas para a criação da classe e funções da postagem.
 import (
+
 	"database/sql"
 
 	"github.com/gin-gonic/gin"
+
 )
 
 // Estrutura da postagem.
 type Postagem struct {
+
 	ID_Postagem   int    `json:"id_postagem"`
+
 	Texto         string `json:"texto"`
+
 	Data_Postagem string `json:"data_postagem"`
+
 	Curtidas      string `json:"curtidas"`
+
 	ID_Usuario    int    `json:"id_usuario"`
+
 	Comentarios   int    `json:"comentarios"`
+
 }
 
 func (p *Postagem) Publicar(db *sql.DB) gin.HandlerFunc {
+	
 	return func(c *gin.Context) {
 
 		id_usuario := c.Param("id_usuario")

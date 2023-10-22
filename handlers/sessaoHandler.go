@@ -2,20 +2,28 @@ package handlers
 
 // Importando bibliotecas para a criação da classe e funções da sessão.
 import (
+	
 	"database/sql"
 
 	"github.com/gin-gonic/gin"
+
 )
 
 // Estrutura da sessão.
 type Sessao struct {
+
 	ID_Sessao    int    `json:"id_sessao"`
+
 	Data_Entrada string `json:"data_entrada"`
+
 	Data_Saida   string `json:"data_saida"`
+
 	ID_Usuario   int    `json:"id_usuario"`
+
 }
 
 func (s *Sessao) Entrada(db *sql.DB) gin.HandlerFunc {
+
 	return func(c *gin.Context) {
 
 		nickname := c.Param("nickname")

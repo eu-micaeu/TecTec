@@ -1,7 +1,5 @@
 header {
 
-    width: 150px;
-
     height: 100%;
 
     background-color: #000000;
@@ -15,8 +13,6 @@ header {
     left: 0;
 
     overflow: hidden;
-
-    transition: width 0.1s ease-in-out;
 
     border-right: 2px solid #00891E;
 
@@ -55,6 +51,8 @@ header .imgTitulo{
     display: flex;
 
     align-items: center;
+    
+    margin: 0px 20px 0 0;
 
 }
 
@@ -80,12 +78,9 @@ header .imgTitulo{
 
     border-radius: 10%;
     
-    padding: 5px 4px;
-
     background-color: transparent;
 
     margin-top: 10px;
-
 
     border: none;
 

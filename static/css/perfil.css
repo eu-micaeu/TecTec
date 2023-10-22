@@ -17,6 +17,12 @@ main{
 
     margin-top: 10vh;
 
+    border: 3px solid #333;
+    
+    border-radius: 15px;
+
+    display: none;
+
 }
 
 @media screen and (max-device-width: 768px) {

@@ -251,17 +251,6 @@ varIdUsuario().then(() => {
                 elementoNome.style.fontSize = "20px";
                 elementoNome.style.textAlign = "center";
 
-                let tecnologia = data.usuario.tecnologia;
-                let elementoTecnologia = document.getElementById('tecnologia');
-                elementoTecnologia.textContent = "Tecnologia: " + tecnologia;
-                elementoTecnologia.style.color = "#00891E";
-                elementoTecnologia.style.border = "2px solid white";
-                elementoTecnologia.style.borderRadius = "10px";
-                elementoTecnologia.style.padding = "20px";
-                elementoTecnologia.style.backgroundColor = "black";
-                elementoTecnologia.style.fontSize = "20px";
-                elementoTecnologia.style.textAlign = "center";
-
                 let seguidores = data.usuario.seguidores;
                 let elementoSeguidores = document.getElementById('seguidores');
                 elementoSeguidores.textContent = "Seguidores: " + seguidores;
