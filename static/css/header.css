@@ -18,21 +18,15 @@ header {
 
 }
 
-header.desativada {
-
-    border-right: none;
-
-    width: 0; 
-
-}
-
 header .opcao {
 
     cursor: pointer; 
 
-    margin: 2vh 0.5vw;
+    margin: 2vh 0vw;
 
     padding: 10px;
+
+    margin-left: 1.25vw;
 
 }
 
@@ -46,49 +40,19 @@ header .opcao:hover {
  
 }
 
-header .imgTitulo{
-    
-    display: flex;
-
-    align-items: center;
-    
-    margin: 0px 20px 0 0;
-
-}
 
 #logo{
 
     animation: girar 3s infinite; /*Definindo configurações da animação*/
 
-    padding: 5px;
+    padding: 10px;
+
+    margin: 0 1vw;
 }
 
+header .centraliza{
 
-#alternarBotaoHeader{
-    
-    position: fixed;
-    
-    cursor: pointer;
-
-    top: 0;
-
-    left: 50%;
-    
-    transform: translateX(-50%);
-
-    border-radius: 10%;
-    
-    background-color: transparent;
-
-    margin-top: 10px;
-
-    border: none;
-
-}
-
-#alternarBotaoHeader:hover{
-
-    background-color: #333;
+    flex-direction: column;
 
 }
 

@@ -129,19 +129,3 @@ export function configureDialog(openButtonId, dialogId, overlayId, closeButtonId
     });
 }
 
-const header = document.querySelector('header');
-
-if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-
-    header.style.display = 'none';
-
-}
-
-const alternarBotaoHeader = document.getElementById('alternarBotaoHeader');
-
-alternarBotaoHeader.addEventListener('click', function() {
-    
-    header.classList.toggle('desativada');
-
-});
-

@@ -1,88 +1,27 @@
 // Insira o conteúdo HTML no corpo antes do primeiro filho usando insertAdjacentHTML
 document.body.insertAdjacentHTML('afterbegin', `
 
-<button id="alternarBotaoHeader">
-
-    <img src="../static/images/logo.png" alt="Logo" id="logo" width="50" height="50">
-
-</button>
-
 <header>
-          
-    <div class="imgTitulo"> 
-    
+
+    <div class="centraliza">
+
+        <img src="../static/images/logo.png" alt="Logo" id="logo" width="45" height="45">
+
         <img src="../static/images/casinha.png" alt="Home" id="casa" class="opcao" onclick="window.location.href='/home'" title="Home" width="30" height="30">
-
-        <span style="color: white;">H</span>
-        <span style="color: white;">o</span>
-        <span style="color: white;">m</span>
-        <span style="color: white;">e</span>
-    
-    </div>
-
-    <div class="imgTitulo"> 
     
         <img src="../static/images/la_user.png" alt="Perfil" id="perfil" class="opcao" onclick="window.location.href='/perfil'" title="Perfil" width="30" height="30">
-
-        <span style="color: white;">P</span>
-        <span style="color: white;">e</span>
-        <span style="color: white;">r</span>
-        <span style="color: white;">f</span>
-        <span style="color: white;">i</span>
-        <span style="color: white;">l</span>
-    
-    </div>
-
-    <div class="imgTitulo"> 
     
         <img src="../static/images/explorar.png" alt="Pesquisar usuário" id="pesquisar" class="opcao" onclick="window.location.href='/pesquisar'" title="Buscar usuários" width="30" height="30">
 
-        <span style="color: white;">B</span>
-        <span style="color: white;">u</span>
-        <span style="color: white;">s</span>
-        <span style="color: white;">c</span>
-        <span style="color: white;">a</span>
-        <span style="color: white;">r</span>
-    
-    </div>
-
-    <div class="imgTitulo"> 
-    
         <img src="../static/images/tech.png" alt="Tecnologias" id="busca" class="opcao" title="Tecnologias" width="30" height="30">
 
-        <span style="color: white;">T</span>
-        <span style="color: white;">e</span>
-        <span style="color: white;">c</span>
-        <span style="color: white;">s.</span>
-
-    
-    </div>
-    
-    <div class="imgTitulo"> 
-    
         <img src="../static/images/addpost.png" alt="Postar" id="addpost" class="opcao" onclick="window.location.href='/post'" title="Postar" width="30" height="30">
 
-        <span style="color: white;">P</span>
-        <span style="color: white;">o</span>
-        <span style="color: white;">s</span>
-        <span style="color: white;">t</span>
-        <span style="color: white;">a</span>
-        <span style="color: white;">r</span>
-
-    </div>
-    
-    <div class="imgTitulo"> 
-    
         <img src="../static/images/out.png" alt="Sair" id="sair" class="opcao" title="Sair" width="30" height="30">
-
-        
-            <span style="color: white;">S</span>
-            <span style="color: white;">a</span>
-            <span style="color: white;">i</span>
-            <span style="color: white;">r</span>
-
     
     </div>
+
+</header>
 
 `);
 

@@ -15,9 +15,11 @@ main{
 
 #perfil-usuario{
 
-    margin-top: 10vh;
+    margin: 2vh 0;
 
     border: 3px solid #333;
+
+    background-color: black;
     
     border-radius: 15px;
 
