@@ -3,7 +3,7 @@
 
     margin-top: 100px;
 
-    display: none; /* Dando flexibilidade para div. */
+    display: flex; /* Dando flexibilidade para div. */
 
     flex-direction: column; /* Deixando o feed como forma de coluna */
 

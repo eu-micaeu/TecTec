@@ -85,8 +85,6 @@ function mostrarFeed(idUsuario) {
 
                                 conteinerFeed.innerHTML = "";
 
-                                conteinerFeed.style.display = "flex";
-
                                 for (let i = 0; i < postagens.length; i++) {
 
                                     let postagem = postagens[i];
@@ -303,9 +301,6 @@ function mostrarFeed(idUsuario) {
 
         })
 }
-
-
-/* Importação de funções do global.mjs */
 
 import { iconeSelecionado, configureDialog} from './global.mjs';
 
