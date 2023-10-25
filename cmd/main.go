@@ -44,10 +44,6 @@ func main() {
 		c.HTML(http.StatusOK, "home.html", nil)
 	})
 
-	r.GET("/post", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "post.html", nil)
-	})
-
 	r.GET("/perfil", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "perfil.html", nil)
 	})

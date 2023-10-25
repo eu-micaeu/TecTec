@@ -231,76 +231,71 @@ function mostrarFeed(idUsuario) {
                                         }
                                     });
 
-                                    let seguidorImagem = document.createElement('img');
-
-                                    seguidorImagem.src = '../static/images/seguidor.png'
-
-                                    seguidorImagem.width = 18;
-
-                                    seguidorImagem.height = 18;
-
-                                    seguidorImagem.title = 'Deixar de seguir';
-
-                                    seguidorImagem.style.cursor = "pointer";
-
-                                    seguidorImagem.addEventListener('mouseover', function () {
-
-                                        seguidorImagem.src = '/static/images/seguidorbranco.png';
-
-                                    });
-                                    seguidorImagem.addEventListener('mouseout', function () {
-
-                                        seguidorImagem.src = '/static/images/seguidor.png';
-
-                                    });
-
-                                    seguidorImagem.addEventListener('click', async function () {
-
-                                        const resposta = await fetch(`/desfazer_amizade`, {
-
-                                            method: 'DELETE',
-
-                                            headers: {
-
-                                                'Content-Type': 'application/json'
-
-                                            },
-
-                                            body: JSON.stringify({
-
-                                                id_usuario: idUsuario,
-
-                                                id_usuario_seguindo: postagem.id_usuario
-
-                                            })
-
-                                        });
-
-                                        if (resposta.ok) {
-
-                                            mostrarFeed()
-
-                                        } else {
-
-                                            console.error('Erro ao desfazer amizade');
-
-                                        }
-
-                                    });
-
-                                    divEmbaixo.appendChild(seguidorImagem);
-
-
                                     elementoPostagem.appendChild(divEmbaixo);
 
                                     conteinerFeed.appendChild(elementoPostagem);
                                 }
+
                             });
+
                     })
+
             }
 
         })
+        
 }
+
+varIdUsuarioHome().then(() => {
+
+    document.getElementById('publicar').addEventListener('click', function () {
+
+        var texto = document.getElementById('inserirPostagem').value;
+
+        fetch('/publicar/' + idUsuario, {
+
+            method: 'POST',
+
+            headers: {
+
+                'Content-Type': 'application/json',
+
+            },
+
+            body: JSON.stringify({ texto: texto })
+
+        })
+
+            .then(resposta => {
+
+                if (resposta.ok) {
+
+                    var toastCerto = document.getElementById("toastCerto");
+
+                    toastCerto.style.display = "block";
+
+                    setTimeout(function () {
+
+                        toastCerto.style.display = "none";
+
+                        document.getElementById('inserirPostagem').value = "";
+
+                        mostrarFeed(idUsuario)
+
+                    }, 1500);
+
+                } else {
+
+                    alert('Erro na solicitação POST. Código de status: ' + resposta.status);
+
+                }
+
+            })
+
+    });
+
+});
+
 
 import { iconeSelecionado, configureDialog} from './global.mjs';
 

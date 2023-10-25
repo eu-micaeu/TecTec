@@ -20,13 +20,6 @@ body {
 
 }
 
-/* Selecionando todos os <textarea> do site */
-textarea {
-
-    resize: none; /* Retirando a modificação do tamanho da <textarea> */
-
-}
-
 /* Criar animações personalizadas*/
 @keyframes queda-e-giro {
 

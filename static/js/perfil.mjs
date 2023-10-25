@@ -1,11 +1,3 @@
-// Importação de funções do global.mjs 
-
-import { iconeSelecionado, configureDialog } from './global.mjs';
-
-iconeSelecionado();
-
-configureDialog("busca", "myDialog", "overlay", "closeDialog");
-
 let idUsuario;
 
 let nickname;
@@ -51,60 +43,40 @@ varIdUsuarioPerfil().then(() => {
 function update(nickname) {
 
     fetch('/perfil/' + nickname)
+
         .then(resposta => resposta.json())
+
         .then(data => {
 
             let nickname = data.usuario.nickname;
 
             let elementoNome = document.getElementById('nome');
 
-            elementoNome.textContent = "@" + nickname;
-
-            elementoNome.style.color = "#00891E";
-
-            elementoNome.style.padding = "0 20px";
-
-            elementoNome.style.backgroundColor = "black";
-
-            elementoNome.style.fontSize = "25px";
-
-            elementoNome.style.textAlign = "center";
+            elementoNome.textContent = "Olá, " + nickname;
 
             let seguidores = data.usuario.seguidores;
 
-            let elementoSeguidores = document.getElementById('seguidores');
+            let rotSeguidores = document.getElementById('rotSeguidores');
 
-            elementoSeguidores.textContent = "Seguidores: " + seguidores;
+            rotSeguidores.textContent = "Seguidores";
 
-            elementoSeguidores.style.color = "#00891E";
+            let numSeguidores = document.getElementById('numSeguidores');
 
-            elementoSeguidores.style.padding = "0 20px";
-
-            elementoSeguidores.style.backgroundColor = "black";
-
-            elementoSeguidores.style.fontSize = "20px";
-
-            elementoSeguidores.style.textAlign = "center";
+            numSeguidores.textContent = seguidores;
 
             let seguindo = data.usuario.seguindo;
 
-            let elementoSeguindo = document.getElementById('seguindo');
+            let rotSeguindo = document.getElementById('rotSeguindo');
 
-            elementoSeguindo.textContent = "Seguindo: " + seguindo;
+            rotSeguindo.textContent = "Seguindo";
 
-            elementoSeguindo.style.color = "#00891E";
+            let numSeguindo = document.getElementById('numSeguindo');
 
-            elementoSeguindo.style.padding = "0 20px";
+            numSeguindo.textContent = seguindo;
 
-            elementoSeguindo.style.backgroundColor = "black";
+            let infos = document.getElementById('infos');
 
-            elementoSeguindo.style.fontSize = "20px";
-
-            elementoSeguindo.style.textAlign = "center";
-
-            let blocoPerfil = document.getElementById('perfil-usuario');
-
-            blocoPerfil.style.display = "block";
+            infos.style.display = "flex";
 
         });
 
@@ -160,83 +132,122 @@ function mostrarFeed() {
                         let comentarioImagem = document.createElement('img');
 
                         comentarioImagem.src = '../static/images/comentario.png'
+
                         comentarioImagem.width = 25;
+
                         comentarioImagem.height = 25;
+
                         comentarioImagem.style.cursor = 'pointer';
 
                         comentarioImagem.addEventListener('mouseover', function () {
+
                             comentarioImagem.src = '/static/images/comentariobranco.png';
+
                         });
+
                         comentarioImagem.addEventListener('mouseout', function () {
+
                             comentarioImagem.src = '/static/images/comentario.png';
+
                         });
 
                         comentarioImagem.addEventListener('click', function () {
+
                             let postId = postagem.id_postagem;
+
                             window.location.href = 'comentario?postId=' + postId;
+
                         });
 
                         divEmbaixo.appendChild(comentarioImagem);
 
                         let comentarioQuantidade = document.createElement('p');
+
                         comentarioQuantidade.textContent = postagem.comentarios;
 
                         divEmbaixo.appendChild(comentarioQuantidade);
 
                         let btCurtida = document.createElement('img');
+
                         btCurtida.width = 20;
+
                         btCurtida.height = 20;
+
                         btCurtida.style.cursor = 'pointer';
+
                         btCurtida.dataset.postId = postagem.id_postagem;
 
                         if (curtidasUsuario.some(curtida => curtida.id_postagem === postagem.id_postagem)) {
+
                             btCurtida.src = '/static/images/coracaofechado.png';
+
                         } else {
+
                             btCurtida.src = '/static/images/coracao.png';
+
                         }
 
                         divEmbaixo.appendChild(btCurtida);
+
                         let curtidaQuantidade = document.createElement('p');
+
                         curtidaQuantidade.textContent = postagem.curtidas;
+
                         divEmbaixo.appendChild(curtidaQuantidade);
 
                         btCurtida.addEventListener('click', function () {
+
                             const postId = btCurtida.dataset.postId;
+
                             const curtido = btCurtida.src.endsWith('coracaofechado.png');
 
                             if (!curtido) {
+
                                 fetch(`/curtir/` + idUsuario + '/' + postId, {
+
                                     method: 'POST',
+
                                 })
                                     .then(resposta => {
+
                                         if (resposta.status === 200) {
+
                                             btCurtida.src = '/static/images/coracaofechado.png';
 
-
                                             postagem.curtidas++;
+
                                             curtidaQuantidade.textContent = postagem.curtidas;
+
                                         }
+
                                     })
-                                    .catch(error => {
-                                        console.error('Error liking post:', error);
-                                    });
+
                             } else {
+
                                 fetch(`/descurtir/` + idUsuario + '/' + postId, {
+
                                     method: 'DELETE',
+
                                 })
 
                                     .then(resposta => {
+
                                         if (resposta.status === 200) {
+
                                             btCurtida.src = '/static/images/coracao.png';
+
                                             postagem.curtidas--;
+
                                             curtidaQuantidade.textContent = postagem.curtidas;
+
                                         }
+
                                     })
 
-                                    .catch(error => {
-                                        console.error('Error disliking post:', error);
-                                    });
                             }
+
+                            
+
                         });
 
                         let elementoImagem = document.createElement("img");
@@ -292,3 +303,11 @@ function mostrarFeed() {
                 });
         });
 }
+
+// Importação de funções do global.mjs 
+
+import { iconeSelecionado, configureDialog } from './global.mjs';
+
+iconeSelecionado();
+
+configureDialog("busca", "myDialog", "overlay", "closeDialog");

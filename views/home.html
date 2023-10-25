@@ -8,7 +8,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>TecTec</title> <!-- Titulo da Página -->
+    <title>TecTec - Home</title> <!-- Titulo da Página -->
 
     <link rel="icon" href="..\static\images\logo.png" type="image/x-icon"> <!-- Ícone da Página -->
 
@@ -21,6 +21,18 @@
     <script type="module" src="../static/js/header.mjs" async></script> <!-- Script do header principal -->
 
     <main>
+
+        <img src="../static/images/logoNome.png" alt="Logo" id="logoNome" width="120" height="60">
+
+        <div id="publicacao">
+
+            <input id="inserirPostagem" placeholder="Diga o que está pensando."> <!-- Inserção da postagem -->
+
+            <button id="publicar">Publicar</button> <!-- Botão para publicar a postagem -->
+
+        </div>
+
+        <div id="toastCerto" class="hidden">Postagem feita com sucesso!</div>
 
         <script type="module" src="../static/js/feed.mjs" defer></script> <!-- Script do feed -->
 

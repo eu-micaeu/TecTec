@@ -3,3 +3,122 @@
 @import url('./header.css');
 @import url('./feed.css');
 @import url('./tecs.css');
+
+main{
+    
+    display: flex;
+    
+    flex-direction: column;
+    
+    align-items: center;
+
+}
+
+#publicacao{
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    background-color: #000;
+
+    border: 2px solid #00891E;
+
+    border-radius: 15px;
+
+    margin-bottom: 20px;
+
+}
+
+/*Definindo  configurações de inserir postagem*/
+#inserirPostagem {
+
+    width: 40vw;
+
+    height: 20vh;
+
+    border: none;
+
+    font-size: 18px;
+
+    background-color: #000;
+
+    color: white;
+
+    font-weight: bold;
+
+    text-align: center;
+
+    font-family: monospace;
+
+    margin: 5px;
+    
+}
+
+#inserirPostagem:focus {
+
+    outline: none;
+    
+}
+
+/*Definindo  configurações do botão publicar*/
+#publicar {
+   
+    background-color: #00891E;/*Definindo  configurações do botão publicar*/
+   
+    color: white;/*Definindo cor*/
+   
+    cursor: pointer; /*Definindo tipo de cursor*/
+   
+    border-radius: 10px;/*Definindo arrendondamento*/
+   
+    padding: 10px 20px;/*Definindo tipo de cursor*/
+      
+    font-size: 15px;/*Definindo tamanho da fonte*/
+   
+    font-family: monospace;/*Definindo tipo da fonte*/
+    
+    font-weight: bold;/*Definindo espessura da fonte*/
+
+    border: 2px solid white;/*Definindo tamanho, espessura, cor */
+
+    margin: 20px 0;/*Definindo margem*/
+
+    width: 200px;
+
+}
+
+/*Definindo  configurações do botão publicar ao passar o mouse*/
+#publicar:hover {
+
+    background-color: white;/*Definindo cor de fundo*/
+
+    color: #00891E;/*Definindo cor*/
+
+}
+
+#toastCerto {
+    
+    display: none;/*Definindo margem inferior*/
+    
+    background-color: #333;/*Definindo margem inferior*/
+    
+    color: #fff;/*Definindo cor*/
+    
+    padding: 5px;/*Definindo espaço ao redor dos elementos*/
+    
+    position: fixed;/*Definindo posição fixa*/
+    
+    left: 50%;/*Definindo posição direita*/
+    
+    top: 0;/*Definindo margem inferior*/
+    
+    transform: translateX(-50%);/*Definindo transição em -50%*/
+    
+    border-radius: 5px;/*Definindo arrendondamento */
+    
+    border: 2px solid #00891E;/*Definindo tamanho, espessura e cor*/
+
+}

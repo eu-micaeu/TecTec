@@ -56,20 +56,6 @@ export function iconeSelecionado() {
 
     });
 
-    let imagemPostar = document.querySelector("#addpost");
-
-    imagemPostar.addEventListener('mouseover', function () {
-
-        imagemPostar.src = '/static/images/addpostbranco.png';
-
-    });
-
-    imagemPostar.addEventListener('mouseout', function () {
-
-        imagemPostar.src = '/static/images/addpost.png';
-
-    });
-
     let imagemSair = document.querySelector("#sair");
 
     imagemSair.addEventListener('mouseover', function () {
