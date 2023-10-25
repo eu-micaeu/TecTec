@@ -301,76 +301,64 @@ varIdUsuario().then(() => {
 
     function update(nickname) {
 
-        let name = nickname;
-
-        fetch('/perfil/' + name)
-
+        fetch('/perfil/' + nickname)
             .then(resposta => resposta.json())
-
             .then(data => {
-
+    
                 let nickname = data.usuario.nickname;
-
+    
                 let elementoNome = document.getElementById('nome');
-                
+    
                 elementoNome.textContent = "@" + nickname;
-
+    
                 elementoNome.style.color = "#00891E";
-
-                elementoNome.style.border = "2px solid white";
-
-                elementoNome.style.borderRadius = "10px";
-
-                elementoNome.style.padding = "20px";
-
+    
+                elementoNome.style.padding = "0 20px";
+    
                 elementoNome.style.backgroundColor = "black";
-
-                elementoNome.style.fontSize = "20px";
-
+    
+                elementoNome.style.fontSize = "25px";
+    
                 elementoNome.style.textAlign = "center";
-
+    
                 let seguidores = data.usuario.seguidores;
-
+    
                 let elementoSeguidores = document.getElementById('seguidores');
-
+    
                 elementoSeguidores.textContent = "Seguidores: " + seguidores;
-
+    
                 elementoSeguidores.style.color = "#00891E";
-
-                elementoSeguidores.style.border = "2px solid white";
-
-                elementoSeguidores.style.borderRadius = "10px";
-
-                elementoSeguidores.style.padding = "20px";
-
+    
+                elementoSeguidores.style.padding = "0 20px";
+    
                 elementoSeguidores.style.backgroundColor = "black";
-
+    
                 elementoSeguidores.style.fontSize = "20px";
-
+    
                 elementoSeguidores.style.textAlign = "center";
-
+    
                 let seguindo = data.usuario.seguindo;
-
+    
                 let elementoSeguindo = document.getElementById('seguindo');
-
+    
                 elementoSeguindo.textContent = "Seguindo: " + seguindo;
-
+    
                 elementoSeguindo.style.color = "#00891E";
-
-                elementoSeguindo.style.border = "2px solid white";
-
-                elementoSeguindo.style.borderRadius = "10px";
-
-                elementoSeguindo.style.padding = "20px";
-
+    
+                elementoSeguindo.style.padding = "0 20px";
+    
                 elementoSeguindo.style.backgroundColor = "black";
-
+    
                 elementoSeguindo.style.fontSize = "20px";
-
+    
                 elementoSeguindo.style.textAlign = "center";
-
+    
+                let blocoPerfil = document.getElementById('perfil-usuario');
+    
+                blocoPerfil.style.display = "block";
+    
             });
-
+    
     }
 
     update(nickname);

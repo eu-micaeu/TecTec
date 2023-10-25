@@ -25,6 +25,8 @@ main{
 
     display: none;
 
+    width: 40vw; 
+
 }
 
 @media screen and (max-device-width: 768px) {

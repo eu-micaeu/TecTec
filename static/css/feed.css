@@ -5,7 +5,9 @@
 
     flex-direction: column; /* Deixando o feed como forma de coluna */
 
-    border: 3px solid #333; /* Definindo a espressura, tipo e cor da borda */
+    border-right: 3px solid #333; /* Definindo a espressura, tipo e cor da borda */
+
+    border-left: 3px solid #333; /* Definindo a espressura, tipo e cor da borda */
 
     border-radius: 5px;
  
@@ -14,10 +16,9 @@
 /* Criando uma classe para poder gerar a postagem. */
 .postagem {
 
-
     color: #00891E; /* Definindo a cor da letra da postagem */
 
-    padding: 25px; /* Definindo o padding da postagem */
+    padding: 50px 25px; /* Definindo o padding da postagem */
 
     width: 40vw; /* Definindo o comprimento da postagem */
 
@@ -26,6 +27,8 @@
     word-break: break-all;
 
     border-bottom: 1px solid #333;
+
+    text-wrap: bold;
     
 }
 

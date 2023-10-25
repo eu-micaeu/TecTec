@@ -62,7 +62,7 @@ function update(nickname) {
 
             elementoNome.style.color = "#00891E";
 
-            elementoNome.style.padding = "20px";
+            elementoNome.style.padding = "0 20px";
 
             elementoNome.style.backgroundColor = "black";
 
@@ -78,7 +78,7 @@ function update(nickname) {
 
             elementoSeguidores.style.color = "#00891E";
 
-            elementoSeguidores.style.padding = "20px";
+            elementoSeguidores.style.padding = "0 20px";
 
             elementoSeguidores.style.backgroundColor = "black";
 
@@ -94,7 +94,7 @@ function update(nickname) {
 
             elementoSeguindo.style.color = "#00891E";
 
-            elementoSeguindo.style.padding = "20px";
+            elementoSeguindo.style.padding = "0 20px";
 
             elementoSeguindo.style.backgroundColor = "black";
 
