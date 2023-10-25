@@ -95,7 +95,7 @@ function mostrarFeed(idUsuario) {
 
                                     let elementoNickname = document.createElement("span");
 
-                                    elementoNickname.style.color = "white"; 
+                                    elementoNickname.style.color = "#00891E"; 
 
                                     elementoNickname.textContent = '@' + postagem.nickname;
 

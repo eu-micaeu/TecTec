@@ -114,7 +114,7 @@ function mostrarFeed() {
 
                         let elementoNickname = document.createElement("span");
 
-                        elementoNickname.style.color = "white";
+                        elementoNickname.style.color = "#00891E";
 
                         elementoNickname.textContent = '@' + postagem.nickname;
 
@@ -127,7 +127,8 @@ function mostrarFeed() {
                         elementoPostagem.appendChild(elementoTexto);
 
                         let divEmbaixo = document.createElement("div");
-                        divEmbaixo.classList.add("centraliza");
+
+                        divEmbaixo.classList.add("centralizaOpcoesPostagem");
 
                         let comentarioImagem = document.createElement('img');
 
@@ -260,6 +261,10 @@ function mostrarFeed() {
 
                         elementoImagem.id = "lixo";
 
+                        elementoImagem.title = "Excluir postagem";
+
+                        elementoImagem.style.cursor = "pointer";
+
                         elementoImagem.addEventListener('mouseover', function () {
 
                             elementoImagem.src = '/static/images/lixobranco.png';
@@ -292,6 +297,7 @@ function mostrarFeed() {
                                 })
 
                         });
+
 
                         divEmbaixo.appendChild(elementoImagem);
 

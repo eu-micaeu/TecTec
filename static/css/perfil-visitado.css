@@ -14,9 +14,15 @@ main{
 
 }
 
-#perfil-usuario{
+#infos{
 
-    margin: 2vh 0;
+    display: none;
+
+}
+
+.perfil-usuario{
+
+    margin: 2vh 2vw;
 
     border: 3px solid #333;
 
@@ -24,9 +30,29 @@ main{
     
     border-radius: 15px;
 
-    display: none;
+    width: 200px;
 
-    width: 40vw; 
+}
+
+#nome, #seguindo, #rotSeguidores, #numSeguidores, #rotSeguindo, #numSeguindo{
+
+    color: #00891E;
+
+    padding: 0 10px;
+
+    background-color: transparent;
+
+    font-size: 20px;
+
+    text-align: center;
+
+    flex-wrap: bold;
+
+}
+
+#numSeguidores, #numSeguindo{
+
+    text-align: center;
 
 }
 

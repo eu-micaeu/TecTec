@@ -34,18 +34,9 @@ function updateAmizades(nickname) {
 
             let seguidores = data.usuario.seguidores;
 
+            let elementoNumSeguidores = document.getElementById('numSeguidores');
 
-            let elementoNome = document.getElementById('seguidores');
-
-
-            elementoNome.textContent = "Seguidores: " + seguidores;
-
-
-            if (window.innerWidth <= 768) {
-
-                elementoNome.style.width = "30vw";
-
-            }
+            elementoNumSeguidores.textContent = seguidores;
 
         });
 
@@ -139,7 +130,7 @@ varIdUsuario().then(() => {
 
                             let elementoNickname = document.createElement("span");
 
-                            elementoNickname.style.color = "white";
+                            elementoNickname.style.color = "#00891E";
 
                             elementoNickname.textContent = '@' + postagem.nickname;
 
@@ -153,7 +144,7 @@ varIdUsuario().then(() => {
 
                             let divEmbaixo = document.createElement("div");
 
-                            divEmbaixo.classList.add("centraliza");
+                            divEmbaixo.classList.add("centralizaOpcoesPostagem");
 
                             let comentarioImagem = document.createElement('img');
 
@@ -302,60 +293,40 @@ varIdUsuario().then(() => {
     function update(nickname) {
 
         fetch('/perfil/' + nickname)
+    
             .then(resposta => resposta.json())
+    
             .then(data => {
     
                 let nickname = data.usuario.nickname;
     
                 let elementoNome = document.getElementById('nome');
     
-                elementoNome.textContent = "@" + nickname;
-    
-                elementoNome.style.color = "#00891E";
-    
-                elementoNome.style.padding = "0 20px";
-    
-                elementoNome.style.backgroundColor = "black";
-    
-                elementoNome.style.fontSize = "25px";
-    
-                elementoNome.style.textAlign = "center";
+                elementoNome.textContent = "Este é o perfil do(a) , " + nickname;
     
                 let seguidores = data.usuario.seguidores;
     
-                let elementoSeguidores = document.getElementById('seguidores');
+                let rotSeguidores = document.getElementById('rotSeguidores');
     
-                elementoSeguidores.textContent = "Seguidores: " + seguidores;
+                rotSeguidores.textContent = "Seguidores";
     
-                elementoSeguidores.style.color = "#00891E";
+                let numSeguidores = document.getElementById('numSeguidores');
     
-                elementoSeguidores.style.padding = "0 20px";
-    
-                elementoSeguidores.style.backgroundColor = "black";
-    
-                elementoSeguidores.style.fontSize = "20px";
-    
-                elementoSeguidores.style.textAlign = "center";
+                numSeguidores.textContent = seguidores;
     
                 let seguindo = data.usuario.seguindo;
     
-                let elementoSeguindo = document.getElementById('seguindo');
+                let rotSeguindo = document.getElementById('rotSeguindo');
     
-                elementoSeguindo.textContent = "Seguindo: " + seguindo;
+                rotSeguindo.textContent = "Seguindo";
     
-                elementoSeguindo.style.color = "#00891E";
+                let numSeguindo = document.getElementById('numSeguindo');
     
-                elementoSeguindo.style.padding = "0 20px";
+                numSeguindo.textContent = seguindo;
     
-                elementoSeguindo.style.backgroundColor = "black";
+                let infos = document.getElementById('infos');
     
-                elementoSeguindo.style.fontSize = "20px";
-    
-                elementoSeguindo.style.textAlign = "center";
-    
-                let blocoPerfil = document.getElementById('perfil-usuario');
-    
-                blocoPerfil.style.display = "block";
+                infos.style.display = "flex";
     
             });
     
