@@ -28,7 +28,9 @@
 
     border-bottom: 1px solid #333;
 
-    text-wrap: bold;
+    font-size: 17px;
+
+    font-weight: bold;
     
 }
 
@@ -36,21 +38,4 @@
 
     display: flex;
 
-}
-
-/*configurando para telas menores*/
-@media screen and (max-device-width: 768px) {
-
-    #feed{
-
-        margin-top: 100px;
-
-    }
-
-    .postagem {
-    
-        width: 70vw; /* Definindo o comprimento da postagem */
-
-    }
-    
 }
