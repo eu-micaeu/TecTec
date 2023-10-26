@@ -4,7 +4,6 @@
 @import url('./feed.css');
 @import url('./tecs.css');
 
-/*Configurando o escopo principal*/
 main{
     
     display: flex;/*Dando flexibilidade para o conteúdo*/
@@ -16,8 +15,10 @@ main{
     align-items: center; /*Centralizar items verticalmente no contêiner*/
 }
 
-/*Configurando o post da página*/
 #postagem-principal{
+
+    display: none;
+
     border: 4px solid green; /* Definindo a espressura, tipo e cor da borda */
 
     border-radius: 40px; /* Definindo o grau de borda que será aplicada na postagem */
@@ -35,6 +36,9 @@ main{
     background-color: #000; /* Definindo a cor do background da postagem */
 
     word-break: break-all;
+
+    font-weight: bold;
+
 }
 
 /*Configurando o div de comentar no post*/

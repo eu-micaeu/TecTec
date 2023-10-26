@@ -74,10 +74,10 @@ async function varIdUsuario() {
     }
 }
 
+let conteinerPostagem = document.querySelector("#postagem-principal");
+
 /* Função para mostrar postagem*/
 async function mostrarPostagem(postId) {
-
-    try {
 
         const resposta = await fetch('/postagem/' + postId);/* Constante para armazenar o resultado da requisição*/
 
@@ -87,8 +87,6 @@ async function mostrarPostagem(postId) {
 
         let postagem = data.postagem;
 
-        let conteinerPostagem = document.querySelector("#postagem-principal");
-        
         conteinerPostagem.innerHTML = "";
 
         let elementoPostagem = document.createElement("div");
@@ -254,18 +252,12 @@ async function mostrarPostagem(postId) {
 
         conteinerPostagem.appendChild(elementoPostagem);
 
-        
         mostrarComentarios(postId);
-    } catch (error) {
-        
-        console.error(error);
-    
-    }
 
 }
 
 async function mostrarComentarios(postId) {
-    try {
+
         const resposta = await fetch('/comentarios/' + postId);
       
         const data = await resposta.json();
@@ -297,11 +289,9 @@ async function mostrarComentarios(postId) {
             conteinerComentarios.appendChild(elementoComentario);
 
         });
-    } catch (error) {
-      
-        console.error(error);
-    
-    }
+
+        conteinerPostagem.style.display = "block";
+
 }
 
 varIdUsuario().then(() => {

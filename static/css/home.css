@@ -4,19 +4,9 @@
 @import url('./feed.css');
 @import url('./tecs.css');
 
-main{
-    
-    display: flex;
-    
-    flex-direction: column;
-    
-    align-items: center;
+#logoNome{
 
-}
-
-textarea{
-
-    resize: none;
+    margin: 2vh 0;
 
 }
 
@@ -30,7 +20,7 @@ textarea{
 
     background-color: #000;
 
-    border: 2px solid #00891E;
+    border: 2px solid #333;
 
     border-radius: 5px;
 
