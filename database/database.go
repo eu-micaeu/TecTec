@@ -28,7 +28,5 @@ func NewDB() (*sql.DB, error) {
 		return nil, err
 	}
 
-	log.Println("Conexão com o banco de dados estabelecida com sucesso") // Avisa se a conexão com concedida com sucesso.
-
 	return db, nil
 }
