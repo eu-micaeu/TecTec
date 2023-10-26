@@ -56,6 +56,12 @@
 
 @media screen and (max-device-width: 768px) {
 
+    #feed{
+
+        margin-bottom: 15vh;
+
+    }
+
     .postagem {
 
         width: 35vh; /* Definindo o comprimento da postagem */

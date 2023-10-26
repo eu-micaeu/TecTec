@@ -4,13 +4,28 @@
 @import url('./feed.css');
 @import url('./tecs.css');
 
+#pseudoHeader{
+
+    backdrop-filter: blur(2px); /* Ajuste o valor de 5px conforme necessário */
+    position: fixed;
+    top: 0;
+    width: 80vw;
+    height: 100px; 
+}
+
 #logoNome{
+
+    position:fixed;
+
+    top: 0;
 
     margin: 2vh 0;
 
 }
 
 #publicacao{
+
+    margin-top: 100px;
 
     display: flex;
 
@@ -120,6 +135,12 @@
 }
 
 @media screen and (max-device-width: 768px) {
+
+    #pseudoHeader{
+
+        width: 100vw;
+
+    }
 
     #publicacao{
     

@@ -23,7 +23,7 @@ main{
 
     background-color: transparent; /*Definindo cor de fundo*/
 
-    width: 20rem; /*Definindo comprimento*/
+    width: 20vw; /*Definindo comprimento*/
 
     height: 2rem; /*Definindo altura*/
 
@@ -35,7 +35,7 @@ main{
 
     color: white; /*Definindo cor*/
 
-    margin-top: 10vh;
+    margin-top: 2vh;
 
 
 }
@@ -43,17 +43,11 @@ main{
 /*Definindo configurações para botão*/
 .nicknameBotao{
 
-    border-radius: 15px; /*Definindo arrendondamento do botao*/
-
     color: white; /*Definindo cor*/
 
     padding: 20px; /*Definindo espaço de preenchimento ao redor do conteúdo*/
 
-    border: 2px solid #00891E; /*Definindo tamanho, espessura, e cor do botao*/
-
     background-color: black; /*Definindo cor de fundo*/
-
-    margin: 10px; /*Definindo margens*/
 
     font-family: monospace; /*Definindo fonte do texto*/
 
@@ -100,15 +94,13 @@ main{
 
     #barraPesquisa{
 
-        margin-top: 100px;
-
-        margin-bottom: 50px;
-
         border: 2px solid #00891E;
 
         position: fixed;
 
-        width: 15rem;
+        width: 50vw;
+
+        border-radius: 10px;
 
     }
 
@@ -120,7 +112,7 @@ main{
 
         width: 250px; 
 
-        margin-top: 210px;
+        margin-top: 100px;
 
         border-color: #00891E;
 
@@ -128,11 +120,7 @@ main{
 
     .nicknameBotao{
 
-        border-radius: 15px;
-
         padding: 20px; 
-
-        margin: 10px; 
 
         width: 250px; 
 

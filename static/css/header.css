@@ -1,6 +1,12 @@
 header {
 
-    height: 100%;
+    justify-content:end;
+
+    display: flex;
+
+    flex-direction: column;
+
+    height: 100vh;
 
     background-color: #000000;
 
@@ -12,23 +18,15 @@ header {
 
     left: 0;
 
-    overflow: hidden;
-
     border-right: 2px solid #00891E;
 
 }
 
 header img{
 
-    margin: 2vh 1vw;
+    margin: 1vh 1vw;
 
     padding: 10px;
-
-}
-
-header .opcao {
-
-    cursor: pointer; 
 
 }
 
@@ -37,23 +35,22 @@ header .opcao:hover {
     background-color: #333;
 
     border-radius: 10px;
+
+    cursor: pointer; 
  
 }
 
 
 #logo{
 
-    animation: girar 1s infinite; /*Definindo configurações da animação*/
+    animation: girar 1s infinite; 
+
+    position: fixed;
+
+    top: 0;
 
 }
 
-header .centraliza{
-
-    flex-direction: column;
-
-}
-
-/*Definindo configurações para telas menores*/
 @media screen and (max-device-width: 768px) {
 
     header{
@@ -70,12 +67,8 @@ header .centraliza{
 
         border-top: 2px solid #00891E;
 
-    }
-
-    header .centraliza{
-
         flex-direction: row;
-    
+
     }
 
     header #logo{
@@ -88,6 +81,8 @@ header .centraliza{
         cursor: pointer;
     
         padding: 0 20px;
+
+        margin-top: 25px;
         
     }
 
