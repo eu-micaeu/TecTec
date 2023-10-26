@@ -58,31 +58,47 @@ header .centraliza{
 
     header{
 
-        width: 95px;
+        top: 90%;
+
+        width: 100%;
 
         background-color: #000;
 
         z-index: 1;
+        
+        display: flex;
+
+        flex-direction: column;
+
+        position: fixed;
 
     }
 
-    header #logo{
-        width: 35px;
+    header .centraliza{
 
-        height: 35px;
+        flex-direction: row;
+    
+    }
+
+    header #logo{
+
+        display: none;
     }
 
     header .opcao {
 
         cursor: pointer; /*Definindo tipo de cursor*/
     
-        margin: 2vh 0.5vw;
+        padding: 0px 13px;
         
     }
 
-    header .imgTitulo p{
 
-        display: none;
+    header img{
+
+        width: 30px;
+
+        height: 30px;
 
     }
 

@@ -56,10 +56,25 @@ main{
 
 }
 
+
 @media screen and (max-device-width: 768px) {
 
-    #perfil-usuario{
+    .perfil-usuario{
 
-        margin-top: 80px;
+        width: 150px;
     }
+   
+    #nome, #seguindo, #rotSeguidores, #numSeguidores, #rotSeguindo, #numSeguindo{
+    
+        padding: 0 5px;
+
+        font-size: 18px;
+    
+    }
+
+    #nome{
+
+        font-size: 20px;
+    }
+
 }

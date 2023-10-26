@@ -53,3 +53,15 @@
     display: flex;
 
 }
+
+@media screen and (max-device-width: 768px) {
+
+    .postagem {
+
+        width: 42vh; /* Definindo o comprimento da postagem */
+    
+        border-top: 1px solid #333;
+     
+    }
+
+}
