@@ -18,15 +18,17 @@ header {
 
 }
 
-header .opcao {
+header img{
 
-    cursor: pointer; 
-
-    margin: 2vh 0vw;
+    margin: 2vh 1vw;
 
     padding: 10px;
 
-    margin-left: 1.25vw;
+}
+
+header .opcao {
+
+    cursor: pointer; 
 
 }
 
@@ -35,8 +37,6 @@ header .opcao:hover {
     background-color: #333;
 
     border-radius: 10px;
-
-    padding: 10px;
  
 }
 
@@ -45,9 +45,6 @@ header .opcao:hover {
 
     animation: girar 3s infinite; /*Definindo configurações da animação*/
 
-    padding: 10px;
-
-    margin: 0 1vw;
 }
 
 header .centraliza{
