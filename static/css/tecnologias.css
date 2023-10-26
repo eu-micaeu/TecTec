@@ -12,7 +12,7 @@ main{
     
     flex-direction: column;/*Elementos flexíveis são dispostos verticalmente*/
     
-    margin: 0 15vw;/* Defininido arrendondamento */
+    margin: 0 15vw;
     
     font-size: 16px;/* Defininido tamanho */
     
@@ -43,7 +43,7 @@ li{
 /*Definindo configurações da imgTec - logo da tecnologia*/
 .imgTec{
 
-    margin-top: 10vh;/* Definindo margem superior */
+    margin-top: 2vh;/* Definindo margem superior */
 
 }
 
