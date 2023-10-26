@@ -58,19 +58,17 @@ header .centraliza{
 
     header{
 
-        top: 90%;
-
-        width: 100%;
-
-        background-color: #000;
-
-        z-index: 1;
-        
-        display: flex;
-
-        flex-direction: column;
+        width: 100vw;
 
         position: fixed;
+
+        height: 10vh;
+
+        top: auto;
+
+        bottom: 0;
+
+        border-top: 2px solid #00891E;
 
     }
 
@@ -87,28 +85,10 @@ header .centraliza{
 
     header .opcao {
 
-        cursor: pointer; /*Definindo tipo de cursor*/
+        cursor: pointer;
     
-        padding: 0px 13px;
+        padding: 0 20px;
         
     }
 
-
-    header img{
-
-        width: 30px;
-
-        height: 30px;
-
-    }
-
-    #alternarBotaoHeader{
-
-        display: block;
-
-        margin-top: 10px;
-
-    }
-
-    
 }
