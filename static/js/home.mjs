@@ -1,4 +1,3 @@
-
 let idUsuario;
 
 async function varIdUsuarioHome() {
@@ -55,13 +54,9 @@ function mostrarFeed(idUsuario) {
 
                 aviso.classList.add("centraliza");
 
-                const p = document.createElement("p");
+                aviso.style.color = "white";
 
-                carrossel.appendChild(p);
-
-                p.textContent = "Aperte na lupa para buscar alguém.";
-
-                p.classList.add("centraliza");
+                aviso.style.margin = "20px";
 
             } else {
 

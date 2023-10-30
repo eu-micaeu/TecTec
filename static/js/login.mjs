@@ -1,28 +1,6 @@
-// Detectar o carregamento inicial da página e implementar a lógiva que possui
-document.addEventListener("DOMContentLoaded", function () {
+var toastErrado = document.getElementById("toastErrado");
 
-    const btEntrar = document.querySelector("#btEntrar");
-
-    function cabecalhoParaEnviar(event) {
-
-        if (event.key === "Enter") {
-
-            event.preventDefault();
-
-            btEntrar.click();
-
-        }
-    }
-
-    const inserirUsuario = document.querySelector("#nickname");
-
-    inserirUsuario.addEventListener("keypress", cabecalhoParaEnviar);
-
-    const inserirSenha = document.querySelector("#senha");
-
-    inserirSenha.addEventListener("keypress", cabecalhoParaEnviar);
-
-});
+var toastCerto = document.getElementById("toastCerto");
 
 // Detectar o btEntrar para implementar a lógica de login
 document.getElementById('btEntrar').addEventListener('click', async function () { // Ao apertar o botão de Entrar
@@ -73,13 +51,25 @@ document.getElementById('btEntrar').addEventListener('click', async function () 
 
         } else {
 
-            alert('Ops! Usuário inexistente');
+            toastErrado.style.display = "block";
+
+            setTimeout(function () {
+
+                toastErrado.style.display = "none";
+
+            }, 2000);
 
         }
 
     } else {
 
-        alert('Ops! Usuário inexistente');
+        toastErrado.style.display = "block";
+
+        setTimeout(function () {
+
+            toastErrado.style.display = "none";
+
+        }, 2000);
 
     }
 

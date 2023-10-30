@@ -1,0 +1,54 @@
+<!DOCTYPE html> <!-- Tipo de arquivo -->
+
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TecTec - Cadastro</title> <!-- Título da página -->
+
+    <link rel="icon" href="..\static\images\logo.png" type="image/x-icon"> <!-- Ícone da Página -->
+
+    <link rel="stylesheet" href="../static/css/cadastro.css"> <!-- Arquivo CSS correspondente -->
+
+</head>
+
+<body>
+
+    <main>
+
+        <img src="../static/images/logo.png" alt="Logo do Site" id="logo" width="40" height="40"> <!-- Logo Principal -->
+
+        <img src="../static/images/logoNome.png" alt="Logo" id="logoNome" width="120" height="40">
+
+        <form>
+    
+            <label for="usuario" class="rotUsuario">Nickname:</label> <!-- Label do nickname -->
+    
+            <input type="text" name="nickname" id="nickname" class="inserirTexto"> <!-- Inserir o nickname -->
+    
+            <label for="senha" class="rotSenha">Senha:</label> <!-- Label da senha -->
+    
+            <input type="password" name="senha" id="senha" class="inserirTexto"> <!-- Inserir a senha -->
+    
+            <label for="confSenha" class="rotConfSenha">Conf. da senha:</label> <!-- Label de confirmar a senha -->
+    
+            <input type="password" name="confSenha" id="confSenha" class="inserirTexto"> <!-- Inserir a senha novamente -->
+    
+            <button type="button" id="cadastrar">Cadastrar</button> <!-- Botão de cadastro -->
+    
+            <button type="button" id="btVoltar" onclick="window.location.href='/login'">Voltar</button> <!-- Botão para voltar de página -->
+    
+        </form>
+
+        <div id="toastCerto" class="hidden">Usuário criado com sucesso!</div>
+
+    </main>
+
+    <script type="module" src="../static/js/cadastro.mjs"></script> <!-- Script da página de cadastro -->
+
+</body>
+
+</html>

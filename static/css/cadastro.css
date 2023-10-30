@@ -1,0 +1,99 @@
+@import url('./global.css');
+
+#logo {
+
+    animation: girar 1s infinite;/* Defininido configuração de animação */
+
+    margin: 2vh 0;
+
+}
+
+.inserirTexto {
+    
+    background-color: transparent; /*Definindo cor de fundo*/
+
+    color: #00891E; /*Definindo cor*/
+
+    border: 2px solid rgb(255, 255, 255); /*Definindo tamanho, espessura e cor da borda*/
+    
+    border-radius: 5px; /*Definindo arrendondamento */
+
+    padding: 5px; /*Definindo espaço entre o conteúdo*/
+
+    font-family: monospace; /*Definindo fonte*/
+
+    font-weight: bold; /*Definindo espessura*/
+
+}
+
+#toastCerto {
+    
+    display: none;
+    
+    background-color: #333;/* Defininido cor de fundo */
+    
+    color: #fff;/* Defininido cor */
+    
+    padding: 5px;/* Defininido espaço ao redor */
+    
+    position: fixed;/* Defininido posição fixa */
+    
+    left: 50%;/* Defininido posição a direita */
+    
+    top: 0;/* Defininido posição em relação ao topo */
+    
+    transform: translateX(-50%);/* Defininido transição em -50% */
+    
+    border-radius: 5px;/* Defininido arrendodamento */
+    
+    border: 2px solid #00891E;/* Defininido arrendodamento */
+
+}
+
+#btVoltar, #cadastrar {
+
+    display: flex; /*Dando flexibilidade para os botões*/
+
+    justify-content: center;/*Centralizar items horizontalmente no contêiner*/
+
+    align-items: center; /*Centralizar items verticalmente no contêiner*/
+
+    background-color: #00891E; /*Definindo cor de fundo*/
+
+    font-size: 15px; /*Definindo tamanho da fonte*/
+
+    color: white; /*Definindo cor*/
+
+    cursor: pointer; /*Definindo mudar o tipo do curso do mouse para pointer*/
+
+    border-radius: 5px; /*Definindo arrendondamento*/
+
+    font-family: monospace; /*Definindo fonte*/
+
+    border: 2px solid white; /*Definindo tamanho, espessura, cor da borda*/ 
+
+    padding: 10px; /*Definindo espaço de preenchimento ao redor do conteúdo*/
+
+    margin-top: 20px;
+
+    font-weight: bold; /*Definindo espessura*/
+
+}
+
+#btVoltar:hover, #cadastrar:hover {
+
+    background-color: aliceblue;
+
+    color: #00891E;
+
+}
+
+.rotUsuario, .rotSenha, .rotConfSenha, .rotTelefone{
+
+    color: #ffffff; /*Definindo cor*/
+
+    font-size: 15px; /*Definindo tamanho d afonte*/
+
+    margin-top: 10px;
+
+}

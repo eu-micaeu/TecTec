@@ -124,7 +124,7 @@
     
     left: 50%;/*Definindo posição direita*/
     
-    top: 0;/*Definindo margem inferior*/
+    top: 50%;/*Definindo margem inferior*/
     
     transform: translateX(-50%);/*Definindo transição em -50%*/
     

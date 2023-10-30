@@ -1,4 +1,4 @@
-<!DOCTYPE html> <!-- Tipo de arquivo -->
+<!DOCTYPE html>
 
 <html lang="pt-br">
 
@@ -8,11 +8,11 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>TecTec - Login</title> <!-- Título da Página -->
+    <title>TecTec - Login</title>
 
-    <link rel="icon" href="..\static\images\logo.png" type="image/x-icon"> <!-- Ícone da Página -->
+    <link rel="icon" href="..\static\images\logo.png" type="image/x-icon">
 
-    <link rel="stylesheet" href="../static/css/login.css"> <!-- Arquivo CSS correspondente -->
+    <link rel="stylesheet" href="../static/css/login.css">
 
 </head>
 
@@ -20,29 +20,33 @@
 
     <main>
 
-        <img src="../static/images/logo.png" alt="Logo do Site" id="logo" width="40" height="40"> <!-- Logo Principal -->
+        <img src="../static/images/logo.png" alt="Logo do Site" id="logo" width="40" height="40">
 
-        <form> <!-- Formulário do Login -->
+        <img src="../static/images/logoNome.png" alt="Logo" id="logoNome" width="120" height="40">
 
-            <label for="nickname" class="rotUsuario">Nickname:</label> <!-- Label do Nickname -->
+        <form>
 
-            <input type="text" id="nickname" class="inserirTexto"> <!-- Inserir o Nickname -->
+            <label for="nickname" class="rotUsuario">Nickname:</label>
 
-            <label for="senha" class="rotSenha">Senha:</label> <!-- Label da Senha -->
+            <input type="text" id="nickname" class="inserirTexto">
 
-            <input type="password" id="senha" class="inserirTexto"> <!-- Inserir a Senha -->
+            <label for="senha" class="rotSenha">Senha:</label>
 
-            <button type="button" id="btEntrar">Entrar</button> <!-- Botão para verificar o login -->
+            <input type="password" id="senha" class="inserirTexto">
 
-            <button type="button" onclick="window.location.href='/register'" id="btCadastrar">Cadastro</button> <!-- Botão para ir na página de registro -->
+            <button type="button" id="btEntrar">Entrar</button> 
+
+            <button type="button" onclick="window.location.href='/cadastro'" id="btCadastrar">Cadastro</button> 
 
         </form>
 
+        <div id="toastCerto" class="hidden">Login feito com sucesso!</div>
+
+        <div id="toastErrado" class="hidden">Nickname ou senha incorretos!</div>
+
     </main>
 
-    <script type="module" src="../static/js/footer.mjs"></script> <!-- Script do Footer -->
-
-    <script type="module" src="../static/js/login.mjs"></script> <!-- Script da página de login -->
+    <script type="module" src="../static/js/login.mjs"></script>
 
 </body>
 

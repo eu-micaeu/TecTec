@@ -21,13 +21,26 @@ main{
 
 }
 
+form {
+
+    padding: 30px; /* Definindo espaço de preenchimento ao redor do conteúdo */
+
+    border: 3px solid #333; /* Definindo tamanho, espessura e cor da borda */
+
+    border-radius: 5px; /* Arredondar os cantos da borda */
+
+    display: flex; /* Dando flexibilidade para o conteúdo */
+
+    flex-direction: column; /* Elementos flexíveis são dispostos verticalmente */
+    
+}
+
 textarea{
 
     resize: none;
 
 }
 
-/* Criando uma classe para poder centralizar de forma horizontal, os itens que estiver dentro dela. */
 .centraliza {
 
     display: flex; /* Dando flexibilidade para div. */
@@ -36,17 +49,14 @@ textarea{
 
 }
 
-/* Criar animações personalizadas*/
 @keyframes queda-e-giro {
 
-    /* Quadro de início da animação*/
     0% {
 
         transform: translateY(-50px) rotate(0deg);    /* Translação vertical de -50px e rotação de 0 graus*/
 
     }
 
-    /* Quadro de fim da animação*/
     100% {
 
         transform: translateY(0px) rotate(360deg); /* Translação vertical de -0px e rotação de 360 graus*/
@@ -55,22 +65,20 @@ textarea{
 
 }
 
-/* Criar animações personalizadas*/
 @keyframes girar {
 
-    /* Quadro de início da animação*/
     0% {
 
         transform: rotate(0deg); /* Rotação de 0 graus*/
 
     }
-    /* Quadro do meio da animação*/
+
     50% {
 
         transform: rotate(180deg); /* Rotação de 180 graus*/
 
     }
-    /* Quadro de fim da animação*/
+
     100% {
 
         transform: rotate(360deg); /* Rotação de 360 graus*/

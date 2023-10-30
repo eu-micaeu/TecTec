@@ -4,6 +4,8 @@ header {
 
     display: flex;
 
+    align-items: center;
+
     flex-direction: column;
 
     height: 100vh;
@@ -22,7 +24,19 @@ header {
 
 }
 
-header img{
+header #logo{
+
+    animation: girar 1s infinite; 
+
+    position: fixed;
+
+    top: 0;
+
+    margin-top: 2vh
+
+}
+
+header .opcao{
 
     margin: 1vh 1vw;
 
@@ -40,15 +54,14 @@ header .opcao:hover {
  
 }
 
+header .opcao:active {
 
-#logo{
+    background-color: #121212;
 
-    animation: girar 1s infinite; 
+    border-radius: 10px;
 
-    position: fixed;
-
-    top: 0;
-
+    cursor: pointer; 
+ 
 }
 
 @media screen and (max-device-width: 768px) {

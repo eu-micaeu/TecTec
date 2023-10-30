@@ -189,7 +189,7 @@ func (u *Usuario) Registrar(db *sql.DB) gin.HandlerFunc {
 
 		}
 
-		_, err := db.Exec("INSERT INTO usuarios (nickname, senha) VALUES ($1, $2, $3, $4)", novoUsuario.Nickname, novoUsuario.Senha)
+		_, err := db.Exec("INSERT INTO usuarios (nickname, senha) VALUES ($1, $2)", novoUsuario.Nickname, novoUsuario.Senha)
 
 		if err != nil {
 
