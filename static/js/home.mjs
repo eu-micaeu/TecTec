@@ -154,6 +154,8 @@ function mostrarFeed(idUsuario) {
 
                                     comentarioQuantidade.textContent = postagem.comentarios;
 
+                                    comentarioQuantidade.style.color = "#00891E";
+
                                     divEmbaixo.appendChild(comentarioQuantidade);
 
                                     let btCurtida = document.createElement('img');
@@ -183,6 +185,8 @@ function mostrarFeed(idUsuario) {
                                     let curtidaQuantidade = document.createElement('p');
 
                                     curtidaQuantidade.textContent = postagem.curtidas;
+
+                                    curtidaQuantidade.style.color = "#00891E";
 
                                     divEmbaixo.appendChild(curtidaQuantidade);
 

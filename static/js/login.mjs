@@ -1,9 +1,6 @@
-var toastErrado = document.getElementById("toastErrado");
+var toastErrado = document.getElementById("toastErrado")
 
-var toastCerto = document.getElementById("toastCerto");
-
-// Detectar o btEntrar para implementar a lógica de login
-document.getElementById('btEntrar').addEventListener('click', async function () { // Ao apertar o botão de Entrar
+document.getElementById('btEntrar').addEventListener('click', async function () {
 
     const nickname = document.querySelector("#nickname").value;
 
@@ -32,7 +29,7 @@ document.getElementById('btEntrar').addEventListener('click', async function () 
             if (respostaPerfilToken.ok) {
 
                 const informacoesPerfilToken = await respostaPerfilToken.json();
-                
+
                 const nickname = informacoesPerfilToken.usuario.nickname
 
                 const respostaSessaoEntrada = await fetch("/entrada/" + nickname, {
@@ -49,16 +46,6 @@ document.getElementById('btEntrar').addEventListener('click', async function () 
 
             }
 
-        } else {
-
-            toastErrado.style.display = "block";
-
-            setTimeout(function () {
-
-                toastErrado.style.display = "none";
-
-            }, 2000);
-
         }
 
     } else {
@@ -74,4 +61,7 @@ document.getElementById('btEntrar').addEventListener('click', async function () 
     }
 
 });
+
+
+
 

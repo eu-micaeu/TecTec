@@ -1,4 +1,3 @@
-/* Criando um id para poder gerar de forma vertical, as postagens de determinada página. */
 #feed {
 
     display: flex; /* Dando flexibilidade para div. */
@@ -11,16 +10,15 @@
  
 }
 
-/* Criando uma classe para poder gerar a postagem. */
 .postagem {
 
-    color: #ffffff; /* Definindo a cor da letra da postagem */
+    color: #ffffff;
 
-    padding: 50px 25px; /* Definindo o padding da postagem */
+    padding: 50px 25px; 
 
-    width: 40vw; /* Definindo o comprimento da postagem */
+    width: 50vw; 
 
-    background-color: #000; /* Definindo a cor do background da postagem */
+    background-color: #000; 
 
     word-break: break-all;
 

@@ -56,6 +56,41 @@ export function iconeSelecionado() {
 
     });
 
+    document.getElementById('busca').addEventListener('click', async function () {
+
+        let menuDasTecnologias = document.getElementById("menuDasTecnologias");
+
+        if (menuDasTecnologias.style.display == "none") {
+                
+                menuDasTecnologias.style.display = "flex";
+
+                menuDasTecnologias.style.justifyContent = "center";
+
+                menuDasTecnologias.style.alignItems = "center";
+
+                menuDasTecnologias.style.flexDirection = "column";
+
+                menuDasTecnologias.style.width = "100vw";
+
+                menuDasTecnologias.style.height = "90vh";
+
+        }else{
+                
+                menuDasTecnologias.style.display = "none"; 
+                
+                menuDasTecnologias.style.justifyContent = "center";
+
+                menuDasTecnologias.style.alignItems = "center";
+
+                menuDasTecnologias.style.flexDirection = "column";
+
+                menuDasTecnologias.style.width = "100vw";
+
+                menuDasTecnologias.style.height = "90vh";
+        }
+        
+    })
+
     let imagemSair = document.querySelector("#sair");
 
     imagemSair.addEventListener('mouseover', function () {
