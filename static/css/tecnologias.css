@@ -1,9 +1,7 @@
-/*Importando css global, header, bar*/
 @import url('./global.css');
 @import url('./header.css');
-@import url('./tecs.css');
+@import url('./menuDasTecnologias.css');
 
-/*Definindo configurações do conteúdo principal*/
 main{
     
     display: flex;/* Dando flexibilidade para div. */
@@ -24,7 +22,6 @@ main{
 
 }
 
-/*Definindo configurações da logo da tecnologia*/
 main img{
 
     border-radius: 20px;/* Defininido arrendondamento */
@@ -33,14 +30,12 @@ main img{
 
 }
 
-/*Definindo configurações da tag <li>*/
 li{
 
     list-style: none;/* Retirando configurações de estilo */
 
 }
 
-/*Definindo configurações da imgTec - logo da tecnologia*/
 .imgTec{
 
     margin-top: 2vh;/* Definindo margem superior */

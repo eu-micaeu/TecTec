@@ -1,0 +1,103 @@
+#menuDasTecnologias{
+
+    position: fixed;
+
+    top: 0;
+
+    right: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    height: 100%;
+
+    background-color: #000;
+
+    font-size: 15px;
+
+    border-left: 2px solid #00891E;
+
+    width: 10vw;
+
+}
+
+#menuDasTecnologias h3{
+
+    color: #00891E;
+
+}
+
+#menuDasTecnologias a {
+
+    width: 100%;
+
+    margin: 8px 0; 
+
+    text-decoration: none; 
+
+    color: #ffffff; 
+
+    text-align: center;
+
+    font-size: 16px;
+
+}
+
+a[href="/golang"]:hover {
+
+    background-color: #007acc;/*Definindo cor de fundo*/
+
+    color: #fff;  /*Definindo cor*/
+
+}
+
+a[href="/java"]:hover {
+
+    background-color: red;
+
+}
+
+a[href="/c"]:hover {
+
+    background-color: blue;/*Definindo cor de fundo*/
+
+}
+
+a[href="/postgreSQL"]:hover {
+
+    background-color: #1E90FF;/*Definindo cor de fundo*/
+
+}
+
+a[href="/docker"]:hover, a[href="/typescript"]:hover  {
+
+    background-color: #4169E1;/*Definindo cor de fundo*/
+
+}
+
+a[href="/hadoop"]:hover {
+
+    background-color: yellow;
+
+}
+
+a[href="/html"]:hover {
+
+    background-color: orange; 
+
+}
+
+a[href="/css"]:hover {
+
+    background-color: blue; 
+
+}
+
+a[href="/css"]:hover, a[href="/hadoop"]:hover {
+
+    color: black;
+
+}
