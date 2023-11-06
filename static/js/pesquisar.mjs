@@ -108,8 +108,7 @@ varIdUsuario();
 
 // Importação de funções do global.mjs 
 
-import { iconeSelecionado, configureDialog} from './global.mjs';
+import { iconeSelecionado} from './global.mjs';
 
 iconeSelecionado();
 
-configureDialog("busca", "myDialog", "overlay", "closeDialog");

@@ -300,8 +300,6 @@ varIdUsuario().then(() => {
 
 });
 
-import { iconeSelecionado, configureDialog} from './global.mjs';
+import { iconeSelecionado} from './global.mjs';
 
 iconeSelecionado();
-
-configureDialog("busca", "myDialog", "overlay", "closeDialog");
