@@ -14,8 +14,8 @@ import (
 func NewDB() (*sql.DB, error) {
 
 	dbUser := "root"
-	dbPassword := "tectec123"
-	dbHost := "dpg-cjd7jk7db61s73cdigjg-a.oregon-postgres.render.com"
+	dbPassword := "jF7fLmboaLgbZ4R39Ipwmp94h8876rCe"
+	dbHost := "dpg-cl22lurmgg9c73ebjkv0-a.oregon-postgres.render.com"
 	dbPort := "5432"
 	dbName := "tectec"
 
