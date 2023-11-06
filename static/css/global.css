@@ -1,13 +1,12 @@
-/* Corpo de todas as págs.*/
 body {
 
     background-color: rgb(14, 14, 14);
 
-    font-family: monospace, sans-serif; /* Definindo a fonte que será usada no site todo. */
+    font-family: monospace, sans-serif; 
 
-    line-height: 1.6; /* Definindo o espaçamento entre as linhas de um paragráfo. */
+    line-height: 1.6; 
 
-    margin: 0; /* Zerando a margin padrão do body. */
+    margin: 0; 
 
 }
 
@@ -23,15 +22,15 @@ main{
 
 form {
 
-    padding: 30px; /* Definindo espaço de preenchimento ao redor do conteúdo */
+    padding: 30px; 
 
-    border: 3px solid #333; /* Definindo tamanho, espessura e cor da borda */
+    border: 3px solid #333; 
 
-    border-radius: 5px; /* Arredondar os cantos da borda */
+    border-radius: 5px; 
 
-    display: flex; /* Dando flexibilidade para o conteúdo */
+    display: flex; 
 
-    flex-direction: column; /* Elementos flexíveis são dispostos verticalmente */
+    flex-direction: column; 
     
 }
 
@@ -43,9 +42,87 @@ textarea{
 
 .centraliza {
 
-    display: flex; /* Dando flexibilidade para div. */
+    display: flex; 
 
-    justify-content: center; /* Deixando a centralização de forma horizontal. */
+    justify-content: center; 
+
+}
+
+/* HEADER */
+
+header {
+
+    justify-content:end;
+
+    display: flex;
+
+    align-items: center;
+
+    flex-direction: column;
+
+    height: 100vh;
+
+    background-color: #000000;
+
+    color: white;
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    border-right: 2px solid #00891E;
+
+}
+
+header img{
+
+    margin: 2vh 1vw;
+
+}
+
+header #logo{
+
+    animation: girar 1s infinite; 
+
+    position: fixed;
+
+    top: 0; 
+
+    margin-top: 3vh;
+
+}
+
+header .opcao{
+
+    padding: 10px;
+
+}
+
+header .opcao:hover {
+
+    background-color: #333;
+
+    border-radius: 10px;
+
+    cursor: pointer; 
+ 
+}
+
+header .opcao:active {
+
+    background-color: #121212;
+
+    border-radius: 10px;
+
+    cursor: pointer; 
+ 
+}
+
+header #busca{
+
+    display: none;
 
 }
 
@@ -83,6 +160,54 @@ textarea{
 
         transform: rotate(360deg); /* Rotação de 360 graus*/
         
+    }
+
+}
+
+@media screen and (max-device-width: 768px) {
+
+    header{
+
+        width: 100vw;
+
+        position: fixed;
+
+        height: 10vh;
+
+        top: auto;
+
+        bottom: 0;
+
+        border-top: 2px solid #00891E;
+
+        flex-direction: row;
+
+    }
+
+    header .logoComOpcao p {
+        
+        display: none;
+    }
+
+    header #logo{
+
+        display: none;
+    }
+
+    header .opcao {
+
+        cursor: pointer;
+    
+        padding: 0 20px;
+
+        margin-top: 25px;
+        
+    }
+
+    header #busca{
+
+        display: block;
+    
     }
 
 }

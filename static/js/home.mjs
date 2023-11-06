@@ -110,9 +110,9 @@ function mostrarFeed(idUsuario) {
 
                                     elementoPostagem.appendChild(elementoTexto);
 
-                                    let divEmbaixo = document.createElement("div");
+                                    let infsPublicacao = document.createElement("div");
 
-                                    divEmbaixo.classList.add("centralizaOpcoesPostagem");
+                                    infsPublicacao.classList.add("centralizaOpcoesPostagem");
 
                                     let comentarioImagem = document.createElement('img');
 
@@ -148,7 +148,7 @@ function mostrarFeed(idUsuario) {
 
                                     });
 
-                                    divEmbaixo.appendChild(comentarioImagem);
+                                    infsPublicacao.appendChild(comentarioImagem);
 
                                     let comentarioQuantidade = document.createElement('p');
 
@@ -156,7 +156,7 @@ function mostrarFeed(idUsuario) {
 
                                     comentarioQuantidade.style.color = "#00891E";
 
-                                    divEmbaixo.appendChild(comentarioQuantidade);
+                                    infsPublicacao.appendChild(comentarioQuantidade);
 
                                     let btCurtida = document.createElement('img');
 
@@ -180,7 +180,7 @@ function mostrarFeed(idUsuario) {
 
                                     }
 
-                                    divEmbaixo.appendChild(btCurtida);
+                                    infsPublicacao.appendChild(btCurtida);
 
                                     let curtidaQuantidade = document.createElement('p');
 
@@ -188,7 +188,7 @@ function mostrarFeed(idUsuario) {
 
                                     curtidaQuantidade.style.color = "#00891E";
 
-                                    divEmbaixo.appendChild(curtidaQuantidade);
+                                    infsPublicacao.appendChild(curtidaQuantidade);
 
                                     btCurtida.addEventListener('click', function () {
 
@@ -230,7 +230,37 @@ function mostrarFeed(idUsuario) {
                                         }
                                     });
 
-                                    elementoPostagem.appendChild(divEmbaixo);
+                                    elementoPostagem.appendChild(infsPublicacao);
+
+                                    let divDataPublicacao = document.createElement("div");
+
+                                    divDataPublicacao.classList.add("centralizaOpcoesPostagem");
+
+                                    let dataPublicacao = document.createElement('p');
+
+                                    divDataPublicacao.appendChild(dataPublicacao);
+
+                                    const data = new Date(postagem.data_postagem);
+                                    
+                                    const dia = data.getDate().toString().padStart(2, '0');
+
+                                    const mes = (data.getMonth() + 1).toString().padStart(2, '0');
+
+                                    const ano = data.getFullYear().toString();
+
+                                    const hora = data.getHours().toString().padStart(2, '0');
+
+                                    const minuto = data.getMinutes().toString().padStart(2, '0');
+
+                                    const segundo = data.getSeconds().toString().padStart(2, '0');
+
+                                    const dataFormatada = `${hora}:${minuto}:${segundo} - ${dia}/${mes}/${ano}`;
+
+                                    dataPublicacao.textContent = dataFormatada;
+
+                                    dataPublicacao.style.color = "#00891E";
+
+                                    elementoPostagem.appendChild(divDataPublicacao);
 
                                     conteinerFeed.appendChild(elementoPostagem);
                                 }
@@ -300,5 +330,4 @@ import { iconeSelecionado, configureDialog} from './global.mjs';
 
 iconeSelecionado();
 
-configureDialog("busca", "myDialog", "overlay", "closeDialog");
 
