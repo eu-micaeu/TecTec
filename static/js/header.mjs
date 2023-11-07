@@ -4,6 +4,8 @@ document.body.insertAdjacentHTML('afterbegin', `
 <header>
 
     <img src="../static/images/logo.png" alt="Logo" id="logo" width="40" height="40">
+
+    <img src="../static/images/logoNome.png" alt="Logo" id="logoNome" width="120" height="40">
     
     <img src="../static/images/casinha.png" alt="Home" id="casa" class="opcao" onclick="window.location.href='/home'" title="Home" width="30" height="30">
     

@@ -3,30 +3,6 @@
 @import url('./feed.css');
 @import url('./menuDasTecnologias.css');
 
-#pseudoHeader{
-
-    backdrop-filter: blur(2px);
-
-    position: fixed;
-
-    top: 0;
-
-    width: 70vw;
-
-    height: 80px; 
-
-}
-
-#logoNome{
-
-    position:fixed;
-
-    top: 0;
-
-    margin: 2vh 0;
-
-}
-
 #busca{
 
     display: none;
@@ -34,8 +10,6 @@
 }
 
 #publicacao{
-
-    margin-top: 100px;
 
     display: flex;
 
