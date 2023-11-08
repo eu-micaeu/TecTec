@@ -188,6 +188,11 @@ header #busca{
         display: none;
     }
 
+    header #logoNome{
+
+        display: none;
+    }
+
     header .opcao {
 
         cursor: pointer;
