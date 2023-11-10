@@ -252,9 +252,7 @@ function mostrarFeed(idUsuario) {
 
                                     const minuto = data.getMinutes().toString().padStart(2, '0');
 
-                                    const segundo = data.getSeconds().toString().padStart(2, '0');
-
-                                    const dataFormatada = `${hora}:${minuto}:${segundo} - ${dia}/${mes}/${ano}`;
+                                    const dataFormatada = `${hora}:${minuto} - ${dia}/${mes}/${ano}`;
 
                                     dataPublicacao.textContent = dataFormatada;
 

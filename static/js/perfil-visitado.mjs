@@ -182,6 +182,8 @@ varIdUsuario().then(() => {
 
                             comentarioQuantidade.textContent = postagem.comentarios;
 
+                            comentarioQuantidade.style.color = "#00891E";
+
                             divEmbaixo.appendChild(comentarioQuantidade);
 
                             let btCurtida = document.createElement('img');
@@ -209,6 +211,8 @@ varIdUsuario().then(() => {
                             let curtidaQuantidade = document.createElement('p');
 
                             curtidaQuantidade.textContent = postagem.curtidas;
+
+                            curtidaQuantidade.style.color = "#00891E";
 
                             divEmbaixo.appendChild(curtidaQuantidade);
 
@@ -282,6 +286,36 @@ varIdUsuario().then(() => {
 
                             conteinerFeed.appendChild(elementoPostagem);
 
+                            let divDataPublicacao = document.createElement("div");
+
+                            divDataPublicacao.classList.add("centralizaOpcoesPostagem");
+
+                            let dataPublicacao = document.createElement('p');
+
+                            divDataPublicacao.appendChild(dataPublicacao);
+
+                            const data = new Date(postagem.data_postagem);
+
+                            const dia = data.getDate().toString().padStart(2, '0');
+
+                            const mes = (data.getMonth() + 1).toString().padStart(2, '0');
+
+                            const ano = data.getFullYear().toString();
+
+                            const hora = data.getHours().toString().padStart(2, '0');
+
+                            const minuto = data.getMinutes().toString().padStart(2, '0');
+
+                            const dataFormatada = `${hora}:${minuto} - ${dia}/${mes}/${ano}`;
+
+                            dataPublicacao.textContent = dataFormatada;
+
+                            dataPublicacao.style.color = "#00891E";
+
+                            elementoPostagem.appendChild(divDataPublicacao);
+
+                            conteinerFeed.appendChild(elementoPostagem);
+
                         }
 
                     });
@@ -293,43 +327,43 @@ varIdUsuario().then(() => {
     function update(nickname) {
 
         fetch('/perfil/' + nickname)
-    
+
             .then(resposta => resposta.json())
-    
+
             .then(data => {
-    
+
                 let nickname = data.usuario.nickname;
-    
+
                 let elementoNome = document.getElementById('nome');
-    
+
                 elementoNome.textContent = "Este é o perfil do(a) , " + nickname;
-    
+
                 let seguidores = data.usuario.seguidores;
-    
+
                 let rotSeguidores = document.getElementById('rotSeguidores');
-    
+
                 rotSeguidores.textContent = "Seguidores";
-    
+
                 let numSeguidores = document.getElementById('numSeguidores');
-    
+
                 numSeguidores.textContent = seguidores;
-    
+
                 let seguindo = data.usuario.seguindo;
-    
+
                 let rotSeguindo = document.getElementById('rotSeguindo');
-    
+
                 rotSeguindo.textContent = "Seguindo";
-    
+
                 let numSeguindo = document.getElementById('numSeguindo');
-    
+
                 numSeguindo.textContent = seguindo;
-    
+
                 let infos = document.getElementById('infos');
-    
+
                 infos.style.display = "flex";
-    
+
             });
-    
+
     }
 
     update(nickname);
@@ -461,7 +495,7 @@ varIdUsuario().then(async () => {
                     body: JSON.stringify({ id_usuario: idUsuario, id_usuario_seguindo: idUsuarioSeguindo })
 
                 });
-                
+
                 if (resposta.ok) {
 
                     btSeguir.textContent = "Seguindo";
@@ -479,7 +513,7 @@ varIdUsuario().then(async () => {
     btSeguir.addEventListener("click", () => {
 
         seguir(idUsuario, idUsuarioSeguindo);
-        
+
     });
 
 })

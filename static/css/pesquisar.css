@@ -1,89 +1,87 @@
-/*Importando css global, header, footer e bar*/
 @import url('./global.css');
 @import url('./header.css');
 @import url('./footer.css');
 @import url('./tecs.css');
-/*Definindo configurações para o conteúdo principal da página*/
+
 main{
     
-    display: flex; /* Dando flexibilidade para div. */
+    display: flex; 
     
-    align-items: center; /*Centralizar items verticalmente no contêiner*/
+    align-items: center; 
 
-    flex-direction: column; /*Elementos flexíveis são dispostos verticalmente*/
+    flex-direction: column; 
 
 }
 
-/*Definindo configurações para botão a barra de pesquisa*/
 #barraPesquisa{
  
     text-align: center;
 
-    border: 2px solid #00891E; /*Definindo tamanho, espessura e cor da barra de pesquisa*/
+    border: 2px solid #00891E; 
 
-    background-color: transparent; /*Definindo cor de fundo*/
+    background-color: transparent;
 
-    width: 20vw; /*Definindo comprimento*/
+    width: 20vw; 
 
-    height: 2rem; /*Definindo altura*/
+    height: 2rem; 
 
-    font-family: monospace; /*Definindo fonte*/
+    font-family: monospace; 
 
-    font-size: 20px; /*Definindo tamanho da fonte*/
+    font-size: 20px; 
 
-    padding: 20px; /*Definindo espaço de preenchimento ao redor do conteúdo*/
+    padding: 20px; 
 
-    color: white; /*Definindo cor*/
+    color: white; 
 
     margin-top: 2vh;
 
 
 }
 
-/*Definindo configurações para botão*/
 .nicknameBotao{
 
-    color: white; /*Definindo cor*/
+    color: white;
 
-    padding: 20px; /*Definindo espaço de preenchimento ao redor do conteúdo*/
+    padding: 20px;
 
-    background-color: black; /*Definindo cor de fundo*/
+    background-color: black; 
 
-    font-family: monospace; /*Definindo fonte do texto*/
+    font-family: monospace; 
 
-    font-size: 15px; /*Definindo tamnho da fonte*/
+    font-size: 15px; 
 
-    width: 400px; /*Definindo comprimento*/
+    width: 400px; 
+
+    margin: 10px;
+
+    border: none;
 
 }
 
-/*Definindo configurações para botão ao passar o mouse*/
 .nicknameBotao:hover{
 
-    color: rgb(0, 0, 0); /*Definindo cor*/
+    color: rgb(0, 0, 0); 
 
-    padding: 20px; /*Definindo espaço de preenchimento ao redor do conteudo*/
+    padding: 20px; 
 
-    border: 2px solid #00891E; /*Definindo tamanho, espessura, cor da borda*/
 
-    background-color: rgb(255, 255, 255); /*Definindo cor de fundo*/
+    background-color: rgb(255, 255, 255); 
 
 }
 
-/*Definindo configurações para a div dos resultados da pesquisa*/
 #resultados{
 
     overflow-y: auto;
 
-    height: 80vh; /*Definindo altura*/
+    height: 80vh; 
 
-    width: 500px; /*Definindo comprimento*/
+    width: 500px; 
 
-    display: flex; /*Dando flexibilidade para o conteúdo*/
+    display: flex; 
 
-    flex-direction: column; /* Deixando o feed como forma de coluna */
+    flex-direction: column;
 
-    align-items: center; /*Centralizar items verticalmente no contêiner*/
+    align-items: center; 
 
     margin-top: 2vh;
 
