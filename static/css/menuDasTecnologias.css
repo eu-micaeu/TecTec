@@ -101,3 +101,44 @@ a[href="/css"]:hover, a[href="/hadoop"]:hover {
     color: black;
 
 }
+
+a[href="/javaSpring"]:hover{
+
+    background-color: green; 
+
+}
+
+
+a[href="/javascript"]:hover{
+
+    background-color: yellow;
+
+}
+
+a[href="/github"]:hover{
+
+    background-color: rgb(162, 0, 255);
+
+}
+
+a[href="/mysql"]:hover{
+
+    background-color: #4169E1;
+
+}
+
+
+a[href="/r"]:hover{
+
+    background-color: #4169E1;
+
+}
+
+a[href="/noSQL"]:hover{
+
+    background-color: #4169E1;
+
+}
+
+
+

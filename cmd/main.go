@@ -96,6 +96,30 @@ func main() {
 		c.HTML(http.StatusOK,"tecnologia-css.html",nil)
 	})
 
+	r.GET("/javaSpring",func(c *gin.Context){
+		c.HTML(http.StatusOK,"tecnologia-javaSpringBoot.html",nil)
+	})
+
+	r.GET("/javascript",func(c *gin.Context){
+		c.HTML(http.StatusOK,"tecnologia-javaSpringBoot.html",nil)
+	})
+
+	r.GET("/github",func(c *gin.Context){
+		c.HTML(http.StatusOK,"tecnologia-github.html",nil)
+	})
+
+	r.GET("/mysql",func(c *gin.Context){
+		c.HTML(http.StatusOK,"tecnologia-mysql.html",nil)
+	})
+
+	r.GET("/r",func(c *gin.Context){
+		c.HTML(http.StatusOK,"tecnologia-R.html",nil)
+	})
+
+	r.GET("/noSQL",func(c *gin.Context){
+		c.HTML(http.StatusOK,"tecnologia-noSQL.html",nil)
+	})
+
 	r.Static("./static", "./static")
 
 	r.Run()

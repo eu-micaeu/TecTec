@@ -12,6 +12,14 @@ document.body.insertAdjacentHTML('afterbegin', `
         <a href="/hadoop">Hadoop</a>
         <a href="/html">HTML5</a>
         <a href="/css">CSS3</a>
+        <a href="/javaSpring">Spring Boot</a>
+        <a href="/javascript">Javascript</a>
+        <a href="/github">Github</a>
+        <a href="/mysql">Mysql</a>
+        <a href="/r">R</a>
+        <a href="/noSQL">NoSQL</a>
+
+
 
     </nav>
 
