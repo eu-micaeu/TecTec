@@ -101,7 +101,7 @@ func main() {
 	})
 
 	r.GET("/javascript",func(c *gin.Context){
-		c.HTML(http.StatusOK,"tecnologia-javaSpringBoot.html",nil)
+		c.HTML(http.StatusOK,"tecnologia-javascript.html",nil)
 	})
 
 	r.GET("/github",func(c *gin.Context){
