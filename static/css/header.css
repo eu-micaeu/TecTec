@@ -1,4 +1,3 @@
-
 header {
 
     display: flex;
@@ -11,8 +10,6 @@ header {
 
     background-color: #000000;
 
-    color: white;
-
     position: fixed;
 
     top: 0;
@@ -23,19 +20,17 @@ header {
 
 }
 
-header img{
-
-    margin: 1vh 1vw;
-
-}
-
 header #logo{
+
+    margin: 2vh 1vw;
 
     animation: girar 1s infinite; 
 
 }
 
 header .opcao{
+
+    margin: 1vh 1vw;
 
     padding: 10px;
 

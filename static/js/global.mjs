@@ -10,11 +10,31 @@ export function iconeSelecionado() {
 
         if (resposta2.ok) {
 
-            window.location.href='/';
-            
+            window.location.href = '/';
+
         }
-        
+
     })
 
-} 
+    var menu = document.getElementById('menuDasTecnologias');
+
+    document.getElementById('tecnologias').addEventListener('click', function () {
+
+        if (menu.style.display === 'flex') {
+
+            menu.style.display = 'none';
+
+            return;
+
+        }else{
+                
+            menu.style.display = 'flex';
+        }
+        
+
+    });
+
+
+}
+
 

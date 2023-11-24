@@ -1,26 +1,36 @@
 #menuDasTecnologias{
 
-    position: fixed;
-
-    top: 0;
-
-    right: 0;
-
-    display: flex;
-
     flex-direction: column;
 
     align-items: center;
 
-    height: 100%;
+    justify-content: center;
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    right: 0;
+
+    bottom: 0;
+
+    margin: auto;
+
+    height: 80vh;
 
     background-color: #000;
 
     font-size: 15px;
 
-    border-left: 2px solid #00891E;
+    border: 2px solid #00891E;
 
-    width: 10vw;
+    width: 20vw;
+
+    border-radius: 10px;
+
+    display: none;
 
 }
 
@@ -80,7 +90,7 @@ a[href="/docker"]:hover, a[href="/typescript"]:hover  {
 
 a[href="/hadoop"]:hover {
 
-    background-color: yellow;
+    background-color: rgb(179, 179, 0);
 
 }
 
