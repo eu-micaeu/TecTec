@@ -4,7 +4,6 @@ package handlers
 import (
 
 	"database/sql"
-
 	"github.com/gin-gonic/gin"
 
 )
@@ -13,19 +12,15 @@ import (
 type Postagem struct {
 
 	ID_Postagem   int    `json:"id_postagem"`
-
 	Texto         string `json:"texto"`
-
 	Data_Postagem string `json:"data_postagem"`
-
 	Curtidas      string `json:"curtidas"`
-
 	ID_Usuario    int    `json:"id_usuario"`
-
 	Comentarios   int    `json:"comentarios"`
 
 }
 
+// Função com a finalidade de criar uma postagem.	
 func (p *Postagem) Publicar(db *sql.DB) gin.HandlerFunc {
 	
 	return func(c *gin.Context) {
@@ -111,6 +106,7 @@ func (p *Postagem) Feed(db *sql.DB) gin.HandlerFunc {
 
 }
 
+// Função com a finalidade de mostrar o feed de um usuário.
 func (u *Postagem) PostagensUsuario(db *sql.DB) gin.HandlerFunc {
 
 	return func(c *gin.Context) {
@@ -163,6 +159,7 @@ func (u *Postagem) PostagensUsuario(db *sql.DB) gin.HandlerFunc {
 
 }
 
+// Função com a finalidade de apagar uma postagem utilizando o id da mesma.
 func (p *Postagem) ApagarPostagem(db *sql.DB) gin.HandlerFunc {
 
 	return func(c *gin.Context) {
@@ -205,6 +202,7 @@ func (p *Postagem) ApagarPostagem(db *sql.DB) gin.HandlerFunc {
 
 }
 
+// Função com a finalidade de pegar uma postagem utilizando o id da mesma.
 func (u *Postagem) PegarPostagemPorIdDaPostagem(db *sql.DB) gin.HandlerFunc {
 
 	return func(c *gin.Context) {
@@ -238,6 +236,7 @@ func (u *Postagem) PegarPostagemPorIdDaPostagem(db *sql.DB) gin.HandlerFunc {
 
 }
 
+// Função com a finalidade de contar as postagens de um usuário.
 func (a *Postagem) ContarPostagens(db *sql.DB) gin.HandlerFunc {
 
 	return func(c *gin.Context) {

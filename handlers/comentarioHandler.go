@@ -1,6 +1,5 @@
 package handlers
 
-// Importando bibliotecas para a criação da classe e funções do comentário.
 import (
 
 	"database/sql"
@@ -8,24 +7,20 @@ import (
 	"fmt"
 
 	"github.com/gin-gonic/gin"
+
 )
 
-// Estrutura do comentário.
 type Comentario struct {
 
 	ID_Comentario int    `json:"id_comentario"`
-
 	Texto         string `json:"texto"`
-
 	Data_Postagem string `json:"data_postagem"`
-
 	ID_Postagem   int    `json:"id_postagem"`
-
 	ID_Usuario    int    `json:"id_usuario"`
 
 }
 
-// Função com a finalidade de inserir comentário em determinada postagem utilizando o id da mesma.
+// Função com a finalidade de criar um comentário.
 func (p *Comentario) Comentar(db *sql.DB) gin.HandlerFunc {
 
 	return func(c *gin.Context) {

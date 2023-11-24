@@ -4,7 +4,6 @@ package handlers
 import (
 
 	"database/sql"
-
 	"github.com/gin-gonic/gin"
 
 )
@@ -13,11 +12,8 @@ import (
 type Curtida struct {
 
 	ID_Curtida    int    `json:"id_curtida"`
-
 	Data_Postagem string `json:"data_postagem"`
-
 	ID_Postagem   int    `json:"id_postagem"`
-
 	ID_Usuario    int    `json:"id_usuario"`
 
 }

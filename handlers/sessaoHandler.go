@@ -13,15 +13,12 @@ import (
 type Sessao struct {
 
 	ID_Sessao    int    `json:"id_sessao"`
-
 	Data_Entrada string `json:"data_entrada"`
-
-	Data_Saida   string `json:"data_saida"`
-
 	ID_Usuario   int    `json:"id_usuario"`
 
 }
 
+// Função com a finalidade de criar uma sessão de entrada.
 func (s *Sessao) Entrada(db *sql.DB) gin.HandlerFunc {
 
 	return func(c *gin.Context) {

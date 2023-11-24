@@ -4,15 +4,10 @@ package handlers
 import (
 
 	"database/sql"
-
 	"log"
-
 	"net/http"
-
 	"time"
-
 	"github.com/dgrijalva/jwt-go"
-
 	"github.com/gin-gonic/gin"
 
 )
@@ -21,13 +16,9 @@ import (
 type Usuario struct {
 
 	ID_Usuario 	int    `json:"id_usuario"`
-
 	Nickname   	string `json:"nickname"`
-
 	Senha      	string `json:"senha"`
-
 	Seguidores 	int    `json:"seguidores"`
-
 	Seguindo 	int    `json:"seguindo"`
 
 }

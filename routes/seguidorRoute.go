@@ -7,9 +7,9 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func SeguirRoutes(r *gin.Engine, db *sql.DB) {
+func SeguidorRoutes(r *gin.Engine, db *sql.DB) {
 	
-	friedHandler := handlers.Seguir{}
+	friedHandler := handlers.Seguidor{}
 
 	r.POST("/criar_amizade", friedHandler.CriarAmizade(db))
 
