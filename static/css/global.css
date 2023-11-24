@@ -1,3 +1,5 @@
+@import url(./header.css);
+
 body {
 
     background-color: rgb(14, 14, 14);
@@ -48,77 +50,81 @@ textarea{
 
 }
 
-/* HEADER */
+/* FEED */
 
-header {
+#feed {
 
     display: flex;
 
-    align-items: center;
+    flex-direction: column; 
 
-    flex-direction: column;
+    border-right: 3px solid #333; 
 
-    height: 100vh;
-
-    background-color: #000000;
-
-    color: white;
-
-    position: fixed;
-
-    top: 0;
-
-    left: 0;
-
-    border-right: 2px solid #00891E;
-
-    width: 10vw;
-
+    border-left: 3px solid #333; 
+ 
 }
 
-header img{
+.postagem {
 
-    margin: 1vh 1vw;
+    color: #ffffff;
 
+    padding: 50px 25px; 
+
+    width: 50vw; 
+
+    background-color: #000; 
+
+    word-break: break-all;
+
+    border-top: 1px solid #333;
+
+    font-size: 17px;
+
+    font-weight: bold;
+    
 }
 
-header #logo{
-
-    animation: girar 1s infinite; 
-
-}
-
-header .opcao{
+.postagem img{
 
     padding: 10px;
 
+    margin: 2px;
+
 }
 
-header .opcao:hover {
+.postagem img:hover{
+
+    border-radius: 15px;
 
     background-color: #333;
 
-    border-radius: 10px;
-
-    cursor: pointer; 
- 
 }
 
-header .opcao:active {
+.centralizaOpcoesPostagem {
 
-    background-color: #121212;
-
-    border-radius: 10px;
-
-    cursor: pointer; 
- 
-}
-
-header #busca{
-
-    display: none;
+    display: flex;
 
 }
+
+@media screen and (max-device-width: 768px) {
+
+    #feed{
+
+        margin-bottom: 15vh;
+
+    }
+
+    .postagem {
+
+        width: 35vh; /* Definindo o comprimento da postagem */
+    
+        border-top: 1px solid #333;
+     
+    }
+
+}
+
+
 
 @keyframes queda-e-giro {
 

@@ -1,0 +1,78 @@
+@import url('./global.css');
+@import url('./feed.css');
+
+
+main{
+
+    display: flex; 
+
+    flex-direction: column; 
+
+    align-items: center; 
+
+}
+
+#infos{
+
+    display: none;
+
+}
+
+.perfil-usuario{
+
+    margin: 2vh 2vw;
+
+    border: 3px solid #333;
+
+    background-color: black;
+    
+    border-radius: 15px;
+
+    width: 200px;
+
+}
+
+#nome, #seguindo, #rotSeguidores, #numSeguidores, #rotSeguindo, #numSeguindo{
+
+    color: #00891E;
+
+    padding: 0 10px;
+
+    background-color: transparent;
+
+    font-size: 20px;
+
+    text-align: center;
+
+    flex-wrap: bold;
+
+}
+
+#numSeguidores, #numSeguindo{
+
+    text-align: center;
+
+}
+
+
+@media screen and (max-device-width: 768px) {
+
+    .perfil-usuario{
+
+        width: 150px;
+    }
+   
+    #nome, #seguindo, #rotSeguidores, #numSeguidores, #rotSeguindo, #numSeguindo{
+    
+        padding: 0 5px;
+
+        font-size: 18px;
+    
+    }
+
+    #nome{
+
+        font-size: 20px;
+    }
+
+}

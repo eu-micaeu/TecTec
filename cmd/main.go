@@ -68,9 +68,9 @@ func main() {
 
 	})
 
-	r.GET("/perfil-visitado", func(c *gin.Context) {
+	r.GET("/perfilVisitado", func(c *gin.Context) {
 
-		c.HTML(http.StatusOK, "perfil-visitado.html", nil)
+		c.HTML(http.StatusOK, "perfilVisitado.html", nil)
 
 	})
 

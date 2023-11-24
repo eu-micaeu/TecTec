@@ -57,7 +57,7 @@ function pesquisarNicknames() {
 
                 lista.addEventListener("click", function () {
                     var nickname = this.getAttribute("data-nickname");
-                    window.location.href = '/perfil-visitado?nickname=' + nickname;
+                    window.location.href = '/perfilVisitado?nickname=' + nickname;
                 });
 
                 resultadosUl.appendChild(lista);

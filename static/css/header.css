@@ -1,0 +1,62 @@
+
+header {
+
+    display: flex;
+
+    align-items: center;
+
+    flex-direction: column;
+
+    height: 100vh;
+
+    background-color: #000000;
+
+    color: white;
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    border-right: 2px solid #00891E;
+
+}
+
+header img{
+
+    margin: 1vh 1vw;
+
+}
+
+header #logo{
+
+    animation: girar 1s infinite; 
+
+}
+
+header .opcao{
+
+    padding: 10px;
+
+}
+
+header .opcao:hover {
+
+    background-color: #333;
+
+    border-radius: 10px;
+
+    cursor: pointer; 
+ 
+}
+
+header .opcao:active {
+
+    background-color: #121212;
+
+    border-radius: 10px;
+
+    cursor: pointer; 
+ 
+}

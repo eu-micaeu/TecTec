@@ -100,7 +100,7 @@ function mostrarFeed(idUsuario) {
 
                                     elementoNickname.addEventListener("click", function () {
 
-                                        window.location.href = '/perfil-visitado?nickname=' + postagem.nickname;
+                                        window.location.href = '/perfilVisitado?nickname=' + postagem.nickname;
 
                                     });
 

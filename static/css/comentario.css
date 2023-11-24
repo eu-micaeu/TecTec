@@ -1,8 +1,5 @@
-/*Importando css para a página*/
 @import url('./global.css');
 @import url('./header.css');
-@import url('./feed.css');
-@import url('./tecs.css');
 
 main{
     
