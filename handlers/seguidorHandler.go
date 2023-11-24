@@ -9,7 +9,7 @@ import (
 // Estrutura da amizade.
 type Seguidor struct {
 
-	ID_Seguidor         int    `json:"id_amizade"`
+	ID_Seguidor         int    `json:"id_seguidor"`
 	ID_Usuario_Seguidor int    `json:"id_usuario"`
 	ID_Usuario_Seguido  int    `json:"id_usuario_seguindo"`
 	Data_Seguindo       string `json:"data_seguindo"`
