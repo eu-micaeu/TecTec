@@ -1,15 +1,15 @@
 function pegarParametroPeloNome(name, url = window.location.href) {
 
     name = name.replace(/[\[\]]/g, '\\$&');
-    
+
     var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
-    
-    results = regex.exec(url);
-    
+
+        results = regex.exec(url);
+
     if (!results) return null;
-    
+
     if (!results[2]) return '';
-    
+
     return decodeURIComponent(results[2].replace(/\+/g, ' '));
 
 }
@@ -24,282 +24,164 @@ async function varIdUsuario() {
 
     try {
 
-        const resposta = await fetch('/perfil-token/', { // Constante para armazenar o resultado da requisição
+        const resposta = await fetch('/perfil-token/', {
 
-            method: 'POST', // Método http da requisição
+            method: 'POST',
 
-            headers: { // Definindo cabeçalho da requisição
+            headers: {
 
-                'Content-Type': 'application/json' // Corpo da requisição será no formato JSON
+                'Content-Type': 'application/json'
 
             },
         });
 
-        const data = await resposta.json(); // Resposta JSON
-        
-        nickname = data.usuario.nickname; //Variável nickname
-        
-        id_usuario = data.usuario.id_usuario; //Variável id_usuario 
-        
+        const data = await resposta.json();
+
+        nickname = data.usuario.nickname;
+
+        id_usuario = data.usuario.id_usuario;
+
         document.querySelector("#botaoComentario").addEventListener("click", async () => {
 
             const texto = document.querySelector("#inserirComentario").value;
 
             const resposta = await fetch("/comentar/" + postId, {
-        
+
                 method: "POST",
-        
+
                 body: JSON.stringify({ texto, id_usuario })
-        
+
             });
 
             const data = await resposta.json();
 
             if (data.message === "Comentário criada com sucesso!") {
-            
-                alert("Comentário feito!");
-            
-                window.location.reload(true);
-            
+
+                var toastCerto = document.getElementById("toastCerto");
+
+                toastCerto.style.display = "block";
+
+                setTimeout(function () {
+
+                    toastCerto.style.display = "none";
+
+                    document.getElementById('inserirPostagem').value = "";
+
+
+
+                }, 2000);
+
+                setTimeout(function () {
+
+                    window.location.reload(true);
+
+                }, 1000);
+
+                
+
             } else {
-            
+
                 alert("Erro ao criar o comentário!");
-            
+
             }
         });
 
-    } catch (error) {/*Caso ocorra erro na execução dos comandos */
-       
+    } catch (error) {
+
         console.error(error);
+
     }
+
 }
 
 let conteinerPostagem = document.querySelector("#postagem-principal");
 
-/* Função para mostrar postagem*/
 async function mostrarPostagem(postId) {
 
-        const resposta = await fetch('/postagem/' + postId);/* Constante para armazenar o resultado da requisição*/
+    const resposta = await fetch('/postagem/' + postId);
 
-        const data = await resposta.json(); /* Função para mostrar postagem*/
-        
-        console.log(data);
+    const data = await resposta.json();
 
-        let postagem = data.postagem;
+    console.log(data);
 
-        conteinerPostagem.innerHTML = "";
+    let postagem = data.postagem;
 
-        let elementoPostagem = document.createElement("div");
+    conteinerPostagem.innerHTML = "";
 
-        elementoPostagem.classList.add("cartao");
+    let elementoPostagem = document.createElement("div");
 
-        let elementoNickname = document.createElement("span");
+    elementoPostagem.classList.add("cartao");
 
-        elementoNickname.style.color = "white";
+    let elementoNickname = document.createElement("span");
 
-        elementoNickname.textContent = '@' + postagem.nickname;
+    elementoNickname.style.color = "white";
 
-        elementoPostagem.appendChild(elementoNickname);
+    elementoNickname.textContent = '@' + postagem.nickname;
 
-        let elementoTexto = document.createElement("p");
-       
-        elementoTexto.classList.add("texto");
-       
-        elementoTexto.textContent = postagem.texto;
-       
-        elementoPostagem.appendChild(elementoTexto);
+    elementoPostagem.appendChild(elementoNickname);
 
-        fetch(`/postagens-curtidas/${id_usuario}`)
-            .then(resposta => resposta.json())
-            .then(data => {
-         
-                const curtidasUsuario = data.postagens;
-         
-                let divEmbaixo = document.createElement("div");
-         
-                divEmbaixo.classList.add("centraliza");
+    let elementoTexto = document.createElement("p");
 
-                let comentarioImagem = document.createElement('img');
+    elementoTexto.classList.add("texto");
 
-                comentarioImagem.src = '../static/images/comentario.png'
+    elementoTexto.textContent = postagem.texto;
 
-                comentarioImagem.width = 18;
+    elementoPostagem.appendChild(elementoTexto);
 
-                comentarioImagem.height = 18;
+    conteinerPostagem.appendChild(elementoPostagem);
 
-                comentarioImagem.title = "Comentar";
-
-
-                comentarioImagem.addEventListener('mouseover', function () {
-                
-                    comentarioImagem.src = '/static/images/comentariobranco.png';
-                
-                });
-                
-                comentarioImagem.addEventListener('mouseout', function () {
-                
-                    comentarioImagem.src = '/static/images/comentario.png';
-                
-                });
-
-                comentarioImagem.addEventListener('click', function () {
-                
-                    let postId = postagem.id_postagem;
-                
-                    window.location.href = 'comentario?postId=' + postId;
-                
-                });
-
-                divEmbaixo.appendChild(comentarioImagem);
-
-                let comentarioQuantidade = document.createElement('p');
-                
-                comentarioQuantidade.textContent = postagem.comentarios;
-
-                divEmbaixo.appendChild(comentarioQuantidade);
-
-                let btCurtida = document.createElement('img');
-                
-                btCurtida.width = 18;
-                
-                btCurtida.height = 18;
-                
-                btCurtida.style.cursor = 'pointer';
-                
-                btCurtida.dataset.postId = postagem.id_postagem;
-                
-                btCurtida.title = "Curtir";
-
-                if (curtidasUsuario.some(curtida => curtida.id_postagem === postagem.id_postagem)) {
-                
-                    btCurtida.src = '/static/images/coracaofechado.png';
-                
-                } else {
-                
-                    btCurtida.src = '/static/images/coracao.png';
-                
-                }
-
-                divEmbaixo.appendChild(btCurtida);
-                
-                let curtidaQuantidade = document.createElement('p');
-                
-                curtidaQuantidade.textContent = postagem.curtidas;
-                
-                divEmbaixo.appendChild(curtidaQuantidade);
-
-                btCurtida.addEventListener('click', function () {
-                
-                    const postId = btCurtida.dataset.postId;
-                
-                    const curtido = btCurtida.src.endsWith('coracaofechado.png');
-
-                    if (!curtido) {
-                
-                        fetch(`/curtir/` + id_usuario + '/' + postId, {
-                
-                            method: 'POST',
-                
-                        })
-                            .then(resposta => {
-                
-                                if (resposta.status === 200) {
-                
-                                    btCurtida.src = '/static/images/coracaofechado.png';
-
-                                    postagem.curtidas++;
-
-                                    curtidaQuantidade.textContent = postagem.curtidas;
-
-                                }
-
-                            })
-                            .catch(error => {
-
-                                console.error('Error liking post:', error);
-
-                            });
-                    } else {
-                        fetch(`/descurtir/` + id_usuario + '/' + postId, {
-
-                            method: 'DELETE',
-
-                        })
-                            .then(resposta => {
-
-                                if (resposta.status === 200) {
-                                
-                                    btCurtida.src = '/static/images/coracao.png';
-
-                                    postagem.curtidas--;
-                                
-                                    curtidaQuantidade.textContent = postagem.curtidas;
-                                
-                                }
-                            })
-
-                            .catch(error => {
-                            
-                                console.error('Error disliking post:', error);
-                            
-                            });
-                    }
-                });
-
-                elementoPostagem.appendChild(divEmbaixo);
-            
-            })
-
-        conteinerPostagem.appendChild(elementoPostagem);
-
-        mostrarComentarios(postId);
+    mostrarComentarios(postId);
 
 }
 
 async function mostrarComentarios(postId) {
 
-        const resposta = await fetch('/comentarios/' + postId);
-      
-        const data = await resposta.json();
+    const resposta = await fetch('/comentarios/' + postId);
 
-        let comentarios = data.comentarios;
+    const data = await resposta.json();
 
-        let conteinerComentarios = document.querySelector("#postagem-principal");
+    let comentarios = data.comentarios;
 
-        comentarios.forEach(comentario => {
-      
-            let elementoComentario = document.createElement("div");
-      
-            elementoComentario.classList.add("cartaoComen");
+    let conteinerComentarios = document.querySelector("#postagem-principal");
 
-            let elementoNickname = document.createElement("span");
-      
-            elementoNickname.style.color = "green";
-      
-            elementoNickname.textContent = '@' + comentario.nickname;
-      
-            elementoComentario.appendChild(elementoNickname);
+    comentarios.forEach(comentario => {
 
-            let elementoTexto = document.createElement("p");
-      
-            elementoTexto.textContent = comentario.texto;
-      
-            elementoComentario.appendChild(elementoTexto);
+        let elementoComentario = document.createElement("div");
 
-            conteinerComentarios.appendChild(elementoComentario);
+        elementoComentario.classList.add("cartaoComen");
 
-        });
+        let elementoNickname = document.createElement("span");
 
-        conteinerPostagem.style.display = "block";
+        elementoNickname.style.color = "green";
+
+        elementoNickname.textContent = '@' + comentario.nickname;
+
+        elementoComentario.appendChild(elementoNickname);
+
+        let elementoTexto = document.createElement("p");
+
+        elementoTexto.textContent = comentario.texto;
+
+        elementoComentario.appendChild(elementoTexto);
+
+        conteinerComentarios.appendChild(elementoComentario);
+
+    });
+
+    conteinerPostagem.style.display = "block";
+
+    document.querySelector("main").style.display = "flex";
+
+    document.getElementById("comentar").style.display = "flex";
 
 }
 
 varIdUsuario().then(() => {
-   
+
     mostrarPostagem(postId);
 
 });
 
-import { iconeSelecionado} from './global.mjs';
+import { iconeSelecionado } from './global.mjs';
 
 iconeSelecionado();

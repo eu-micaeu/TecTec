@@ -22,6 +22,11 @@ function pegarParametroPeloNome(name, url = window.location.href) {
 
 nickname = pegarParametroPeloNome('nickname');
 
+var title = document.querySelector("title");
+
+title.textContent = "TecTec - " + nickname;
+
+
 function updateAmizades(nickname) {
 
     let name = nickname;

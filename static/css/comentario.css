@@ -3,13 +3,13 @@
 
 main{
     
-    display: flex;/*Dando flexibilidade para o conteúdo*/
+    display: none;
     
-    justify-content: center;/*Centralizar items horizontalmente no contêiner*/
+    justify-content: center;
     
-    flex-direction: column;/*Elementos flexíveis são dispostos verticalmente*/
+    flex-direction: column;
     
-    align-items: center; /*Centralizar items verticalmente no contêiner*/
+    align-items: center;
 }
 
 #postagem-principal{
@@ -38,21 +38,20 @@ main{
 
 }
 
-/*Configurando o div de comentar no post*/
 #comentar{
    
-    display: flex;/*Dando flexibilidade para o conteúdo*/
+    display: none;
    
-    flex-direction: column;/*Elementos flexíveis são dispostos verticalmente*/
+    flex-direction: column;
    
-    align-items: center;/*Centralizar items verticalmente no contêiner*/
+    align-items: center;
    
-    padding: 10px;/*Definindo espaçamento ao redor do conteúdo*/
+    padding: 10px;
    
     margin-bottom: 10vh;
 }
 
-/*Configurando o o texto da div de comentar no post*/
+
 textarea{
    
     width: 30vw;/*Definindo comprimento*/
@@ -111,34 +110,56 @@ textarea{
 
 }
 
-/*Configurando o div do comentario do post*/
 .cartaoComen {
 
     border: 2px solid rgb(255, 255, 255);
 
-    color: #ffffff;/*Definindo cor*/
+    color: #ffffff;
 
     padding: 25px;
 
-    flex-direction: column; /*Elementos flexíveis são dispostos verticalmente*/
+    flex-direction: column;
 
-    background-color: #000;/*Definindo arrendondamento da borda*/
+    background-color: #000;
 
-    font-size: 15px;/*Definindo tamanho da fonte*/
+    font-size: 15px;
 
-    font-weight: bold;/*Definindo espessura da fonte*/
+    font-weight: bold;
 
-    border-radius: 15px;/*Definindo arrendondamento da borda*/
+    border-radius: 15px;
 
-    margin: 10px;/*Definindo margens*/
+    margin: 10px;
 
 }
 
-/*Configurando o inserir comentario*/
 #inserirComentario{
 
-    font-size: 15px;/*Definindo tamanho da fonte*/
+    font-size: 15px;
 
-    font-weight: bold;/*Definindo espessura da fonte*/
+    font-weight: bold;
+
+}
+
+#toastCerto {
+    
+    display: none;
+    
+    background-color: #333;
+    
+    color: #fff;
+    
+    padding: 5px;
+    
+    position: fixed;
+    
+    left: 50%;
+    
+    top: 50%;
+    
+    transform: translateX(-50%);
+    
+    border-radius: 5px;
+    
+    border: 2px solid #00891E;
 
 }
