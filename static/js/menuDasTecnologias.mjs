@@ -15,11 +15,9 @@ document.body.insertAdjacentHTML('afterbegin', `
         <a href="/javaSpring">Spring Boot</a>
         <a href="/javascript">Javascript</a>
         <a href="/github">Github</a>
-        <a href="/mysql">Mysql</a>
+        <a href="/mysql">MySQL</a>
         <a href="/r">R</a>
         <a href="/noSQL">NoSQL</a>
-
-
 
     </nav>
 

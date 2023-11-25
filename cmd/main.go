@@ -34,8 +34,6 @@ func main() {
 
 	routes.CurtidaRoutes(r, db)
 
-	routes.SeguidorRoutes(r, db)
-
 	r.LoadHTMLGlob("./views/*.html")
 
 	r.GET("/", func(c *gin.Context) {

@@ -1,7 +1,5 @@
 @import url('./global.css');
 
-@import url('./menuDasTecnologias.css');
-
 #busca{
 
     display: none;
@@ -64,23 +62,23 @@
 
 #publicar {
    
-    background-color: #00891E;/*Definindo  configurações do botão publicar*/
+    background-color: #00891E;
    
-    color: white;/*Definindo cor*/
+    color: white;
    
-    cursor: pointer; /*Definindo tipo de cursor*/
+    cursor: pointer; 
    
-    border-radius: 10px;/*Definindo arrendondamento*/
+    border-radius: 10px;
    
-    padding: 10px 20px;/*Definindo tipo de cursor*/
+    padding: 10px 20px;
       
-    font-size: 15px;/*Definindo tamanho da fonte*/
+    font-size: 15px;
    
-    font-family: monospace;/*Definindo tipo da fonte*/
+    font-family: monospace;
     
-    font-weight: bold;/*Definindo espessura da fonte*/
+    font-weight: bold;
 
-    border: 2px solid white;/*Definindo tamanho, espessura, cor */
+    border: 2px solid white;
 
     margin-top: 70px;
 
@@ -90,9 +88,9 @@
 
 #publicar:hover {
 
-    background-color: white;/*Definindo cor de fundo*/
+    background-color: white;
 
-    color: #00891E;/*Definindo cor*/
+    color: #00891E;
 
 }
 
