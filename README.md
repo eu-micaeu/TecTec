@@ -1,8 +1,5 @@
 # <img src="static/images/logo.png" width="60" height="60"> TecTec 
 
-
-Link para o acesso na web: [TecTec](https://www.tectec.dev)
-
 Para executar o código, faça o download do reposositório no formato ".zip", descompacte os arquivos, execute o comando "main" no terminal da pasta, abra um navegador e vá para o endereço "localhost:8080".
 
 ## Classes
